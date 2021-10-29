@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Arc Lessons</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b141><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b141 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2272_17854" width=100 height=18 border=0 hspace=0 vspace=0 alt="Arc Lessons"><br><br><font size=2 face="verdana">We want Arc to be good for writing programs, and
+one way to ensure that is to start writing programs while the language is
+still malleable.  In the process we've learned a few lessons.<br><br><br><br><b>Shorter names are a big win.</b><br><br>Shorter operator names sounds like a pretty superficial feature.
+Maybe so, but it has a noticeable effect on code.  Shorter names mean
+you don't have to break lines so often, which in turn means that you
+can see more of your program at once.  It feels significantly better
+to program in Arc.<br><br>The biggest win is in the names of operators that tend to be outermost
+in nested expressions, like do (progn),  map (mapcar), and fn (lambda).
+Those are the ones that send your code shooting toward the right
+margin.<br><br>It's worth spending time to come up with good, short names
+for commonly used operators.
+I have a couple principles.  One is that
+you only need to remember what a name means, not guess what
+it means on first sight.  And the more often something is
+used, the less mnemonic it needs to be.  Examples: +, -, *,
+/, which are truly arbitrary.<br><br>Replacing setf with = has turned out to make code significantly 
+easier to read, not just because = is shorter, but also because
+the odd shape of = makes it clear that an assignment is no ordinary 
+function call.<br><br><br><br><b>Using + to concatenate sequences is a lose.</b><br><br>This kind of overloading is just a pun.  I found that it actually made 
+programs harder to read, not easier, because I kept thinking I was
+looking at math code when I wasn't.<br><br>As several people have pointed out, concatenation isn't addition.
+It's not commutative, for example.  Ok, you were right; we're tossing it.<br><br><br><br><b>In general, overloading is complicated question.</b><br><br>My guess is that it's no coincidence that people
+always use a few operators in examples of overloading,
+just as it's no coincidence they always use 
+fibonacci in examples of the dangers of naive recursive
+algorithms.  It may be there are only a few operators
+you tend to want to overload, and that that's because
+there is something special about them, not because
+overloading in general is the right idea.<br><br>I consider this not merely an open question, but one that
+probably hasn't even been properly formulated yet.  My
+intuition is that we'd be missing the real question,
+whatever it is, if we considered it a matter of
+"supports overloading" being an item on a checklist.<br><br>Perhaps it should be subsumed in the more general 
+question, how should you define a new type?<br><br><br><br><b>Implicit local variables conflict with macros.</b><br><br>In previous Lisps if you wanted to create
+a local variable you had to do it explicitly with a let.  In Arc we were 
+planning to let users declare local variables implicitly, just by assigning
+values to them.   This turns out not to work, and the problem comes from
+an unforeseen quarter: macros.<br><br>If you're going to declare local variables implicitly, you have to decide
+what the scope of the new variable will be.  We decided we would
+make new variables local to blocks: a local variable created implicitly
+by assignment would have a scope that extended to the nearest 
+enclosing do (Arc's progn).<br><br>Technically it can be made to work.  We wrote a hideously complicated
+interpreter that allowed local variables to be declared this way.  The
+ugliness of this code worried me: ugly things are generally a
+bad idea.  But we tried to keep this feature in the hope it would make
+programs shorter.<br><br>What convinced us to toss it was not a technical problem but a social
+one.  In a language with implicit local variables and macros, you're
+always tripping over unexpected lexical contours.  You don't want
+to create new lexical contours without announcing it.  But a lot of 
+macros that don't look like blocks in the call expand into blocks.
+So we provided a second block operator, called justdo, which was
+like do but didn't create a new lexical contour (i.e. it is Common Lisp
+progn), and this is what you were supposed to use in macroexpansions.<br><br>The trouble was, I kept forgetting and using do instead.  And I was
+thereby writing utilities with the worst sort of bug: the kind that might not
+show up for years, and only then in someone else's code.<br><br>It seemed to us a bad idea to have a feature so fragile 
+that its own implementors couldn't use it properly.  So no more implicit
+local variables.<br><br>This problem is not limited to Lisp.  Macros and implicit local variables
+just don't seem to work well together.  Meaning that any
+language that already has implicit local variables will run into trouble
+if they try to add macros.<br><br><br><br><b>Assoc-lists turn out to be useful.</b><br><br>Arc has a kind of data structure called a db.  We don't specify anything about
+its implementation; but you can think of it as a hash-table.  We expected dbs
+to replace most assoc-lists.  They do replace some, but assoc-lists
+turn out to have a property that is very useful in recursive programs: you can
+cons stuff onto them nondestructively.  We end up using assoc-lists a lot.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<script type="text/javascript">
+csell_env = 'bf1';
+ var storeCheckoutDomain = 'order.store.yahoo.net';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'arclessons'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=arclessons&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+</script>
+<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>

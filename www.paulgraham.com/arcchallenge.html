@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Take the Arc Challenge</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b91><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b91 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_7237499" width=187 height=18 border=0 hspace=0 vspace=0 alt="Take the Arc Challenge"><br><br><font size=2 face="verdana">February 2008<br><br>Arc's been out for a few days now.  Everyone seems to have an opinion
+about it.  The low end are much the same as the low end of opinions
+about anything online.  There's no high end yet, because no one has
+had enough time yet to be able to speak from experience about what
+it's like to program in Arc.  Those are the responses I'm really
+interested in.  But in the meantime, we have the medium-level
+responses: the opinions of people who have some understanding of
+the issues involved, but who are writing based on first impressions.<br><br>I've noticed a strange pattern in these. The main fault they find
+with Arc is that I don't seem to have had to work hard enough writing
+it.  Ron Garret 
+<a href="http://rondam.blogspot.com/2008/01/my-take-on-arc.html">writes</a>:
+<blockquote>
+  And that is my main gripe about Arc: it has been so long in the
+  making and set such lofty goals and then it seems to pretty much
+  punt on all the hard problems of language design.
+</blockquote>
+I don't usually refute criticisms directly.  Refutations tend to
+be more gratifying to write than to read.  But in this case I'm
+going to, because in this case Ron & Co are mistaken in an illuminating
+way.  Explaining why will clarify some important issues about
+language design.<br><br>Ron's right.  I didn't decide what problems to work on based on how
+hard they were.  Instead I used what might seem a rather mundane
+test: I worked on things that would make programs shorter.<br><br>Why would I do that?  Because making programs short is what high
+level languages are for.  It may not be 100% accurate to say the
+power of a programming language is in inverse proportion to the
+length of programs written in it, but it's damned close.  Imagine
+how preposterous it would sound if someone said "The program is 10 
+lines of code in your language and 50 in my language, but my language 
+is more powerful."  You'd be thinking: what does he mean by power,
+then?<br><br>I'm not claiming that power is the only criterion by which to judge
+programming languages.  It would also be a legitimate goal, for
+example, to design a language to be easy for kids to learn, or to compile
+efficiently (though this is less common than it used to be), or to
+limit the damage that can be done by individual bad programmers
+within a group.  But power is the test of languages not designed 
+for such special purposes.<br><br>So working on what makes programs short rather than what's hard 
+to implement translates to:
+<blockquote>
+  I chose what to work on based on the value to the user,
+  rather than the cost to me. 
+</blockquote>
+Surely this is the right order of priorities to have in designing
+not just programming languages, but anything meant to be used
+by other people.<br><br>This is not to say none of the stuff I did was hard.  Some of it
+seemed hard to me.  But in language design, solving problems, whether
+hard or easy, is not the goal.  Making a good language is.  The
+real test of Arc&mdash;and any other general-purpose high level language&mdash;is not
+whether it contains feature x or solves problem y, but <i>how long
+programs are in it</i>.<br><br>The programs that get shorter should be the ones users actually 
+need to write.  So my m.o. while working on Arc was to write
+applications in it, then comb through them line by line trying to
+imagine language features that would make them shorter.  Then I'd
+implement those features, rewrite the program to use them, and 
+start over.  Here's a comment from the source of 
+<a href="http://news.ycombinator.com">Hacker News</a> where I
+occasionally kept track:
+<font face=courier><pre>
+; results of (codetree "news.arc"):
+; 8787, 8760, 8738, 8726, 8823, 8755, 8703, 8628, 8587, 8565
+; 8633, 8573, 8552, 8520, 8510, 8498, 8549, 8515, 8684, 9025
+; 9573, 12196, 12469, 12648, 12373
+</pre></font>
+(The numbers go up sometimes because I'd added features to News.)<br><br>This is one reason the source code of Arc itself is so short,
+incidentally.  I did the same thing to it.  But my first priority
+was making applications shorter, not the language.  There are
+features, most notably Prolog-style pattern-matching, that seem to
+promise great savings in length, but turn out only to be useful for
+writing a few basic sequence operations like append, remove, and
+so on.  Prolog is a great language for writing append; after that
+it's all downhill.<br><br>Another goal I had while writing Arc was to continue as long as
+possible in the mode in which McCarthy began.  In his original 1960
+paper he built Lisp up from "axioms" like car, cdr, and cons, through
+"theorems" like assoc and mapcar.
+<font color=#999999>[<a href="arcchallenge.html#f1n"><font color=#999999>1</font></a>]</font>
+  There must be some optimal path
+all the way up to a complete language.  What is it?  McCarthy didn't
+get very far along it in his paper.  And after that the language
+passed into the hands of his grad students, who at the time were
+more worried about the exigencies of making an interpreter run on
+the IBM 704 than continuing McCarthy's axiomatic approach.  We've been
+living with their hacks ever since.  Steele and Sussman tried to
+start over when they first began working on Scheme, but they seem
+to have been practically the only ones.  And they made, at least
+from the point of view of brevity/power, some serious mistakes early
+on.<br><br>This seemed a territory worth exploring.  And I hoped that with the
+axioms pushing from below and the demands of brevity in real
+applications pushing from above, I'd be able to grow an optimal
+core of operators.   I'm not claiming I have yet, just that that's
+the goal: to find an optimal path from a small number of axioms
+up to a complete language for everyday use.  I've made compromises
+for efficiency.  I'm not using Church numerals. 
+<font color=#999999>[<a href="arcchallenge.html#f2n"><font color=#999999>2</font></a>]</font>
+But I've tried to preserve
+as much of the spirit of the original 1960 paper as I could.<br><br>Building up the language from axioms is not an end in itself either.
+I'm only doing it because I suspect that's the way to get
+maximum expressive power.<br><br>How well does Arc deliver so far?  Does it make programs shorter
+than they'd be in other languages?  Let's try measuring.<br><br>I'm going to propose a simple problem as a challenge.
+We'll collect solutions in each of the popular languages, and 
+compare their lengths.  Here it is:
+<blockquote>
+  Write a program that causes the url said 
+  (e.g. http://localhost:port/said) to produce a page
+  with an input field and a submit button.  When the submit
+  button is pressed, that should produce a second page with
+  a single link saying "click here."  When that is clicked
+  it should lead to a third page that says "you said: ..."
+  where ... is whatever the user typed in the original 
+  input field.  The third page must only show what the
+  user actually typed.  I.e. the value entered in the
+  input field must not be passed in the url, or it would
+  be possible to change the behavior of the final page
+  by editing the url.
+</blockquote>
+Though simple, as such tests have to be, this is not a contrived
+example.  Web apps have to do this sort of thing all the time.  Nor
+does it depend on some sort of esoteric libraries that Arc has and
+other languages don't; this is all stuff that any language used to
+write Web apps would have to have already.<br><br>Here's the answer in Arc:
+<font face=courier><pre>
+(defop said req
+  (aform [w/link (pr "you said: " (arg _ "foo"))
+           (pr "click here")]
+    (input "foo") 
+    (submit)))
+</pre></font>
+If you're not used to Arc you'll have to take my word for it, but
+this is not code that has been compressed using coding tricks.  This
+would be the standard way to write it in Arc.<br><br>The most meaningful test of the length of a program is not lines
+or characters but the size of the codetree-- the tree you'd need
+to represent the source.  The Arc example has a codetree of 23
+nodes: 15 leaves/tokens + 8 interior nodes.  How long is it in your
+favorite language?<br><br>(Code to import standard libraries doesn't count, of course; you
+can assume those are already loaded.)<br><br>I've posted this problem on the Arc Forum at <a href="http://arclanguage.org/item?id=722">http://arclanguage.org/item?id=722</a>.
+If you have a solution in a language that's not yet represented,
+or a shorter or more correct solution for a language that is, please
+add it.  It will be interesting to compare languages not just to
+Arc but to one another.<br><br><br><br><b>Update: May 2009</b><br><br>The Arc version would now be slightly shorter:
+<font face=courier><pre>
+(defop said req
+  (aform [onlink "click here" (pr "you said: " (arg _ "foo"))]
+    (input "foo") 
+    (submit)))
+</pre></font>
+This is 21 nodes: 14 leaves + 7 interior.<br><br><br><br><br><br><b>Notes</b><br><br>[<a name="f1n"><font color=#000000>1</font></a>]
+"Recursive Functions of Symbolic Expressions and Their Computation
+by Machine, Part I," CACM, April 1960.<br><br>http://www-formal.stanford.edu/jmc/recursive/recursive.html<br><br>[<a name="f2n"><font color=#000000>2</font></a>]
+I did once try representing the integer n as a list of 
+length n, with horrifying results.<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<script type="text/javascript">
+csell_env = 'bf1';
+ var storeCheckoutDomain = 'order.store.yahoo.net';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'arcchallenge'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=arcchallenge&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+</script>
+<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>

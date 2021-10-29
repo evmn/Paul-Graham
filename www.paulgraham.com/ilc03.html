@@ -1,0 +1,402 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Some Work on Arc</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b2a9><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b2a9 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_4260109" width=152 height=18 border=0 hspace=0 vspace=0 alt="Some Work on Arc"><br><br><font size=2 face="verdana">October 2003<br><br><i>(This was an invited talk at ILC 2003.)</i><br><br>A couple days ago while I was working on this talk, slashdot
+had a link to something I'd written about spam.  I usually
+try to avoid reading the comments when this happens.  
+The odds of being annoyed are greater than the
+odds of learning something.  But this time I felt like
+procrastinating, so I scrolled down, and the first thing I saw
+was a post entitled "Back to Work, Paul" which said that I
+ought to stop wasting my time writing spam filters, and get   
+back to work on Arc.<br><br>Well, I haven't been slacking as badly as this guy thought.   
+I'm always getting emails from people asking in effect, "are
+we there yet?"   The short answer is no.  The longer
+answer is that the project is now in the third
+of four stages.  The plan was
+(a) to make a crappy initial version of Arc, (b) use that for a while in real
+applications, then (c) go back and write a complete, cleaned
+up language spec, and (d) use that as the basis of a fairly good
+implementation.<br><br>I'm in phase (c) now.  I don't know how much longer it will take
+to finish the spec.  It turns out to be quite hard, though very   
+interesting.  Since the spec is what I'm working on now, that's  
+what I'm going to talk about here.  
+<!--This is work in progress,
+so if you notice anything that seems wrong, let me know. --><br><br><br><br>I think a programming language should be mostly defined in itself.
+A language spec should be divided into two parts, a small core of operators
+that play the role of axioms, and the rest of the language, which,
+like theorems, are defined in terms of the axioms.<br><br>There are two main reasons to approach language design this way.
+One is that it yields more elegant languages.  The other is that
+by doing things this way, you can make the language maximally 
+rewritable.  Anything that's written in the language can be
+rewritten by programmers using the language.<br><br>Letting people
+rewrite your language is a good idea.  You, as the language
+designer, can't possibly anticipate all the things programmers   
+are going to want to do with it.  To the extent they can rewrite
+the language, you don't have to.<br><br>But the advantage of a rewritable language is more than that
+it lets programmers fix your mistakes.  I think the best programmers
+tend to work by rewriting whatever language they're using.
+So even the perfect language, if there is such a thing, would 
+be very rewritable.  In fact, if I had to guess, I think the
+perfect language might be whichever one was most rewritable.<br><br><br><br>The idea of axiomatizing a programming language is not of course
+a new one.  It's almost as old as the idea of a programming
+language.  In his famous 
+1960 paper, <a href="rootsoflisp.html">John McCarthy</a> showed how
+to do this by defining a language he called Lisp.  You may be
+familiar with it.  If you have seven primitive operators
+(quote, atom, eq, car, cdr, cons, and cond) then you can
+define in terms of them another function, eval, that acts as
+a Lisp interpreter.<br><br>And so any language that contains these seven operators
+is a dialect of Lisp, whether it was meant to be or not.
+This must be an alarming prospect for anyone
+designing a new language.  These seven axioms are so reactive that
+if you get them all together in the same place, they explode, and
+pow, instead of a new language, you've designed an old one.
+So if you want to design a new programming language, it is critical
+that you not make it too powerful.<br><br>Lately I've been trying to continue where McCarthy's 1960 paper
+left off.  I have long suspected that the main reason Lisp is
+such a good programming language is that it wasn't designed to
+be a programming language.  It is, rather, a theoretical result.
+If you try to answer the question, what is the smallest number of
+operators you need in order to write an interpreter for a language
+in itself, Lisp is what you get.  (At least, it's one thing you get;
+that is not a very precise question, so there is probably more
+than one answer.)<br><br>In other words, Lisp is not something McCarthy invented, so much
+as something he discovered.  This seems to be a good quality to
+have in a programming language.  I get some of the same feeling
+of inevitability looking at C and Smalltalk.<br><br>Of course, as soon as McCarthy's spec fell into the hands of hackers,
+all this theorizing was cut short.  In Lisp 1.5, read and print
+were not written in Lisp.  Given the hardware
+available at the time, there is no way they could have been.  But
+things are different now.  With present-day hardware you can
+continue till you have a runnable spec for a complete
+programming language.  So that's what I've been doing.<br><br><br><br>The question I'm trying to answer at the moment is, what
+operators do you have to add to the original seven in order to
+be able to write an eval for a complete programming language?<br><br>Well, that of course depends on what you mean by a complete
+programming language.  But I think there are some features everyone
+would agree were necessary.  We need to have I/O, for example,
+for our programs even to get into the computer to be evaluated.  
+We need to have some plan for dealing with errors.  (McCarthy's
+original eval assumes its argument is a correct program.  If you   
+refer to an unbound variable, it goes into an infinite loop.)
+And we need to have more data types than symbols and conses.
+We'll probably want numbers, for example.<br><br>I'm not finished yet with this exercise, but so far I've been
+surprised by how few primitives you need to add to the core   
+in order to make these things work.
+I think all you need to define new types is three new primitives 
+(plus assignment and lexical scope).   One of the new primitives  
+replaces the original atom, so you still only end up with nine total.<br><br><br><br>In McCarthy's original eval, the only data types are conses and symbols.
+In principle, you can probably represent anything you want as   
+conses.  For example, the integer n could be represented by a  
+list of length n.<br><br>This would be terribly inefficient in practice of course.
+And no one is proposing that implementations actually work that way. 
+The point of writing an eval is to define a language
+spec, not a language implementation.
+Internally, implementations can do whatever they
+like-- including for example representing numbers in whatever
+way is most convenient for the hardware-- so long as their
+outward behavior is indistinguishable from the interpreter
+that serves as the language spec.<br><br>The real problem with representing numbers as lists is not
+inefficiency, but that
+if we do that, we can't tell numbers from lists.
+One function that will want to distinguish between them is   
+the print function, which needs to print a list of
+three elements as (a a a), and the number 3 as 3.<br><br>So we need to
+have some idea of data types.  And if we can, we should do
+this in a way that's available to users, like the rest of Lisp.  Just as
+users can define new functions that are just like predefined
+functions, users should be able to define new types that are 
+just like the predefined types.
+And of course, we want to put as little in the core as we can.
+Complex numbers, for example, shouldn't have to be defined
+in the core of the language.<br><br><br><br>What's the least we can do?
+It looks as if it will be enough to define three new
+primitive functions, which I call tag, type, and rep. [1]<br><br>Tag takes two arguments, a type label and a representation.
+So for example you can make an object whose type is the symbol
+a and whose representation is the symbol b saying
+<font face=courier><pre>
+(tag 'a 'b)
+</pre></font>
+The other two operators, type and rep, take such objects 
+apart.
+<font face=courier><pre>
+(type (tag x y)) -> x<br><br>(rep  (tag x y)) -> y
+</pre></font>
+I expect type names will ordinarily be symbols, but they don't
+have to be.  Either argument can be of any type.  I can't imagine
+why users would want to have type labels other than symbols,
+but I also can't see any reason to prevent it.<br><br><br><br>Maybe this would be a good time to describe my approach to   
+restrictions in Arc.  There seem to be three reasons language
+designers forbid something: because there is no consistent way
+to allow it, because it is hard to implement efficiently, and
+because allowing it might let programmers get into trouble.<br><br>An example of the first type of restriction is not allowing programs
+to ask for the car of a symbol.
+Such a request is semantically ill-formed, like asking how much
+blue weighs.  (One of the few things I learned from studying
+philosophy in college was that most of the great traditional  
+philosophical controversies are similarly ill-formed.  Ideas
+like free will and even personal identity can't withstand close
+inspection.)  You have to forbid users to ask
+ill-formed questions, because there's no way to answer
+them.<br><br>I'm not going to have either of the other kind of
+restriction, though.  In Arc, the plan for efficiency is not to
+constrain the language spec, but to allow users to constrain their
+programs selectively with declarations in places where
+they need more speed.   This is not the same thing as the
+famous mistake, if it is a mistake, of assuming a "sufficiently
+smart compiler."  I'm
+not proposing that the compiler automatically figure out
+where it can cut corners, but that the user, aided by a good
+profiler, tell the compiler where it can cut corners.<br><br>For example, Arc currently has first class macros.  It just
+seems to be the simplest way to define the language.  First-class
+macros are
+potentially very inefficient; you could be expanding
+macro calls at runtime.  But I think most users won't want to 
+take advantage of this possibility.  They'll ordinarily make
+some kind of global declaration that macro calls can all
+be expanded at compile time, and macros won't cost any more
+than they do in current Lisps.<br><br>An example of the third type of restriction, the kind intended merely
+to keep the user from getting into trouble, would be encapsulation.
+There won't be any of this type of restriction in Arc, if I can
+help it.  There might (or might not) be situations where this
+kind of restrictive language would be a net win, but it's not
+the kind of language I'm trying to write.  I'm aiming for a small spec and
+small programs, and such restrictions won't give you either.<br><br>I say "if I can help it" because I've found that designing a   
+language, like other forms of absolute power, corrupts absolutely.
+Even now, after years of saying that a language should be the 
+servant and not the master, I still find myself thinking, should I
+let users do such and such?  I think the only defense against  
+this is to have a rule that if you ever find yourself asking
+questions that begin "should I let users...",
+to automatically answer "Yes, if there's no logical reason
+to forbid it."<br><br>So, for example, it is not
+illegal in Arc to use the same variable twice in a parameter list.
+There's a consistent interpretation of such code-- bind
+the parameters left to right-- and that's what I do.  (Using the
+same parameter twice will also work in McCarthy's original eval,
+except there the first parameter becomes the visible one.)
+Perhaps most parameter lists in which the same symbol occurs twice
+will be the result of bugs.  But it's just possible that some
+automatically generated code, macroexpansions for example, might want to
+do this intentionally.  More importantly, this is the kind of
+bug that should be caught by some lintlike component
+of the development environment.  It should not be
+the job of the language core.<br><br><br><br>We need to specify a few more things about our three
+new primitives.  If you call tag on an object already of the
+type given as the first argument, you just get the second
+argument.  So
+<font face=courier><pre>
+(tag 'symbol 'a) -> a
+</pre></font>
+The type function returns cons for conses,
+symbol for symbols, and fn for functions.
+<font face=courier><pre>
+(type cons) -> fn
+</pre></font>
+The rep function
+when called on a symbol or cons or a primitive function just  
+returns its argument.
+<font face=courier><pre>
+(rep 'a) -> a
+</pre></font>
+And finally, when you use a list as the second argument to tag,
+calling rep on the resulting object will return the identical
+list.
+<font face=courier><pre>
+(let x '(a b c)
+  (is (rep (tag 'foo x)) x))  -> t
+</pre></font>
+Since Arc has assignment, this means users could destructively  
+modify the representations of objects.  This would probably be
+a stupid thing to do, but you never know.  There is no purely
+logical reason to forbid it, so I don't.<br><br><br><br>As far as I can tell, this is all you need in the core to make
+new types work.  If you want to overload existing operators to
+do the right thing when given your new type, you don't need
+anything new in the core.  As long as you have lexical scope,
+you can just wrap a new definition of the operator around
+the old one.  So if you want to modify print to display objects
+of your new type foo in a special way,
+you write something like this:
+<font face=courier><pre>
+(let orig print
+  (def print (x str)
+    (if (is (type x) 'foo)
+        ...new code...
+        (orig x str))))
+</pre></font>
+By exposing a couple of eval's subroutines, I've managed to
+avoid making even macros part of the core. Here's my current
+definition of macros:
+<font face=courier><pre>
+(def macex (op args)
+  (apply (rep op) args idfn))<br><br>(let orig evexpr
+  (def evexpr (op args env cont)
+    (if (is (type op) 'mac)
+        (eval (macex op args) env cont)
+        (orig op args env cont))))<br><br>(let orig expand=
+  (def expand= (place val env)
+    (eval (car place)
+          env
+          (fn (op)
+            (if (is (type op) 'mac)
+                (expand= (macex op (cdr place)) val env)
+                (orig place val env))))))
+</pre></font>
+The two functions evexpr and expand= are the ones that evaluate
+expressions and generate the expansions of assignments respectively.
+A macro is just a function with the type mac attached to it.  
+Here is the definition of def, for example:
+<font face=courier><pre>
+(= def (tag 'mac
+            (fn (name parms . body)
+              (list '=
+                    name
+                    (cons 'fn (cons parms body)))))) 
+</pre></font>
+and here is mac, the Arc equivalent of defmacro:
+<font face=courier><pre>
+(= mac (tag 'mac
+             (fn (name parms . body)
+               (list '=
+                     name
+                     (list 'tag 
+                           ''mac 
+                           (cons 'fn (cons parms 
+                                           body)))))))
+</pre></font>
+using which we can define let as
+<font face=courier><pre>
+(mac let (var val . body)
+  (list (cons 'fn (cons (list var) body))
+        val))
+</pre></font><br><br>
+Beyond the primitive operators, which by
+definition can't be written in the language, the whole of
+the Arc spec will be written in Arc.  As Abelson and Sussman
+say, programs must be written for people to read, and only
+incidentally for machines to execute.  So if a language is any
+good, source code ought to be a better way to convey ideas
+than English prose. [2]<br><br>One consequence of this approach is that you could be
+designing features (or bugs) without even knowing it.
+If you present a chunk of code and say, this is the language
+definition, then it may, like any program, do
+(and in this case, mean) things you didn't intend.<br><br>I don't think we should be alarmed by this.  It's true in
+math too.  When some mathematician describes a class of
+things, he doesn't have to know all its properties to know
+whether it will be a useful class of things to talk about.
+Likewise, I think if we design a language whose specification
+is a program that looks right-- a program that's short
+and free of kludges-- then it's likely to be
+good language, even if we're not 100% sure what it does.<br><br>I don't pretend to know all the consequences of the Arc
+spec I'm writing, any more than McCarthy knew all the consequences of
+his original definition of Lisp.  But at least, if the behavior
+of the primitive
+operators is fully specified, it will be unambiguous.
+This is certainly not true of Common Lisp.
+What happens when a Common Lisp macro returns a list whose car is
+a function?  (Not the name of a function, mind you, but an actual
+function.)  What happens is what you'd expect, in every
+implementation I've used.  But the spec doesn't say
+anything about this.  And as for the loop macro, the
+ANSI standard is barely adequate as a tutorial, let alone as a
+definition.<br><br><!--(Incidentally, as long as I'm at a Lisp conference, there's
+something I've always wanted to know.  Has anyone ever
+implemented loop by reading the spec?)
+-->
+Speaking of which, I suspect another advantage of
+giving code as the spec is that it keeps you honest.
+If you could see the code that would be required to
+define loop, it would be obvious that something was wrong
+because it would be so big and complex.
+If everyone had to walk around naked we'd probably all be in
+better shape. Likewise, if language definitions were open
+source like their implementations, languages would probably 
+be cleaner.<br><br><br><br>I believe that the three new type operators, together with the
+technique of wrapping functions, give us something more general
+than what people usually mean by "object-oriented programming".
+We can wrap a function in code that is "specialized" for any
+property of the arguments, not merely whether they are of
+certain types, or unions of types (which what a superclass is).<br><br>If you wanted to define a more specific form of overloading
+tied to inheritance, I don't think it would be that hard.
+The important thing at this point is, it's not something you
+have to think about in the core of the language.  If you want
+to define an object-oriented language (whatever you mean by
+that), it looks as if you don't need anything more in the core
+than the three type primitives and the technique of wrapping
+earlier definitions of functions with new ones.<br><br>It was a great relief when I realized that using the axiomatic   
+approach would give me a legitimate excuse for not cluttering
+up the core of Arc with object-orientedness.  In the back of
+my mind I worried that perhaps Arc ought to be one of those
+modern languages where "everything is an object," or that is  
+"objects all the way down." To tell the truth, I didn't worry about
+this very much, but there seemed, say, a 1% chance that this
+would be something I'd have to do.<br><br>If anyone grumbles that Arc doesn't have enough object-orientedness
+in it, I can plead the stern demands of axiomatization.  Sorry,
+but I was constrained to put the minimal possible functionality
+in the core.  Of course, my personal guess is that this minimal functionality
+is all you actually want most of the time...<br><br>I'm fairly confident now I've dealt with this problem.  In Arc,
+"everything is an object."  But an object is just anything with a type.
+You can ask what the type of an object is, and you can
+redefine any operator to do something special when given objects
+of certain types.
+So if I want to build some elaborate system for
+overloading functions based on the types of arguments, I
+can do it as a library.  Somehow, though, I think I may never 
+get around to it.<br><br><br><br>Another thing I've been working on is errors.  As with operators,
+I want to recognize as few as possible.  So this exercise will 
+end up showing me what the minimal set of errors has to be,
+as well as the minimal set of primitive operators.<br><br>Ditto for types.  So far the only primitive types are symbols,
+conses, and functions.  I'm going to have to add streams, but
+beyond that I may not have to add many.  Numeric types are 
+all going to be defined in terms of lists.  I'm not sure whether
+to add a bit type, or just use lists of symbols.<br><br>I may be able to avoid having
+a distinct character type, and have the Arc version of read-char 
+just return one-letter symbols.  I admit that is a weird sounding
+idea, but so far I can't think of any reason not to.<br><br>One thing about this whole enterprise, though, it's surprising.
+I'm constantly finding either that something I wanted to do is
+either much harder or much easier than I expected.  To me that
+is a good sign, because it means I'm on comparatively unexplored
+territory.<br><br>But of course things could go disastrously wrong at any moment.
+I still have a lot of work to do to finish the Arc spec.  
+<!-- The part
+I'm really worried about is floating point numbers.  I'm
+told this is hard, and I believe it, but I'm going to give it
+a try and see what happens.  If anyone out there has opinions about
+the right way to floating point, by all means let me know. --><br><br>In the meantime, anyone who is dismayed that it seems to be taking
+so long for Arc to arrive might want to consider how to implement
+optional parameters outside the language core, while still doing
+the right thing, whatever that is, about continuations during
+the evaluation of the default forms-- which is what I was working
+on at the moment I stopped to write this talk.  I think I can do
+this, but I have to figure out what I'm trying to do before I can
+figure out whether or not it's possible.  That's what cooking
+up a language spec feels like.<br><br><br><br><b>Notes</b><br><br>[1] Someone else already turns out to have made an identical
+or almost identical proposal for tag, type, and rep.  I think
+it was Jonathan Rees.<br><br>[2] At the conference, John McCarthy pointed out that a
+function to invert a matrix might be better described by
+writing "inverts a matrix" than by giving the source.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<script type="text/javascript">
+csell_env = 'bf1';
+ var storeCheckoutDomain = 'order.store.yahoo.net';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'ilc03'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=ilc03&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+</script>
+<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>

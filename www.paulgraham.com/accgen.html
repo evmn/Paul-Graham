@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Accumulator Generator</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b1b9><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b1b9 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_11663435" width=197 height=18 border=0 hspace=0 vspace=0 alt="Accumulator Generator"><br><br><font size=2 face="verdana"><a href="icad.html">Revenge of the Nerds</a> yielded a 
+collection of canonical solutions to the same problem in 
+a number of languages.<br><br>The problem: Write a function foo that takes a number n and returns a 
+function that takes a number i, and returns n incremented by i.<br><br>Note: (a) that's <i>number,</i> not integer, (b) that's <i>incremented by,</i> not 
+plus.
+<font face=courier><xmp>
+C++                   template<typename T>
+                      struct Acc {
+                        Acc(T n)
+                        : n(n) {}
+</xmp></font>
+<font face=courier><xmp>
+                        template<typename U>
+                        Acc(const Acc<U>& u)
+                        : n(u.n) {}
+</xmp></font>
+<font face=courier><xmp>
+                        template<typename U>
+                        T operator()(U i) {
+                            return n += i;
+                        }
+</xmp></font>
+<font face=courier><xmp>
+                        T n;
+                      };
+</xmp></font>
+<font face=courier><xmp>
+                      template<typename T>
+                      Acc<T> foo(T n)
+                      {
+                        return Acc<T>(n);
+                      }
+</xmp></font>
+<font face=courier><xmp>
+Dylan                 define function foo (n)
+                        method (i) n := n + i end;
+                      end function;
+</xmp></font>
+<font face=courier><xmp>
+E                     def foo (var n) :any {
+                        def inc (i) :any { n += i }
+                      }
+</xmp></font>
+<font face=courier><xmp>
+Erlang                foop(N)->
+                        receive
+                          {P,I}-> S =N+I, P!S, foop(S)
+                        end.
+</xmp><xmp>
+                      foo(N)->
+                        P=spawn(foo,foop,[N]),
+                        fun(I)->
+                          P!{self(),I},
+                          receive V->V end
+                        end.
+</xmp></font>
+<font face=courier><xmp>
+Haskell               import IOExts
+                      foo n = do
+                        r <- newIORef n
+                        return (\i -> do
+                          modifyIORef r (+i)
+                          readIORef r)
+</xmp></font>
+<font face=courier><xmp>
+Javascript            function foo (n) {
+                        return function (i) {
+                                 return n += i } }
+</xmp></font>
+<font face=courier><xmp>
+Lisp: Arc             (def foo (n) [++ n _])
+</xmp></font>
+<font face=courier><xmp>
+Lisp: Common Lisp     (defun foo (n) 
+                        (lambda (i) (incf n i)))
+</xmp></font>
+<font face=courier><xmp>
+Lisp: Goo             (df foo (n) (op incf n _))
+</xmp></font>
+<font face=courier><xmp>
+Lisp: Scheme          (define (foo n)
+                        (lambda (i)
+                          (set! n (+ n i))
+                          n))
+</xmp></font>
+<font face=courier><xmp>
+Lua                   function foo(n)
+                        return function (i)
+                                 n = n + i
+                                 return n
+                               end
+                      end
+</xmp></font>
+<font face=courier><xmp>
+Maple                 foo := proc(n)
+                               local s;
+                               s := n;
+                               proc(i) s := s + i   
+                                 end
+                             end
+</xmp></font>
+<font face=courier><xmp>
+Mathematica           foo = Module[{s=#},s+=# &] &
+</xmp></font>
+<font face=courier><xmp>
+Mozart                fun {Foo N}
+                        A = {NewCell N}
+                      in
+                         fun {$ B} C D in
+                            {Exchange A C D}
+                            if {IsInt C}
+                               andthen {IsFloat B}
+                            then
+                               D = {IntToFloat C}+B
+                            elseif {IsFloat C}
+                               andthen {IsInt B}
+                            then
+                               D = C+{IntToFloat B}
+                            else D = C+B end
+                            {Access A}
+                         end
+                      end
+</xmp></font>
+<font face=courier><xmp>
+NewtonScript          foo := func (n)
+                               func (i)
+                                 n := n + i ;
+</xmp></font>
+<font face=courier><xmp>
+Perl 5                sub foo {
+                        my ($n) = @_;
+                        sub {$n += shift}
+                      }
+</xmp></font>
+<font face=courier><xmp>
+Python                class foo:
+                        def __init__(self, n):
+                            self.n = n
+                        def __call__(self, i):
+                            self.n += i
+                            return self.n
+</xmp></font>
+<font face=courier><xmp>
+Rebol                 foo: func [ n ] 
+                       [ func [ i ] [ n: n + i ] ]
+</xmp></font>
+<font face=courier><xmp>
+Ruby                  def foo (n)
+                        lambda {|i| n += i } end
+</xmp></font>
+<font face=courier><xmp>
+Smalltalk             foo: n
+                        |s|
+                        s := n.
+                        ^[:i| s := s + i. ]
+</xmp></font>
+<font face=courier><XMP>
+VBScript              Class acc
+                        Private n
+                        Public Default Function inc(i)
+                          n = n + i
+                          inc = n
+                        End Function
+                      End Class
+</xmp><xmp>
+                      Function foo(n)
+                        Dim bar
+                        Set bar = New acc
+                        bar(n)
+                        Set foo = bar
+                      End Function
+</xmp></font><br><br>Some languages are not represented here, either because you
+can't write this program in them (short of Greenspun's Tenth Rule)
+or because no one has yet sent me the code for that language.
+<!--
+If you know how to write this program in a language that isn't listed here, 
+please <a href="accgensub.html">send it along</a>.  --><br><br>Please don't send may any new submissions for the time being; I
+don't have time to look at them.<br><br>
+<font size=1>Credits: C++, Brendan Corfman and Daniel Cowgill;
+Dylan, Neel Krishnaswami; E, Darius Bacon; 
+Erlang, Heinz Eriksson; Goo, Jonathan Bachrach; Haskell, Malcolm Wallace
+and Tom Pledger;
+Javascript, Anton van Straaten;  Lua, Chris Laurel; Maple, Stefan Vorkoetter;
+Mathematica, Kovas Boguta;
+Mozart, Kari Pahula; NewtonScript, Sean Luke;
+Perl, Dan Giffin and Trevor Blackwell; Python, Jeremy Hylton; 
+Rebol, Andreas Bolka; 
+Ruby, Stephan Schmidt; 
+Smalltalk, Trevor Blackwell; VBScript, Stefan Holm.</font><br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<script type="text/javascript">
+csell_env = 'bf1';
+ var storeCheckoutDomain = 'order.store.yahoo.net';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'accgen'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=accgen&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+</script>
+<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>

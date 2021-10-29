@@ -1,0 +1,19 @@
+User-agent: *
+# Cap is html
+Disallow: /cgi-bin/
+Disallow: /RT/
+Disallow: /TG/
+Disallow: /QS/
+Disallow: /wgl/
+Disallow: /P/
+Disallow: /ymix/
+Disallow: /OS/
+Disallow: /cs/
+Disallow: /en=
+Disallow: /io=
+Disallow: /*/cgi-bin/
+
+# Rover is a bad dog <http://www.roverbot.com>
+User-agent: Roverbot
+Disallow: /
+

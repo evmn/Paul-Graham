@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>A Way to Detect Bias</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=1395b5f8968114f><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#1395b5f8968114f border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ay/paulgraham/a-way-to-detect-bias-1.gif" width=169 height=18 border=0 hspace=0 vspace=0 alt="A Way to Detect Bias"><br><br><font size=2 face="verdana">October 2015<br><br>This will come as a surprise to a lot of people, but in some cases
+it's possible to detect bias in a selection process without knowing
+anything about the applicant pool.  Which is exciting because among
+other things it means third parties can use this technique to detect
+bias whether those doing the selecting want them to or not.<br><br>You can use this technique whenever (a) you have at least
+a random sample of the applicants that were selected, (b) their
+subsequent performance is measured, and (c) the groups of
+applicants you're comparing have roughly equal distribution of ability.<br><br>How does it work?  Think about what it means to be biased.  What
+it means for a selection process to be biased against applicants
+of type x is that it's harder for them to make it through.  Which
+means applicants of type x have to be better to get selected than
+applicants not of type x.
+<font color=#dddddd>[<a href="bias.html#f1n"><font color=#dddddd>1</font></a>]</font>
+Which means applicants of type x
+who do make it through the selection process will outperform other
+successful applicants.  And if the performance of all the successful
+applicants is measured, you'll know if they do.<br><br>Of course, the test you use to measure performance must be a valid
+one.  And in particular it must not be invalidated by the bias you're
+trying to measure.
+But there are some domains where performance can be measured, and
+in those detecting bias is straightforward. Want to know if the
+selection process was biased against some type of applicant?  Check
+whether they outperform the others.  This is not just a heuristic
+for detecting bias.  It's what bias means.<br><br>For example, many suspect that venture capital firms are biased
+against female founders. This would be easy to detect: among their
+portfolio companies, do startups with female founders outperform
+those without?  A couple months ago, one VC firm (almost certainly
+unintentionally) published a study showing bias of this type. First
+Round Capital found that among its portfolio companies, startups
+with female founders <a href="http://10years.firstround.com/#one"><u>outperformed</u></a>
+those without by 63%. 
+<font color=#dddddd>[<a href="bias.html#f2n"><font color=#dddddd>2</font></a>]</font><br><br>The reason I began by saying that this technique would come as a
+surprise to many people is that we so rarely see analyses of this
+type.  I'm sure it will come as a surprise to First Round that they
+performed one. I doubt anyone there realized that by limiting their
+sample to their own portfolio, they were producing a study not of
+startup trends but of their own biases when selecting companies.<br><br>I predict we'll see this technique used more in the future.  The
+information needed to conduct such studies is increasingly available.
+Data about who applies for things is usually closely guarded by the
+organizations selecting them, but nowadays data about who gets
+selected is often publicly available to anyone who takes the trouble
+to aggregate it.<br><br><br><br><br><br><br><br>
+<b>Notes</b><br><br>[<a name="f1n"><font color=#000000>1</font></a>]
+This technique wouldn't work if the selection process looked
+for different things from different types of applicants&mdash;for
+example, if an employer hired men based on their ability but women
+based on their appearance.<br><br>[<a name="f2n"><font color=#000000>2</font></a>]
+As Paul Buchheit points out, First Round excluded their most 
+successful investment, Uber, from the study.  And while it 
+makes sense to exclude outliers from some types of studies, 
+studies of returns from startup investing, which is all about 
+hitting outliers, are not one of them.<br><br>
+<b>Thanks</b> to Sam Altman, Jessica Livingston, and Geoff Ralston for reading
+drafts of this.<br><br></font></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=210><img src="https://sep.yimg.com/ca/I/paulgraham_2272_1423" width=12 height=14 align=left border=0 hspace=0 vspace=0><font size=2 face="verdana"><a href="https://tldrarabiccontents.blogspot.com/2020/01/blog-post_29.html">Arabic Translation</a><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=210><img src="https://sep.yimg.com/ca/I/paulgraham_2272_1423" width=12 height=14 align=left border=0 hspace=0 vspace=0><font size=2 face="verdana"><a href="http://www.jensbackbom.se/2020/09/10/ett-satt-att-upptacka-bias/">Swedish Translation</a><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<script type="text/javascript">
+csell_env = 'bf1';
+ var storeCheckoutDomain = 'order.store.yahoo.net';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'bias'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=bias&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+</script>
+<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>

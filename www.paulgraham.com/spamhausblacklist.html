@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>The Destiny of Blacklists</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b2f9><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b2f9 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_9173833" width=207 height=18 border=0 hspace=0 vspace=0 alt="The Destiny of Blacklists"><br><br><font size=2 face="verdana">June 2005<br><br>In 1997, a group of anti-spam vigilantes called
+MAPS started a blacklist of mail servers owned by or
+compromised by spammers.  Mail server administrators could use this
+list to block sources of spam.  At least, that was what most
+of them thought they were getting.<br><br>The problem was, as vigilantes so often do, the guys at MAPS got
+<a href="http://slashdot.org/article.pl?sid=00/12/13/1853237">carried away</a>.
+They started to include servers on the list that
+they knew weren't sources of spam, to pressure whoever
+owned the server to do what they wanted.  For example, in order to
+get revenge on people they believed were spamming, MAPS would
+blacklist the mail server of the company <i>hosting</i> their site.<br><br>MAPS knew these mail servers weren't spam sources.  But they'd
+blacklist them anyway.  Everyone else 
+sharing that server would then have their mail
+blocked.  And MAPS could insist that the hosting company delete
+the site of the (supposed) spammer as the price of all the ISP's
+other, innocent, users having their mail unblocked.<br><br>This is, strictly speaking, terrorism:
+harming innnocent people as a way to pressure some central authority
+into doing what you want.<br><br>The innocent people whose mail got blocked as a result of this
+kind of trick weren't "collateral damage."  They weren't harmed
+by accident.  It was in order to harm these innocent people, and
+thus put pressure on their ISP, that MAPS blacklisted them.<br><br>This kind of tactic gradually brought MAPS into disrepute.
+Most mail server administrators dropped their list and switched to
+another blacklist, the Spamhaus SBL, which was created specifically to
+avoid MAPS-style abuses.
+They were only going to list real spammers.
+And for a couple years they did.<br><br>Unfortunately, as so often happens, power corrupted them.  About a
+year ago, I started to hear  <a href="sblbad.html">reports</a> 
+that Spamhaus was starting
+to use the same tactics MAPS had.<br><br>John Reid of Spamhaus told me this wasn't true-- that the SBL
+was still clean, and that they only blacklisted hosting companies'
+mail servers when they were spam hosts who took on innocent users
+as camouflage:
+<blockquote>
+The sad fact is, some of these "spammer friendly hosts" will
+also try load up with as many non-spammers as they can to try   
+and show legitimacy. We try at all costs to avoid listing legit
+places and people, and only if the host tells us or shows us
+in no uncertain terms that they don't plan to cease hosting
+spammers will we list them in their entirety.
+</blockquote>
+I wanted to believe him.  But before I could reply to his mail,
+I got first-hand evidence that the SBL has in fact gone bad.<br><br>As of this writing, 
+any filter relying on the SBL is now marking email with the url
+"paulgraham.com" as spam.  Why?  Because the guys at the SBL want
+to pressure Yahoo, where paulgraham.com is hosted,
+to delete the site of a company they believe is spamming.<br><br>This clearly contradicts what John Reid wrote in his email to
+me.  Yahoo is not a "spam friendly" ISP that takes on a few   
+innocent users to "show legitimacy."  And Spamhaus knows it.
+Of the tens of thousands of sites Yahoo hosts, how many do they
+claim have spammed?  Two.<br><br>
+This case illustrates an important failing of blacklists.
+Unlike filters, they're run by humans.  And humans are all too likely
+to <a href="spamhaussbl.html">abuse</a> the kind of power that blacklists embody.
+<!-- I used to be a fan of the SBL:
+<blockquote>
+In fairness, it should be added that the new generation of responsible
+blacklists, like the SBL, cause far fewer false positives than earlier
+blacklists like the MAPS RBL, for whom causing large numbers of false
+positives was a deliberate technique to get the attention of ISPs.
+</blockquote>
+Now the SBL seems to have become MAPS. -->
+Perhaps someone will start another
+blacklist that tries to avoid such abuses.  But how long before
+that one becomes corrupt too?<br><br>No doubt this particular case will get sorted out, and mail containing my url 
+will stop getting blocked.  
+<!--(Unless the guys at the SBL decide to
+punish me for writing this.)-->  
+But this example is enough to 
+prove that the whole idea of blacklists is broken.  Blacklists have a
+structural flaw: there is no one to watch the watchers.<br><br><br><br><b>Clarification:</b> Many people seem to assume
+that Spamhaus merely
+blacklisted the IP address of a single spammer's site.  In fact, 
+as well as the spammer's IP address they
+also blacklisted 66.163.161.45, aka store.yahoo.com, which is
+shared by thousands of Yahoo stores.<br><br></font></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="sblbad.html">SBL Going Bad?</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="spamhaussbl.html">Another SBL Story</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://www.spamhaus.org/sbl/sbl-rationale.html">SBL Listing Criteria</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://rabl.nuclearelephant.com/">An Incorruptible Blacklist?</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<script type="text/javascript">
+csell_env = 'bf1';
+ var storeCheckoutDomain = 'order.store.yahoo.net';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'spamhausblacklist'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=spamhausblacklist&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+</script>
+<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>

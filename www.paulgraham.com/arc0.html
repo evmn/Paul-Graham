@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Arc's Out</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b8d><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b8d border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_7237054" width=79 height=18 border=0 hspace=0 vspace=0 alt="Arc's Out"><br><br><font size=2 face="verdana">29 January 2008<br><br>We're releasing a version of Arc today, along with a site about it
+at <a href="http://arclanguage.org">arclanguage.org</a>.  This site
+will seem very familiar to users of <a
+href="http://news.ycombinator.com">Hacker News</a>.  It's mostly
+the same code, with a few colors and messages changed.<br><br>Arc is still a work in progress.  We've done little more than take
+a snapshot of the code and put it online.  I spent a few days
+cleaning up inconsistencies, but it's still in the semi-finished
+state most software is, full of hacks and note-to-self comments
+about fixing them.<br><br>Why release it now?  Because, as I suddenly realized a couple months
+ago, it's good enough.  Even in this unfinished state, I'd rather
+use Arc than Scheme or Common Lisp for writing most programs.  And
+I am a fairly representative Lisp hacker, with years of experience
+using both.  So while Arc is not the perfect Lisp, it seems to be
+better for at least some kinds of programming than either of the
+leading alternatives.<br><br>I worry about releasing it, because I don't want there to be forces
+pushing the language to stop changing.  Once you release something
+and people start to build stuff on top of it, you start to feel you
+shouldn't change things.  So we're giving notice in advance that
+we're going to keep acting as if we were the only users.  We'll
+change stuff without thinking about what it might break, and we
+won't even keep track of the changes.<br><br>I realize that sounds harsh, but there's a lot at stake.  I went
+to a talk last summer by Guido van Rossum about Python, and he
+seemed to have spent most of the preceding year switching from one
+representation of characters to another.  I never want to blow a
+year dealing with characters.  Why did Guido have to?  Because he
+had to think about compatibility.  But though it seems benevolent
+to worry about breaking existing code, ultimately there's a cost:
+it means you spend a year dealing with character sets instead of
+making the language more powerful.<br><br>Which is why, incidentally, Arc
+<a href="http://arclanguage.org/item?id=391">only supports Ascii</a>.  
+MzScheme,
+which the current version of Arc compiles to, has some more advanced
+plan for dealing with characters.  But it would probably have taken
+me a couple days to figure out how to interact with it, and I don't
+want to spend even one day dealing with character sets.  Character
+sets are a black hole.  I realize that supporting only Ascii is
+uninternational to a point that's almost offensive, like calling
+Beijing Peking, or Roma Rome (hmm, wait a minute).  But the kind
+of people who would be offended by that wouldn't like Arc anyway.<br><br>Arc embodies a similarly unPC attitude to HTML.  The predefined
+libraries just do everything with tables.  Why?  Because Arc is
+tuned for exploratory programming, and the W3C-approved way of doing
+things represents the opposite spirit.<br><br>There's a similar opposition between the use of lists to represent
+things and the use of "objects" with named, typed fields.  I went
+through a stage, after I'd been programming in Lisp for 2 or 3
+years, where I thought the old way of using lists to represent
+everything was just a hack.  If you needed to represent points,
+surely it was better to declare a proper structure with x and y
+fields than to use a list of two numbers.  Lists could contain
+anything.  They might even have varying numbers of elements.<br><br>I was wrong.  Those are the <i>advantages</i> of using lists to
+represent points.<br><br>Over the years my appreciation for lists has increased.  In exploratory
+programming, the fact that it's unclear what a list represents is
+an advantage, because you yourself are unclear about what type of
+program you're trying to write.  The most important thing is not
+to constrain the evolution of your ideas.  So the less you commit
+yourself in writing to what your data structures represent, the
+better.<br><br>Tables are the lists of html.  The W3C doesn't like you to use
+tables to do more than display tabular data because then it's unclear
+what a table cell means.  But this sort of ambiguity is not always
+an error.  It might be an accurate reflection of the programmer's
+state of mind.  In exploratory programming, the programmer is by
+definition unsure what the program represents.<br><br>Of course, "exploratory programming" is just a euphemism for "quick
+and dirty" programming.  And that phrase is almost redundant: quick
+almost always seems to imply dirty.  One is always a bit sheepish
+about writing quick and dirty programs.  And yet some, if not most,
+of the best programs began that way.  And some, if not most, of the
+most spectacular failures in software have been perpetrated by
+people trying to do the opposite.<br><br>So experience suggests we should embrace dirtiness.  Or at least
+some forms of it; in other ways, the best quick-and-dirty programs
+are usually quite clean.  Which kind of dirtiness is bad and which
+is good?  The best kind of quick and dirty programs seem to be ones
+that are mathematically elegant, but missing features-- and
+particularly features that are inessential but deemed necessary for
+propriety.  Good cleanness is a response to constraints imposed by
+the problem.  Bad cleanness is a response to constraints imposed
+from outside-- by regulations, or the expectations of powerful
+organizations.<br><br>I think these two types of cleanness are not merely separate, but
+in opposition to one another.  "The rules," whatever they are, are
+usually determined by politics; you can only obey them at the expense
+of mathematical elegance.  And vice versa.<br><br>Arc tries to be a language that's dirty in the right ways.  It tries
+not to forbid things, for example.  Anywhere I found myself asking
+"should I allow people to...?" I tried always to say yes.  This is
+not the sort of language that tries to save programmers from
+themselves.<br><br>The kind of dirtiness Arc seeks to avoid is verbose, repetitive
+source code.  The way you avoid that is not by forbidding programmers
+to write it, but by making it easy to write code that's compact.
+One of the things I did while I was writing Arc was to comb through
+applications asking: what can I do to the language to make this
+shorter?  Not in characters or lines of course, but in tokens.  In
+a sense, Arc is an accumulation of years of tricks for making
+programs shorter.  Sounds rather unambitious, but that is in fact
+the purpose of high-level languages: they make programs shorter.<br><br>Being dirty in the right ways means being wanton, but sleek.  I
+don't know if Arc can honestly be described in such enticing terms
+yet, but that's the goal.  For now, best to say it's a quick and
+dirty language for writing quick and dirty programs.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<script type="text/javascript">
+csell_env = 'bf1';
+ var storeCheckoutDomain = 'order.store.yahoo.net';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'arc0'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=arc0&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+</script>
+<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>

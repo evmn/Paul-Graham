@@ -1,0 +1,680 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Arc at 3 Weeks</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b13d><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b13d border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_14469612" width=271 height=18 border=0 hspace=0 vspace=0 alt="Arc: An Unfinished Dialect of Lisp"><br><br><font size=2 face="verdana">November 2001<br><br><br><br><hr>
+1.  Preliminaries:<br><br>- Arc isn't finished.<br><br>- Suggestions are invited.<br><br>- Don't be too shocked (you may get used to it).
+<hr><br><br>Arc was the youngest language presented at LL1.  It's about
+three weeks old.  Most languages probably look pretty bad
+at that age, but I wanted to show Arc to people early on
+to get their opinions.<br><br>A few of the ideas in Arc will seem 
+shocking, especially to compiler writers.  So bear with us.
+Some of these ideas will seem less shocking with time.  
+Others may actually suck, and we'll redo those.<br><br><br><br><hr>
+2. Lisp<br><br>- A language with dialects.<br><br>- No new Lisp since mid 80s (and not new then).<br><br>- Languages different now:
+    Unix won,
+    big libraries,
+    active development.<br><br>- No onions in the varnish.
+<hr><br><br>Lisp is an unusual language because it has dialects.  Lisp
+depends on a small, definite, core of operators, and any language
+that has these operators is a dialect of Lisp-- not just
+as a social custom, but in the formal sense that if you
+have the core operators you can define all the rest.  If
+you design a language that has car, cdr, cons, quote, eq,
+cond, and a notation for functions made of conses, then you've 
+designed a dialect of Lisp, even if you didn't mean to.<br><br>It's about time for a new dialect of Lisp.  The two leading
+dialects, Common Lisp and Scheme, have not been substantially
+changed since the 1980s. What a language is has changed
+since then.  In 1985, a programming language was just a spec.
+Now, thanks to Perl, it means not just (and maybe not even) a spec,
+but also a good free implementation, huge libraries, and
+constant updates.<br><br>Another thing has changed since 1985: Unix won.  So there is a lot
+more agreement now about what you can expect from the OS.
+Common Lisp and Scheme date from a time when languages had to
+be OS-neutral.  A programming language couldn't have a concept
+of a socket, for example; what if the underlying OS didn't
+have sockets?  That has changed.  Now a
+language that won't let you open a socket seems almost   
+perversely inconvenient.<br><br>If you just made a Lisp that could talk to the OS and
+had powerful string libraries, I think it would more than
+hold its own.
+We're hoping to do more than that though.  The aim with Arc
+is not to update Common Lisp or Scheme.
+In Arc we're going to try to go back to the origins of Lisp,
+in McCarthy's 1960 paper, and rebuild the language from
+the bottom.<br><br>In <i>The Periodic Table,</i> Primo Levi tells a story that
+happened when he was working in a varnish factory.  He  
+was a chemist, and he was fascinated by the fact that
+the varnish recipe included
+a raw onion.  What could it be for?  No one knew; it was just
+part of the recipe.  So he investigated, and eventually
+discovered that they had started throwing the onion in years
+ago to test the temperature of the varnish: if it was
+hot enough, the onion would fry.<br><br>We're going to try not to include any onions in Arc.  Everything
+is open to question.  For example, in Arc, lambda is called fn.
+This idea appalled me at first, but it seemed
+like fn would be shorter and at least as expressive.  What if I
+was just used to lambda?  So, with a queasy sense of duty,
+<!-- as someone presented with a mysterious "delicacy" at a banquet
+in a foreign country-->
+I decided to try it.  And after a few
+days I actually liked fn better.  Now it seems clear to me
+that lambda is an onion: Alonzo Church himself wouldn't have
+used it if he had to write out the word lambda each time.<br><br><br><br><hr>
+3. A Language for Good Programmers<br><br>- Target user: opposite of Java.<br><br>- Programmable programming language.<br><br>- By default, allow.<br><br>- The language I wish someone would make for me.<br><br>- Brevity (what you like about abstraction)
+<hr><br><br>Java was, as
+Gosling says in the first Java white paper, designed for
+average programmers.
+It's a perfectly legitimate goal to design a language for
+average programmers.  (Or for that matter for small children,
+like Logo.)  But it is also a legitimate, and very different,
+goal to design a language for <a href="design.html">good programmers</a>.<br><br>Languages designed for average programmers have to put safety first.
+Expert programmers, on the other hand, care only about power, 
+and are going to be annoyed with any language that gets in their
+way in the name of safety.  You see this difference
+in any tool, from cars to dishwashers.<br><br>I don't know if anyone has consciously designed a language
+for good programmers before.  There have been several languages
+that were in effect designed for good programmers, because
+good programmers designed them for their own use.  C, Lisp, and
+Smalltalk all came about this way.<br><br>In some ways it makes the problem easier when you can assume the
+user is a good programmer.  Language designers often find
+themselves worrying about the mess users might make if they
+were allowed to do such-and-such.  Once you assume the user
+is a good programmer, you automatically have the answer to 
+any such question: let the user do whatever he wants.<br><br>Lisp has always been way down that end of the continuum.
+<a href="chameleon.html">John Foderaro</a> called 
+it "the programmable programming language",
+because there is so much the programmer can change.  Arc
+aims to maximize this aspect of Lisp.  Instead of assuming  
+that we know what's good for the programmer to be allowed to
+get his hands on, we assume that the programmer will want to
+do things we never even imagined, and so will need to be able to
+get his hands on everything.<br><br>Another thing good programmers like is brevity, and that is
+Arc's other main goal.  You often hear that programming
+languages are good because they provide abstraction.
+I think what we really like is
+not abstraction per se but brevity.  A way of expressing   
+programs that was more abstract, but made your programs   
+longer, would not be very enticing.  (This is not just a
+hypothetical example.  It happens in Prolog.)<br><br>By brevity I don't mean that programs should require
+fewer characters. That counts for something, but it is
+more important to require fewer tokens.<br><br>Perl is an inspiring example of brevity.  Larry Wall
+broke all the rules, and in the process discovered some
+good ideas.  Perl may be a kludge, but it makes your programs
+short, and you have to respect that.<br><br>In Arc we
+hope to make programs as short or shorter, but at the
+same time to build the language up in a transparent way
+from clearly understood foundations.
+We're not doing this (just) out of fastidiousness.  You have
+to build the language up transparently if you want
+users to be able to customize it.  The chaotic semantics
+of Perl would make it very hard to add macros.<br><br><br><br><hr>
+4.  Other Principles<br><br>- Do what programmers actually (secretly) want.<br><br>- How code looks matters: short names, no swearing<br><br>- Polymorphism: (+ "foo" "bar") -> "foobar"<br><br>- Specially suited for Web apps.<br><br>- Perl lesson: pronouns.
+<hr><br><br>We have a couple other design goals for Arc.  We try to
+keep in mind that languages are for programmers, and so
+should do what programmers want.  What programmers actually
+want may not be the same thing as what language designers
+consider to be good design.  In such cases the language
+designers should toss their principles and listen to
+the programmers.<br><br>You don't want to be like a modernist architect who
+designs a chair that is all right angles to conform to
+some preconceived idea of good design.  All you're doing
+then is solving the wrong problem.  Chairs (except for
+a few that are explicitly designed as sculpture) are
+for people to sit in.<br><br>I was asking a friend of mine, who is just about the best
+programmer you could hope to meet, about creating new
+local variables.  With some hesitation he admitted that
+he disliked the traditional Lisp let, because it
+introduced a new level of indentation as well.  He was
+hesitant because he knew, in principle,
+that let was the "right" thing.  At this point, you have
+to ask, "right for who?" because I don't think there are
+any programmers substantially smarter than this guy.
+If he wants to do something a certain way, that's the 
+best test you'll get of what is good design-- better,
+certainly, than any abstract principle.<br><br>Another thing programmers are reluctant to admit, but  
+which almost all feel fairly strongly, is that it matters
+how code looks.  Well, it does matter, a lot.  We are
+going to try hard not only to make Arc beautiful, but to
+let you change the way the language looks if your idea
+of beauty is different.<br><br>Software designers usually fall into either the short-name
+school or the long-name school.  Unix and C favor short
+names.  Common Lisp and Smalltalk are in the opposite camp.
+The argument for long names is that they are more descriptive,
+and so make it easier for programmers, especially beginners,
+to remember what the underlying operators do.  The argument
+against long names is that they clutter up your program.
+Here again we are saved by our axiom that the user is a
+good programmer.  We assume the user doesn't need operators
+to be called multiple-value-bind or invoke-restart-interactively
+to remember what they do.<br><br>On the other hand, we're also going to try
+not to make the language look like a cartoon
+character swearing.  Have you ever noticed that when you
+fill out some kind of Web form you tend to use all lowercase?
+Ordinary lowercase letters are less work to type than
+characters like #&%$.  (Dan Giffin recently observed that
+if you measure Perl programs by the number of keys you
+have to press, they don't seem so short.)  And
+lowercase letters are easier to read as well.
+You have to hit a kind of mental shift key to read
+symbols.  As far as we can we're going to make Arc a
+smoothly lowercase language.<br><br>Another thing many good programmers have in common is
+incipient carpal tunnel syndrome, so a language that's 
+easy to type should be a win for them.<br><br>Arc is quite polymorphic.  The + function both adds numbers
+and concatentates strings.  Having a separate operator for
+each is equivalent to having one operator, plus a   
+type declaration.  Having a single operator for both is
+equivalent to letting the programmer omit the declaration.<br><br>Every language should be designed together with a big 
+application written in it, so the designers can see whether
+the language works.  C, for example, was sharpened on 
+the systems programming projects that culminated in Unix.
+We're going to use Arc to write a
+platform for Web-based applications.  The two will
+be tightly integrated, like C and Unix.  We hope to make 
+Arc the ideal language for writing Web-based apps--  
+the language we wish we'd had when we were
+writing <a href="avg.html">Viaweb</a>.  This means that
+Arc will have to be good at manipulating strings, which
+has not in the past been a big concern for Lisp.<br><br>One of the ways Perl makes programs shorter is to use
+a lot of pronouns.  Lisp programmers have always done this
+to some extent with macros like aif, but it has generally been
+considered a slightly dubious trick, and has not as far
+as I know made it into any of the major Lisp dialects.
+In Arc we use a lot of pronouns.  They make programs shorter,
+and having them gives more control to the programmer.  
+(If a language lets things be implicit, the programmer   
+always has the option of being explicit, but if the
+languages requires everything to be explicit, the
+programmer can't make things implicit.)<br><br><br><br><hr>
+5. Syntax<br><br>- CL/Scheme: s-expressions only.<br><br><xmp>
+    disadvantage: long-winded
+</xmp>
+- Dylan/Python: s-expressions hidden underneath.<br><br><xmp>
+    disadvantage: macros unnatural
+</xmp>
+- Arc: syntax as abbreviation.<br><br><xmp>
+    disadvantage: no syntax yet
+</xmp>
+<hr><br><br>Arc is going to have syntax.  The Lisp world has agonized
+about this <a href="syntaxquestion.html">question</a> for a long time.  Since the beginning
+in fact, as several people pointed out at LL1.  McCarthy
+intended the original Lisp to have syntax, but
+programmers preferred using raw s-expressions, so no
+one ever got around to implementing it.<br><br>The argument for syntax has usually been that it would
+make Lisp more accessible to a "mainstream" audience.
+The designers of Dylan, which was intended to be Lisp for the
+masses, dutifully stuck a syntax onto the later versions.  I
+didn't get the impression that they, personally, preferred
+writing programs in the new syntax.  That is dangerous territory.<br><br>By deciding to make Arc a language for good programmers,
+we get an answer to that side of the question at least.
+We don't have to dumb down the language to make it
+accessible to anyone.
+However, there is another advantage of syntax: it can make 
+programs shorter.  And that is a genuine win.<br><br>So the answer (or an answer), I think, to the long
+pondered question of syntax for Lisp is: yes, have syntax,
+but only as abbreviation.  Arc will have syntax, but it  
+will translate in a clearly defined (and in fact, redefinable)
+way into underlying s-expressions.  Nearly all the syntax will
+be optional, and moreover optional at the level of
+individual operators.<br><br>As much as we can, we will make whatever we use to define
+syntax accessible to the programmer, so that you can 
+customize the syntax however you like.  Lisp is widely
+considered to be the best substrate for domain-specific
+little languages, and programmable syntax should help make it even better.<br><br>The disadvantage of this approach is that we have no examples
+of syntax to show anyone yet.  We have some ideas about it,
+but we are still working on the underlying s-expression
+language.  Some things are fairly predictable, like
+infix math.  But we want to get the most bang for the buck
+for desirable characters like [ and ], so we will probably
+wait to see what the most common idioms are before we
+decide what to abbreviate.<br><br>Here are a couple ideas:<br><br><font face=courier>x.y</font> and <font face=courier>x:y</font> for
+<font face=courier>(x y)</font> and <font face=courier>(x 'y)</font> respectively.<br><br><font face=courier>[+ _ 1]</font> for <font face=courier>(fn (x) (+ x 1))</font><br><br>We also plan to let programmers omit
+parentheses where no ambiguity would result, and show
+structure by indentation instead of parentheses.  I find
+that I spontaneously do both these things when writing
+Lisp by hand on whiteboards or the backs of envelopes.<br><br><br><br>
+<hr>
+6. Arc Core<br><br>- eval, car, cdr, cons, quote<br><br>- cond split into cond + do (progn)<br><br><font face=courier><xmp>
+  CL:  (cond ((a x) (princ "!") (b x))
+             ((c x) (d x))
+             (t (e x)))
+</xmp></font><br><br><font face=courier><xmp>
+  Arc: (cond (a x) (do (pr "!") (b x))
+             (c x) (d x)
+                   (e x))
+</xmp></font>
+- Usually use  if, which binds it:<font face=courier> (if (a x) (car it))</font>
+<hr><br><br>The core of Arc is much the same as the core of
+McCarthy's original <a href="rootsoflisp.html">1960 Lisp</a>.  The operators eval,
+car, cdr, cons, and quote work the same when applied
+to symbols and lists (the only data types in the 1960 paper),
+except that car and cdr generate errors when applied to nil.<br><br>The one operator we changed is cond.  McCarthy,
+who wanted to keep his axioms to a minimum, buried
+progn within cond.  That worked for his examples, but   
+for programming in general you soon find you need a
+progn separate from the implicit progn of cond.<br><br>Having an implicit progn in cond means every cond
+clause has to have an extra pair of parentheses.
+McCarthy said later that he thought he had gotten cond wrong,
+that it used too many parentheses, and this may be
+what he meant.  Arc's cond doesn't have an implicit
+progn, and so you don't need the parentheses around
+each clause.  We also omitted the t in the default   
+clause, which seemed to be an onion.  The example
+in the slide shows the same code in Common Lisp and
+in Arc.  (Arc's do is Common Lisp progn, and pr is
+Common Lisp princ.)<br><br>In Arc, cond is a low-level operator, used mainly in
+macroexpansions.  Most of the time programmers use
+if, which is exactly the same, except that within a
+successful then-expression, the variable it will be
+bound to the result of the test-expression.<br><br><br><br><hr>
+7. Assignment (Scope)<br><br>- Lexical scope, single namespace.<br><br>- = is setf (no set or setq).<br><br>- Can create local vars by assignment.<br><br><font face=courier><xmp>
+  > (do (= x 5)
+        (cons x 'a))
+  (5 . A)
+</xmp></font>     
+- Any sequence of code is a block.<br><br>- Easy to write a non-scope block.
+<hr><br><br>Arc has lexical scope and a single namespace like Scheme.
+A variable whose value is a function is no different from any
+other.  The evaluation rule is simply to evaluate the whole
+expression from left to right, and then apply the value of
+the first element to the values of the rest.<br><br>The assignment operator is =.  I was dubious about this,
+but decided to try it and see if I got used to it.  It
+turns out to work well, even in prefix.  Stripes stand
+out, which is why they get used on
+warning signs and poisonous animals.<br><br>Here is a big difference between Arc and previous Lisps:
+local variables can be created implicitly by assigning
+them a value.  If you do an assignment to a variable that
+doesn't already exist, you thereby create a lexical
+variable that lasts for the rest of the block.  (Yes,
+we know this will make the code hard to compile, but   
+we're going to try.)  A block is a do, or any implicit
+do in one of Arc's predefined operators.<br><br>It's easy to write a progn-like operator that doesn't
+have an effect on scopes: just write a function that takes
+any number of arguments and returns the last.  Arc has
+a function, currently called justdo, that does this, but it is
+intended for use only in macros where you have to
+evaluate expressions sequentially without having them
+unexpectedly be in a new lexical contour.<br><br><br><br><hr>
+8. Functions and Macros<br><br>- lambda is fn: (fn (x) (cons x 'a))<br><br>- rfn (a macro) instead of labels.<br><br><font face=courier><xmp>
+  (rfn len (x)
+    (if (no x)
+        0
+        (+ 1 (len (cdr x)))))
+</xmp></font>
+- Macros separate 1st class objs.<br><br><font face=courier><xmp>
+  (macro (test . body)
+    `(if ,test (do ,.body)))
+</xmp></font>
+- To get local macros, just bind.
+<hr><br><br>Like any Lisp, Arc has first-class functions.  There is a
+fn operator, like Scheme's lambda, that returns a new
+function.  Arc has no labels or letrec.  For defining
+recursive functions there is a macro called rfn, which
+is like fn except that it takes an additional
+first argument to use as its own name.
+The example above is a recursive function that finds
+the length of a list.<br><br>Using rfn instead of labels makes it more convenient to   
+define individual recursive functions and less convenient
+to define several mutually-recursive functions, but the
+former is by far the more common case.<br><br>(The name rfn was suggested by Dorai Sitaram.)<br><br>Arc macros are also first class objects.
+They are, as in Common Lisp, simply functions that return
+expressions.  Arc doesn't have the hygienic macros of
+Scheme or Dylan.  Or rather it doesn't require you to use
+them; something like that may be supplied as a library, 
+but programmers can also have access to raw macroexpansion.<br><br>This is another case where our axiom that the user is
+a good programmer simplifies
+matters.  As an expert, the user will not be
+thrown by the prospect of variable capture (indeed will
+often do it deliberately), but will definitely not like
+a macro mechanism that takes away some of the power of
+defmacro.<br><br>Because macros are first-class objects, there is no need
+for Common Lisp's macrolet.  You can give a macro local
+scope with let, just as you would give a value to any
+other variable.<br><br>Making macros first-class objects may wreak havoc with
+compilation.  We're hoping that between inference and
+declarations that it will be possible to get fast code when
+it's needed.<br><br>Macros are going to be a focus in Arc, because
+we think they're one of the
+biggest wins in Lisp.  As well as traditional expression-based
+macros, Arc may have macros driven by code-walkers
+looking at multiple expressions.  This may interact with Arc's
+programmable syntax in useful ways.<br><br><br><br><hr>
+9. Binding<br><br>- with like CL let:<br><br><font face=courier><xmp>
+  > (with (x 'a y 'b)
+      (list x y))
+  (A B)
+</xmp></font>
+- let for single variable case:<br><br><font face=courier><xmp>
+  > (let x 'a
+      (cons x 5))
+  (A . 5)
+</xmp></font>
+- both macros on function call   
+<hr><br><br>Arc has a macro for introducing new variable bindings
+called with.  It's like the let of Common Lisp and   
+Scheme, except that it uses fewer parentheses.<br><br>In my Scheme and Common Lisp code, most lets introduce
+one variable.  So in Arc we use the name let for this
+more common case.<br><br>Both with and let are the obvious macros on function
+application.  For example,  (let x 3 (foo x)) expands into
+((fn (x) (foo x)) 3).<br><br>Whenever possible, operators like these that can be
+implemented in Arc will be officially defined by a
+piece of Arc source code.  They need not be implemented
+this way, or described this way in tutorials, but if
+a programming languge is good, source code should
+make the best spec.<br><br><br><br><hr>
+10. Iteration<br><br>- CL do is hard to read.  Solve the common cases.<br><br>- Arc's 4 basic iterators:
+<font face=courier><xmp>
+  > (for (= i 0) (< i 10) (++ i)
+      (pr i))
+  0123456789
+  NIL
+</xmp></font>
+<font face=courier><xmp>
+  > (to i 10 (pr i))
+  0123456789
+  NIL
+</xmp></font>
+<font face=courier><xmp>
+  > (each x '(a b c) (pr x))
+  ABC
+  NIL
+</xmp></font>
+<font face=courier><xmp>
+  > (let i 0
+      (while (< (++ i) 10) (pr i)))
+  123456789
+  NIL
+</xmp></font>
+- Like with and  let, macros on function calls
+<hr><br><br>Forms for iteration are another open question in the Lisp
+community.  The traditional Lisp do is general but too hard
+to read.  If do was a natural way to express iterations, I
+would by now be used to it, but when I see a do
+I have to stop and decode it, and when I write one I have
+to stop and figure out how to express the iteration I want.
+In other words, do feels like object code.<br><br>Our take on iteration is that there are a handful of common
+cases.  If you support those directly, you'll catch nearly
+all the interations people actually write.  If anyone misses
+do enough, they can always write it as a macro.<br><br>Arc has four iteration operators: for, which is like C's
+for except that bindings created by the initialization
+forms are local variables in the loop body; to, which is
+like Common Lisp's dotimes but without the form for a
+return value; each, which is like Common Lisp's dolist,
+but works for any compound data object (lists, strings,
+vectors, etc), and again has no return value form, 
+and while, which evaluates its body while a test expression
+returns true.<br><br>All of these iteration operators are defined (though not
+necessarily implemented) as the obvious macros on
+recursive function application.<br><br><br><br>
+<hr>
+11. Iteration Captures<br><br>- while captures it:
+<font face=courier><xmp>
+  (while (read) (pr it))
+</xmp></font>
+- All capture keep and sum:
+<font face=courier><xmp>
+  > (each x '("al" "bob" "joe")
+      (if (> (len x) 2) (keep x)))
+  ("bob" "joe")
+</xmp></font>
+<font face=courier><xmp>
+  > (to x 5
+      (sum x)
+      (pr x))
+  01234
+  10
+</xmp></font>
+(Can't use both.)
+<hr><br><br>Like if, while leaves the variable it bound to the value
+returned by the test expression.<br><br>In addition, all the iteration operators leave keep and
+sum bound within the body to functions that accumulate values.
+Calling keep accumulates a list of values and
+calling sum accumulates a sum.  You can call either one
+wherever in the loop you want, and as often as you want,
+but you can't call both in the same loop.  If you do
+call keep or sum, the iteration expression will return the
+accumulated value, otherwise it will return nil.<br><br>We may generalize accumulation to allow any function to be
+applied to the accumulated value, and maybe write keep
+and sum as macros on this.<br><br><br><br><hr>
+12.  Data Types<br><br><xmp>
+Symbol 
+Number (same as CL)
+Cons 
+Character 
+String 
+Array 
+Class, Obj 
+DB (hash/alist) 
+Function 
+Macro 
+Likely more
+</xmp>
+<hr><br><br>Here is a quick list of the data types so far.  They're
+about what you'd expect.  We're very likely to add
+more once we get to dealing with things like threads and
+exceptions.<br><br><br><br><hr>
+13. Compounds = Functions on Indices<br><br><font face=courier><xmp>
+> ("hello" 2)
+\l
+</xmp></font>
+<font face=courier><xmp>
+> (map "carpet" '(3 4 1 2))
+(\p \e \a \r)
+</xmp></font><br><br><font face=courier><xmp>
+CL:   (aref a 5)
+C:    a[5]
+Arc:  (a 5)
+</xmp></font>
+<hr><br><br>Any compound data object (meaning one with several separately
+addressable parts) behaves like a function on indices. 
+So for example to get the third element of a list you
+"call" the list with 2 as an argument.  This makes programs
+shorter and saves us having separate access functions for
+each data type.<br><br>You can literally use compound data objects anywhere you
+could use a function, including as the first argument to
+map (like Common Lisp's mapcar, but works on any sequence).<br><br><br><br><hr>
+14. Strings Work Like Lists<br><br><font face=courier><xmp>
+> (car "abc")   
+\a
+> (cons \a "bc")
+"abc"
+</xmp></font>
+Contagion as with ints and floats<br><br><font face=courier><xmp>
+  > (+ "abc" '(d e))
+  (\a \b \c D E)
+</xmp></font><br><br>Should we allow nonchars in strings?
+<hr><br><br>This one is a bit of a radical idea, but we thought we  
+would try it and see how it works.  In Arc, strings work
+like lists: the car of a string is a character, and the
+cdr is another string with the same characters except
+the first.<br><br>We've found recursion on lists to be a very useful technique,
+and so maybe it will be equally good for processing strings.<br><br>This could be terribly inefficient, of course, and we plan
+to let the programmer declare when he wants to that he
+doesn't need to do this to some strings and they should be
+represented as simple contiguous chunks of memory (i.e.
+unboxed).<br><br>This raises an interesting possibility.  When strings are
+in effect lists, why not let the programmer insert arbitrary
+objects into them?  It could be useful to insert some
+object that had its own pr method, for example.  So far
+strings can only contain characters, but we'll see.<br><br>When you combine strings with lists, you get something
+like floating point contagion.  Strings are a specific
+kind of list, like integers are a specific kind of
+real number, and when you combine you get a result of
+the more general type.<br><br><br><br><hr>
+15. Classes and Objects<br><br>Single inheritance (may change)<br><br><font face=courier><xmp>
+(= pt (class nil 'x 0 'y 0)) 
+</xmp></font>
+<font face=courier><xmp>
+(type pt (x 0) (y 0))
+</xmp></font>
+<font face=courier><xmp>
+(= p1 (new pt)) 
+</xmp></font>
+<font face=courier><xmp>
+> (p1 'x)
+0
+> (++ (p1 'x))
+1
+</xmp></font>
+<hr><br><br>We look on object-oriented programming as a type of
+abstraction that is often useful, rather than an end in itself.  
+The real test of
+a feature is whether it will actually make your source
+code shorter and simpler. To start with at least
+Arc has a minimal object system that lets you do the
+things we know people need to do.<br><br>Classes are first-class objects that you can create
+with the class operator.  It takes a parent object (or
+nil) followed by a list of field names alternating with   
+default values.  Field names can be anything, not just
+symbols.  There is also type macro that expands into a
+call to class, for the common case of a named class
+with no parent and field names that are symbols; the syntax
+is very like Common Lisp's defstruct.<br><br>There is only single inheritance so far.  It would not
+be difficult to have multiple inheritance, but a poll
+of eminent hacker friends indicated that none of them  
+found it super useful.<br><br>You can make an instance of a class by calling new on 
+the class.  You refer to fields in instances (or
+classes, if you want to) the same way you refer to
+part of any compound data structure, by calling
+the object as a function on indices, in this case
+field names.<br><br><br><br><hr>
+16. Overloading<br><br>- Anything can be an obj field name.<br><br>- Overload by using a fn as a name.<br><br><font face=courier><xmp>
+  (= pt (class nil
+          'x 0
+          'y 0
+          pr my-pr))
+</xmp></font>
+- Means dispatch on first arg.<br><br>- (Not great for  cons, so
+maybe a way to declare pivotal arg of
+a function.) 
+<hr><br><br>You can overload a function by giving an object a field
+whose name is that function (the actual function).
+When an expression is evaluated, if the first argument
+is an instance (or class) with a field whose
+name is that function, the value stored in that field
+(which must also be a function) is called on the same
+arguments instead.<br><br>In the example on the slide, pt is a class that
+get printed differently.  When pr is called on a
+child of pt, my-pr (whatever that is) gets invoked   
+instead.<br><br>This plan for overloading amounts to dispatching on
+the first argument.  That doesn't work well with
+cons, for example, where the pivotal argument is
+really the second one.  It could be that cons is  
+an anomaly (its arguments are in that order for
+visual reasons, and that must be rare).  If
+it isn't, we may add some way of saying which is
+the pivotal argument in a function.<br><br><br><br><hr>
+17. DBs are hashes/alists<br><br><font face=courier><xmp>
+(newdb eq 'x 'a 'y 'b)
+</xmp></font>
+<font face=courier><xmp>
+(db x 'a y 'b)
+</xmp></font>
+<font face=courier><xmp>
+> (each x (db x 1 y 2)
+    (pr x)
+    (keep key))
+12
+(X Y)
+</xmp></font>
+Lookup failure returns *fail*
+<hr><br><br>Arc has a kind of data repository called a db that you can
+think of as a hash table, though the internal
+representation is unspecified (in some cases the
+compiler might choose to make it be an alist).<br><br>(This idea was suggested by Erann Gat.)<br><br>The keys of a db can be any kind of object, like field
+names in an instance.  However, you can add and remove entries whenever
+you like, and you can also specify the function you want to
+define equality for keys.<br><br>You can create a db by calling either newdb, or the shorter
+db which assumes that lookup equality test is eq, and the
+keys are symbols.<br><br>When you're doing a lookup, what do you do when you don't
+find anything?  The traditional Lisp answer (as in e.g. assoc)
+would be to return nil, but in that case how do you
+distinguish between not finding anything and finding nil?
+Arc's answer is to have a global variable *fail* that is  
+used by lookup functions that don't find any matches.
+It's bound to nil by default, which is the right thing nearly
+all the time; when it isn't, you can wrap the   
+lookup in a let that binds *fail* to a gensym.<br><br><br><br><hr>
+18. Parameter Lists<br><br>Parms are symbols or (opt | get | ds ...)<br><br><font face=courier><xmp>
+(def foo (x (ds (i j)) (get m n) (opt q 'a) . z)
+  (list x i j m n q z))
+</xmp></font>
+<font face=courier><xmp>
+> (foo 1 '(red green) (db m 'a n 'b) 'hel 'lo)
+(1 RED GREEN A B HEL (LO))
+</xmp></font><br><br>(Syntax will help here.)<br><br>
+<font face=courier><xmp>
+> (let (ds (x y)) '(a b)
+    (list x y))
+(A B)
+</xmp></font>
+<hr><br><br>Arc allows three things in parameter lists besides ordinary
+symbols: (opt var default) which indicates an optional
+parameter whose value defaults to default; (ds pattern)
+which matches a pattern of variables
+against an incoming list, like Common Lisp destructuring-bind;
+and (get vars) which picks one or more variables out of
+an incoming db or instance with corresponding keys.<br><br>We're expecting get parameters to play the role that keyword
+parameters do in Common Lisp, and we hope to compile calls
+into similar code (i.e. not actually create the dbs).<br><br>Arc also supports rest parameters, which occur after a dot
+in the parameter list and are assigned all the remaining
+values in the call.<br><br>Because we got rid of the extra non-variable tokens that
+get included in Common Lisp parameter lists, we can define
+let and with as the obvious macros on function calls.
+So for example we get the equivalent of Common Lisp's
+destructuring-bind for free: just use a ds form as a
+parameter to let or with.  Using a get form to
+destructure on instances will also be convenient.<br><br><br><br><hr>
+19. Speed<br><br>- Moon: hard to tell what's expensive.<br><br>- SICP: programs "for people to read"<br><br>- Profiler should tell, not language.<br><br>- Especially for server-based apps.
+<hr><br><br>David Moon once told me that Lisp makes it hard for 
+programmers to tell what's expensive.
+That sounds like a problem.
+At the same time, Abelson and Sussman say (and I
+agree) that "programs must be written
+for people to read, and only incidentally for
+machines to execute."<br><br>How are we to reconcile these two ideas?  I agree that,
+most of all, a language must be a good tool for
+thinking in.  That's what made Lisp good in the first place.
+And yet, like anyone, I like fast code.
+I think the way out is to take the burden of showing
+what's expensive off the language.  Instead of trying
+to make the language suggest what's expensive, just
+make the language convenient for expressing ideas, and
+have a profiler to show what's expensive.<br><br>The Scheme language sneakily increased the scope of the
+language designer's powers.  From very early, maybe from
+the begining, the Scheme spec said that conforming
+implementations must do tail call elimination.  The
+first time I read this, I thought "wait, can you require   
+this in a spec?"  Arc will see this increase, and raise   
+it by some standards for profiling.<br><br>The way to get fast code in Arc will be to profile it
+and then add declarations that improve efficiency where  
+needed.  As in Common Lisp, declarations will be   
+optimization advice to the compiler; they should not
+affect the meaning of the program.<br><br>Arc is intended for <a href="road.html">server-based applications</a>,
+and profiling is especially good there because you can
+profile your program's actual behavior.  You don't
+have to rely on test suites; you can watch actual users.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<script type="text/javascript">
+csell_env = 'bf1';
+ var storeCheckoutDomain = 'order.store.yahoo.net';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+ csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'arcll1'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+</script>
+<script type="text/javascript">
+// Begin Yahoo Store Generated Code
+var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=arcll1&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+</script>
+<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
