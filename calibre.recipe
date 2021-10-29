@@ -1,0 +1,75 @@
+# encoding: utf-8
+from calibre.web.feeds.recipes import BasicNewsRecipe
+from calibre.ebooks.BeautifulSoup import BeautifulSoup
+from urllib2 import urlopen
+from datetime import datetime
+import xml.etree.ElementTree as ET
+#base_url = 'http://www.paulgraham.com/articles.html'
+base_url = 'http://127.0.0.1:8000'
+
+class Paul_Graham(BasicNewsRecipe):
+
+        title = 'Essays of Paul Graham'
+        description = u''
+        cover_url = 'http://127.0.0.1:8000/images/cover.jpg'
+        
+        remove_tags = [dict(name=['img', 'title'])]
+        __author__ = 'evmn'
+        language = 'en'
+        #encoding = 'cp-1252'
+        encoding = 'utf-8'
+        timefmt = ''
+
+        publication_type = 'blog'
+        remove_attributes = ['href']
+        no_stylesheets = True
+        remove_javascript = True
+        auto_cleanup = True
+        delay = 1
+        simultaneous_downloads = 5
+        oldest_article = 999
+        max_articles_per_feed = 999
+
+        def parse_index(self):
+
+                soup = self.index_to_soup("http://127.0.0.1:8000/index.html")
+                archives = soup.find('table').findAll('table')[1]
+                feeds = []
+                desc = ''
+                articles = []
+                for section in archives.findAll('a'):
+                        title = section.getText()
+                        link = "http://127.0.0.1:8000/www.paulgraham.com/" + section['href']
+                        articles.append({'title':title, 'url': link})
+                newlist = sorted(articles, key=lambda d: d['title']) 
+
+                sec_blogs = [[], [], [], [], [], [], [], []]
+                sec_titles = ['AB', 'C-G', 'H', 'I-N', 'O-S', 'T', 'U-Z', '0-9']
+                for item in newlist:
+                        fc = item['title'][0]
+                        if fc in list("AB"):
+                                print(item['title'])
+                                sec_blogs[0].append(item)
+                        elif fc in list("CDEFG"):
+                                print("---CDEFG")
+                                print(item['title'])
+                                sec_blogs[1].append(item)
+                        elif fc in list("H"):
+                                print("---H")
+                                sec_blogs[2].append(item)
+                        elif fc in list("IJKLMN"):
+                                print("---IJKLMN")
+                                sec_blogs[3].append(item)
+                        elif fc in list("OPQRS"):
+                                print("---OPQRS")
+                                sec_blogs[4].append(item)
+                        elif fc in list("T"):
+                                sec_blogs[5].append(item)
+                        elif fc in list("UVWXYZ"):
+                                sec_blogs[6].append(item)
+                        else:
+                                sec_blogs[7].append(item)
+                                
+                for b, a in zip(sec_blogs, sec_titles):
+                        feeds.append((a, b))
+                return feeds
