@@ -9,7 +9,7 @@ lazy evaluation of research papers.  Just
 write whatever you want and don't cite any previous work, and
 indignant readers will send you references to all the papers you
 should have cited.   I discovered this algorithm
-after ``A Plan for Spam'' [1] was on Slashdot.<br><br>Spam filtering is a subset of text classification,
+after "A Plan for Spam" [1] was on Slashdot.<br><br>Spam filtering is a subset of text classification,
 which is a well established field, but the first papers about
 Bayesian
 spam filtering per se seem to have been two
@@ -48,7 +48,7 @@ I didn't know much about mail headers then, and they seemed to me
 full of random stuff.  There is a lesson here for filter
 writers: don't ignore data.  You'd think this lesson would
 be too obvious to mention, but I've had to learn it several times.<br><br>Third, Pantel and Lin stemmed the tokens, meaning they reduced e.g. both
-``mailing'' and ``mailed'' to the root ``mail''.   They may
+"mailing" and "mailed" to the root "mail".   They may
 have felt they were forced to do this by the small size
 of their corpus, but if so this is a kind of premature 
 optimization.<br><br>Fourth, they calculated probabilities differently.
@@ -88,7 +88,7 @@ I'll see how far I can get with single words.  And the answer is,
 surprisingly far.<br><br>Mostly I've been working on smarter tokenization.  On
 current spam, I've been able to achieve filtering rates that
 approach CRM114's.  These techniques are mostly orthogonal to Bill's;
-an optimal solution might incorporate both.<br><br>``A Plan for Spam'' uses a very simple
+an optimal solution might incorporate both.<br><br>"A Plan for Spam" uses a very simple
 definition of a token.  Letters, digits, dashes, apostrophes,
 and dollar signs are constituent characters, and everything
 else is a token separator.  I also ignored case.<br><br>Now I have a more complicated definition of a token:
@@ -98,13 +98,13 @@ else is a token separator.  I also ignored case.<br><br>Now I have a more compli
  and prices intact.<br><br><li> A price range like $20-25 yields two tokens,
  $20 and $25.<br><br><li> Tokens that occur within the
  To, From, Subject, and Return-Path lines, or within urls,
- get marked accordingly.  E.g. ``foo'' in the Subject line
- becomes ``Subject*foo''.  (The asterisk could
+ get marked accordingly.  E.g. "foo" in the Subject line
+ becomes "Subject*foo".  (The asterisk could
  be any character you don't allow as a constituent.)
 </ol>
 Such measures increase the filter's vocabulary, which
 makes it more discriminating.  For example, in the current
-filter, ``free'' in the Subject line
+filter, "free" in the Subject line
 has a spam probability of 98%, whereas the same token
 in the body has a spam probability of only 65%.<br><br>Here are some of the current probabilities [6]:<br><br><font face=courier><pre>
 Subject*FREE      0.9999
@@ -136,10 +136,10 @@ version.  I consider terminal exclamation
 points, uppercase letters, and occurring in one of the
 five marked contexts as making a token more specific.
 For example, if I don't find a probability for
-``Subject*free!'', I look for probabilities for
-``Subject*free'', ``free!'', and ``free'', and take whichever one
+"Subject*free!", I look for probabilities for
+"Subject*free", "free!", and "free", and take whichever one
 is farthest from .5.<br><br>Here are the alternatives [7]
-considered if the filter sees ``FREE!!!'' in the
+considered if the filter sees "FREE!!!" in the
 Subject line and doesn't have a probability for it.<br><br><font face=courier><pre>
 Subject*Free!!!
 Subject*free!!!
@@ -164,10 +164,10 @@ caps as well as all uppercase and all lowercase.  Spams
 tend to have more sentences in imperative mood, and in
 those the first word is a verb.  So verbs with initial caps
 have higher spam probabilities than they would in all 
-lowercase.  In my filter, the spam probability of ``Act''
-is 98% and for ``act'' only 62%.<br><br>If you increase your filter's vocabulary, you can end up
+lowercase.  In my filter, the spam probability of "Act"
+is 98% and for "act" only 62%.<br><br>If you increase your filter's vocabulary, you can end up
 counting the same word multiple times, according to your old
-definition of ``same''.
+definition of "same".
 Logically, they're not the
 same token anymore.  But if this still bothers you, let
 me add from experience that the words you seem to be
@@ -182,9 +182,9 @@ the result can end up being decided by whatever random factor
 determines the ordering of equally interesting tokens.
 One way to deal with this is to treat some
 as more interesting than others.<br><br>For example, the
-token ``dalco'' occurs 3 times in my spam corpus and never
-in my legitimate corpus.  The token ``Url*optmails''
-(meaning ``optmails'' within a url) occurs 1223 times.
+token "dalco" occurs 3 times in my spam corpus and never
+in my legitimate corpus.  The token "Url*optmails"
+(meaning "optmails" within a url) occurs 1223 times.
 And yet, as I used to calculate probabilities for tokens,
 both would have the same spam probability, the threshold of .99.<br><br>That doesn't feel right.  There are theoretical
 arguments for giving these two tokens substantially different
@@ -230,8 +230,8 @@ on the content because the headers are innocent and
 they're careful about the words they use.  Even so I can
 usually catch them.  This one squeaked by with a
 probability of .88, just under the threshold of .9.<br><br>Of course, looking at multiple token sequences
-would catch it easily.  ``Below is the result of
-your feedback form'' is an instant giveaway.<br><br>The fourth spam was what I call
+would catch it easily.  "Below is the result of
+your feedback form" is an instant giveaway.<br><br>The fourth spam was what I call
 a spam-of-the-future, because this is what I expect spam to
 evolve into: some completely neutral
 text followed by a url.  In this case it was was from
@@ -247,8 +247,8 @@ If it's low enough,
 it <a href="wfks.html">won't pay</a> for spammers to send it, and we won't 
 have to work too hard on filtering it.<br><br>Now for the really shocking news: during that same one-month
 period I got <i>three</i> false positives.<br><br>In a way it's
-a relief to get some false positives.  When I wrote ``A Plan
-for Spam'' I hadn't had any, and I didn't know what they'd
+a relief to get some false positives.  When I wrote "A Plan
+for Spam" I hadn't had any, and I didn't know what they'd
 be like.  Now that I've had a few, I'm relieved to find
 they're not as bad as I feared.
 False positives yielded by statistical
@@ -370,14 +370,14 @@ test mailing for each tweak.  It would be like programming in
 a language without an interactive toplevel, 
 and I wouldn't wish that
 on anyone.<br><br><br><br><b>Notes</b><br><br>[1]
-Paul Graham.  ``A Plan for Spam.'' August 2002.
+Paul Graham.  "A Plan for Spam." August 2002.
 http://paulgraham.com/spam.html.<br><br>Probabilities in this algorithm are
 calculated using a degenerate case of Bayes' Rule.  There are
 two simplifying assumptions: that the probabilities
 of features (i.e. words) are independent, and that we know
 nothing about the prior probability of an email being
 spam.<br><br>The first assumption is widespread in text classification.
-Algorithms that use it are called ``naive Bayesian.''<br><br>The second assumption I made because the proportion of spam in
+Algorithms that use it are called "naive Bayesian."<br><br>The second assumption I made because the proportion of spam in
 my incoming mail fluctuated so much from day to day (indeed,
 from hour to hour) that the overall prior ratio seemed
 worthless as a predictor.  If you assume that P(spam) and
@@ -389,11 +389,11 @@ performance by incorporating prior probabilities.  To do
 this right you'd have to track ratios by time of day, because
 spam and legitimate mail volume both have distinct daily
 patterns.<br><br>[2]
-Patrick Pantel and Dekang Lin. ``SpamCop-- A Spam
-Classification & Organization Program.''  Proceedings of AAAI-98
+Patrick Pantel and Dekang Lin. "SpamCop — A Spam
+Classification & Organization Program."  Proceedings of AAAI-98
 Workshop on Learning for Text Categorization.<br><br>[3]
 Mehran Sahami, Susan Dumais, David Heckerman and Eric Horvitz.
-``A Bayesian Approach to Filtering Junk E-Mail.'' Proceedings of AAAI-98
+``A Bayesian Approach to Filtering Junk E-Mail." Proceedings of AAAI-98
 Workshop on Learning for Text Categorization.<br><br>[4] At the time I had zero false positives out of about 4,000 
 legitimate emails.  If the next legitimate email was
 a false positive, this would give us .03%.  These false positive
@@ -401,25 +401,25 @@ rates are untrustworthy, as I explain later. I quote
 a number here only to emphasize that whatever the false positive rate
 is, it is less than 1.16%.
 <!--As an indication of how widely divergent these results
-are, a filter that simply looked for the word ``click'' would in
-August 2002 catch 79.7% of my spam with 1.2% false positives.--><br><br>[5] Bill Yerazunis. ``Sparse Binary Polynomial Hash Message
-Filtering and The CRM114 Discriminator.''  Proceedings of 2003
-Spam Conference.<br><br>[6] In ``A Plan for Spam'' I used thresholds of .99 and .01.
+are, a filter that simply looked for the word "click" would in
+August 2002 catch 79.7% of my spam with 1.2% false positives.--><br><br>[5] Bill Yerazunis. "Sparse Binary Polynomial Hash Message
+Filtering and The CRM114 Discriminator."  Proceedings of 2003
+Spam Conference.<br><br>[6] In "A Plan for Spam" I used thresholds of .99 and .01.
 It seems justifiable to use thresholds proportionate to the
 size of the corpora.  Since I now have on the order of 10,000 of each
 type of mail, I use .9999 and .0001.<br><br>[7] There is a flaw here I should probably fix.  Currently,
-when ``Subject*foo'' degenerates to just ``foo'', what that means is
-you're getting the stats for occurrences of ``foo'' in
+when "Subject*foo" degenerates to just "foo", what that means is
+you're getting the stats for occurrences of "foo" in
 the body or header lines other than those I mark.
-What I should do is keep track of statistics for ``foo''
+What I should do is keep track of statistics for "foo"
 overall as well as specific versions, and degenerate from
-``Subject*foo'' not to ``foo'' but to ``Anywhere*foo''.  Ditto for
+``Subject*foo" not to "foo" but to "Anywhere*foo".  Ditto for
 case: I should degenerate from uppercase to any-case, not
 lowercase.<br><br>It would probably be a win to do this with prices
-too, e.g. to degenerate from ``$129.99'' to ``$--9.99'', ``$--.99'',
-and ``$--''.<br><br>You could also degenerate from words to their stems,
+too, e.g. to degenerate from "$129.99" to "$--9.99", "$--.99",
+and "$--".<br><br>You could also degenerate from words to their stems,
 but this would probably only improve filtering rates early on 
-when you had small corpora.<br><br>[8] Steven Hauser.  ``Statistical Spam Filter Works for Me.''
+when you had small corpora.<br><br>[8] Steven Hauser.  "Statistical Spam Filter Works for Me."
 http://www.sofbot.com.<br><br>[9] False positives are not all equal, and we should remember
 this when comparing techniques for stopping spam.
 Whereas many of the false positives caused by filters
@@ -440,14 +440,14 @@ pick the words out of the resulting sequence.
 And of course finding words this way that weren't visible in
 the original text would in itself be evidence of spam.<br><br>Picking out the words won't be trivial.  It will require 
 more than just reconstructing word boundaries; spammers
-both add (``xHot nPorn cSite'') and omit (``P#rn'') letters.
+both add ("xHot nPorn cSite") and omit ("P#rn") letters.
 Vision research may be useful here, since human vision is
 the limit that such tricks will approach.<br><br>[11] 
 In general, spams are more repetitive than regular email.   
 They want to pound that message home.  I currently don't
 allow duplicates in the top 15 tokens, because
 you could get a false positive if the sender happens to use
-some bad word multiple times. (In my current filter, ``dick'' has
+some bad word multiple times. (In my current filter, "dick" has
 a spam probabilty of .9999, but it's also a name.)
 It seems we should at least notice duplication though,
 so I may try allowing up to two of each token, as Brian Burton does in
@@ -463,7 +463,7 @@ side in debates about software design.
 People only tend to use them to justify choices
 (inaction in particular) made for other reasons.<br><br><b>Thanks</b> to Sarah Harlin, Trevor Blackwell, and
 Dan Giffin for reading drafts of this paper, and to Dan again
-for most of the infrastructure that this filter runs on.<br><br><br><br><b>Related:</b><br><br></article></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><article><a href="spam.html">A Plan for Spam</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="spamfaq.html">Plan for Spam FAQ</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="http://spamconference.org/proceedings2003.html">2003 Spam Conference Proceedings</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="http://www.shiro.dreamhost.com/scheme/trans/better-j.html">Japanese Translation</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="http://people.brandeis.edu/~liji/_private/translation/better.htm">Chinese Translation</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="http://www.bgl.nu/bogofilter/graham.html">Test of These Suggestions</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+for most of the infrastructure that this filter runs on.<br><br><br><br><b>Related:</b><br><br></article></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="spam.html">A Plan for Spam</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="spamfaq.html">Plan for Spam FAQ</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="http://spamconference.org/proceedings2003.html">2003 Spam Conference Proceedings</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="http://www.shiro.dreamhost.com/scheme/trans/better-j.html">Japanese Translation</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="http://people.brandeis.edu/~liji/_private/translation/better.htm">Chinese Translation</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=421><font size=2 face="verdana"><a href="http://www.bgl.nu/bogofilter/graham.html">Test of These Suggestions</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td></td></tr></table></td></tr></table></body>
 <script type="text/javascript">
 csell_env = 'bf1';
  var storeCheckoutDomain = 'order.store.yahoo.net';

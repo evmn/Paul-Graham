@@ -1,83 +1,109 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>6,631,372</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b2c7><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b2c7 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_8800455" width=82 height=18 border=0 hspace=0 vspace=0 alt="6,631,372"><br><br><article>March 2006, rev August 2009<br><br>A couple days ago I found to my surprise that I'd been granted a
-<a href="http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=%2Fnetahtml%2FPTO%2Fsrchnum.htm&r=1&f=G&l=50&s1=6,631,372.PN.&OS=PN/6,631,372&RS=PN/6,631,372">patent</a>.
-It issued in 2003, but no one told me.  I wouldn't know about it
-now except that a few months ago, while visiting Yahoo, I happened
-to run into a Big Cheese I knew from working there in the late
-nineties.  He brought up something called Revenue Loop, which Viaweb
-had been working on when they bought us.<br><br>The idea is basically that you sort search results not in order of
-textual "relevance" (as search engines did then) nor in order of
-how much advertisers bid (as Overture did) but in order of the bid
-times the number of transactions.  Ordinarily you'd do this for
-shopping searches, though in fact one of the features of our scheme
-is that it automatically detects which searches are shopping searches.<br><br>If you just order the results in order of bids, you can make the
-search results useless, because the first results could be dominated
-by lame sites that had bid the most.  But if you order results by
-bid multiplied by transactions, far from selling out, you're getting
-a <i>better</i> measure of relevance.  What could be a better sign that
-someone was satisfied with a search result than going to the site
-and buying something?<br><br>And, of course, this algorithm automatically maximizes the revenue
-of the search engine.<br><br>Everyone is focused on this type of approach now, but few were in
-1998.  In 1998 it was all about selling banner ads.  We didn't know
-that, so we were pretty excited when we figured out what seemed to
-us the optimal way of doing shopping searches.<br><br>When Yahoo was thinking of buying us, we had a meeting with Jerry
-Yang in New York.  For him, I now realize, this was supposed to be
-one of those meetings when you check out a company you've pretty
-much decided to buy, just to make sure they're ok guys.  We weren't
-expected to do more than chat and seem smart and reasonable.  He
-must have been dismayed when I jumped up to the whiteboard and
-launched into a presentation of our exciting new technology.<br><br>I was just as dismayed when he didn't seem to care at all about it.
-At the time I thought, "boy, is this guy poker-faced.  We present
-to him what has to be the optimal way of sorting product search
-results, and he's not even curious."  I didn't realize till much later
-why he didn't care.  In 1998, advertisers were overpaying enormously
-for ads on web sites.  
-In 1998, if advertisers paid the maximum that traffic was worth to
-them, Yahoo's revenues would have <i>decreased.</i><br><br>Things are different now, of course.  Now this sort of thing is all
-the rage.  So when I ran into the Yahoo exec I knew from the old
-days in the Yahoo cafeteria a few months ago, the first thing he
-remembered was not (fortunately) all the fights I had with him, but
-Revenue Loop.<br><br>"Well," I said, "I think we actually applied for a patent on it.
-I'm not sure what happened to the application after I left."<br><br>"Really?  That would be an important patent."<br><br>So someone investigated, and sure enough, that patent application
-had continued in the pipeline for several years after, and finally
-issued in 2003.<br><br>The main thing that struck me on reading it, actually, is that
-lawyers at some point messed up my nice clear writing.  Some clever
-person with a spell checker reduced one section to Zen-like incomprehensibility:
-<blockquote>
-  Also, common spelling errors will tend to get fixed. For example,
-  if users searching for "compact disc player" end up spending
-  considerable money at sites offering compact disc players, then
-  those pages will have a higher relevance for that search phrase,
-  even though the phrase "compact disc player" is not present on
-  those pages.
-</blockquote>
-(That "compat disc player" wasn't a typo, guys.)<br><br>For the fine prose of the original, see the provisional application
-of February 1998, back when we were still Viaweb and couldn't afford
-to pay lawyers to turn every "a lot of" into "considerable."<br><br></article></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><article><br><br><hr></font></td></tr></table></td></tr></table></body>
+<html>
+
+<head>
+  <title>6,631,372</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+  <link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head>
+
+<body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646>
+
+              <article>March 2006, rev August 2009<br><br>A couple days ago I found to my surprise that I'd been granted
+                a
+                <a
+                  href="http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=%2Fnetahtml%2FPTO%2Fsrchnum.htm&r=1&f=G&l=50&s1=6,631,372.PN.&OS=PN/6,631,372&RS=PN/6,631,372">patent</a>.
+                It issued in 2003, but no one told me. I wouldn't know about it
+                now except that a few months ago, while visiting Yahoo, I happened
+                to run into a Big Cheese I knew from working there in the late
+                nineties. He brought up something called Revenue Loop, which Viaweb
+                had been working on when they bought us.<br><br>The idea is basically that you sort search results not
+                in order of
+                textual "relevance" (as search engines did then) nor in order of
+                how much advertisers bid (as Overture did) but in order of the bid
+                times the number of transactions. Ordinarily you'd do this for
+                shopping searches, though in fact one of the features of our scheme
+                is that it automatically detects which searches are shopping searches.<br><br>If you just order the
+                results in order of bids, you can make the
+                search results useless, because the first results could be dominated
+                by lame sites that had bid the most. But if you order results by
+                bid multiplied by transactions, far from selling out, you're getting
+                a <i>better</i> measure of relevance. What could be a better sign that
+                someone was satisfied with a search result than going to the site
+                and buying something?<br><br>And, of course, this algorithm automatically maximizes the revenue
+                of the search engine.<br><br>Everyone is focused on this type of approach now, but few were in
+                1998. In 1998 it was all about selling banner ads. We didn't know
+                that, so we were pretty excited when we figured out what seemed to
+                us the optimal way of doing shopping searches.<br><br>When Yahoo was thinking of buying us, we had a
+                meeting with Jerry
+                Yang in New York. For him, I now realize, this was supposed to be
+                one of those meetings when you check out a company you've pretty
+                much decided to buy, just to make sure they're ok guys. We weren't
+                expected to do more than chat and seem smart and reasonable. He
+                must have been dismayed when I jumped up to the whiteboard and
+                launched into a presentation of our exciting new technology.<br><br>I was just as dismayed when he
+                didn't seem to care at all about it.
+                At the time I thought, "boy, is this guy poker-faced. We present
+                to him what has to be the optimal way of sorting product search
+                results, and he's not even curious." I didn't realize till much later
+                why he didn't care. In 1998, advertisers were overpaying enormously
+                for ads on web sites.
+                In 1998, if advertisers paid the maximum that traffic was worth to
+                them, Yahoo's revenues would have <i>decreased.</i><br><br>Things are different now, of course. Now this
+                sort of thing is all
+                the rage. So when I ran into the Yahoo exec I knew from the old
+                days in the Yahoo cafeteria a few months ago, the first thing he
+                remembered was not (fortunately) all the fights I had with him, but
+                Revenue Loop.<br><br>"Well," I said, "I think we actually applied for a patent on it.
+                I'm not sure what happened to the application after I left."<br><br>"Really? That would be an important
+                patent."<br><br>So someone investigated, and sure enough, that patent application
+                had continued in the pipeline for several years after, and finally
+                issued in 2003.<br><br>The main thing that struck me on reading it, actually, is that
+                lawyers at some point messed up my nice clear writing. Some clever
+                person with a spell checker reduced one section to Zen-like incomprehensibility:
+                <blockquote>
+                  Also, common spelling errors will tend to get fixed. For example,
+                  if users searching for "compact disc player" end up spending
+                  considerable money at sites offering compact disc players, then
+                  those pages will have a higher relevance for that search phrase,
+                  even though the phrase "compact disc player" is not present on
+                  those pages.
+                </blockquote>
+                (That "compat disc player" wasn't a typo, guys.)<br><br>For the fine prose of the original, see the
+                provisional application
+                of February 1998, back when we were still Viaweb and couldn't afford
+                to pay lawyers to turn every "a lot of" into "considerable."<br><br>
+              </article>
+  
+</body>
 <script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
+  csell_env = 'bf1';
+  var storeCheckoutDomain = 'order.store.yahoo.net';
 </script>
 <script type="text/javascript">
 // Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js"></script>
+<script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js">
 </script>
 <script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+  // Begin Yahoo Store Generated Code
+  csell_page_data = {}; csell_page_rec_data = []; ts = 'TOK_STORE_ID';
 </script>
 <script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = '6631327'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+  // Begin Yahoo Store Generated Code
+  function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = '6631327'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net'; c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string') ? storeCheckoutDomain : 'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://' + x + '/' + t[ts] + '/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id=' + t[ts]; }
 </script>
 <script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+  // Begin Yahoo Store Generated Code
+  function csell_REC_VIEW_TAG() { var env = (typeof csell_env == 'string') ? csell_env : 'prod'; var p = csell_page_data; var a = '/sid=' + p['si'] + '/io=' + p['io'] + '/ii=' + p['ii'] + '/bt=' + p['bt'] + '-view' + '/en=' + env; var r = Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url'] + '/p/s=' + p['s'] + '/' + p['rnd'] + '=' + r + a); }
 </script>
 <script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=6631327&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = 'CDN $ ';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+  // Begin Yahoo Store Generated Code
+  var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=6631327&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = 'CDN $ '; var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS'];</script>
+<script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js"></script>
+<script type="text/javascript">
 </script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+<script
+  type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if (window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if ('si' in p) { url = url + '&ysid=' + p['si']; }; if ('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if ('ii' in p) { url = url + '&ii=' + p['ii']; }; if ('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload', f) : w.addEventListener('load', f, false); }(document, window));</script>
+
+</html>

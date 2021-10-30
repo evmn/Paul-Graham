@@ -18,14 +18,14 @@ to implement a new Lisp for their
                     underway). MIT Scheme did not exist. Scheme was a couple of AI Lab tech
                     reports and a master's thesis. We're talking the tiniest seed crystal
                     imaginable, here. There was immense experience in the lisp community on
-                    optimising compiled implementations of dynamically-scoped languages -- this,
+                    optimising compiled implementations of dynamically-scoped languages  — this,
                     to such an extent, that it was a widely held opinion at the time that "lexical
                     scope is interesting, *theoretically*, but it's inefficient to implement;
                     dynamic scope is the fast choice." I'm not kidding. To name two examples, I
                     heard this, on different occasions, from Richard Stallman (designer &
                     implementor of emacs lisp) and Richard Fateman (prof. at Berkeley, and the
                     principal force behind franz lisp, undoubtedly the most important lisp
-                    implementation built in the early Vax era -- important because it was
+                    implementation built in the early Vax era  — important because it was
                     delivered and it worked). I asked RMS when he was implementing emacs lisp why
                     it was dynamically scoped and his exact reply was that lexical scope was too
                     inefficient. So my point here is that even to people who were experts in the
@@ -36,7 +36,7 @@ to implement a new Lisp for their
                     perl, to say in 2001 that *billions* of dollars of services have been rolled
                     out to the world on top of GC'd languages.)<br><br>Jonathan had spent the previous year on leave from Yale working at MIT. The
                     important thing that was happening was that 32-bit machines were coming out,
-                    with 32-bit address spaces -- *big* address spaces. A lot of the existing
+                    with 32-bit address spaces  — *big* address spaces. A lot of the existing
                     language technology in the AI community had been developed for the PDP-11
                     (16-bit machine) and, more importantly, the workhorse PDP-10 and -20. I loved
                     the "ten," may I add. It had an instruction set that fit onto a single page of
@@ -66,7 +66,7 @@ to implement a new Lisp for their
                     fundamental influences from a little-known lisp done at harvard.<br><br>MIT responded to the Vax by kicking off the NIL project. NIL stood for "New
                     Implementation of Lisp." Jonathan was part of this project during his year
                     away from Yale. It was a really, really good effort, but in the end, was
-                    crippled by premature optimisation -- it was very large, very aggressive, very
+                    crippled by premature optimisation  — it was very large, very aggressive, very
                     complex. Example: they were allocating people to write carefully hand-tuned
                     assembly code for the bignum package before the general compiler was written.
                     The NIL project was carried out by top people (err... I recall Jonl White &
@@ -96,7 +96,7 @@ to implement a new Lisp for their
                     production use at that time were dynamically scoped. No one who hadn't
 carefully read the Rabbit thesis believed lexical scope would fly; even the
                     few people who *had* read it were taking a bit of a leap of faith that this
-                    was going to work in serious production use -- the difference between theory &
+                    was going to work in serious production use  — the difference between theory &
                     practice is, uh, larger in practice than in theory.<br><br>(For example, the other big MIT implementation effort, Zetalisp for the Lisp
                     Machine, kept dynamic scoping, but allowed the compiler to sort of break the
                     semantics, and then, in response to Scheme, threw lexical closures into the
@@ -110,7 +110,7 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     don't really know. Committing funds to allow Jonathan to set out to (try to)
                     build a production-quality Scheme implementation was pretty brave, up there
                     with Jonathan's decision to try.<br><br>Jonathan brought back to Yale from the NIL project a raft of really excellent
-                    implementation technology -- primarily the fundamental data representations
+                    implementation technology  — primarily the fundamental data representations
                     that were carefully honed for the new-generation machine architectures, using
                     tag bits in the low bits of the datum. E.g., if you made the fixnum tag "000",
                     then you could add & subtract fixnums in a single instruction, with no
@@ -132,7 +132,7 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     very careful about avoiding premature optimisation. So he blasted out a quick
                     & dirty prototype implementation just to get something up and running. (I
                     think he wrote this in Maclisp, and as I recall, he called it "cheapy.") After
-                    that, all development of future implementations was done in T -- T 2 was
+                    that, all development of future implementations was done in T  — T 2 was
                     implemented with T 1.<br><br>2 was the first really good implementation, with all of the tricks I've
                     described above. It ran on Vaxes & 68000's, which had also just come out.
                     It was solid enough to be a serious system that had real clients who depended
@@ -144,7 +144,7 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     influence on Common Lisp and Common Lisp's object system, CLOS. But I'm
                     digressing. Back to Yale.<br><br>T also used a pretty cool GC. Maclisp on the -10 had used a mark&sweep GC (one
                     version of which famously "ran in the register set," though that is another
-                    story), encoding type information using a "BIBOP" scheme -- all objects
+                    story), encoding type information using a "BIBOP" scheme  — all objects
                     were boxed, and segregated by type into pages. Hence the high bits of the
                     object's address could be used to index into a page table to tell you what
                     kind of thing lived in that page. This was well tuned for tight-memory systems
@@ -153,9 +153,9 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     cost proportional to the amount of garbage. This is well suited to the big
                     heaps you can allocate on a 32-bit machine. Most stop&amp;copy collectors almost
                     universally implement the Cheney algorithm, which does a breadth-first
-                    search of the heap. But BFS is not so great for memory locality -- it scatters
+                    search of the heap. But BFS is not so great for memory locality  — it scatters
                     topologically close data structures all over the heap as it copies. Not good.
-                    T used a lesser-known (but quite simple -- the research paper describing it is
+                    T used a lesser-known (but quite simple  — the research paper describing it is
                     about 2 pages long) algorithm due to Clark that implements *depth*-first
                     traversal. (Just as the Cheney algorithm cleverly uses the existing heap data
                     structures to provide the BFS search queue, Clark's uses the heap to provide
@@ -184,7 +184,7 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     code and never calling malloc() or invoking a "new" method. It's tied up in
                     the treatment of lambda. Good Scheme compilers use a range of implementations
                     for the lambdas in the program, depending upon what they can determine about
-                    the lambdas at compile time -- how they're used, to where they are passed, the
+                    the lambdas at compile time  — how they're used, to where they are passed, the
                     relationship between the uses and the definition points, etc. Some lambdas
                     just evaporate into nothing. Some lambdas turn into control-flow join points
                     with associated register/variable bindings. Some lambdas turn into stack
@@ -210,7 +210,7 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     procedures, so that you could easily remember or reconstruct names when you
                     were coding. (I have followed this example in the development of the SRFIs
                     I've done for the Scheme community. It is not an easy task.)<br><br>Larger, deeper things: they designed a beautiful object system that was
-                    integrated into the assignment machinery -- just as Common Lisp's SETF lets
+                    integrated into the assignment machinery  — just as Common Lisp's SETF lets
                     you assign using accessors, e.g., in Common Lisp
                         (setf (car x) y)
                     is equivalent to
@@ -220,10 +220,10 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     was shorthand for
                         ((setter car) x y)
 Accessor functions like CAR handled "generic functions" or "messages"
-                    like SETTER -- CAR returned the SET-CAR! procedure when sent the SETTER
+                    like SETTER  — CAR returned the SET-CAR! procedure when sent the SETTER
                     message. The compiler was capable of optimising this into the single
                     Vax store instruction that implements the SET-CAR! operation, but the
-                    semantic machinery was completely general -- you could define your own
+                    semantic machinery was completely general  — you could define your own
                     accessor procedures, give them SETTER methods, and then use them in SET! 
                     forms.<br><br>(This turned out to be very nice in the actual implementation of the compiler.
                     The AST was a tree of objects, connected together in both directions --
@@ -233,7 +233,7 @@ Accessor functions like CAR handled "generic functions" or "messages"
                         (set! (if-node:else n) new-child)
                     which was really
                         ((setter if-node:else) n new-child)
-                    the if-node:else's SETTER method did a lot of work for you -- it disconnected
+                    the if-node:else's SETTER method did a lot of work for you  — it disconnected
                     the old child, installed NEW-CHILD as N's else field, and set NEW-CHILD's
                     parent field to be N. So you could never forget to keep all the links
                     consistent; it was all handled for you just by the single SET! assignment.)<br><br>Around the time that Kent went back to MIT, new grad student Norman Adams
@@ -284,9 +284,9 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     having contributed not one line of code to Orbit.<br><br>Everyone else, however, completed. The compiler wasn't finished by summer's
                     end, but it was completed the following year at Yale. And it was the world's
                     most highly optimising Scheme compiler (even though it did not do data-flow
-                    analysis), a record it held for a *long* time -- perhaps ten years?<br><br>It was also a massive validation of a thesis Steele had argued for his
+                    analysis), a record it held for a *long* time  — perhaps ten years?<br><br>It was also a massive validation of a thesis Steele had argued for his
                     Master's, which was that CPS was a great intermediate representation for a
-                    compiler. Orbit was totally hard-core about this -- the first thing the
+                    compiler. Orbit was totally hard-core about this  — the first thing the
                     compiler did was translate the user program into CPS, and that was the
                     standard form on which the compiler operated for the rest of its execution.
                     And it turned out this approach scaled up from Rabbit to a production,
@@ -303,7 +303,7 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     for Scheme,* which I took to be an in-reference to William Wulf's seminal
                     Bliss compiler, described in a book (my copy is signed) titled simply *The
                     Design of an Optimising Compiler*. Wulf's Bliss compiler was a model up to
-                    which we all looked -- it held the title "world's most highly optimising
+                    which we all looked  — it held the title "world's most highly optimising
                     compiler" for a while.<br><br>(Remember Bliss? Just to add more cross-links, Wulf had left CMU about then
                     and spun out a company, Tartan Labs, to commercialise this compiler technology
                     for C. He took Guy Steele with him, who had just finished wrapping up leading
@@ -380,7 +380,7 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     working on a wide array of interesting programming-language problems, of which
                     "Aspect-Oriented Programming" is the most well known. Again, the story here
                     departs from T, so I won't pursue it. For the same reason, we will not call
-                    John's dissertation "PhD #3" -- it wasn't really connected to his work on the
+                    John's dissertation "PhD #3"  — it wasn't really connected to his work on the
                     T project.<br><br>About three years after the summer at WRL, I *finally* figured out how to do
                     data-flow analysis for Scheme, which ended a long, pretty unhappy period in my
                     life. I officially switched from being an AI student to being a PL student,
@@ -392,7 +392,7 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     love it if some interested character one day takes that piece of my diss and
                     really takes it someplace.<br><br>Jim Philbin, like Kelsey, also went to NEC, where he built an operating system
                     tuned for functional programming languages, STING (or perhaps it was spelled
-                    "STNG" -- in any event it was pronounced "sting"). He built it in T, of
+                    "STNG"  — in any event it was pronounced "sting"). He built it in T, of
                     course, and one could see that it had its roots in his work on T3.
                     (Implementing the runtime for a functional language, in some sense, requires
                     you to implement a little virtual OS on top of the real, underlying OS.) Call
@@ -401,7 +401,7 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     and David Gifford. After working on a series of interesting problems, Jonathan
                     also wrote his dissertation on an operating system for functional languages,
                     where you could use language safety as the fundamental protection mechanism.
-                    Call that PhD #5. Then he got interested in entomology (bugs, I mean -- real
+                    Call that PhD #5. Then he got interested in entomology (bugs, I mean  — real
                     bugs, not computer bugs), did a post-doc in Europe, then came back to the US
                     and has sort of bounced between pursuing research topics that are as radical
                     and unusual as T was in 1982 & startup companies.<br><br>(Jonathan also wrote his dissertation *in Scheme* as well as *about* Scheme.
@@ -422,14 +422,14 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     of their POWER architecture, called the ROMP or the RT/PC.<br><br>One of the limiting factors of Orbit was the complexity of the back end. It
                     was documented very well by Kranz' diss, and it was very sophisticated, but it
                     was also a big mess of code. Out of a reaction to this complexity was born
-                    Scheme 48 -- when Kelsey came to Northeastern as a prof, Jonathan was still at
+                    Scheme 48  — when Kelsey came to Northeastern as a prof, Jonathan was still at
                     MIT; he and Jonathan built Scheme 48 together. Its first use was on an
                     autonomous robot system that Jonathan had gotten involved with at Cornell. The
                     name was intended to reflect the idea that the implementation should be so
                     clear and simple that you could believe the system could have been written in
                     48 hours (or perhaps, when S48 got complex enough, this was altered to "could
                     have been *read* in 48 hours"). Scheme 48 had very little technical overlap
-                    w/T3 and Orbit -- no native code compiler, no object system, no CPS IR. Its
+                    w/T3 and Orbit  — no native code compiler, no object system, no CPS IR. Its
                     innovations were its module system, the language in which its VM was defined
                     ("pre-scheme"), and its stack-management technology. These were all
                     interesting technical bits. The stack was managed not by push & pop, but by
@@ -439,12 +439,12 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     let you specify which files held the module's source. But *other* clauses let
                     you specify which "reader" procedure to use to translate the character stream
                     in the files to the s-expression tree handed to the compiler. So you could
-                    handle files with different concrete syntax -- R5RS syntax, scsh syntax, S48
+                    handle files with different concrete syntax  — R5RS syntax, scsh syntax, S48
                     syntax, PLT Scheme syntax, guile syntax, perhaps an infix syntax (as is so
                     often discussed). That eliminated an annoying, low-level but persistent
                     barrier to sharing code across different implementations of Scheme.<br><br>Pre-scheme was quite interesting. Kelsey published a paper on it, as well, I
                     believe. It was Scheme in the sense that you could load it into a Scheme
-                    system and run the code. But it was restrictive -- it required you to write in
+                    system and run the code. But it was restrictive  — it required you to write in
                     a fashion that allowed complete Hindley-Milner static type inference, and all
                     higher-order procedures were beta-substituted away at compile time, meaning
                     you could *straightforwardly* translate a prescheme program into "natural" C
@@ -453,10 +453,10 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     prescheme programs in the interactive Scheme development environment of your
                     choice, before flipping a switch and translating to C code, because prescheme
                     was just a restricted Scheme. The Scheme 48 byte-code interpreter was written
-                    in prescheme. Prescheme sort of died -- beyond the academic paper he wrote,
+                    in prescheme. Prescheme sort of died  — beyond the academic paper he wrote,
                     Kelsey never quite had the time to document it and turn it into a standalone
                     tool that other people could use (Ian Horswill's group at Northwestern is an
-                    exception to that claim -- they have used prescheme for interesting work).
+                    exception to that claim  — they have used prescheme for interesting work).
                     There are ideas there to be had, however.<br><br>I subsequently picked up Scheme 48 around 1992 to build scsh, but we're
                     beginning to wander from T, so I'll leave that thread.<br><br>The tapestry of advanced language implementation work is a very rich and
                     interconnected one, the weaving of which is is an incredibly interesting task
@@ -486,7 +486,7 @@ Accessor functions like CAR handled "generic functions" or "messages"
 <i>ORBIT:  An Optimizing Compiler for Scheme.</i>
                         Ph.D. dissertation, Yale University, February 1988.
                         Research Report 632, Department of Computer Science.<br><br><br><br>
-<b>More Info:</b><br><br></article></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><article><a href="http://mumble.net/~jar/tproject/">The T Project</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="weinreb.html">Dan Weinreb on NIL</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
+<b>More Info:</b><br><br></article></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://mumble.net/~jar/tproject/">The T Project</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="weinreb.html">Dan Weinreb on NIL</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td></td></tr></table></td></tr></table></body>
 <script type="text/javascript">
 csell_env = 'bf1';
  var storeCheckoutDomain = 'order.store.yahoo.net';
