@@ -25,6 +25,6 @@ It takes less than a minute to make a Kindle books.
 
 ## 3. Read on Kindle
 
-![](images/screanshot-1.png)
+![](images/screanshot_1.png)
 
-![](images/screanshot-1.png)
+![](images/screanshot_2.png)
