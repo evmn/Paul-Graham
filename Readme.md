@@ -23,8 +23,15 @@ It takes less than a minute to make a Kindle books.
 
 ![](images/speed.jpg)
 
-## 3. Read on Kindle
+## 3. Read on Kindle/PC
 
 ![](images/screanshot_1.png)
 
 ![](images/screanshot_2.png)
+
+![](images/screenshot_3.jpg))
+
+
+## Resource
+
+ [Latest Kindle Book](https://t.me/master_thyself/285)

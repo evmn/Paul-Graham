@@ -1,83 +1,221 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Modeling a Wealth Tax</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=eb55603dfb4669><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#eb55603dfb4669 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://s.yimg.com/aah/paulgraham/modeling-a-wealth-tax-1.gif" width=186 height=18 border=0 hspace=0 vspace=0 alt="Modeling a Wealth Tax"><br><br><article>August 2020<br><br>Some politicians are proposing to introduce wealth taxes in addition
-to income and capital gains taxes. Let's try modeling the effects of various levels
-of wealth tax to see what they would mean in practice for a startup
-founder.<br><br>Suppose you start a successful startup in your twenties, and then
-live for another 60 years. How much of your stock will a wealth tax
-consume?<br><br>If the wealth tax applies to all your assets, it's easy to
-calculate its effect. A wealth tax of 1% means you get to keep
-99% of your stock each year. After 60 years the proportion
-of stock you'll have left will be .99^60, or .547. So a
-straight 1% wealth tax means the government will over the
-course of your life take 45% of your stock.<br><br>(Losing shares does not, obviously, mean becoming <i>net</i>
-poorer unless the value per share is increasing by less than the 
-wealth tax rate.)<br><br>Here's how much stock the government would take over 60
-years at various levels of wealth tax:<br><br><center>
-<table border=1 cellpadding=4 cellspacing=0><tr><td align=center><font size=2>wealth tax<td align=center><font size=2>government takes</tr>
-<tr><td align=right><font size=2>0.1%</font><td align=right><font size=2>6%</tr
-><tr><td align=right><font size=2>0.5%</font><td align=right><font size=2>26%</tr>
-<tr><td align=right><font size=2>1.0%</font><td align=right><font size=2>45%</tr>
-<tr><td align=right><font size=2>2.0%</font><td align=right><font size=2>70%</tr>
-<tr><td align=right><font size=2>3.0%</font><td align=right><font size=2>84%</tr>
-<tr><td align=right><font size=2>4.0%</font><td align=right><font size=2>91%</tr><tr><td align=right><font size=2>5.0%</font><td align=right><font size=2>95%</tr>
-</table>
-</center>
-A wealth tax will usually have a threshold at which it starts.
-How much difference would a high threshold make? To model that,
-we need to make some assumptions about the initial value of
-your stock and the growth rate.<br><br>Suppose your stock is initially
-worth $2 million, and the company's trajectory is as follows:
-the value of your stock grows 3x for 2 years, then 2x for 2 years,
-then 50% for 2 years, after
-which you just get a typical public company growth rate,
-which we'll call 8%. 
-<font color=#dddddd>[<a href="wtax.html#f1n"><font color=#dddddd>1</font></a>]</font>
-Suppose the wealth tax threshold is
-$50 million. How much stock does the government take now?
-<center>
-<table border=1 cellpadding=4 cellspacing=0><tr><td align=center><font size=2>wealth tax<td align=center><font size=2>government takes</tr>
-<tr><td align=right><font size=2>0.1%</font><td align=right><font size=2>5%</tr
-><tr><td align=right><font size=2>0.5%</font><td align=right><font size=2>23%</tr>
-<tr><td align=right><font size=2>1.0%</font><td align=right><font size=2>41%</tr>
-<tr><td align=right><font size=2>2.0%</font><td align=right><font size=2>65%</tr>
-<tr><td align=right><font size=2>3.0%</font><td align=right><font size=2>79%</tr>
-<tr><td align=right><font size=2>4.0%</font><td align=right><font size=2>88%</tr><tr><td align=right><font size=2>5.0%</font><td align=right><font size=2>93%</tr>
-</table>
-</center>
-It may at first seem surprising that such apparently small tax rates
-produce such dramatic effects. A 2% wealth tax with a $50&nbsp;million
-threshold takes about two thirds of a successful founder's stock.<br><br>The reason wealth taxes have such dramatic effects is that they're
-applied over and over to the same money. Income tax
-happens every year, but only to that year's income. Whereas if you
-live for 60 years after acquiring some asset, a wealth tax will tax
-that same asset 60 times. A wealth tax compounds.<br><br><br><br><br><br><br><br><b>Note</b><br><br>[<a name="f1n"><font color=#000000>1</font></a>]
-In practice, eventually some of this 8% would come in the form of 
-dividends, which are taxed as income at issue, so this model actually
-represents the most optimistic case for the founder.<br><br></article></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td></td></tr></table></td></tr></table></body>
+<html>
+
+<head>
+        <title>Modeling a Wealth Tax</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
+        <link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
+</head>
+
+<body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646>
+
+        <article>August 2020<br><br>Some politicians are proposing to
+                introduce wealth taxes in addition
+                to income and capital gains taxes. Let's try modeling
+                the effects of various levels
+                of wealth tax to see what they would mean in practice
+                for a startup
+                founder.<br><br>Suppose you start a successful startup
+                in your twenties, and then
+                live for another 60 years. How much of your stock will a
+                wealth tax
+                consume?<br><br>If the wealth tax applies to all your
+                assets, it's easy to
+                calculate its effect. A wealth tax of 1% means you get
+                to keep
+                99% of your stock each year. After 60 years the
+                proportion
+                of stock you'll have left will be .99^60, or .547. So a
+                straight 1% wealth tax means the government will over
+                the
+                course of your life take 45% of your
+                stock.<br><br>(Losing shares does not, obviously, mean
+                becoming <i>net</i>
+                poorer unless the value per share is increasing by less
+                than the
+                wealth tax rate.)<br><br>Here's how much stock the
+                government would take over 60
+                years at various levels of wealth tax:<br><br>
+                <center>
+                        <table border=1 cellpadding=4 cellspacing=0>
+                                <tr>
+                                        <td align=center>
+                                                <font size=2>wealth tax
+                                        <td align=center>
+                                                <font size=2>government
+                                                        takes
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>0.1%</font>
+                                        <td align=right>
+                                                <font size=2>6%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>0.5%</font>
+                                        <td align=right>
+                                                <font size=2>26%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>1.0%</font>
+                                        <td align=right>
+                                                <font size=2>45%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>2.0%</font>
+                                        <td align=right>
+                                                <font size=2>70%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>3.0%</font>
+                                        <td align=right>
+                                                <font size=2>84%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>4.0%</font>
+                                        <td align=right>
+                                                <font size=2>91%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>5.0%</font>
+                                        <td align=right>
+                                                <font size=2>95%
+                                </tr>
+                        </table>
+                </center>
+                A wealth tax will usually have a threshold at which it
+                starts.
+                How much difference would a high threshold make? To
+                model that,
+                we need to make some assumptions about the initial value
+                of
+                your stock and the growth rate.<br><br>Suppose your
+                stock is initially
+                worth $2 million, and the company's trajectory is as
+                follows:
+                the value of your stock grows 3x for 2 years, then 2x
+                for 2 years,
+                then 50% for 2 years, after
+                which you just get a typical public company growth rate,
+                which we'll call 8%.
+                <font color=#dddddd>[<a href="wtax.html#f1n">
+                                <font color=#dddddd>1</font>
+                        </a>]</font>
+                Suppose the wealth tax threshold is
+                $50 million. How much stock does the government take
+                now?
+                <center>
+                        <table border=1 cellpadding=4 cellspacing=0>
+                                <tr>
+                                        <td align=center>
+                                                <font size=2>wealth tax
+                                        <td align=center>
+                                                <font size=2>government
+                                                        takes
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>0.1%</font>
+                                        <td align=right>
+                                                <font size=2>5%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>0.5%</font>
+                                        <td align=right>
+                                                <font size=2>23%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>1.0%</font>
+                                        <td align=right>
+                                                <font size=2>41%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>2.0%</font>
+                                        <td align=right>
+                                                <font size=2>65%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>3.0%</font>
+                                        <td align=right>
+                                                <font size=2>79%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>4.0%</font>
+                                        <td align=right>
+                                                <font size=2>88%
+                                </tr>
+                                <tr>
+                                        <td align=right>
+                                                <font size=2>5.0%</font>
+                                        <td align=right>
+                                                <font size=2>93%
+                                </tr>
+                        </table>
+                </center>
+                It may at first seem surprising that such apparently
+                small tax rates
+                produce such dramatic effects. A 2% wealth tax with a
+                $50&nbsp;million
+                threshold takes about two thirds of a successful
+                founder's stock.<br><br>The reason wealth taxes have
+                such dramatic effects is that they're
+                applied over and over to the same money. Income tax
+                happens every year, but only to that year's income.
+                Whereas if you
+                live for 60 years after acquiring some asset, a wealth
+                tax will tax
+                that same asset 60 times. A wealth tax
+                compounds.<br><br><br><br><br><br><br><br><b>Note</b><br><br>[<a name="f1n">
+                        <font color=#000000>1</font>
+                </a>]
+                In practice, eventually some of this 8% would come in
+                the form of
+                dividends, which are taxed as income at issue, so this
+                model actually
+                represents the most optimistic case for the
+                founder.<br><br>
+        </article>
+
+</body>
 <script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
+        csell_env = 'bf1';
+        var storeCheckoutDomain = 'order.store.yahoo.net';
 </script>
 <script type="text/javascript">
 // Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
+</script>
+<script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js"></script>
+<script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js">
 </script>
 <script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
+        // Begin Yahoo Store Generated Code
+        csell_page_data = {}; csell_page_rec_data = []; ts = 'TOK_STORE_ID';
 </script>
 <script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'wtax'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
+        // Begin Yahoo Store Generated Code
+        function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'wtax'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net'; c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string') ? storeCheckoutDomain : 'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://' + x + '/' + t[ts] + '/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id=' + t[ts]; }
 </script>
 <script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
+        // Begin Yahoo Store Generated Code
+        function csell_REC_VIEW_TAG() { var env = (typeof csell_env == 'string') ? csell_env : 'prod'; var p = csell_page_data; var a = '/sid=' + p['si'] + '/io=' + p['io'] + '/ii=' + p['ii'] + '/bt=' + p['bt'] + '-view' + '/en=' + env; var r = Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url'] + '/p/s=' + p['s'] + '/' + p['rnd'] + '=' + r + a); }
 </script>
 <script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=wtax&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
+        // Begin Yahoo Store Generated Code
+        var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=wtax&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$'; var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS'];</script>
+<script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js"></script>
+<script type="text/javascript">
 </script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+<script
+        type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if (window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if ('si' in p) { url = url + '&ysid=' + p['si']; }; if ('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if ('ii' in p) { url = url + '&ii=' + p['ii']; }; if ('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload', f) : w.addEventListener('load', f, false); }(document, window));</script>
+
+</html>

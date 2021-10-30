@@ -9,7 +9,7 @@ base_url = 'http://127.0.0.1:8000'
 
 class Paul_Graham(BasicNewsRecipe):
 
-        title = 'Paul Graham'
+        title = 'Essays of Paul Graham'
         description = u"Paul Graham is a programmer, writer, and investor. In 1995, he and Robert Morris started Viaweb, the first software as a service company. Viaweb was acquired by Yahoo in 1998, where it became Yahoo Store. In 2001 he started publishing essays on paulgraham.com, which now gets around 25 million page views per year. In 2005 he and Jessica Livingston, Robert Morris, and Trevor Blackwell started Y Combinator, the first of a new type of startup incubator. Since 2005 Y Combinator has funded over 2000 startups, including Airbnb, Dropbox, Stripe, and Reddit. In 2019 he published a new Lisp dialect written in itself called Bel."
         cover_url = 'http://127.0.0.1:8000/images/cover.jpg'
         
@@ -38,22 +38,31 @@ class Paul_Graham(BasicNewsRecipe):
                 desc = ''
                 articles = []
                 likes = []
-                favorite = ['think', 'selfindulgence', 'hs', 'essay', 'marginal', 'jessica', 'lies', 'wisdom', 'wealth', 're', 'say', 'makersschedule', 'ds', 'vb', 'love', 'growth', 'startupideas', 'mean']
+                hp = []
+                hp_feed = []
+                hacker_painter = ['nerds', 'hp', 'say', 'road', 'wealth', 'gap', 'spam', 'taste', 'hundred', 'avg', 'icad', 'desres', 'gba']
+                favorite = ['think', 'selfindulgence', 'pypar', 'hs', 'hiring', 'head', 'cities', 'essay', 'marginal', 'lies', 'wisdom', 'wealth', 're', 'say', 'makersschedule', 'ds', 'vb', 'love', 'growth', 'startupideas', 'mean']
                 for section in archives.findAll('a'):
                         title = section.getText()
                         link = "http://127.0.0.1:8000/www.paulgraham.com/" + section['href']
                         url = section['href'].split(".",)[0]
-                        if url in favorite:
+                        if url in hacker_painter:
+                                hp.append({'title':title, 'url': link})
+                        elif url in favorite:
                                 likes.append({'title':title, 'url': link})
                                 print(title, url)
                         articles.append({'title':title, 'url': link})
-                newlist = sorted(articles, key=lambda d: d['title']) 
-                paul_graham_list = sorted(likes, key=lambda d: d['title'])
-                feeds.append(("Paul Graham's Favorite", paul_graham_list))
+
+                other_classic= sorted(likes, key=lambda d: d['title'])
+                hp_feed = sorted(hp, key=lambda d: d['title'])
+                feeds.append(("Latest", articles[0:10]))
+                feeds.append(("Hackers and Painters", hp_feed))
+                feeds.append(("Other Classic", other_classic))
+                achive_list = sorted(articles, key=lambda d: d['title']) 
 
                 sec_blogs = [[], [], [], [], [], [], [], []]
                 sec_titles = ['AB', 'C - G', 'H', 'I - N', 'O - S', 'T', 'U - Z', '0 - 9']
-                for item in newlist:
+                for item in achive_list:
                         fc = item['title'][0]
                         if fc in list("AB"):
                                 sec_blogs[0].append(item)
