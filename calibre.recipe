@@ -9,11 +9,11 @@ base_url = 'http://127.0.0.1:8000'
 
 class Paul_Graham(BasicNewsRecipe):
 
-        title = 'Essays of Paul Graham'
-        description = u''
+        title = 'Paul Graham'
+        description = u"Paul Graham is a programmer, writer, and investor. In 1995, he and Robert Morris started Viaweb, the first software as a service company. Viaweb was acquired by Yahoo in 1998, where it became Yahoo Store. In 2001 he started publishing essays on paulgraham.com, which now gets around 25 million page views per year. In 2005 he and Jessica Livingston, Robert Morris, and Trevor Blackwell started Y Combinator, the first of a new type of startup incubator. Since 2005 Y Combinator has funded over 2000 startups, including Airbnb, Dropbox, Stripe, and Reddit. In 2019 he published a new Lisp dialect written in itself called Bel."
         cover_url = 'http://127.0.0.1:8000/images/cover.jpg'
         
-        remove_tags = [dict(name=['img', 'title'])]
+        remove_tags = [dict(name=['img'])]
         __author__ = 'evmn'
         language = 'en'
         #encoding = 'cp-1252'
@@ -32,36 +32,38 @@ class Paul_Graham(BasicNewsRecipe):
 
         def parse_index(self):
 
-                soup = self.index_to_soup("http://127.0.0.1:8000/index.html")
+                soup = self.index_to_soup(base_url)
                 archives = soup.find('table').findAll('table')[1]
                 feeds = []
                 desc = ''
                 articles = []
+                likes = []
+                favorite = ['think', 'selfindulgence', 'hs', 'essay', 'marginal', 'jessica', 'lies', 'wisdom', 'wealth', 're', 'say', 'makersschedule', 'ds', 'vb', 'love', 'growth', 'startupideas', 'mean']
                 for section in archives.findAll('a'):
                         title = section.getText()
                         link = "http://127.0.0.1:8000/www.paulgraham.com/" + section['href']
+                        url = section['href'].split(".",)[0]
+                        if url in favorite:
+                                likes.append({'title':title, 'url': link})
+                                print(title, url)
                         articles.append({'title':title, 'url': link})
                 newlist = sorted(articles, key=lambda d: d['title']) 
+                paul_graham_list = sorted(likes, key=lambda d: d['title'])
+                feeds.append(("Paul Graham's Favorite", paul_graham_list))
 
                 sec_blogs = [[], [], [], [], [], [], [], []]
-                sec_titles = ['AB', 'C-G', 'H', 'I-N', 'O-S', 'T', 'U-Z', '0-9']
+                sec_titles = ['AB', 'C - G', 'H', 'I - N', 'O - S', 'T', 'U - Z', '0 - 9']
                 for item in newlist:
                         fc = item['title'][0]
                         if fc in list("AB"):
-                                print(item['title'])
                                 sec_blogs[0].append(item)
                         elif fc in list("CDEFG"):
-                                print("---CDEFG")
-                                print(item['title'])
                                 sec_blogs[1].append(item)
                         elif fc in list("H"):
-                                print("---H")
                                 sec_blogs[2].append(item)
                         elif fc in list("IJKLMN"):
-                                print("---IJKLMN")
                                 sec_blogs[3].append(item)
                         elif fc in list("OPQRS"):
-                                print("---OPQRS")
                                 sec_blogs[4].append(item)
                         elif fc in list("T"):
                                 sec_blogs[5].append(item)
@@ -69,7 +71,9 @@ class Paul_Graham(BasicNewsRecipe):
                                 sec_blogs[6].append(item)
                         else:
                                 sec_blogs[7].append(item)
+                        print(item['title'])
                                 
                 for b, a in zip(sec_blogs, sec_titles):
                         feeds.append((a, b))
+                        print(a, len(b))
                 return feeds
