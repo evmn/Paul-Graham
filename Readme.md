@@ -1,5 +1,13 @@
 # Essays: Paul Graham
 
+## 0. Start a Local Web Server
+
+Run the following command in current folder: 
+
+```sh
+python3 -m http.server 8000
+```
+
 ## 1. Test recipe
 
 ```sh
@@ -15,8 +23,8 @@ It takes less than a minute to make a Kindle books.
 
 ![](images/speed.jpg)
 
-## 3. Look on Kindle
+## 3. Read on Kindle
 
-![](images/screen1.jpg)
+![](images/screanshot-1.png)
 
-![](images/screen2.jpg)
+![](images/screanshot-1.png)
