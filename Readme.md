@@ -7,17 +7,17 @@ After I crawled all the essays, I have done the following works:
  - Design book cover
  - Convert webpage encoding from cp1252 to utf-8 to prevent garbled characters
  - Added three chapters: Favorite, Hackers and Painters, Latest
- - Divide chapters according to the first letter of the title
- - Add a few articles that are not original written by the author but are on the author's website
+ - Divide chapters alphabetically
+ - Add a few articles that are not original written by the author but are on the author's website(Richard Hamming, Donald E. Knuth...)
  - Correct several punctuation mistakes (dashes and quotation marks) in the essays
  - Delete 2 broken links, remove 1 obsolete essay with too short content
  - Fix some unmatched tags in web pages to prevent text overflow on Kindle
 
-If you are familiar with *python* and *html*, then you can add or remove essays/chapters easily by editing **calibre.recipe** or **index.html**. After editing, you can make a kindle book with the following steps:
+If you are familiar with *python* and *html*, then you can add or remove essays/chapters easily! First, editing **calibre.recipe** or **index.html**, then follow the following steps:
 
 ## 1. Start a Local Web Server
 
-Run the following command in current folder: 
+Clone this repo to your computer and run the following command in current folder: 
 
 ```sh
 python3 -m http.server 8000
@@ -25,7 +25,7 @@ python3 -m http.server 8000
 
 ## 2. Test recipe
 
-Debug your recipe with the following command.
+Debug your recipe with the following command:
 
 ```sh
 ebook-convert calibre.recipe .mobi --test -vv --debug-pipeline debug
@@ -37,7 +37,7 @@ Open Calibre, right click **Fetch news**, then choose **Add or edit a custom new
 
 ![](images/speed.jpg)
 
-## 3. Read on Kindle/PC
+## 4. Read on Kindle/PC
 
 ![](images/screanshot_1.png)
 
@@ -45,8 +45,9 @@ Open Calibre, right click **Fetch news**, then choose **Add or edit a custom new
 
 ![](images/screenshot_3.jpg)
 
+![](images/unlearn.jpg)
 
 ## Resource
 
- [Latest Kindle Book](https://t.me/master_thyself/285)
+ [Latest E-Book Generated with the Latest Recipe(the E-Book in this repo is obsolete)](https://t.me/master_thyself/285)
  [Custom news fetching](https://blog.calibre-ebook.com/custom-news-fetching/)
