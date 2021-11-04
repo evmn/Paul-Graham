@@ -37,52 +37,93 @@ class Paul_Graham(BasicNewsRecipe):
                 feeds = []
                 desc = ''
                 articles = []
-                likes = []
+                favorite_list = []
                 hp = []
                 hp_feed = []
-                hacker_painter = ['nerds', 'hp', 'say', 'road', 'wealth', 'gap', 'spam', 'taste', 'hundred', 'avg', 'icad', 'desres', 'gba']
-                favorite = ['think', 'selfindulgence', 'pypar', 'hs', 'hiring', 'head', 'cities', 'essay', 'marginal', 'lies', 'wisdom', 'wealth', 're', 'say', 'makersschedule', 'ds', 'vb', 'love', 'growth', 'startupideas', 'mean']
-                for section in archives.findAll('a'):
-                        title = section.getText()
-                        link = "http://127.0.0.1:8000/www.paulgraham.com/" + section['href']
-                        url = section['href'].split(".",)[0]
+                hacker_painter = [
+                                'nerds',        #  1. Why Nerds are Unpopular
+				'hp',           #  2. Hackers and Painters
+				'say',          #  3. What You Can't Say
+				'gba'           #  4. The Word "Hacker"
+				'road',         #  5. The Other Road Ahead
+				'wealth',       #  6. How to Make Wealth
+				'gap',          #  7. Mind the Gap
+				'spam',         #  8. A Plan for Spam
+				'taste',        #  9. Taste for Makers
+                                # 10. Programming Languages Explained
+				'hundred',      # 11. The Hundred-Year Language
+				'avg',          # 12. Beating the Averages
+				'icad',         # 13. Revenge of the Nerds
+                                'popular',      # 14. The Dream Language
+				'desres'        # 15. Design and Research
+                                ]
+
+                favorite = [
+                                'cities',               # Cities and Ambition
+                		'ds',                   # Do Things that Don't Scale
+                		'essay',                # The Age of the Essay
+                		'growth',               # Startup = Growth
+                		'hamming',              # Richard Hamming: You and Your Research
+                		'head',                 # Holding a Program in One's Head
+                		'hiring',               # Hiring is Obsolete
+                		'hs',                   # What You'll Wish You'd Known
+                		'knuth',                # Knuth: Computer Programming as an Art
+                		'lesson',               # The Lesson to Unlearn
+                		'lies',                 # Lies We Tell Kids
+                		'love',                 # How to Do What You Love
+                		'makersschedule',       # Maker's Schedule, Manager's Schedule
+                		'marginal',             # The Power of the Marginal
+                		'mean',                 # Mean People Fail
+                		'pypar',                # The Python Paradox
+                		're',                   # The Refragmentation
+                		'say',                  # What You Can't Say
+                		'selfindulgence',       # How to Lose Time and Money
+                		'startupideas',         # How to Get Startup Ideas
+                		'vb',                   # Life is Short
+                		'wealth',               # How to Make Wealth
+                		'wisdom'                # Is It Worth Being Wise?
+                                ]
+                for essay in archives.findAll('a'):
+                        title = essay.getText()
+                        link = "http://127.0.0.1:8000/www.paulgraham.com/" + essay['href']
+                        url = essay['href'].split(".",)[0]
                         if url in hacker_painter:
                                 hp.append({'title':title, 'url': link})
                         elif url in favorite:
-                                likes.append({'title':title, 'url': link})
+                                favorite_list.append({'title':title, 'url': link})
                                 print(title, url)
                         articles.append({'title':title, 'url': link})
 
-                other_classic= sorted(likes, key=lambda d: d['title'])
+                favorite_feed= sorted(favorite_list, key=lambda d: d['title'])
                 hp_feed = sorted(hp, key=lambda d: d['title'])
-                feeds.append(("Latest", articles[0:10]))
+                feeds.append(("Favorite", favorite_feed))
                 feeds.append(("Hackers and Painters", hp_feed))
-                feeds.append(("Other Classic", other_classic))
-                achive_list = sorted(articles, key=lambda d: d['title']) 
+                feeds.append(("Latest", articles[0:25]))
+                archives_list = sorted(articles, key=lambda d: d['title']) 
 
-                sec_blogs = [[], [], [], [], [], [], [], []]
-                sec_titles = ['AB', 'C - G', 'H', 'I - N', 'O - S', 'T', 'U - Z', '0 - 9']
-                for item in achive_list:
-                        fc = item['title'][0]
-                        if fc in list("AB"):
-                                sec_blogs[0].append(item)
-                        elif fc in list("CDEFG"):
-                                sec_blogs[1].append(item)
-                        elif fc in list("H"):
-                                sec_blogs[2].append(item)
-                        elif fc in list("IJKLMN"):
-                                sec_blogs[3].append(item)
-                        elif fc in list("OPQRS"):
-                                sec_blogs[4].append(item)
-                        elif fc in list("T"):
-                                sec_blogs[5].append(item)
-                        elif fc in list("UVWXYZ"):
-                                sec_blogs[6].append(item)
+                section_blogs = [[], [], [], [], [], [], [], []]
+                section_titles = ['AB', 'C - G', 'H', 'I - N', 'O - S', 'T', 'U - Z', '0 - 9']
+                for item in archives_list:
+                        first_char = item['title'][0]
+                        if first_char in list("AB"):
+                                section_blogs[0].append(item)
+                        elif first_char in list("CDEFG"):
+                                section_blogs[1].append(item)
+                        elif first_char in list("H"):
+                                section_blogs[2].append(item)
+                        elif first_char in list("IJKLMN"):
+                                section_blogs[3].append(item)
+                        elif first_char in list("OPQRS"):
+                                section_blogs[4].append(item)
+                        elif first_char in list("T"):
+                                section_blogs[5].append(item)
+                        elif first_char in list("UVWXYZ"):
+                                section_blogs[6].append(item)
                         else:
-                                sec_blogs[7].append(item)
+                                section_blogs[7].append(item)
                         print(item['title'])
                                 
-                for b, a in zip(sec_blogs, sec_titles):
+                for b, a in zip(section_blogs, section_titles):
                         feeds.append((a, b))
                         print(a, len(b))
                 return feeds
