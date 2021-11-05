@@ -1,9 +1,5 @@
 # encoding: utf-8
 from calibre.web.feeds.recipes import BasicNewsRecipe
-from calibre.ebooks.BeautifulSoup import BeautifulSoup
-from urllib2 import urlopen
-from datetime import datetime
-import xml.etree.ElementTree as ET
 #base_url = 'http://www.paulgraham.com/articles.html'
 base_url = 'http://127.0.0.1:8000'
 
@@ -123,7 +119,7 @@ class Paul_Graham(BasicNewsRecipe):
                                 section_blogs[7].append(item)
                         print(item['title'])
                                 
-                for b, a in zip(section_blogs, section_titles):
+                for a, b in zip(section_titles, section_blogs):
                         feeds.append((a, b))
                         print(a, len(b))
                 return feeds
