@@ -7,7 +7,7 @@
 网页爬到本地，制作电子书的时候又做了这些工作：
 
  - 设计封面
- - 网页由cp1252转码为utf-8，防止乱码
+ - 网页由**cp1252**转码为**utf-8**，防止乱码
  - 添加**Favorite**、**Hackers and Painters**、**Latest**
  - 按照标题首字母分章节，方便查找
  - 添加非作者原创但在作者网站的几篇文章(Richard Hamming, Donald E. Knuth...)
@@ -22,12 +22,12 @@
 在当前文件夹中运行以下命令：
 
 ```sh
-python3 -m http.server 8000
+python -m http.server 8000
 ```
 
 ## 2. 测试程序
 
-使用以下命令调试您的程序
+使用以下命令调试您的程序：
 
 ```sh
 ebook-convert calibre.recipe .mobi --test -vv --debug-pipeline debug
@@ -36,6 +36,8 @@ ebook-convert calibre.recipe .mobi --test -vv --debug-pipeline debug
 ## 3. 使用Calibre制作电子书
 
 打开 Calibre，右键单击 **Fetch news**，然后选择 **Add or edit a custom news source**，单击 **New recipe**，选择 **Switch to advanced mode** 并将您的程序粘贴到新的页面，点击**Save**并选择**Download this recipe**。用本地服务器制作一本 Kindle 电子书只需不到一分钟。
+
+*您也可以参考Telegram上的[演示视频](https://t.me/master_thyself/293)。*
 
 ![](images/speed.jpg)
 
@@ -52,5 +54,6 @@ ebook-convert calibre.recipe .mobi --test -vv --debug-pipeline debug
 
 ## 资源
 
- [使用本项目脚本制作的最新版的Kindle电子书(本项目中的电子书不再及时更新)](https://t.me/master_thyself/285)
- [Custom news fetching](https://blog.calibre-ebook.com/custom-news-fetching/)
+ - [使用本项目脚本制作的最新版的Kindle电子书(本项目中的电子书不再及时更新)](https://t.me/master_thyself/285)
+ - [使用Calibre下载自定义recipe演示视频](https://t.me/master_thyself/293)
+ - [Custom news fetching](https://blog.calibre-ebook.com/custom-news-fetching/)
