@@ -8,7 +8,7 @@ class Paul_Graham(BasicNewsRecipe):
         title = 'Essays of Paul Graham'
         description = u"Paul Graham is a programmer, writer, and investor. In 1995, he and Robert Morris started Viaweb, the first software as a service company. Viaweb was acquired by Yahoo in 1998, where it became Yahoo Store. In 2001 he started publishing essays on paulgraham.com, which now gets around 25 million page views per year. In 2005 he and Jessica Livingston, Robert Morris, and Trevor Blackwell started Y Combinator, the first of a new type of startup incubator. Since 2005 Y Combinator has funded over 2000 startups, including Airbnb, Dropbox, Stripe, and Reddit. In 2019 he published a new Lisp dialect written in itself called Bel."
         cover_url = 'http://127.0.0.1:8000/images/cover.jpg'
-        
+
         remove_tags = [dict(name=['img'])]
         __author__ = 'evmn'
         language = 'en'
@@ -30,12 +30,7 @@ class Paul_Graham(BasicNewsRecipe):
 
                 soup = self.index_to_soup(base_url)
                 archives = soup.find('table').findAll('table')[1]
-                feeds = []
-                desc = ''
-                articles = []
-                favorite_list = []
-                hp = []
-                hp_feed = []
+                #desc = ''
                 hacker_painter = [
                                 'nerds',        #  1. Why Nerds are Unpopular
 				'hp',           #  2. Hackers and Painters
@@ -79,47 +74,49 @@ class Paul_Graham(BasicNewsRecipe):
                 		'wealth',               # How to Make Wealth
                 		'wisdom'                # Is It Worth Being Wise?
                                 ]
+                feeds = []
+                favorite_feeds = []
+                hp_feeds = []
+                archives_feeds = []
+
                 for essay in archives.findAll('a'):
-                        title = essay.getText()
+                        essay_title = essay.getText()
                         link = "http://127.0.0.1:8000/www.paulgraham.com/" + essay['href']
+                        essay_feed = {'title': essay_title, 'url': link}
+
                         url = essay['href'].split(".",)[0]
                         if url in hacker_painter:
-                                hp.append({'title':title, 'url': link})
+                                hp_feeds.append(essay_feed)
                         elif url in favorite:
-                                favorite_list.append({'title':title, 'url': link})
-                                print(title, url)
-                        articles.append({'title':title, 'url': link})
+                                favorite_feeds.append(essay_feed)
+                                print(essay_title, url)
+                        # All essays will be add to archives_feeds
+                        archives_feeds.append(essay_feed)
 
-                favorite_feed= sorted(favorite_list, key=lambda d: d['title'])
-                hp_feed = sorted(hp, key=lambda d: d['title'])
-                feeds.append(("Favorite", favorite_feed))
-                feeds.append(("Hackers and Painters", hp_feed))
-                feeds.append(("Latest", articles[0:25]))
-                archives_list = sorted(articles, key=lambda d: d['title']) 
+                favorite_feed= sorted(favorite_feeds, key=lambda d: d['title'])
+                hp_feeds = sorted(hp_feeds, key=lambda d: d['title'])
+                latest_feeds = archives_feeds[0:25]
 
-                section_blogs = [[], [], [], [], [], [], [], []]
+                feeds.append(("Favorite", favorite_feeds))
+                feeds.append(("Hackers and Painters", hp_feeds))
+                feeds.append(("Latest", latest_feeds))
+
+                archives_feeds= sorted(archives_feeds, key=lambda d: d['title'])
+
+                section_feeds = [[], [], [], [], [], [], [], []]
+                chars_list = ['AB', 'CDEFG', 'H', 'IJKLMN', 'OPQRS', 'T', 'UVWXYZ', '0123456789']
                 section_titles = ['AB', 'C - G', 'H', 'I - N', 'O - S', 'T', 'U - Z', '0 - 9']
-                for item in archives_list:
+
+                for item in archives_feeds:
                         first_char = item['title'][0]
-                        if first_char in list("AB"):
-                                section_blogs[0].append(item)
-                        elif first_char in list("CDEFG"):
-                                section_blogs[1].append(item)
-                        elif first_char in list("H"):
-                                section_blogs[2].append(item)
-                        elif first_char in list("IJKLMN"):
-                                section_blogs[3].append(item)
-                        elif first_char in list("OPQRS"):
-                                section_blogs[4].append(item)
-                        elif first_char in list("T"):
-                                section_blogs[5].append(item)
-                        elif first_char in list("UVWXYZ"):
-                                section_blogs[6].append(item)
-                        else:
-                                section_blogs[7].append(item)
+                        for chars in chars_list:
+                                if first_char in list(chars):
+                                        index = chars_list.index(chars)
+                                        section_feeds[index].append(item)
+                                        break
                         print(item['title'])
-                                
-                for a, b in zip(section_titles, section_blogs):
+
+                for a, b in zip(section_titles, section_feeds):
                         feeds.append((a, b))
                         print(a, len(b))
                 return feeds
