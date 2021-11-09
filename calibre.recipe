@@ -17,7 +17,8 @@ class Paul_Graham(BasicNewsRecipe):
         timefmt = ''
 
         publication_type = 'blog'
-        remove_attributes = ['href']
+        resolve_internal_links = True
+#        remove_attributes = ['href']
         no_stylesheets = True
         remove_javascript = True
         auto_cleanup = True
