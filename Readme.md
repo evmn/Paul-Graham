@@ -31,13 +31,29 @@ Debug your recipe with the following command:
 ebook-convert calibre.recipe .mobi --test -vv --debug-pipeline debug
 ```
 
-## 3. Scrap with Calibre
+## 3. Generate Your E-Book
+
+You can choose from Calibre and command line.
+
+### Calibre
 
 Open Calibre, right click **Fetch news**, then choose **Add or edit a custom news source**, click **New recipe**, then **Switch to advanced mode** and paste your recipe there, then click **Save** and choose **Download this recipe**. It takes less than a minute to make a Kindle books with local server.
 
 *You can also refer to this [demo video](https://t.me/master_thyself/293) in Telegram.*
 
 ![](images/speed.jpg)
+
+### Command Line
+
+```sh
+ebook-convert "calibre.recipe" .mobi \
+        --authors="Paul Graham" \
+        --title="Essays of Paul Graham" \
+        --pubdate="2021-10-24" \
+        --output-profile=kindle_pw3 \
+        --mobi-file-type=new \
+        -vv
+```
 
 ## 4. Read on Kindle/PC
 
@@ -48,6 +64,10 @@ Open Calibre, right click **Fetch news**, then choose **Add or edit a custom new
 ![](images/screenshot_3.jpg)
 
 ![](images/unlearn.jpg)
+
+## Known Bugs
+
+ - Footnotes link can't work properly
 
 ## Resource
 

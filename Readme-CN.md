@@ -33,7 +33,11 @@ python -m http.server 8000
 ebook-convert calibre.recipe .mobi --test -vv --debug-pipeline debug
 ```
 
-## 3. 使用Calibre制作电子书
+## 3. 制作电子书
+
+您可以选择使用Calibre或者命令行。
+
+### Calibre
 
 打开 Calibre，右键单击 **Fetch news**，然后选择 **Add or edit a custom news source**，单击 **New recipe**，选择 **Switch to advanced mode** 并将您的程序粘贴到新的页面，点击**Save**并选择**Download this recipe**。用本地服务器制作一本 Kindle 电子书只需不到一分钟。
 
@@ -41,7 +45,19 @@ ebook-convert calibre.recipe .mobi --test -vv --debug-pipeline debug
 
 ![](images/speed.jpg)
 
-## 4. Read on Kindle/PC
+### 命令行
+
+```sh
+ebook-convert "calibre.recipe" .mobi \
+        --authors="Paul Graham" \
+        --title="Essays of Paul Graham" \
+        --pubdate="2021-10-24" \
+        --output-profile=kindle_pw3 \
+        --mobi-file-type=new \
+        -vv
+```
+
+## 4. 在Kindle、PC上阅读
 
 ![](images/screanshot_1.png)
 
@@ -51,6 +67,9 @@ ebook-convert calibre.recipe .mobi --test -vv --debug-pipeline debug
 
 ![](images/unlearn.jpg)
 
+## 已知Bugs
+
+ - 脚注链接不正常
 
 ## 资源
 
