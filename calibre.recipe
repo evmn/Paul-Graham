@@ -94,7 +94,7 @@ class Paul_Graham(BasicNewsRecipe):
                         # All essays will be add to archives_feeds
                         archives_feeds.append(essay_feed)
 
-                favorite_feed= sorted(favorite_feeds, key=lambda d: d['title'])
+                favorite_feeds = sorted(favorite_feeds, key=lambda d: d['title'])
                 hp_feeds = sorted(hp_feeds, key=lambda d: d['title'])
                 latest_feeds = archives_feeds[0:25]
 
