@@ -169,8 +169,8 @@ And no one is proposing that implementations actually work that way.
 The point of writing an eval is to define a language
 spec, not a language implementation.
 Internally, implementations can do whatever they
-like-- including for example representing numbers in whatever
-way is most convenient for the hardware-- so long as their
+like — including for example representing numbers in whatever
+way is most convenient for the hardware — so long as their
 outward behavior is indistinguishable from the interpreter
 that serves as the language spec.
   </p>
@@ -286,8 +286,8 @@ to forbid it."
   <p>
    So, for example, it is not
 illegal in Arc to use the same variable twice in a parameter list.
-There's a consistent interpretation of such code-- bind
-the parameters left to right-- and that's what I do.  (Using the
+There's a consistent interpretation of such code — bind
+the parameters left to right — and that's what I do.  (Using the
 same parameter twice will also work in McCarthy's original eval,
 except there the first parameter becomes the visible one.)
 Perhaps most parameter lists in which the same symbol occurs twice
@@ -423,8 +423,8 @@ math too.  When some mathematician describes a class of
 things, he doesn't have to know all its properties to know
 whether it will be a useful class of things to talk about.
 Likewise, I think if we design a language whose specification
-is a program that looks right-- a program that's short
-and free of kludges-- then it's likely to be
+is a program that looks right — a program that's short
+and free of kludges — then it's likely to be
 good language, even if we're not 100% sure what it does.
   </p>
   <p>
@@ -547,7 +547,7 @@ the right way to floating point, by all means let me know. -->
 so long for Arc to arrive might want to consider how to implement
 optional parameters outside the language core, while still doing
 the right thing, whatever that is, about continuations during
-the evaluation of the default forms-- which is what I was working
+the evaluation of the default forms — which is what I was working
 on at the moment I stopped to write this talk.  I think I can do
 this, but I have to figure out what I'm trying to do before I can
 figure out whether or not it's possible.  That's what cooking
