@@ -1,0 +1,123 @@
+# encoding: utf-8
+from calibre.web.feeds.recipes import BasicNewsRecipe
+#base_url = 'http://www.paulgraham.com/articles.html'
+base_url = 'http://127.0.0.1:8000'
+
+class Paul_Graham(BasicNewsRecipe):
+
+        title = 'Essays of Paul Graham'
+        description = u"Paul Graham is a programmer, writer, and investor. In 1995, he and Robert Morris started Viaweb, the first software as a service company. Viaweb was acquired by Yahoo in 1998, where it became Yahoo Store. In 2001 he started publishing essays on paulgraham.com, which now gets around 25 million page views per year. In 2005 he and Jessica Livingston, Robert Morris, and Trevor Blackwell started Y Combinator, the first of a new type of startup incubator. Since 2005 Y Combinator has funded over 2000 startups, including Airbnb, Dropbox, Stripe, and Reddit. In 2019 he published a new Lisp dialect written in itself called Bel."
+        cover_url = 'http://127.0.0.1:8000/images/cover.jpg'
+
+        remove_tags = [dict(name=['img'])]
+        __author__ = 'evmn'
+        language = 'en'
+        #encoding = 'cp-1252'
+        encoding = 'utf-8'
+        timefmt = ''
+
+        publication_type = 'blog'
+        resolve_internal_links = True
+#        remove_attributes = ['href']
+        no_stylesheets = True
+        remove_javascript = True
+        auto_cleanup = True
+        delay = 1
+        simultaneous_downloads = 5
+        oldest_article = 999
+        max_articles_per_feed = 999
+
+        def parse_index(self):
+
+                soup = self.index_to_soup(base_url)
+                archives = soup.find('table').findAll('table')[1]
+                #desc = ''
+                hacker_painter = [
+                                'nerds',        #  1. Why Nerds are Unpopular
+				'hp',           #  2. Hackers and Painters
+				'say',          #  3. What You Can't Say
+				'gba'           #  4. The Word "Hacker"
+				'road',         #  5. The Other Road Ahead
+				'wealth',       #  6. How to Make Wealth
+				'gap',          #  7. Mind the Gap
+				'spam',         #  8. A Plan for Spam
+				'taste',        #  9. Taste for Makers
+                                # 10. Programming Languages Explained
+				'hundred',      # 11. The Hundred-Year Language
+				'avg',          # 12. Beating the Averages
+				'icad',         # 13. Revenge of the Nerds
+                                'popular',      # 14. The Dream Language
+				'desres'        # 15. Design and Research
+                                ]
+
+                favorite = [
+                                'cities',               # Cities and Ambition
+                		'ds',                   # Do Things that Don't Scale
+                		'essay',                # The Age of the Essay
+                		'growth',               # Startup = Growth
+                		'hamming',              # Richard Hamming: You and Your Research
+                		'head',                 # Holding a Program in One's Head
+                		'hiring',               # Hiring is Obsolete
+                		'hs',                   # What You'll Wish You'd Known
+                		'knuth',                # Knuth: Computer Programming as an Art
+                		'lesson',               # The Lesson to Unlearn
+                		'lies',                 # Lies We Tell Kids
+                		'love',                 # How to Do What You Love
+                		'makersschedule',       # Maker's Schedule, Manager's Schedule
+                		'marginal',             # The Power of the Marginal
+                		'mean',                 # Mean People Fail
+                		'pypar',                # The Python Paradox
+                		're',                   # The Refragmentation
+                		'say',                  # What You Can't Say
+                		'selfindulgence',       # How to Lose Time and Money
+                		'startupideas',         # How to Get Startup Ideas
+                		'vb',                   # Life is Short
+                		'wealth',               # How to Make Wealth
+                		'wisdom'                # Is It Worth Being Wise?
+                                ]
+                feeds = []
+                favorite_feeds = []
+                hp_feeds = []
+                archives_feeds = []
+
+                for essay in archives.findAll('a'):
+                        essay_title = essay.getText()
+                        link = "http://127.0.0.1:8000/www.paulgraham.com/" + essay['href']
+                        essay_feed = {'title': essay_title, 'url': link}
+
+                        url = essay['href'].split(".",)[0]
+                        if url in hacker_painter:
+                                hp_feeds.append(essay_feed)
+                        elif url in favorite:
+                                favorite_feeds.append(essay_feed)
+                                print(essay_title, url)
+                        # All essays will be add to archives_feeds
+                        archives_feeds.append(essay_feed)
+
+                favorite_feeds = sorted(favorite_feeds, key=lambda d: d['title'])
+                hp_feeds = sorted(hp_feeds, key=lambda d: d['title'])
+                latest_feeds = archives_feeds[0:25]
+
+                feeds.append(("Favorite", favorite_feeds))
+                feeds.append(("Hackers and Painters", hp_feeds))
+                feeds.append(("Latest", latest_feeds))
+
+                archives_feeds= sorted(archives_feeds, key=lambda d: d['title'])
+
+                section_feeds = [[], [], [], [], [], [], [], []]
+                chars_list = ['AB', 'CDEFG', 'H', 'IJKLMN', 'OPQRS', 'T', 'UVWXYZ', '0123456789']
+                section_titles = ['AB', 'C - G', 'H', 'I - N', 'O - S', 'T', 'U - Z', '0 - 9']
+
+                for item in archives_feeds:
+                        first_char = item['title'][0]
+                        for chars in chars_list:
+                                if first_char in list(chars):
+                                        index = chars_list.index(chars)
+                                        section_feeds[index].append(item)
+                                        break
+                        print(item['title'])
+
+                for a, b in zip(section_titles, section_feeds):
+                        feeds.append((a, b))
+                        print(a, len(b))
+                return feeds
