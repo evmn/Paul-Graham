@@ -1,57 +1,135 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Rees Re: OO</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0bb7><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0bb7 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2202_7234083" width=242 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_7234772" width=95 height=18 border=0 hspace=0 vspace=0 alt="Rees Re: OO"><br><br><font size=2 face="verdana"><p align=justif>
-<i>(Jonathan Rees had a really interesting response to <a href="noop.html">Why
-Arc isn't Especially Object-Oriented</a>, which he has allowed me to reproduce
-here.)</i><br><br>Here is an a la carte menu of features or properties that are related
+<html lang="en">
+ <head>
+  <title>
+   Rees Re: OO
+  </title>
+ </head>
+ <body>
+  <h1>
+   Rees Re: OO
+  </h1>
+  <p>
+   <p align="justif">
+    <i>
+     (Jonathan Rees had a really interesting response to
+     <a href="noop.html">
+      Why
+Arc isn't Especially Object-Oriented
+     </a>
+     , which he has allowed me to reproduce
+here.)
+    </i>
+   </p>
+   <p>
+    Here is an a la carte menu of features or properties that are related
                     to these terms; I have heard OO defined to be many different subsets
-                    of this list.<br><br><ol>
-<li> Encapsulation - the ability to syntactically hide the
+                    of this list.
+   </p>
+   <p>
+    <ol>
+     <li>
+      Encapsulation - the ability to syntactically hide the
                        implementation of a type.  E.g. in C or Pascal you always know
                        whether something is a struct or an array, but in CLU and Java you
-                       can hide the difference.<br><br><li> Protection - the inability of the client of a type to detect its
+                       can hide the difference.
+     </li>
+    </ol>
+   </p>
+   <p>
+    <li>
+     Protection - the inability of the client of a type to detect its
                        implementation.  This guarantees that a behavior-preserving change
                        to an implementation will not break its clients, and also makes
-                       sure that things like passwords don't leak out.<br><br><li> Ad hoc polymorphism - functions and data structures with parameters 
-                       that can take on values of many different types.<br><br><li> Parametric polymorphism - functions and data structures that
+                       sure that things like passwords don't leak out.
+    </li>
+   </p>
+   <p>
+    <li>
+     Ad hoc polymorphism - functions and data structures with parameters 
+                       that can take on values of many different types.
+    </li>
+   </p>
+   <p>
+    <li>
+     Parametric polymorphism - functions and data structures that
                        parameterize over arbitrary values (e.g. list of anything).
                        ML and Lisp both have this.  Java doesn't quite because of
-                       its non-Object types.<br><br><li> Everything is an object - all values are objects.  True in Smalltalk
-                       (?) but not in Java (because of int and friends).<br><br><li> All you can do is send a message (AYCDISAM) = Actors model - there
+                       its non-Object types.
+    </li>
+   </p>
+   <p>
+    <li>
+     Everything is an object - all values are objects.  True in Smalltalk
+                       (?) but not in Java (because of int and friends).
+    </li>
+   </p>
+   <p>
+    <li>
+     All you can do is send a message (AYCDISAM) = Actors model - there
                        is no direct manipulation of objects, only communication with (or
-                       invocation of) them.  The presence of fields in Java violates this.<br><br><li> Specification inheritance = subtyping - there are distinct
+                       invocation of) them.  The presence of fields in Java violates this.
+    </li>
+   </p>
+   <p>
+    <li>
+     Specification inheritance = subtyping - there are distinct
                        types known to the language with the property that a value of
                        one type is as good as a value of another for the purposes of type
-                       correctness.  (E.g. Java interface inheritance.)<br><br><li> Implementation inheritance/reuse - having written one pile of code,
+                       correctness.  (E.g. Java interface inheritance.)
+    </li>
+   </p>
+   <p>
+    <li>
+     Implementation inheritance/reuse - having written one pile of code,
                        a similar pile (e.g. a superset) can be generated in a controlled
                        manner, i.e. the code doesn't have to be copied and edited.  A
                        limited and peculiar kind of abstraction.  (E.g. Java class
-                       inheritance.)<br><br><li> Sum-of-product-of-function pattern - objects are (in effect)
+                       inheritance.)
+    </li>
+   </p>
+   <p>
+    <li>
+     Sum-of-product-of-function pattern - objects are (in effect)
                        restricted to be functions that take as first argument a
                        distinguished method key argument that is drawn from a finite set
                        of simple names.
-</ol>
-<p align=justif>
-                    So OO is not a well defined concept.  Some people (eg. Abelson and
+    </li>
+    <p align="justif">
+     So OO is not a well defined concept.  Some people (eg. Abelson and
                     Sussman?) say Lisp is OO, by which they mean {3,4,5,7} (with the
                     proviso that all types are in the programmers' heads).  Java is
                     supposed to be OO because of {1,2,3,7,8,9}.  E is supposed to be more
                     OO than Java because it has {1,2,3,4,5,7,9} and almost has 6; 8
                     (subclassing) is seen as antagonistic to E's goals and not necessary
-                    for OO.<br><br>The conventional Simula 67-like pattern of class and instance will get
+                    for OO.
+    </p>
+    <p>
+     The conventional Simula 67-like pattern of class and instance will get
                     you {1,3,7,9}, and I think many people take this as a definition of
-                    OO.<br><br>Because OO is a moving target, OO zealots will choose some subset of
+                    OO.
+    </p>
+    <p>
+     Because OO is a moving target, OO zealots will choose some subset of
                     this menu by whim and then use it to try to convince you that you are
-                    a loser.<br><br>Perhaps part of the confusion - and you say this in a different way in
-                    your little <a href="noop.html">memo</a> - is that the C/C++ folks see OO as a liberation from
+                    a loser.
+    </p>
+    <p>
+     Perhaps part of the confusion - and you say this in a different way in
+                    your little
+     <a href="noop.html">
+      memo
+     </a>
+     - is that the C/C++ folks see OO as a liberation from
                     a world that has nothing resembling a first-class functions, while
                     Lisp folks see OO as a prison since it limits their use of
                     functions/objects to the style of (9.).  In that case, the only way OO
                     can be defended is in the same manner as any other game or discipline
                     -- by arguing that by giving something up (e.g. the freedom to throw
                     eggs at your neighbor's house) you gain something that you want
-                    (assurance that your neighbor won't put you in jail).<br><br>This is related to Lisp being oriented to the solitary hacker and
+                    (assurance that your neighbor won't put you in jail).
+    </p>
+    <p>
+     This is related to Lisp being oriented to the solitary hacker and
                     discipline-imposing languages being oriented to social packs, another
                     point you mention.  In a pack you want to restrict everyone else's
                     freedom as much as possible to reduce their ability to interfere with
@@ -59,57 +137,74 @@ here.)</i><br><br>Here is an a la carte menu of features or properties that are 
                     becoming chief (dangerous and unlikely) or by submitting to the same
                     rules that they do.  If you submit to rules, you then want the rules
                     to be liberal so that you have a chance of doing most of what you want
-                    to do, but not so liberal that others nail you.<br><br>In such a pack-programming world, the language is a constitution or
+                    to do, but not so liberal that others nail you.
+    </p>
+    <p>
+     In such a pack-programming world, the language is a constitution or
                     set of by-laws, and the interpreter/compiler/QA dept. acts in part as
                     a rule checker/enforcer/police force.  Co-programmers want to know: If
                     I work with your code, will this help me or hurt me?  Correctness is
                     undecidable (and generally unenforceable), so managers go with
                     whatever rule set (static type system, language restrictions, "lint"
-                    program, etc.) shows up at the door when the project starts.<br><br>I recently contributed to a discussion of anti-OO on the e-lang list.
+                    program, etc.) shows up at the door when the project starts.
+    </p>
+    <p>
+     I recently contributed to a discussion of anti-OO on the e-lang list.
                     My main anti-OO message (actually it only attacks points 5/6)
                     was
-<a href="http://www.eros-os.org/pipermail/e-lang/2001-October/005852.html"
-> http://www.eros-os.org/pipermail/e-lang/2001-October/005852.html</a>.
+     <a href="http://www.eros-os.org/pipermail/e-lang/2001-October/005852.html">
+      http://www.eros-os.org/pipermail/e-lang/2001-October/005852.html
+     </a>
+     .
                     The followups are interesting but I don't think they're all threaded
-                    properly.<br><br>(Here are the pet definitions of terms used above:<br><br><ul>
-<li> Value = something that can be passed to some function (abstraction).
+                    properly.
+    </p>
+    <p>
+     (Here are the pet definitions of terms used above:
+    </p>
+    <p>
+     <ul>
+      <li>
+       Value = something that can be passed to some function (abstraction).
                       (I exclude exotic compile-time things like parameters to
-                      macros and to parameterized types and modules.)<br><br><li> Object = a value that has function-like behavior, i.e. you can
+                      macros and to parameterized types and modules.)
+      </li>
+     </ul>
+    </p>
+    <p>
+     <li>
+      Object = a value that has function-like behavior, i.e. you can
                       invoke a method on it or call it or send it a message or something
                       like that.  Some people define object more strictly along the lines
                       of 9. above, while others (e.g. CLTL) are more liberal.  This is
                       what makes "everything is an object" a vacuous statement in the
-                      absence of clear definitions.<br><br>In some languages the "call" is curried and the key-to-method
+                      absence of clear definitions.
+     </li>
+    </p>
+    <p>
+     In some languages the "call" is curried and the key-to-method
                       mapping can sometimes be done at compile time.  This technicality
-                      can cloud discussions of OO in C++ and related languages.<br><br><li> Function = something that can be combined with particular
+                      can cloud discussions of OO in C++ and related languages.
+    </p>
+    <p>
+     <li>
+      Function = something that can be combined with particular
                       parameter(s) to produce some result.  Might or might not be the same
-                      as object depending on the language.<br><br><li> Type = a description of the space of values over which a function is
+                      as object depending on the language.
+     </li>
+    </p>
+    <p>
+     <li>
+      Type = a description of the space of values over which a function is
                       meaningfully parameterized.  I include both types known to the
                       language and types that exist in the programmer's mind or
                       in documentation.
-</ul>)<br><br></font></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2272_1423" width=12 height=14 align=left border=0 hspace=0 vspace=0><font size=2 face="verdana"><a href="http://mumble.net/jar/articles/oo.html">Complete Exchange</a><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'reesoo'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=reesoo&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+     </li>
+     )
+    </p>
+    <p>
+    </p>
+   </p>
+  </p>
+ </body>
+</html>

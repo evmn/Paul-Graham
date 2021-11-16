@@ -1,85 +1,194 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Five Questions about Language Design</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b357><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b357 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_12134594" width=309 height=18 border=0 hspace=0 vspace=0 alt="Five Questions about Language Design"><br><br><font size=2 face="verdana">May 2001
-<p>
-<i>(These are some notes I made
+<html lang="en">
+ <head>
+  <title>
+   Five Questions about Language Design
+  </title>
+ </head>
+ <body>
+  <h1>
+   Five Questions about Language Design
+  </h1>
+  <p>
+   May 2001
+   <p>
+    <i>
+     (These are some notes I made
 for a panel discussion on programming language design
-at MIT on May 10, 2001.)</i><br><br><br><br><img src="https://sep.yimg.com/ca/I/paulgraham_2202_12135763" width=159 height=18 border=0 hspace=0 vspace=0><br><br><b>1. Programming Languages Are for People.</b><br><br>Programming languages
+at MIT on May 10, 2001.)
+    </i>
+   </p>
+   <p>
+   </p>
+   <p>
+    <h1>
+     Five Questions about Language Design
+    </h1>
+    <p>
+     <b>
+      1. Programming Languages Are for People.
+     </b>
+    </p>
+    <p>
+     Programming languages
 are how people talk to computers.  The computer would be just as
 happy speaking any language that was unambiguous.  The reason we
 have high level languages is because people can't deal with
 machine language.  The point of programming
 languages is to prevent our poor frail human brains from being 
-overwhelmed by a mass of detail.<br><br>Architects know that some kinds of design problems are more personal
+overwhelmed by a mass of detail.
+    </p>
+    <p>
+     Architects know that some kinds of design problems are more personal
 than others.  One of the cleanest, most abstract design problems
 is designing bridges.  There your job is largely a matter of spanning
 a given distance with the least material.  The other end of the
 spectrum is designing chairs.  Chair designers have to spend their
-time thinking about human butts.<br><br>Software varies in the same way. Designing algorithms for routing
+time thinking about human butts.
+    </p>
+    <p>
+     Software varies in the same way. Designing algorithms for routing
 data through a network is a nice, abstract problem, like designing
 bridges.  Whereas designing programming languages is like designing
-chairs: it's all about dealing with human weaknesses.<br><br>Most of us hate to acknowledge this.  Designing systems of great
+chairs: it's all about dealing with human weaknesses.
+    </p>
+    <p>
+     Most of us hate to acknowledge this.  Designing systems of great
 mathematical elegance sounds a lot more appealing to most of us
 than pandering to human weaknesses.  And there is a role for mathematical
 elegance: some kinds of elegance make programs easier to understand.
-But elegance is not an end in itself.<br><br>And when I say languages have to be designed to suit human weaknesses,
+But elegance is not an end in itself.
+    </p>
+    <p>
+     And when I say languages have to be designed to suit human weaknesses,
 I don't mean that languages have to be designed for bad programmers.
-In fact I think you ought to design for the 
-<a href="design.html">best programmers</a>, but
+In fact I think you ought to design for the
+     <a href="design.html">
+      best programmers
+     </a>
+     , but
 even the best programmers have limitations.  I don't think anyone
 would like programming in a language where all the variables were
-the letter x with integer subscripts.<br><br><b>2. Design for Yourself and Your Friends.</b><br><br>If you look at the history of programming languages, a lot of the best
+the letter x with integer subscripts.
+    </p>
+    <p>
+     <b>
+      2. Design for Yourself and Your Friends.
+     </b>
+    </p>
+    <p>
+     If you look at the history of programming languages, a lot of the best
 ones were languages designed for their own authors to use, and a
-lot of the worst ones were designed for other people to use.<br><br>When languages are designed for other people, it's always a specific
+lot of the worst ones were designed for other people to use.
+    </p>
+    <p>
+     When languages are designed for other people, it's always a specific
 group of other people: people not as smart as the language designer.
 So you get a language that talks down to you.  Cobol is the most
-extreme case, but a lot of languages are pervaded by this spirit.<br><br>It has nothing to do with how abstract the language is.  C is pretty
+extreme case, but a lot of languages are pervaded by this spirit.
+    </p>
+    <p>
+     It has nothing to do with how abstract the language is.  C is pretty
 low-level, but it was designed for its authors to use, and that's
-why hackers like it.<br><br>The argument for designing languages for bad programmers is that
+why hackers like it.
+    </p>
+    <p>
+     The argument for designing languages for bad programmers is that
 there are more bad programmers than good programmers.  That may be
 so.  But those few good programmers write a disproportionately
-large percentage of the software.<br><br>I'm interested in the question, how do you design a language that
+large percentage of the software.
+    </p>
+    <p>
+     I'm interested in the question, how do you design a language that
 the very best hackers will like?  I happen to think this is
 identical to the question, how do you design a good programming
 language?, but even if it isn't, it is at least an interesting
-question.<br><br><b>3. Give the Programmer as Much Control as Possible.</b><br><br>Many languages
+question.
+    </p>
+    <p>
+     <b>
+      3. Give the Programmer as Much Control as Possible.
+     </b>
+    </p>
+    <p>
+     Many languages
 (especially the ones designed for other people) have the attitude
 of a governess: they try to prevent you from
 doing things that they think aren't good for you.  I like the   
 opposite approach: give the programmer as much
-control as you can.<br><br>When I first learned Lisp, what I liked most about it was
+control as you can.
+    </p>
+    <p>
+     When I first learned Lisp, what I liked most about it was
 that it considered me an equal partner.  In the other languages
 I had learned up till then, there was the language and there was my   
 program, written in the language, and the two were very separate.
 But in Lisp the functions and macros I wrote were just like those
 that made up the language itself.  I could rewrite the language
-if I wanted.  It had the same appeal as open-source software.<br><br><b>4. Aim for Brevity.</b><br><br>Brevity is underestimated and even scorned.
+if I wanted.  It had the same appeal as open-source software.
+    </p>
+    <p>
+     <b>
+      4. Aim for Brevity.
+     </b>
+    </p>
+    <p>
+     Brevity is underestimated and even scorned.
 But if you look into the hearts of hackers, you'll see that they
 really love it.  How many times have you heard hackers speak fondly
 of how in, say, APL, they could do amazing things with just a couple
 lines of code?  I think anything that really smart people really
-love is worth paying attention to.<br><br>I think almost anything
+love is worth paying attention to.
+    </p>
+    <p>
+     I think almost anything
 you can do to make programs shorter is good.  There should be lots
 of library functions; anything that can be implicit should be;
 the syntax should be terse to a fault; even the names of things
-should be short.<br><br>And it's not only programs that should be short.  The manual should
+should be short.
+    </p>
+    <p>
+     And it's not only programs that should be short.  The manual should
 be thin as well.  A good part of manuals is taken up with clarifications
 and reservations and warnings and special cases.  If you force  
 yourself to shorten the manual, in the best case you do it by fixing
-the things in the language that required so much explanation.<br><br><b>5. Admit What Hacking Is.</b><br><br>A lot of people wish that hacking was
+the things in the language that required so much explanation.
+    </p>
+    <p>
+     <b>
+      5. Admit What Hacking Is.
+     </b>
+    </p>
+    <p>
+     A lot of people wish that hacking was
 mathematics, or at least something like a natural science.  I think
 hacking is more like architecture.  Architecture is
 related to physics, in the sense that architects have to design
 buildings that don't fall down, but the actual goal of architects
-is to make great buildings, not to make discoveries about statics.<br><br>What hackers like to do is make great programs.
+is to make great buildings, not to make discoveries about statics.
+    </p>
+    <p>
+     What hackers like to do is make great programs.
 And I think, at least in our own minds, we have to remember that it's
 an admirable thing to write great programs, even when this work 
 doesn't translate easily into the conventional intellectual
 currency of research papers.  Intellectually, it is just as
 worthwhile to design a language programmers will love as it is to design a
 horrible one that embodies some idea you can publish a paper
-about.<br><br><br><br><img src="https://sep.yimg.com/ca/I/paulgraham_2202_12136436" width=125 height=18 border=0 hspace=0 vspace=0><br><br><b>1. How to Organize Big Libraries?</b><br><br>Libraries are becoming an
+about.
+    </p>
+    <p>
+    </p>
+    <p>
+     <h1>
+      Five Questions about Language Design
+     </h1>
+     <p>
+      <b>
+       1. How to Organize Big Libraries?
+      </b>
+     </p>
+     <p>
+      Libraries are becoming an
 increasingly important component of programming languages.  They're
 also getting bigger, and this can be dangerous.  If it takes longer
 to find the library function that will do what you want than it
@@ -87,40 +196,85 @@ would take to write it yourself, then all that code is doing nothing
 but make your manual thick.  (The Symbolics manuals were a case in 
 point.)  So I think we will have to work on ways to organize
 libraries.  The ideal would be to design them so that the programmer
-could guess what library call would do the right thing.<br><br><b>2. Are People Really Scared of Prefix Syntax?</b><br><br>This is an open
+could guess what library call would do the right thing.
+     </p>
+     <p>
+      <b>
+       2. Are People Really Scared of Prefix Syntax?
+      </b>
+     </p>
+     <p>
+      This is an open
 problem in the sense that I have wondered about it for years and
 still don't know the answer.  Prefix syntax seems perfectly natural
 to me, except possibly for math.  But it could be that a lot of 
 Lisp's unpopularity is simply due to having an unfamiliar syntax.   
-Whether to do anything about it, if it is true, is another question. 
-<p align=left>
-<b>3. What Do You Need for Server-Based Software?</b>
-<p align=justif>
-I think a lot of the most exciting new applications that get written
+Whether to do anything about it, if it is true, is another question.
+      <p align="left">
+       <b>
+        3. What Do You Need for Server-Based Software?
+       </b>
+       <p align="justif">
+        I think a lot of the most exciting new applications that get written
 in the next twenty years will be Web-based applications, meaning
 programs that sit on the server and talk to you through a Web
 browser.  And to write these kinds of programs we may need some
-new things.<br><br>One thing we'll need is support for the new way that server-based 
+new things.
+       </p>
+       <p>
+        One thing we'll need is support for the new way that server-based 
 apps get released.  Instead of having one or two big releases a
 year, like desktop software, server-based apps get released as a
 series of small changes.  You may have as many as five or ten
 releases a day.  And as a rule everyone will always use the latest
-version.<br><br>You know how you can design programs to be debuggable?
+version.
+       </p>
+       <p>
+        You know how you can design programs to be debuggable?
 Well, server-based software likewise has to be designed to be
 changeable.  You have to be able to change it easily, or at least
-to know what is a small change and what is a momentous one.<br><br>Another thing that might turn out to be useful for server based
+to know what is a small change and what is a momentous one.
+       </p>
+       <p>
+        Another thing that might turn out to be useful for server based
 software, surprisingly, is continuations.  In Web-based software
 you can use something like continuation-passing style to get the
-effect of <a href="lwba.html">subroutines</a> in the inherently 
+effect of
+        <a href="lwba.html">
+         subroutines
+        </a>
+        in the inherently 
 stateless world of a Web
 session.  Maybe it would be worthwhile having actual continuations,
-if it was not too expensive.<br><br><b>4. What New Abstractions Are Left to Discover?</b><br><br>I'm not sure how
+if it was not too expensive.
+       </p>
+       <p>
+        <b>
+         4. What New Abstractions Are Left to Discover?
+        </b>
+       </p>
+       <p>
+        I'm not sure how
 reasonable a hope this is, but one thing I would really love to    
 do, personally, is discover a new abstraction-- something that would
 make as much of a difference as having first class functions or
 recursion or even keyword parameters.  This may be an impossible
 dream.  These things don't get discovered that often.  But I am always
-looking.<br><br><br><br><img src="https://sep.yimg.com/ca/I/paulgraham_2202_12137035" width=179 height=18 border=0 hspace=0 vspace=0><br><br><b>1. You Can Use Whatever Language You Want.</b><br><br>Writing application
+looking.
+       </p>
+       <p>
+       </p>
+       <p>
+        <h1>
+         Five Questions about Language Design
+        </h1>
+        <p>
+         <b>
+          1. You Can Use Whatever Language You Want.
+         </b>
+        </p>
+        <p>
+         Writing application
 programs used to mean writing desktop software.  And in desktop
 software there is a big bias toward writing the application in the
 same language as the operating system.  And so ten years ago,
@@ -128,85 +282,192 @@ writing software pretty much meant writing software in C.
 Eventually a tradition evolved:
 application programs must not be written in unusual languages.  
 And this tradition had so long to develop that nontechnical people
-like managers and venture capitalists also learned it.<br><br>Server-based software blows away this whole model.  With server-based
+like managers and venture capitalists also learned it.
+        </p>
+        <p>
+         Server-based software blows away this whole model.  With server-based
 software you can use any language you want.  Almost nobody understands
 this yet (especially not managers and venture capitalists).
 A few hackers understand it, and that's why we even hear
 about new, indy languages like Perl and Python.  We're not hearing
 about Perl and Python because people are using them to write Windows
-apps.<br><br>What this means for us, as people interested in designing programming
+apps.
+        </p>
+        <p>
+         What this means for us, as people interested in designing programming
 languages, is that there is now potentially an actual audience for
-our work.<br><br><b>2. Speed Comes from Profilers.</b><br><br>Language designers, or at least
+our work.
+        </p>
+        <p>
+         <b>
+          2. Speed Comes from Profilers.
+         </b>
+        </p>
+        <p>
+         Language designers, or at least
 language implementors, like to write compilers that generate fast
 code.  But I don't think this is what makes languages fast for users.
 Knuth pointed out long ago that speed only matters in a few critical
 bottlenecks.  And anyone who's tried it knows that you can't guess
-where these bottlenecks are.  Profilers are the answer.<br><br>Language designers are solving the wrong problem.  Users don't need
+where these bottlenecks are.  Profilers are the answer.
+        </p>
+        <p>
+         Language designers are solving the wrong problem.  Users don't need
 benchmarks to run fast.  What they need is a language that can show
 them what parts of their own programs need to be rewritten.  That's
 where speed comes from in practice.  So maybe it would be a net 
 win if language implementors took half the time they would
 have spent doing compiler optimizations and spent it writing a
-good profiler instead.<br><br><b>3. You Need an Application to Drive the Design of a Language.</b><br><br>This may not be an absolute rule, but it seems like the best languages
+good profiler instead.
+        </p>
+        <p>
+         <b>
+          3. You Need an Application to Drive the Design of a Language.
+         </b>
+        </p>
+        <p>
+         This may not be an absolute rule, but it seems like the best languages
 all evolved together with some application they were being used to
 write.  C was written by people who needed it for systems programming.
 Lisp was developed partly to do symbolic differentiation, and
 McCarthy was so eager to get started that he was writing differentiation
-programs even in the first paper on Lisp, in 1960.<br><br>It's especially good if your application solves some new problem.
+programs even in the first paper on Lisp, in 1960.
+        </p>
+        <p>
+         It's especially good if your application solves some new problem.
 That will tend to drive your language to have new features that   
 programmers need.  I personally am interested in writing
-a language that will be good for writing server-based applications.<br><br>[During the panel, Guy Steele also made this point, with the
+a language that will be good for writing server-based applications.
+        </p>
+        <p>
+         [During the panel, Guy Steele also made this point, with the
 additional suggestion that the application should not consist of
 writing the compiler for your language, unless your language
-happens to be intended for writing compilers.]<br><br><b>4. A Language Has to Be Good for Writing Throwaway Programs.</b><br><br>You know what a throwaway program is: something you write quickly for
+happens to be intended for writing compilers.]
+        </p>
+        <p>
+         <b>
+          4. A Language Has to Be Good for Writing Throwaway Programs.
+         </b>
+        </p>
+        <p>
+         You know what a throwaway program is: something you write quickly for
 some limited task.  I think if you looked around you'd find that  
 a lot of big, serious programs started as throwaway programs.  I
-would not be surprised if <i>most</i> programs started as throwaway
+would not be surprised if
+         <i>
+          most
+         </i>
+         programs started as throwaway
 programs.  And so if you want to make a language that's good for
 writing software in general, it has to be good for writing throwaway
-programs, because that is the larval stage of most software.<br><br><b>5. Syntax Is Connected to Semantics.</b><br><br>It's traditional to think of
+programs, because that is the larval stage of most software.
+        </p>
+        <p>
+         <b>
+          5. Syntax Is Connected to Semantics.
+         </b>
+        </p>
+        <p>
+         It's traditional to think of
 syntax and semantics as being completely separate.  This will
 sound shocking, but it may be that they aren't.
 I think that what you want in your language may be related
-to how you express it.<br><br>I was talking recently to Robert Morris, and he pointed out that
+to how you express it.
+        </p>
+        <p>
+         I was talking recently to Robert Morris, and he pointed out that
 operator overloading is a bigger win in languages with infix
 syntax.  In a language with prefix syntax, any function you define
 is effectively an operator.  If you want to define a plus for a
 new type of number you've made up, you can just define a new function
 to add them.  If you do that in a language with infix syntax,
 there's a big difference in appearance between the use of an
-overloaded operator and a function call.<br><br><br><br><img src="https://sep.yimg.com/ca/I/paulgraham_2202_12137782" width=254 height=18 border=0 hspace=0 vspace=0><br><br><b>1. New Programming Languages.</b><br><br>Back in the 1970s
+overloaded operator and a function call.
+        </p>
+        <p>
+        </p>
+        <p>
+         <h1>
+          Five Questions about Language Design
+         </h1>
+         <p>
+          <b>
+           1. New Programming Languages.
+          </b>
+         </p>
+         <p>
+          Back in the 1970s
 it was fashionable to design new programming languages.  Recently
 it hasn't been.  But I think server-based software will make new  
 languages fashionable again.  With server-based software, you can
 use any language you want, so if someone does design a language that
 actually seems better than others that are available, there will be
-people who take a risk and use it.<br><br><b>2. Time-Sharing.</b><br><br>Richard Kelsey gave this as an idea whose time
+people who take a risk and use it.
+         </p>
+         <p>
+          <b>
+           2. Time-Sharing.
+          </b>
+         </p>
+         <p>
+          Richard Kelsey gave this as an idea whose time
 has come again in the last panel, and I completely agree with him.
 My guess (and Microsoft's guess, it seems) is that much computing
 will move from the desktop onto remote servers.  In other words,  
 time-sharing is back.  And I think there will need to be support
 for it at the language level.  For example, I know that Richard
 and Jonathan Rees have done a lot of work implementing process  
-scheduling within Scheme 48.<br><br><b>3. Efficiency.</b><br><br>Recently it was starting to seem that computers
+scheduling within Scheme 48.
+         </p>
+         <p>
+          <b>
+           3. Efficiency.
+          </b>
+         </p>
+         <p>
+          Recently it was starting to seem that computers
 were finally fast enough.  More and more we were starting to hear
 about byte code, which implies to me at least that we feel we have
 cycles to spare.  But I don't think we will, with server-based
 software.   Someone is going to have to pay for the servers that
 the software runs on, and the number of users they can support per
-machine will be the divisor of their capital cost.<br><br>So I think efficiency will matter, at least in computational
+machine will be the divisor of their capital cost.
+         </p>
+         <p>
+          So I think efficiency will matter, at least in computational
 bottlenecks.  It will be especially important to do i/o fast,
-because server-based applications do a lot of i/o.<br><br>It may turn out that byte code is not a win, in the end.  Sun and
+because server-based applications do a lot of i/o.
+         </p>
+         <p>
+          It may turn out that byte code is not a win, in the end.  Sun and
 Microsoft seem to be facing off in a kind of a battle of the byte
 codes at the moment.  But they're doing it because byte code is a
 convenient place to insert themselves into the process, not because
 byte code is in itself a good idea.  It may turn out that this
-whole battleground gets bypassed.  That would be kind of amusing.<br><br><br><br><img src="https://sep.yimg.com/ca/I/paulgraham_2202_12138764" width=170 height=18 border=0 hspace=0 vspace=0><br><br><b>1. Clients.</b><br><br>This is just a guess, but my guess is that
+whole battleground gets bypassed.  That would be kind of amusing.
+         </p>
+         <p>
+         </p>
+         <p>
+          <h1>
+           Five Questions about Language Design
+          </h1>
+          <p>
+           <b>
+            1. Clients.
+           </b>
+          </p>
+          <p>
+           This is just a guess, but my guess is that
 the winning model for most applications will be purely server-based.
 Designing software that works on the assumption that everyone will 
 have your client is like designing a society on the assumption that
 everyone will just be honest.  It would certainly be convenient, but
-you have to assume it will never happen.<br><br>I think there will be a proliferation of devices that have some
+you have to assume it will never happen.
+          </p>
+          <p>
+           I think there will be a proliferation of devices that have some
 kind of Web access, and all you'll be able to assume about them is
 that they can support simple html and forms.  Will you have a
 browser on your cell phone?  Will there be a phone in your palm  
@@ -214,57 +475,76 @@ pilot?  Will your blackberry get a bigger screen? Will you be able
 to browse the Web on your gameboy?  Your watch?  I don't know.  
 And I don't have to know if I bet on
 everything just being on the server.  It's
-just so much more robust to have all the 
-<a href="road.html">brains on the server</a>.<br><br><b>2. Object-Oriented Programming.</b><br><br>I realize this is a
+just so much more robust to have all the
+           <a href="road.html">
+            brains on the server
+           </a>
+           .
+          </p>
+          <p>
+           <b>
+            2. Object-Oriented Programming.
+           </b>
+          </p>
+          <p>
+           I realize this is a
 controversial one, but I don't think object-oriented programming
 is such a big deal.  I think it is a fine model for certain kinds
 of applications that need that specific kind of data structure,   
 like window systems, simulations, and cad programs.  But I don't
-see why it ought to be the model for all programming.<br><br>I think part of the reason people in big companies like object-oriented
+see why it ought to be the model for all programming.
+          </p>
+          <p>
+           I think part of the reason people in big companies like object-oriented
 programming is because it yields a lot of what looks like work.
 Something that might naturally be represented as, say, a list of
 integers, can now be represented as a class with all kinds of
-scaffolding and hustle and bustle.<br><br>Another attraction of
+scaffolding and hustle and bustle.
+          </p>
+          <p>
+           Another attraction of
 object-oriented programming is that methods give you some of the
 effect of first class functions.  But this is old news to Lisp
 programmers.  When you have actual first class functions, you can
 just use them in whatever way is appropriate to the task at hand,
-instead of forcing everything into a mold of classes and methods.<br><br>What this means for language design, I think, is that you shouldn't
+instead of forcing everything into a mold of classes and methods.
+          </p>
+          <p>
+           What this means for language design, I think, is that you shouldn't
 build object-oriented programming in too deeply.  Maybe the
 answer is to offer more general, underlying stuff, and let people design
-whatever object systems they want as libraries.<br><br><b>3. Design by Committee.</b><br><br>Having your language designed by a committee is a big pitfall,  
+whatever object systems they want as libraries.
+          </p>
+          <p>
+           <b>
+            3. Design by Committee.
+           </b>
+          </p>
+          <p>
+           Having your language designed by a committee is a big pitfall,  
 and not just for the reasons everyone knows about.  Everyone
 knows that committees tend to yield lumpy, inconsistent designs.  
 But I think a greater danger is that they won't take risks.
 When one person is in charge he can take risks
-that a committee would never agree on.<br><br>Is it necessary to take risks to design a good language though?
+that a committee would never agree on.
+          </p>
+          <p>
+           Is it necessary to take risks to design a good language though?
 Many people might suspect
 that language design is something where you should stick fairly
 close to the conventional wisdom.  I bet this isn't true.
 In everything else people do, reward is proportionate to risk.
-Why should language design be any different?<br><br></font></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=413><font size=2 face="verdana"><a href="http://d.hatena.ne.jp/lionfan/20070215">Japanese Translation</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'langdes'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=langdes&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+Why should language design be any different?
+          </p>
+          <p>
+          </p>
+         </p>
+        </p>
+       </p>
+      </p>
+     </p>
+    </p>
+   </p>
+  </p>
+ </body>
+</html>

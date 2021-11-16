@@ -1,61 +1,174 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>What Made Lisp Different</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b351><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b351 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_11662025" width=208 height=18 border=0 hspace=0 vspace=0 alt="What Made Lisp Different"><br><br><font size=2 face="verdana">December 2001 (rev. May 2002)
-<p align=justif>
-<i>(This article came about in response to some questions on
-the <a href="http://ll1.mit.edu">LL1</a> mailing list.  It is now
-incorporated in <a href="icad.html">Revenge of the Nerds</a>.)</i><br><br>When McCarthy designed Lisp in the late 1950s, it was
+<html lang="en">
+ <head>
+  <title>
+   What Made Lisp Different
+  </title>
+ </head>
+ <body>
+  <h1>
+   What Made Lisp Different
+  </h1>
+  <p>
+   December 2001 (rev. May 2002)
+   <p align="justif">
+    <i>
+     (This article came about in response to some questions on
+the
+     <a href="http://ll1.mit.edu">
+      LL1
+     </a>
+     mailing list.  It is now
+incorporated in
+     <a href="icad.html">
+      Revenge of the Nerds
+     </a>
+     .)
+    </i>
+   </p>
+   <p>
+    When McCarthy designed Lisp in the late 1950s, it was
 a radical departure from existing languages,
-the most important of which was <a href="history.html">Fortran</a>.<br><br>Lisp embodied nine new ideas:<br><br><hr>
-<b>1. Conditionals.</b>  A conditional is an if-then-else
-construct.  We take these for granted now.  They were 
-<a href="http://www-formal.stanford.edu/jmc/history/lisp/node2.html">invented</a>
-by McCarthy in the course of developing Lisp. 
+the most important of which was
+    <a href="history.html">
+     Fortran
+    </a>
+    .
+   </p>
+   <p>
+    Lisp embodied nine new ideas:
+   </p>
+   <p>
+    <hr/>
+    <b>
+     1. Conditionals.
+    </b>
+    A conditional is an if-then-else
+construct.  We take these for granted now.  They were
+    <a href="http://www-formal.stanford.edu/jmc/history/lisp/node2.html">
+     invented
+    </a>
+    by McCarthy in the course of developing Lisp. 
 (Fortran at that time only had a conditional
 goto, closely based on the branch instruction in the 
 underlying hardware.)  McCarthy, who was on the Algol committee, got
 conditionals into Algol, whence they spread to most other
-languages.<br><br><b>2. A function type.</b> In Lisp, functions are first class 
+languages.
+   </p>
+   <p>
+    <b>
+     2. A function type.
+    </b>
+    In Lisp, functions are first class 
 objects-- they're a data type just like integers, strings,
 etc, and have a literal representation, can be stored in variables,
-can be passed as arguments, and so on.<br><br><b>3. Recursion.</b>  Recursion existed as a mathematical concept
+can be passed as arguments, and so on.
+   </p>
+   <p>
+    <b>
+     3. Recursion.
+    </b>
+    Recursion existed as a mathematical concept
 before Lisp of course, but Lisp was the first programming language to support
 it.  (It's arguably implicit in making functions first class
-objects.)<br><br><b>4. A new concept of variables.</b>  In Lisp, all variables
+objects.)
+   </p>
+   <p>
+    <b>
+     4. A new concept of variables.
+    </b>
+    In Lisp, all variables
 are effectively pointers. Values are what
 have types, not variables, and assigning or binding
-variables means copying pointers, not what they point to.<br><br><b>5. Garbage-collection.</b><br><br><b>6. Programs composed of expressions.</b> Lisp programs are 
+variables means copying pointers, not what they point to.
+   </p>
+   <p>
+    <b>
+     5. Garbage-collection.
+    </b>
+   </p>
+   <p>
+    <b>
+     6. Programs composed of expressions.
+    </b>
+    Lisp programs are 
 trees of expressions, each of which returns a value.  
 (In some Lisps expressions
 can return multiple values.)  This is in contrast to Fortran
 and most succeeding languages, which distinguish between
-expressions and statements.<br><br>It was natural to have this
+expressions and statements.
+   </p>
+   <p>
+    It was natural to have this
 distinction in Fortran because (not surprisingly in a language
 where the input format was punched cards) the language was
 line-oriented.  You could not nest statements.  And
 so while you needed expressions for math to work, there was
 no point in making anything else return a value, because
-there could not be anything waiting for it.<br><br>This limitation
+there could not be anything waiting for it.
+   </p>
+   <p>
+    This limitation
 went away with the arrival of block-structured languages,
 but by then it was too late. The distinction between
 expressions and statements was entrenched.  It spread from 
-Fortran into Algol and thence to both their descendants.<br><br>When a language is made entirely of expressions, you can
+Fortran into Algol and thence to both their descendants.
+   </p>
+   <p>
+    When a language is made entirely of expressions, you can
 compose expressions however you want.  You can say either
-(using <a href="arc.html">Arc</a> syntax)<br><br>(if foo (= x 1) (= x 2))<br><br>or<br><br>(= x (if foo 1 2))<br><br><b>7. A symbol type.</b>  Symbols differ from strings in that
-you can test equality by comparing a pointer.<br><br><b>8. A notation for code</b> using trees of symbols.<br><br><b>9. The whole language always available.</b>  
-There is
+(using
+    <a href="arc.html">
+     Arc
+    </a>
+    syntax)
+   </p>
+   <p>
+    (if foo (= x 1) (= x 2))
+   </p>
+   <p>
+    or
+   </p>
+   <p>
+    (= x (if foo 1 2))
+   </p>
+   <p>
+    <b>
+     7. A symbol type.
+    </b>
+    Symbols differ from strings in that
+you can test equality by comparing a pointer.
+   </p>
+   <p>
+    <b>
+     8. A notation for code
+    </b>
+    using trees of symbols.
+   </p>
+   <p>
+    <b>
+     9. The whole language always available.
+    </b>
+    There is
 no real distinction between read-time, compile-time, and runtime.
 You can compile or run code while reading, read or run code
-while compiling, and read or compile code at runtime.<br><br>Running code at read-time lets users reprogram Lisp's syntax;
+while compiling, and read or compile code at runtime.
+   </p>
+   <p>
+    Running code at read-time lets users reprogram Lisp's syntax;
 running code at compile-time is the basis of macros; compiling
 at runtime is the basis of Lisp's use as an extension
 language in programs like Emacs; and reading at runtime
 enables programs to communicate using s-expressions, an
 idea recently reinvented as XML.
-<hr><br><br>When Lisp was first invented, all these ideas were far
+    <hr/>
+   </p>
+   <p>
+    When Lisp was first invented, all these ideas were far
 removed from ordinary programming practice, which was
-dictated largely by the hardware available in the late 1950s.<br><br>Over time, the default language, embodied
+dictated largely by the hardware available in the late 1950s.
+   </p>
+   <p>
+    Over time, the default language, embodied
 in a succession of popular languages, has
 gradually evolved toward Lisp.  1-5 are now widespread.
 6 is starting to appear in the mainstream.
@@ -67,40 +180,31 @@ perhaps because (a) it requires those parens, or something
 just as bad, and (b) if you add that final increment of power, 
 you can no 
 longer claim to have invented a new language, but only
-to have designed a new dialect of Lisp ; -)<br><br>Though useful to present-day programmers, it's
+to have designed a new dialect of Lisp ; -)
+   </p>
+   <p>
+    Though useful to present-day programmers, it's
 strange to describe Lisp in terms of its
 variation from the random expedients other languages
 adopted.  That was not, probably, how McCarthy
 thought of it.  Lisp wasn't designed to fix the mistakes
 in Fortran; it came about more as the byproduct of an
-attempt to <a href="rootsoflisp.html">axiomatize computation</a>.<br><br><!-- Nor is this a complete list of ideas that began with Lisp
+attempt to
+    <a href="rootsoflisp.html">
+     axiomatize computation
+    </a>
+    .
+   </p>
+   <p>
+    <!-- Nor is this a complete list of ideas that began with Lisp
 and spread to other languages.  These are only the initial
 set.  Several more were developed in successive Lisp
 implementations, including continuations, 
 multiple return values, rest parameters,
-and assignment (setf) inversion. --><br><br></font></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=413><font size=2 face="verdana"><a href="http://d.hatena.ne.jp/lionfan/20070217">Japanese Translation</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'diff'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=diff&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+and assignment (setf) inversion. -->
+   </p>
+   <p>
+   </p>
+  </p>
+ </body>
+</html>

@@ -1,82 +1,266 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Lisp FAQ</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b23d><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b23d border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_8414908" width=69 height=18 border=0 hspace=0 vspace=0 alt="Lisp FAQ"><br><br><font size=2 face="verdana"><b>What is Lisp?</b><br><br>Lisp is a family of programming languages descended from
-a language <a href="rootsoflisp.html">John McCarthy</a> invented
+<html lang="en">
+ <head>
+  <title>
+   Lisp FAQ
+  </title>
+ </head>
+ <body>
+  <h1>
+   Lisp FAQ
+  </h1>
+  <p>
+   <b>
+    What is Lisp?
+   </b>
+  </p>
+  <p>
+   Lisp is a family of programming languages descended from
+a language
+   <a href="rootsoflisp.html">
+    John McCarthy
+   </a>
+   invented
 (or more accurately, discovered) in the late 1950s.  The
 two main dialects now are Common Lisp and Scheme.
-We're working on a new dialect called <a href="arc.html">Arc</a>.<br><br><b>How can I learn Lisp?</b><br><br>The way to learn any language is to write programs in it.
+We're working on a new dialect called
+   <a href="arc.html">
+    Arc
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    How can I learn Lisp?
+   </b>
+  </p>
+  <p>
+   The way to learn any language is to write programs in it.
 You have two main dialects to choose between: Scheme
 and Common Lisp.  They each have advantages and disadvantages,
 but the differences between them are tiny compared to the
 differences between them and other languages, so if you want
-to start learning Lisp, it doesn't matter which you choose.<br><br>There are good books about both dialects, and many good free
+to start learning Lisp, it doesn't matter which you choose.
+  </p>
+  <p>
+   There are good books about both dialects, and many good free
 implementations.  So get a book and an implementation, and start trying to write
 programs.  Read existing source code to get an idea of Lisp
 style.  If you run into trouble, ask on comp.lang.lisp.  
-People there are always willing to help newbies.<br><br><b>Which should I learn, Common Lisp or Scheme?  What's the
-difference?</b><br><br>Common Lisp is powerful but ugly.
+People there are always willing to help newbies.
+  </p>
+  <p>
+   <b>
+    Which should I learn, Common Lisp or Scheme?  What's the
+difference?
+   </b>
+  </p>
+  <p>
+   Common Lisp is powerful but ugly.
 Scheme is small and clean, but the standard only defines the
 inner core of the language.  If I had to deliver an application
 I'd probably use Common Lisp; if I were teaching a course I might use
-Scheme (but with Common Lisp macros).<br><br><b>Do you know a good, free Lisp implementation?</b><br><br>There are <a href="lisps.html">several</a>.  The Common Lisp implementation 
+Scheme (but with Common Lisp macros).
+  </p>
+  <p>
+   <b>
+    Do you know a good, free Lisp implementation?
+   </b>
+  </p>
+  <p>
+   There are
+   <a href="lisps.html">
+    several
+   </a>
+   .  The Common Lisp implementation 
 I use
-is <a href="http://clisp.sourceforge.net">Clisp</a>, but
-<a href="http://www.cons.org/cmucl/">CMUCL</a> is also well-regarded.
-For Scheme hacking I use <a href="http://www.s48.org">Scheme
-48</a> and <a href="http://www.plt-scheme.org">PLT Scheme</a>.<br><br><b>Can you recommend a book for someone who wants to learn Lisp?</b><br><br>You might like
-<a href="http://www.amazon.com/exec/obidos/ASIN/0133708756">this one</a>.<br><br><b>Is there a good online tutorial for Lisp?</b><br><br>Start with
-<a href="https://sep.yimg.com/ty/cdn/paulgraham/acl2.txt?t=1595850613&">Chapter 2</a>
-of Ansi Common Lisp, which is a brief introduction to Lisp programming.
+is
+   <a href="http://clisp.sourceforge.net">
+    Clisp
+   </a>
+   , but
+   <a href="http://www.cons.org/cmucl/">
+    CMUCL
+   </a>
+   is also well-regarded.
+For Scheme hacking I use
+   <a href="http://www.s48.org">
+    Scheme
+48
+   </a>
+   and
+   <a href="http://www.plt-scheme.org">
+    PLT Scheme
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    Can you recommend a book for someone who wants to learn Lisp?
+   </b>
+  </p>
+  <p>
+   You might like
+   <a href="http://www.amazon.com/exec/obidos/ASIN/0133708756">
+    this one
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    Is there a good online tutorial for Lisp?
+   </b>
+  </p>
+  <p>
+   Start with
+   <a href="https://sep.yimg.com/ty/cdn/paulgraham/acl2.txt?t=1595850613&amp;">
+    Chapter 2
+   </a>
+   of Ansi Common Lisp, which is a brief introduction to Lisp programming.
 For more detail, see the Common Lisp
-<a href="http://www-2.cs.cmu.edu/afs/cs.cmu.edu/project/ai-repository/ai/html/cl
-tl/cltl2.html">reference
-manual</a>.<br><br><b>If Lisp is so great, why don't more people use it?</b><br><br>The root cause is probably that it looks <a href="iflisp.html">hard</a>, but
-it would help if there were a dialect with extensive libraries.<br><br><b>Where can I get a copy of <i>On Lisp</i>?</b><br><br>Thanks to Chip Coldwell, you can now get a Postscript
-file of it <a href="onlisptext.html">online</a>.<br><br>It looks as if the book is going to be in print again
+   <a href="http://www-2.cs.cmu.edu/afs/cs.cmu.edu/project/ai-repository/ai/html/cl
+tl/cltl2.html">
+    reference
+manual
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    If Lisp is so great, why don't more people use it?
+   </b>
+  </p>
+  <p>
+   The root cause is probably that it looks
+   <a href="iflisp.html">
+    hard
+   </a>
+   , but
+it would help if there were a dialect with extensive libraries.
+  </p>
+  <p>
+   <b>
+    Where can I get a copy of
+    <i>
+     On Lisp
+    </i>
+    ?
+   </b>
+  </p>
+  <p>
+   Thanks to Chip Coldwell, you can now get a Postscript
+file of it
+   <a href="onlisptext.html">
+    online
+   </a>
+   .
+  </p>
+  <p>
+   It looks as if the book is going to be in print again
 soon, but if you are determined to have a valuable 
-first edition, you can get a used copy at 
-<a href="http://www.amazon.com/exec/obidos/tg/stores/offering/list/-/0130305529">Amazon</a>.<br><br><b>Is there a second edition of <i>ANSI Common Lisp</i>?</b><br><br>Some databases say that there is, but there isn't; not yet
-at least.<br><br><b>Is there a set of solutions to the problems in
-<i>ANSI Common Lisp</i>?</b><br><br>Unfortunately not.  I was supposed to write one, but
-we started <a href="avg.html">Viaweb</a> right after the
-book went to press, and I never got around to it.<br><br><b>Where can I get a job hacking Lisp?</b><br><br>Try the companies with Lisp <a href="apps.html">applications</a>.
-Or you could start your <a href="avg.html">own</a>.<br><br><b>I like Lisp but my company won't let me use it.  What should I do?</b><br><br>Try to get them to let you use Python.  Often when your employer won't let 
+first edition, you can get a used copy at
+   <a href="http://www.amazon.com/exec/obidos/tg/stores/offering/list/-/0130305529">
+    Amazon
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    Is there a second edition of
+    <i>
+     ANSI Common Lisp
+    </i>
+    ?
+   </b>
+  </p>
+  <p>
+   Some databases say that there is, but there isn't; not yet
+at least.
+  </p>
+  <p>
+   <b>
+    Is there a set of solutions to the problems in
+    <i>
+     ANSI Common Lisp
+    </i>
+    ?
+   </b>
+  </p>
+  <p>
+   Unfortunately not.  I was supposed to write one, but
+we started
+   <a href="avg.html">
+    Viaweb
+   </a>
+   right after the
+book went to press, and I never got around to it.
+  </p>
+  <p>
+   <b>
+    Where can I get a job hacking Lisp?
+   </b>
+  </p>
+  <p>
+   Try the companies with Lisp
+   <a href="apps.html">
+    applications
+   </a>
+   .
+Or you could start your
+   <a href="avg.html">
+    own
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    I like Lisp but my company won't let me use it.  What should I do?
+   </b>
+  </p>
+  <p>
+   Try to get them to let you use Python.  Often when your employer won't let 
 you use Lisp it's because (whatever the official reason) the guy in charge
 of your department is afraid of the way Lisp source code looks.
 Python looks like an ordinary dumb language, but semantically it has a
 lot in common with Lisp, and has been
-<a href="icad.html">getting closer</a> to Lisp over time.<br><br>They might even let you use Ruby, which is even more Lisp-like.<br><br><b>What do you think of ML and its derivatives?</b><br><br>Most hackers I know have been disappointed by the ML family.
+   <a href="icad.html">
+    getting closer
+   </a>
+   to Lisp over time.
+  </p>
+  <p>
+   They might even let you use Ruby, which is even more Lisp-like.
+  </p>
+  <p>
+   <b>
+    What do you think of ML and its derivatives?
+   </b>
+  </p>
+  <p>
+   Most hackers I know have been disappointed by the ML family.
 Languages with static typing would be more suitable if programs were
 something you thought
 of in advance, and then merely translated into code.  But that's not
-how programs get written.<br><br>The inability to have lists of mixed types is a particularly crippling
+how programs get written.
+  </p>
+  <p>
+   The inability to have lists of mixed types is a particularly crippling
 restriction.  It gets in the way of exploratory programming (it's
 convenient early on to represent everything as lists), and it
-means you can't have real macros.<br><br><b>Do you know anyone who does AutoLisp consulting?</b><br><br>No, but <a href="http://www.google.com/search?q=autolisp+consulting">Google</a>
-does.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'lispfaq1'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';   } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {   } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=lispfaq1&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+means you can't have real macros.
+  </p>
+  <p>
+   <b>
+    Do you know anyone who does AutoLisp consulting?
+   </b>
+  </p>
+  <p>
+   No, but
+   <a href="http://www.google.com/search?q=autolisp+consulting">
+    Google
+   </a>
+   does.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

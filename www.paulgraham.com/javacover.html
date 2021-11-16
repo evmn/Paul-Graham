@@ -1,38 +1,72 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Java's Cover</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b35b><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b35b border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_12418709" width=101 height=18 border=0 hspace=0 vspace=0 alt="Java's Cover"><br><br><font size=2 face="verdana">April 2001<br><br>This essay developed out of conversations I've had with
+<html lang="en">
+ <head>
+  <title>
+   Java's Cover
+  </title>
+ </head>
+ <body>
+  <h1>
+   Java's Cover
+  </h1>
+  <p>
+   April 2001
+  </p>
+  <p>
+   This essay developed out of conversations I've had with
 several other programmers about why Java smelled suspicious.  It's not
-a critique of Java!  It is a case study of hacker's radar.<br><br>Over time, hackers develop a nose for good (and bad) technology.
+a critique of Java!  It is a case study of hacker's radar.
+  </p>
+  <p>
+   Over time, hackers develop a nose for good (and bad) technology.
 I thought it might be interesting to try and write down what
-made Java seem suspect to me.<br><br>Some people who've read this think it's an interesting attempt to write about
+made Java seem suspect to me.
+  </p>
+  <p>
+   Some people who've read this think it's an interesting attempt to write about
 something that hasn't been written about before.  Others say I
 will get in trouble for appearing to be writing about
 things I don't understand.  So, just in
 case it does any good, let me clarify that I'm not writing here
 about Java (which I have never used) but about hacker's radar
-(which I have thought about a lot).<br><br><hr><br><br>The aphorism "you can't tell a book by its cover" originated in
+(which I have thought about a lot).
+  </p>
+  <p>
+   <hr/>
+  </p>
+  <p>
+   The aphorism "you can't tell a book by its cover" originated in
 the times when books were sold in plain cardboard covers, to be
 bound by each purchaser according to his own taste.  In those days,
 you couldn't tell a book by its cover.  But publishing has advanced
 since then: present-day publishers work hard to make the cover
-something you can tell a book by.<br><br>I spend a lot of time in bookshops and I feel as if I have by now
+something you can tell a book by.
+  </p>
+  <p>
+   I spend a lot of time in bookshops and I feel as if I have by now
 learned to understand everything publishers mean to tell me about
 a book, and perhaps a bit more.  The time I haven't spent in
 bookshops I've spent mostly in front of computers, and I feel as
 if I've learned, to some degree, to judge technology by its cover
 as well.  It may be just luck, but I've saved myself from a few
-technologies that turned out to be real stinkers.<br><br>So far, Java seems like a stinker to me.  I've never written a Java
+technologies that turned out to be real stinkers.
+  </p>
+  <p>
+   So far, Java seems like a stinker to me.  I've never written a Java
 program, never more than glanced over reference books about it,
 but I have a hunch that it won't be a very successful language.
 I may turn out to be mistaken; making predictions about technology
 is a dangerous business.  But for what it's worth, as a sort of
-time capsule, here's why I don't like the look of Java:<br><br>
-1. It has been so energetically hyped.  Real standards don't have
+time capsule, here's why I don't like the look of Java:
+  </p>
+  <p>
+   1. It has been so energetically hyped.  Real standards don't have
 to be promoted.  No one had to promote C, or Unix, or HTML.  A real
 standard tends to be already established by the time most people
 hear about it.  On the hacker radar screen, Perl is as big as Java,
-or bigger, just on the strength of its own merits.<br><br>2. It's aimed low.  In the original Java white paper, Gosling
+or bigger, just on the strength of its own merits.
+  </p>
+  <p>
+   2. It's aimed low.  In the original Java white paper, Gosling
 explicitly says Java was designed not to be too difficult for
 programmers used to C.  It was designed to be another C++: C plus
 a few ideas taken from more advanced languages.  Like the creators
@@ -41,29 +75,50 @@ consciously designing a product for people not as smart as them.
 Historically, languages designed for other people to use have been
 bad:  Cobol, PL/I, Pascal, Ada, C++.  The good languages have been
 those that were designed for their own creators:  C, Perl, Smalltalk,
-Lisp.<br><br>3. It has ulterior motives.  Someone once said that the world would
+Lisp.
+  </p>
+  <p>
+   3. It has ulterior motives.  Someone once said that the world would
 be a better place if people only wrote books because they had
 something to say, rather than because they wanted to write a book.
 Likewise, the reason we hear about Java all the time is not because
 it has something to say about programming languages.  We hear about
-Java as part of a plan by Sun to undermine Microsoft.<br><br>4. No one loves it.  C, Perl, Python, Smalltalk, and Lisp programmers
+Java as part of a plan by Sun to undermine Microsoft.
+  </p>
+  <p>
+   4. No one loves it.  C, Perl, Python, Smalltalk, and Lisp programmers
 love their languages.  I've never heard anyone say that they loved
-Java.<br><br>5. People are forced to use it.  A lot of the people I know using
+Java.
+  </p>
+  <p>
+   5. People are forced to use it.  A lot of the people I know using
 Java are using it because they feel they have to.  Either it's
 something they felt they had to do to get funded, or something they
 thought customers would want, or something they were told to do by
 management.  These are smart people; if the technology was good,
-they'd have used it voluntarily.<br><br>6. It has too many cooks.  The best programming languages have been
+they'd have used it voluntarily.
+  </p>
+  <p>
+   6. It has too many cooks.  The best programming languages have been
 developed by small groups.  Java seems to be run by a committee.
 If it turns out to be a good language, it will be the first time
-in history that a committee has designed a good language.<br><br>7. It's bureaucratic.  From what little I know about Java, there
+in history that a committee has designed a good language.
+  </p>
+  <p>
+   7. It's bureaucratic.  From what little I know about Java, there
 seem to be a lot of protocols for doing things.  Really good
 languages aren't like that.  They let you do what you want and get
-out of the way.<br><br>8. It's pseudo-hip.  Sun now pretends that Java is a grassroots,
+out of the way.
+  </p>
+  <p>
+   8. It's pseudo-hip.  Sun now pretends that Java is a grassroots,
 open-source language effort like Perl or Python.  This one just
 happens to be controlled by a giant company.  So the language is
 likely to have the same drab clunkiness as anything else that comes
-out of a big company.<br><br>9. It's designed for large organizations.  Large organizations have
+out of a big company.
+  </p>
+  <p>
+   9. It's designed for large organizations.  Large organizations have
 different aims from hackers. They want languages that are (believed
 to be) suitable for use by large teams of mediocre programmers--
 languages with features that, like the speed limiters in U-Haul
@@ -71,14 +126,20 @@ trucks, prevent fools from doing too much damage.  Hackers don't
 like a language that talks down to them.  Hackers just want power.
 Historically, languages designed for large organizations (PL/I,
 Ada) have lost, while hacker languages (C, Perl) have won.  The
-reason: today's teenage hacker is tomorrow's CTO.<br><br>10. The wrong people like it.  The programmers I admire most are
+reason: today's teenage hacker is tomorrow's CTO.
+  </p>
+  <p>
+   10. The wrong people like it.  The programmers I admire most are
 not, on the whole, captivated by Java.  Who does like Java?  Suits,
 who don't know one language from another, but know that they keep
 hearing about Java in the press; programmers at big companies, who
 are amazed to find that there is something even better than C++;
 and plug-and-chug undergrads, who are ready to like anything that
 might get them a job (will this be on the test?).  These people's
-opinions change with every wind.<br><br>11. Its daddy is in a pinch.  Sun's business model is being undermined
+opinions change with every wind.
+  </p>
+  <p>
+   11. Its daddy is in a pinch.  Sun's business model is being undermined
 on two fronts.  Cheap Intel processors, of the same type used in
 desktop machines, are now more than fast enough for servers.  And
 FreeBSD seems to be at least as good an OS for servers as Solaris.
@@ -86,50 +147,41 @@ Sun's advertising implies that you need Sun servers for industrial
 strength applications.  If this were true, Yahoo would be first in
 line to buy Suns;  but when I worked there, the servers were all
 Intel boxes running FreeBSD.  This bodes ill for Sun's future.  If
-Sun runs into trouble, they could drag Java down with them.<br><br>12. The DoD likes it.  The Defense Department is encouraging
+Sun runs into trouble, they could drag Java down with them.
+  </p>
+  <p>
+   12. The DoD likes it.  The Defense Department is encouraging
 developers to use Java. This seems to me the most damning sign of
 all.  The Defense Department does a fine (though expensive) job of
 defending the country, but they love plans and procedures and
 protocols.  Their culture is the opposite of hacker culture; on
 questions of software they will tend to bet wrong.  The last time
-the DoD really liked a programming language, it was Ada.<br><br>
-Bear in mind, this is not a critique of Java, but a critique of
+the DoD really liked a programming language, it was Ada.
+  </p>
+  <p>
+   Bear in mind, this is not a critique of Java, but a critique of
 its cover.  I don't know Java well enough to like it or dislike
 it.  This is just an explanation of why I don't find that I'm eager
-to learn it.<br><br>It may seem cavalier to dismiss a language before you've even tried
+to learn it.
+  </p>
+  <p>
+   It may seem cavalier to dismiss a language before you've even tried
 writing programs in it.  But this is something all programmers have
 to do.  There are too many technologies out there to learn them
 all.  You have to learn to judge by outward signs which will be
 worth your time.  I have likewise cavalierly dismissed Cobol, Ada,
 Visual Basic, the IBM AS400, VRML, ISO 9000, the SET protocol, VMS,
-Novell Netware, and CORBA, among others.  They just smelled wrong.<br><br>It could be that in Java's case I'm mistaken.  It could be that a
+Novell Netware, and CORBA, among others.  They just smelled wrong.
+  </p>
+  <p>
+   It could be that in Java's case I'm mistaken.  It could be that a
 language promoted by one big company to undermine another, designed
 by a committee for a "mainstream" audience, hyped to the skies,
 and beloved of the DoD, happens nonetheless to be a clean, beautiful,
 powerful language that I would love programming in.  It could be,
-but it seems very unlikely.<br><br></font></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="trevrejavcov.html">Trevor Re: Java's Cover</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="bljava.html">Berners-Lee Re: Java</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="popular.html">Being Popular</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://www.archub.org/javamemo.txt">Sun Internal Memo</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://www.businessweek.com/technology/content/dec2005/tc20051213_042973.htm">2005: BusinessWeek Agrees</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://d.hatena.ne.jp/lionfan/20070211">Japanese Translation</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'javacover'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=javacover&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+but it seems very unlikely.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

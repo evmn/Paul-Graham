@@ -1,66 +1,203 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Stopping Spam</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b2f1><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b2f1 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_8994988" width=119 height=18 border=0 hspace=0 vspace=0 alt="Stopping Spam"><br><br><font size=2 face="verdana">August 2003<br><br>There are many ways to fight spam.  Which works best?  
+<html lang="en">
+ <head>
+  <title>
+   Stopping Spam
+  </title>
+ </head>
+ <body>
+  <h1>
+   Stopping Spam
+  </h1>
+  <p>
+   August 2003
+  </p>
+  <p>
+   There are many ways to fight spam.  Which works best?  
 So far the best single solution is probably Bayesian filtering.
 But you don't have to choose just one.  Many of the 
-following solutions could be used in combination.<br><br><br><br><b>Complaining to Spammers' ISPs</b><br><br><b>Good:</b> Raises cost of spamming.<br>
-<b>Bad:</b> Laborious.<br>
-<b>Role:</b> Partial solution, for experts.<br><br>This was the original spam solution.  Believe it or not, complaints can
+following solutions could be used in combination.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Complaining to Spammers' ISPs
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Raises cost of spamming.
+   <b>
+    Bad:
+   </b>
+   Laborious.
+   <b>
+    Role:
+   </b>
+   Partial solution, for experts.
+  </p>
+  <p>
+   This was the original spam solution.  Believe it or not, complaints can
 have an effect.  True, spammers expect to be shut down, and already have
 fresh accounts lined up.   Constantly switching
 providers is just a cost of doing business.  But the
 faster they get booted due to complaints, the greater this
-cost becomes.<br><br>Complaining effectively is difficult.  Most
+cost becomes.
+  </p>
+  <p>
+   Complaining effectively is difficult.  Most
 spammers forge the headers of their emails to disguise their
-origin.  You have to learn to <a 
-href="http://spamlinks.port5.com/trace.htm">interpret</a> headers
-to understand where a spam really came from.<br><br>Another option is to complain to the ISP hosting the site
+origin.  You have to learn to
+   <a href="http://spamlinks.port5.com/trace.htm">
+    interpret
+   </a>
+   headers
+to understand where a spam really came from.
+  </p>
+  <p>
+   Another option is to complain to the ISP hosting the site
 advertised in the spam (or, if the ISP is a spam hosting
 service, their upstream provider).  But again, it can
-take some effort to figure out who this is.<br><br><br><br><b>Mail Server Blacklists</b><br><br><b>Good</b>: Block spam right at the server.<br>
-<b>Bad:</b> Incomplete, sometimes irresponsible.<br>
-<b>Role:</b> A first pass to eliminate up to 50% of spam early on.<br><br>Groups of volunteers maintain blacklists of mail servers
+take some effort to figure out who this is.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Mail Server Blacklists
+   </b>
+  </p>
+  <p>
+   <b>
+    Good
+   </b>
+   : Block spam right at the server.
+   <b>
+    Bad:
+   </b>
+   Incomplete, sometimes irresponsible.
+   <b>
+    Role:
+   </b>
+   A first pass to eliminate up to 50% of spam early on.
+  </p>
+  <p>
+   Groups of volunteers maintain blacklists of mail servers
 either used by spammers, or that have security holes that
 would let spammers use them.  Some ISPs subscribe to such
 blacklists, and automatically
-refuse any mail from servers on them.<br><br>Blacklists have two downsides.  One is that they never manage
+refuse any mail from servers on them.
+  </p>
+  <p>
+   Blacklists have two downsides.  One is that they never manage
 to list more than about half the servers that spam comes from.
 Another is that
 a blacklist is only as good as the people running it.  Some
 blacklists are run by
-<a href="http://www.nwfusion.com/research/2001/0910feat.html">vigilantes</a> 
-who shoot first and ask questions
+   <a href="http://www.nwfusion.com/research/2001/0910feat.html">
+    vigilantes
+   </a>
+   who shoot first and ask questions
 later.  Using the wrong blacklist could mean bouncing a lot
-of legitimate mail.<br><br>Blacklists are useful as at the ISP level, as long as you (a)
-use a responsible one (if there <a href="sblbad.html">are</a> any) and
+of legitimate mail.
+  </p>
+  <p>
+   Blacklists are useful as at the ISP level, as long as you (a)
+use a responsible one (if there
+   <a href="sblbad.html">
+    are
+   </a>
+   any) and
 (b) don't expect it to be more
-than a first cut at the problem.<br><br><br><br><b>Signature-Based Filtering</b><br><br><b>Good:</b> Rarely blocks legitimate mail.<br>
-<b>Bad:</b> Catches only 50-70% of spam.<br>
-<b>Role:</b> A first-pass filter on big email services.<br><br>Signature-Based filters work by comparing incoming email to
-known spams.  
-<a href="http://brightmail.com">Brightmail</a> 
-does it by maintaining a
+than a first cut at the problem.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Signature-Based Filtering
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Rarely blocks legitimate mail.
+   <b>
+    Bad:
+   </b>
+   Catches only 50-70% of spam.
+   <b>
+    Role:
+   </b>
+   A first-pass filter on big email services.
+  </p>
+  <p>
+   Signature-Based filters work by comparing incoming email to
+known spams.
+   <a href="http://brightmail.com">
+    Brightmail
+   </a>
+   does it by maintaining a
 network of fake email addresses.  Any email sent to these
 addresses must be spam.  So when they see the same email sent
-to an address they're protecting, they know they can filter it out.<br><br>In order to tell whether two emails are the same, these systems
+to an address they're protecting, they know they can filter it out.
+  </p>
+  <p>
+   In order to tell whether two emails are the same, these systems
 calculate "signatures" for them.  One way to calculate a signature
 for an email would be to assign a number to each character, then
 add up all the numbers.  It would be unlikely that a different
-email would have exactly the same signature.<br><br>The way to attack a signature-based filter is to add random
+email would have exactly the same signature.
+  </p>
+  <p>
+   The way to attack a signature-based filter is to add random
 stuff to each copy of a spam, to give it a distinct signature.
 When you see random junk in the subject
 line of a spam, that's why it's there-- to trick signature-based
-filters.<br><br>The spammers have always had the upper hand in the battle against
+filters.
+  </p>
+  <p>
+   The spammers have always had the upper hand in the battle against
 signature-based filters.  As soon as the filter developers figure
 out how to ignore one kind of random insertion,
 the spammers switch to another.  So signature-based
-filters have never had very good performance.<br><br><br><br><b>Bayesian (aka Statistical) Filtering</b><br><br><b>Good:</b> Catch 99% to 99.9% of spam, low false positives.<br>
-<b>Bad:</b> Have to be trained.<br>
-<b>Role:</b> Best current solution for individual users.<br><br><a href="spam.html">Bayesian</a> filters 
+filters have never had very good performance.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Bayesian (aka Statistical) Filtering
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Catch 99% to 99.9% of spam, low false positives.
+   <b>
+    Bad:
+   </b>
+   Have to be trained.
+   <b>
+    Role:
+   </b>
+   Best current solution for individual users.
+  </p>
+  <p>
+   <a href="spam.html">
+    Bayesian
+   </a>
+   filters 
 are the latest in spam filtering technology.  They
 recognize spam by looking at the words (or "tokens") they
-contain.<br><br>A Bayesian filter starts with two collections of
+contain.
+  </p>
+  <p>
+   A Bayesian filter starts with two collections of
 mail, one of spam and one of legitimate mail.  For every word
 in these emails, it calculates a spam probability based on
 the proportion of spam
@@ -69,74 +206,178 @@ occurrences.  In my own email,
 mostly in spam; "This" has a spam probability of 43%, because it
 occurs about equally in spam and legitimate mail; and "deduce" has
 a spam probability of only 3%, because it occurs mostly in
-legitimate email.<br><br>When a new mail arrives, the filter collects the 15 or 20
+legitimate email.
+  </p>
+  <p>
+   When a new mail arrives, the filter collects the 15 or 20
 words whose spam probabilities are furthest (in either direction)
 from a neutral 50%, and calculates from these an overall
-probability that the email is a spam.<br><br>Because
+probability that the email is a spam.
+  </p>
+  <p>
+   Because
 they learn to distinguish spam from legitimate mail by looking
 at the actual mail sent to each user, Bayesian filters are
-extremely accurate, and adapt automatically as spam evolves.<br><br>Bayesian filters vary in performance.  As a rule you can count
-on filtering rates of 99%.  Some, like 
-<a href="http://spamprobe.sourceforge.net">SpamProbe</a>, deliver
-filtering rates closer to 99.9%.<br><br>Bayesian filters are particularly good at avoiding "false
+extremely accurate, and adapt automatically as spam evolves.
+  </p>
+  <p>
+   Bayesian filters vary in performance.  As a rule you can count
+on filtering rates of 99%.  Some, like
+   <a href="http://spamprobe.sourceforge.net">
+    SpamProbe
+   </a>
+   , deliver
+filtering rates closer to 99.9%.
+  </p>
+  <p>
+   Bayesian filters are particularly good at avoiding "false
 positives"-- legitimate email misclassified as spam.
 This is because they consider evidence of innocence as well
 as evidence of guilt.  A Bayesian filter is unlikely to
 reject an otherwise innocent email that happens to
-contain the word "sex", as a rule-based filter might.<br><br>The disadvantage of Bayesian filters is that they need to be
+contain the word "sex", as a rule-based filter might.
+  </p>
+  <p>
+   The disadvantage of Bayesian filters is that they need to be
 trained.  The user has to tell them
 whenever they misclassify a mail.  Of course, after the filter
 has seen a couple hundred examples, it rarely guesses wrong,
-so in the long term there is little extra work involved.<br><br>Another disadvantage of Bayesian filters is that they're
+so in the long term there is little extra work involved.
+  </p>
+  <p>
+   Another disadvantage of Bayesian filters is that they're
 new.  The technology only became widespread in 2003.  Most
-commercial spam filters are still rule-based.<br><br><br><br><b>Rule-Based (aka Heuristic) Filtering</b><br><br><b>Good:</b> The best catch 90-95% of spam, easy to install.<br>
-<b>Bad:</b> Static rules, relatively high false positives.<br>
-<b>Role:</b> Easy server-level solution.<br><br>Rule-based filters look for patterns that indicate spam:
+commercial spam filters are still rule-based.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Rule-Based (aka Heuristic) Filtering
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   The best catch 90-95% of spam, easy to install.
+   <b>
+    Bad:
+   </b>
+   Static rules, relatively high false positives.
+   <b>
+    Role:
+   </b>
+   Easy server-level solution.
+  </p>
+  <p>
+   Rule-based filters look for patterns that indicate spam:
 specific words and phrases, lots of uppercase and exclamation points,
 malformed headers, dates in the future or the past, etc.  This is
-how nearly all spam filters worked until 2002.<br><br>The performance of rule-based filters varies hugely.  The simplest just
+how nearly all spam filters worked until 2002.
+  </p>
+  <p>
+   The performance of rule-based filters varies hugely.  The simplest just
 reject any email that contains certain "bad" words.  These 
 are laughably easy for spammers to beat, and also tend to reject
-a lot of legitimate email.<br><br>On the other hand, sophisticated rule-based filters like
-<a href="http://spamassassin.org">Spamassassin</a> can be quite 
+a lot of legitimate email.
+  </p>
+  <p>
+   On the other hand, sophisticated rule-based filters like
+   <a href="http://spamassassin.org">
+    Spamassassin
+   </a>
+   can be quite 
 effective.  You can probably count on
-a good rule-based filter catching 90-95% of current spam.<br><br>The main disadvantage of rule-based filters is that they tend to
+a good rule-based filter catching 90-95% of current spam.
+  </p>
+  <p>
+   The main disadvantage of rule-based filters is that they tend to
 have high false positive
 rates--often as high as .5%.  (A trained Bayesian filter's
-false positive rate would be less than a tenth of that.)<br><br>Another disadvantage is that the rules are static.
+false positive rate would be less than a tenth of that.)
+  </p>
+  <p>
+   Another disadvantage is that the rules are static.
 When spammers learn new tricks, the filter's authors
 have to write new rules to catch them.
 And because rule-based filters are static targets, spammers 
 can tune their mails to get past them.  Sophisticated spammers
 already test their mails on popular rule-based filters
-before sending them.  In fact, there are 
-<a href="http://spamcheck.sitesell.com/">sites</a> that
-will do this for free.<br><br>The advantage of rule-based filters over Bayesian filters is
+before sending them.  In fact, there are
+   <a href="http://spamcheck.sitesell.com/">
+    sites
+   </a>
+   that
+will do this for free.
+  </p>
+  <p>
+   The advantage of rule-based filters over Bayesian filters is
 that they're easy to install at the mail server level.  Bayesian
 filters require users
 to train them by telling them when they misclassify an
 email, so running one on the server
-is a little more <a href="http://spamprobe.sourceforge.net/server.html">complicated</a>
-(but probably worth it).<br><br><br><br>
-<b>Challenge-Response Filtering</b><br><br><b>Good:</b> Stops 99.9% of spam.<br>
-<b>Bad:</b> Rude, delays or drops legitimate email.<br>
-<b>Role:</b> Grandmothers, cranks.<br><br>When you get an email from someone you haven't had mail from
-before, a <a href="http://spamarrest.com/products/howitworks.jsp">challenge-response</a>
-filter sends an email back to them,
+is a little more
+   <a href="http://spamprobe.sourceforge.net/server.html">
+    complicated
+   </a>
+   (but probably worth it).
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Challenge-Response Filtering
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Stops 99.9% of spam.
+   <b>
+    Bad:
+   </b>
+   Rude, delays or drops legitimate email.
+   <b>
+    Role:
+   </b>
+   Grandmothers, cranks.
+  </p>
+  <p>
+   When you get an email from someone you haven't had mail from
+before, a
+   <a href="http://spamarrest.com/products/howitworks.jsp">
+    challenge-response
+   </a>
+   filter sends an email back to them,
 telling them they must go to a web page and fill out a form
-before the email can be delivered.<br><br>The advantage of challenge-response filters is that they
+before the email can be delivered.
+  </p>
+  <p>
+   The advantage of challenge-response filters is that they
 let through very little spam.  (At least, so far.)  The
 disadvantage is that they're rude.  Spam
 means extra work for all of us.  By using a
 challenge-reponse filter, you're saying that
 you expect the extra work of keeping your inbox free of
-spam to be done by the people who <i>send</i> you mail.<br><br>The other disadvantage of challenge-response filters is that
+spam to be done by the people who
+   <i>
+    send
+   </i>
+   you mail.
+  </p>
+  <p>
+   The other disadvantage of challenge-response filters is that
 much legitimate mail will either be lost, or delayed until
 it's too late to be useful.  Suppose an acquaintance
 is going to a party tonight and decides to invite you too.  Your
 filter replies with a challenge.  But she doesn't see this till
 she checks her mail again the next day, by which time it's
-too late.<br><br>Occasionally senders will never reply to the challenge,
+too late.
+  </p>
+  <p>
+   Occasionally senders will never reply to the challenge,
 and the email they sent you will be lost.  Some respond
 to this by saying "if they're not willing to do a
 little work to talk to me, I probably don't want to hear from
@@ -148,13 +389,22 @@ filter hasn't seen and I'll get a challenge back.
 If such challenges seem rude when
 you're the one initiating contact, imagine how they seem when   
 you get one after replying to someone's question.
-I never bother to respond, and I'm probably not the only one.<br><br>There are also technical objections to challenge-response
+I never bother to respond, and I'm probably not the only one.
+  </p>
+  <p>
+   There are also technical objections to challenge-response
 filters.  What happens when spammers happen to use some
 innocent person's address as the from-address in a spam,
 for example?  What happens when spamware authors (who aren't
 stupid) figure out how to spoof challenges?  How do you
-create a challenge that <a "href="http://www.unspam.com/ses-Zpa5sF9mxyJ8pXOreq8Z/articles/1007.html">blind</a>
-people can pass?<br><br>If such technical objections could be overcome, challenge-response
+create a challenge that
+   <a "href="http://www.unspam.com/ses-Zpa5sF9mxyJ8pXOreq8Z/articles/1007.html">
+    blind
+   </a>
+   people can pass?
+  </p>
+  <p>
+   If such technical objections could be overcome, challenge-response
 filters would have a place.
 They'd be suitable
 for users like my mother, who says that she only gets email from
@@ -162,37 +412,96 @@ about 10 different addresses, and gets mail from a new address
 only about once a year.  They might also be good
 in combination with other kinds of spam filter; you could  
 challenge the mails that a Bayesian filter classified
-as spam, for example, just in case any were legit.<br><br>But using <i>just</i> challenge-response on all your incoming
+as spam, for example, just in case any were legit.
+  </p>
+  <p>
+   But using
+   <i>
+    just
+   </i>
+   challenge-response on all your incoming
 email is like putting a ten-foot chain-link fence around your
 house.  Yes, it will
 keep people out, but it also sends the world a certain message
-about you.<br><br><br><br><b>Laws</b><br><br><b>Good:</b> Truly threaten spammers.<br>
-<b>Bad:</b> Aren't enforced, or are full of loopholes.<br>
-<b>Role:</b> Could eliminate 80% of spam, if done right.<br><br>There are two problems with laws against spam: they usually
+about you.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Laws
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Truly threaten spammers.
+   <b>
+    Bad:
+   </b>
+   Aren't enforced, or are full of loopholes.
+   <b>
+    Role:
+   </b>
+   Could eliminate 80% of spam, if done right.
+  </p>
+  <p>
+   There are two problems with laws against spam: they usually
 contain large loopholes inserted by lobbyists, and the worst
-class of spammers ignore them.<br><br>But it isn't necessarily a waste of time to try to pass
+class of spammers ignore them.
+  </p>
+  <p>
+   But it isn't necessarily a waste of time to try to pass
 laws against spam.  Even if some spammers do ignore laws,
-getting rid of the 
-<a href="http://www.koreaherald.co.kr/SITE/data/html_dir/2003/08/22/200308220051.asp">rest</a> would still be worthwhile.<br><br>To be effective, spam laws would have to have criminal and
+getting rid of the
+   <a href="http://www.koreaherald.co.kr/SITE/data/html_dir/2003/08/22/200308220051.asp">
+    rest
+   </a>
+   would still be worthwhile.
+  </p>
+  <p>
+   To be effective, spam laws would have to have criminal and
 not just civil penalties.
 The most prolific spammers in the US have made themselves 
 judgment proof-- by putting
 all their assets in their wife's name, for example,
-or by buying a house in Florida.<br><br>(Florida <a href="http://www.alipman.com/snowbirdguide/chap16.html">law</a>
-protects real estate against civil judgments.  
+or by buying a house in Florida.
+  </p>
+  <p>
+   (Florida
+   <a href="http://www.alipman.com/snowbirdguide/chap16.html">
+    law
+   </a>
+   protects real estate against civil judgments.  
 This is one of the reasons Florida,
-and <a href="http://www.guardian.co.uk/online/story/0,3605,903312,00.html">Boca
-Raton</a> in particular, is the spam center of the
-country.)<br><br>But the main thing any law against spam needs is
-enforcement.  There are plenty of 
-<a href="http://www.spamlaws.com/state/summary.html">state</a>
-laws against spam, and
+and
+   <a href="http://www.guardian.co.uk/online/story/0,3605,903312,00.html">
+    Boca
+Raton
+   </a>
+   in particular, is the spam center of the
+country.)
+  </p>
+  <p>
+   But the main thing any law against spam needs is
+enforcement.  There are plenty of
+   <a href="http://www.spamlaws.com/state/summary.html">
+    state
+   </a>
+   laws against spam, and
 they seem to have no effect.  One reason is that the states  
-don't enforce them.<br><br>One option currently being considered is a do-not-spam
+don't enforce them.
+  </p>
+  <p>
+   One option currently being considered is a do-not-spam
 list, like the US do-not-call list. 
 I don't think this will work.  All it    
 would take is one person to crack the security, and the
-list would be out there, irretrievably.<br><br>The main loophole in spam laws is usually in the definition
+list would be out there, irretrievably.
+  </p>
+  <p>
+   The main loophole in spam laws is usually in the definition
 of spam.  Most spam laws allow unsolicited email to recipients
 who have a prior relationship with the sender.  This is 
 reasonable, but you have to define carefully what a prior   
@@ -202,7 +511,10 @@ spammers (they currently call themselves
 by buying them from websites with unscrupulous privacy policies.
 By calling the site they bought your address from an "affiliate"
 or "partner", the spammers claim that they too have a prior
-relationship with you, and are thus exempt from spam laws.<br><br>This loophole would have to be closed for any anti-spam law
+relationship with you, and are thus exempt from spam laws.
+  </p>
+  <p>
+   This loophole would have to be closed for any anti-spam law
 to work.  The way to draw the line between spam and marketing
 is to look at where the sender got your email address.
 If they merely bought your address, or harvested it from web pages,
@@ -213,146 +525,323 @@ thus obtained had to have ADV in the subject line, that
 alone could get rid of 50% of spam.
 Legitimate direct marketers would have little objection to
 such a measure; they don't want their brands to be tarnished by spamming,
-and never buy or harvest email addresses.<br><br>(Only a few well-known brands use spam.
-Gevalia, owned by Kraft, is probably the most 
-<a href="http://msnbc.msn.com/id/3078642/">notorious</a>.)<br><br>Some see First Amendment problems with laws against spamming.
+and never buy or harvest email addresses.
+  </p>
+  <p>
+   (Only a few well-known brands use spam.
+Gevalia, owned by Kraft, is probably the most
+   <a href="http://msnbc.msn.com/id/3078642/">
+    notorious
+   </a>
+   .)
+  </p>
+  <p>
+   Some see First Amendment problems with laws against spamming.
 But there are plenty of precedents.  The closest are probably
 the federal laws against junk faxes and telemarketing with recorded messages.
 There doesn't seem to have been much protest against these on
-free speech grounds.<br><br>A law against spam could have some effect, even if it wasn't very
+free speech grounds.
+  </p>
+  <p>
+   A law against spam could have some effect, even if it wasn't very
 well enforced, because it would further stigmatize spam.  Spammers
 have families, friends, and neighbors, and these all exert some
-amount of pressure on them.  
-<a href="http://www.freep.com/money/tech/mwend22_20021122.htm">Alan Ralsky</a>
-said that he
+amount of pressure on them.
+   <a href="http://www.freep.com/money/tech/mwend22_20021122.htm">
+    Alan Ralsky
+   </a>
+   said that he
 had promised his wife not to send porn spams.  (You probably
 have to pay extra attention to your wife when all your assets are
 in her name.)  Perhaps if there were a federal law against spam,
-with criminal penalties, she'd make him stop altogether.<br><br><br><br><b>FFBs</b><br><br><b>Good:</b> Raise cost of spamming.<br>
-<b>Bad:</b> Involve blacklists.<br>
-<b>Role:</b> Speculative idea.<br><br>About 95% of spams contain links to web pages.  If everyone
+with criminal penalties, she'd make him stop altogether.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    FFBs
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Raise cost of spamming.
+   <b>
+    Bad:
+   </b>
+   Involve blacklists.
+   <b>
+    Role:
+   </b>
+   Speculative idea.
+  </p>
+  <p>
+   About 95% of spams contain links to web pages.  If everyone
 who received a spam actually followed the links in it, the
-traffic would be a heavy burden on the spammers' servers.<br><br>That's the idea behind <a href="ffb.html">FFBs</a> (Filters that Fight Back).  
+traffic would be a heavy burden on the spammers' servers.
+  </p>
+  <p>
+   That's the idea behind
+   <a href="ffb.html">
+    FFBs
+   </a>
+   (Filters that Fight Back).  
 If many spam filters automatically crawled sites mentioned in spams,
 the resulting traffic could generate high server loads
-and bandwidth costs for spammers.<br><br>The biggest spammers could probably protect themselves against   
+and bandwidth costs for spammers.
+  </p>
+  <p>
+   The biggest spammers could probably protect themselves against   
 FFBs overloading their server, but even in their case the
 bandwidth would have to be paid for, raising the cost
 of each spam.  Smaller spammers would be crushed by FFBs.       
 A medium-sized spam hosting account allows 50 GB of transfer
 per month.  A moderately popular FFB could drain this in a
-matter of hours.<br><br>To protect against people sending fake spams in
+matter of hours.
+  </p>
+  <p>
+   To protect against people sending fake spams in
 order to provoke FFBs to attack innocent sites, this system
 would have to rely on blacklists.  Only sites listed on the
 blacklist would be crawled when spam mentioning them arrived.
 Technically, that is the weak point of this solution: blacklists
-are not always responsibly managed.<br><br>Another disadvantage to this plan is the resemblance to a
+are not always responsibly managed.
+  </p>
+  <p>
+   Another disadvantage to this plan is the resemblance to a
 denial of service attack.  It isn't a DoS attack, according
 to most definitions.  Even so,
-some users wouldn't want to do this, even to spammers.<br><br>
-There are no FFBs yet, though there is now 
-<a href="http://death2spam.net">one</a> filter that 
-automatically retrieves web pages to improve accuracy.<br><br><br><br><b>Slow Senders</b><br><br><b>Good:</b> Raises cost of spamming.<br>
-<b>Bad:</b> Requires new email protocol.<br>
-<b>Role:</b> Speculative idea.<br><br>Spam has low response rates (on the order of 15 per million)
+some users wouldn't want to do this, even to spammers.
+  </p>
+  <p>
+   There are no FFBs yet, though there is now
+   <a href="http://death2spam.net">
+    one
+   </a>
+   filter that 
+automatically retrieves web pages to improve accuracy.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Slow Senders
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Raises cost of spamming.
+   <b>
+    Bad:
+   </b>
+   Requires new email protocol.
+   <b>
+    Role:
+   </b>
+   Speculative idea.
+  </p>
+  <p>
+   Spam has low response rates (on the order of 15 per million)
 but spammers make up for it with high volumes, sending millions
 of emails per day.  If you could slow down the rate at which
-they send email, you could put them out of business.<br><br>One way to do this would be to make any computer that wanted
-to send you mail perform a time-consuming 
-<a href="http://research.microsoft.com/research/sv/PennyBlack/junk1.pdf">computation</a>
-before you would accept it.<br><br>Whatever these computations were, they couldn't be too arduous,
+they send email, you could put them out of business.
+  </p>
+  <p>
+   One way to do this would be to make any computer that wanted
+to send you mail perform a time-consuming
+   <a href="http://research.microsoft.com/research/sv/PennyBlack/junk1.pdf">
+    computation
+   </a>
+   before you would accept it.
+  </p>
+  <p>
+   Whatever these computations were, they couldn't be too arduous,
 because legitimate corporate mail servers have to be able 
 to send high volumes of mail.  And corporate mail servers
 would be running on stock hardware.  Many computations can
 be made hundreds or thousands of times faster by custom hardware.
 Spammers already have highly tuned systems and would not be
-deterred by the need for custom hardware.<br><br>So for this idea to work, you'd need to figure out a kind of
+deterred by the need for custom hardware.
+  </p>
+  <p>
+   So for this idea to work, you'd need to figure out a kind of
 computation that couldn't easily be speeded up by custom
-hardware.<br><br>(You could improve the odds by incorporating Bayesian 
+hardware.
+  </p>
+  <p>
+   (You could improve the odds by incorporating Bayesian 
 spam recognition; instead of always requiring
 the same calculation, require a calculation whose difficulty
-depends on the spamminess of the incoming mail.)<br><br>Even if you could find a suitable computation, this idea would 
+depends on the spamminess of the incoming mail.)
+  </p>
+  <p>
+   Even if you could find a suitable computation, this idea would 
 require new email  protocols.  Any new   
 protocol has a chicken-and-egg problem: no one needs to adopt
 it till everyone else does.  As a result, it is practically
 impossible to get a new protocol adopted for anything.
 How are you going to get sysadmins who don't even bother to
 install patches for years-old security holes to switch to
-a new email protocol?<br><br><br><br><b>Penny per Mail</b><br><br><b>Good:</b> Raises cost of spamming.<br>
-<b>Bad:</b> Requires new email protocol, bureaucracy.<br>
-<b>Role:</b> Speculative idea.<br><br>There are various
-<a href="http://www.internetwk.com/breakingNews/showArticle.jhtml?articleID=7900141">ideas</a>
-floating around for charging some small
+a new email protocol?
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Penny per Mail
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Raises cost of spamming.
+   <b>
+    Bad:
+   </b>
+   Requires new email protocol, bureaucracy.
+   <b>
+    Role:
+   </b>
+   Speculative idea.
+  </p>
+  <p>
+   There are various
+   <a href="http://www.internetwk.com/breakingNews/showArticle.jhtml?articleID=7900141">
+    ideas
+   </a>
+   floating around for charging some small
 amount per email sent.   If it cost even half
-a cent to send an email, spam wouldn't pay, and would disappear.<br><br>Unfortunately, I think there
+a cent to send an email, spam wouldn't pay, and would disappear.
+  </p>
+  <p>
+   Unfortunately, I think there
 would be insuperable practical problems in setting up such a 
 system.  These proposals run into the same chicken-and-egg
 problem as anything that requires a new protocol; there is
-no incentive to be an early adopter.<br><br>In this case the protocol would be particularly
+no incentive to be an early adopter.
+  </p>
+  <p>
+   In this case the protocol would be particularly
 onerous to administer, because it would involve money.  Setting
-up a mail server would mean establishing a line of credit.<br><br>Security would become much more
+up a mail server would mean establishing a line of credit.
+  </p>
+  <p>
+   Security would become much more
 important once money was involved.  Mail servers would now
 in effect transfer funds, like servers within the banking
 system.  This despite the fact that they are connected to
-the <i>Internet</i>.<br><br>Charging per email wouldn't stop the worst spammers.  They'd
+the
+   <i>
+    Internet
+   </i>
+   .
+  </p>
+  <p>
+   Charging per email wouldn't stop the worst spammers.  They'd
 just break into companies' computers and send mail at their
 expense.  And the possibility of a spammer breaking into one's
 system and racking up big email bills would not make the
 average sysadmin eager to become an early adopter, to say the
-least.<br><br>For this kind of approach to work, we'd first have to solve   
+least.
+  </p>
+  <p>
+   For this kind of approach to work, we'd first have to solve   
 the problem of making the average small and medium-sized 
 company's network secure.  So we'd just be exchanging a hard
-problem for a harder one.<br><br><br><br>
-<b>Secret Address</b><br><br><b>Good:</b> Easy.<br>
-<b>Bad:</b> Doesn't work.<br>
-<b>Role:</b> Facile recommendation for brief news articles.<br><br>Some recommend that you keep your address secret in order to
+problem for a harder one.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Secret Address
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Easy.
+   <b>
+    Bad:
+   </b>
+   Doesn't work.
+   <b>
+    Role:
+   </b>
+   Facile recommendation for brief news articles.
+  </p>
+  <p>
+   Some recommend that you keep your address secret in order to
 avoid spam.  But it's hard to keep your address secret, because
 other people have to know it to send you email.  All it takes
 is one naive friend to enter your address in a web site to send you
-an electronic greeting card, and it's all over.<br><br>
-Even if no one discloses your address, spammers can still  
+an electronic greeting card, and it's all over.
+  </p>
+  <p>
+   Even if no one discloses your address, spammers can still  
 get it through dictionary attacks.  In a dictionary attack,
 spammers try sending a test mail to millions of possible addresses.
 Any that don't bounce are probably valid.  My mother gets spam
 as a result of a dictionary attack on AOL, even though
 she only sends email to a handful of people and never
-uses the Web.<br><br><br><br><b>Junk Address</b><br><br><b>Good:</b> Cuts some spam.<br>
-<b>Bad:</b> Can't always use them.<br>
-<b>Role:</b> Use on web sites that make you register.<br><br>You could in principle avoid spam by giving a different email
+uses the Web.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Junk Address
+   </b>
+  </p>
+  <p>
+   <b>
+    Good:
+   </b>
+   Cuts some spam.
+   <b>
+    Bad:
+   </b>
+   Can't always use them.
+   <b>
+    Role:
+   </b>
+   Use on web sites that make you register.
+  </p>
+  <p>
+   You could in principle avoid spam by giving a different email
 address to everyone.  Then you could just shut off any address
 that got compromised.  And, for what it's worth, you'd know
-who was responsible.<br><br>This is a good idea when you have to enter your address on   
+who was responsible.
+  </p>
+  <p>
+   This is a good idea when you have to enter your address on   
 a web site, e.g. to register for an account to read news
 articles online.  I usually use junk addresses for such
-purposes.<br><br>This is hard to do in all cases, though.  You would not be
+purposes.
+  </p>
+  <p>
+   This is hard to do in all cases, though.  You would not be
 able to just print an email address on your web site or 
 business card.  Instead you'd have to have a page you
 sent people to, where they could request an email address
-to use to send mail to you.<br><br><br><br>
-<b>Thanks</b> to Bill Yerazunis and Brian Burton for reading
-this and suggesting several fixes.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'stopspam'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=stopspam&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+to use to send mail to you.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Thanks
+   </b>
+   to Bill Yerazunis and Brian Burton for reading
+this and suggesting several fixes.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

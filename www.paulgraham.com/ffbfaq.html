@@ -1,27 +1,84 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>FFB FAQ</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b2b><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b2b border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_13782523" width=65 height=18 border=0 hspace=0 vspace=0 alt="FFB FAQ"><br><br><font size=2 face="verdana"><b>What is an FFB?</b><br><br>A <a href="ffb.html">Filter that Fights Back</a>.<br><br><b>What would an FFB do?</b><br><br>Spider every url in each newly arrived spam,
+<html lang="en">
+ <head>
+  <title>
+   FFB FAQ
+  </title>
+ </head>
+ <body>
+  <h1>
+   FFB FAQ
+  </h1>
+  <p>
+   <b>
+    What is an FFB?
+   </b>
+  </p>
+  <p>
+   A
+   <a href="ffb.html">
+    Filter that Fights Back
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    What would an FFB do?
+   </b>
+  </p>
+  <p>
+   Spider every url in each newly arrived spam,
 if the ip address of the server was blacklisted.
 Ideally the http requests would be spread over the
 lifetime of the spam-- the period during which
 "customers" respond to it.  I suspect
 most responses occur within a couple hours of the
 spam being sent.  It may be different for spams sent at
-night.<br><br><!--<b>This sort of thing never works.</b><br><br>This sort of statement, about technology, often turns out to
+night.
+  </p>
+  <p>
+   <!--<b>This sort of thing never works.</b>This sort of statement, about technology, often turns out to
 be mistaken.  Let's <i>figure out</i> if it will work or not.
 -->
-<b>Could spammers make servers fast
-enough to handle the flood of http requests?</b><br><br>The hardcore spammers probably could.  But not sites like
-<a href="http://americansingles.com">AmericanSingles.Com</a>.<br><br><b>What kind of bandwidth costs could FFBs generate?</b><br><br>If there were 100,000 FFBs, a spammer's site had a total of 
+   <b>
+    Could spammers make servers fast
+enough to handle the flood of http requests?
+   </b>
+  </p>
+  <p>
+   The hardcore spammers probably could.  But not sites like
+   <a href="http://americansingles.com">
+    AmericanSingles.Com
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    What kind of bandwidth costs could FFBs generate?
+   </b>
+  </p>
+  <p>
+   If there were 100,000 FFBs, a spammer's site had a total of 
 100k of stuff in it, and each FFB crawled the site 10x per
 spam, this would generate 100 GB of transfer.  At current
-<a href="http://ekrayweb.com/bulletproofhostinghostingplans.htm">rates</a> 
-for spam hosting that would cost the spammer
-about $1000-4000 per spam.<br><br>Introductory spam hosting plans have transfer limits
+   <a href="http://ekrayweb.com/bulletproofhostinghostingplans.htm">
+    rates
+   </a>
+   for spam hosting that would cost the spammer
+about $1000-4000 per spam.
+  </p>
+  <p>
+   Introductory spam hosting plans have transfer limits
 well under 100 GB/month, so FFBs would shut down such sites
 before the "customers" had a chance to respond.  In a world
-containing FFBs, it would be hard to get started as a spammer.<br><br><b>Couldn't spammers protect against crawlers?</b><br><br>They probably could, by putting invisible links in their pages.
+containing FFBs, it would be hard to get started as a spammer.
+  </p>
+  <p>
+   <b>
+    Couldn't spammers protect against crawlers?
+   </b>
+  </p>
+  <p>
+   They probably could, by putting invisible links in their pages.
 Anything that followed such a link must be a crawler and could
 safely be ignored.  But the easiest way to protect against
 FFBs would be to include working unsubscribe links.  This would
@@ -29,70 +86,165 @@ be particularly necessary for small fry just getting started and
 "legitimate" sites that hire 
 spammers to generate traffic.  
 These would not have the infrastructure or expertise to protect 
-against FFBs.<br><br><b>Wouldn't retrieving web beacons show your address was live?</b><br><br>Yes, so that might bring more spam.  But it would also make
+against FFBs.
+  </p>
+  <p>
+   <b>
+    Wouldn't retrieving web beacons show your address was live?
+   </b>
+  </p>
+  <p>
+   Yes, so that might bring more spam.  But it would also make
 web beacons stop working as an index of open rates.  And
 you'd be clicking on unsubscribe links as well, which FFBs
-would make more popular.<br><br><b>Wouldn't this encourage people to send spams promoting sites
-that pay for clickthroughs?</b><br><br>If there are still sites that pay for
+would make more popular.
+  </p>
+  <p>
+   <b>
+    Wouldn't this encourage people to send spams promoting sites
+that pay for clickthroughs?
+   </b>
+  </p>
+  <p>
+   If there are still sites that pay for
 clickthroughs, they must already 
 have some way to protect themselves against people who 
-generate traffic by spamming.  So there would be no money in it.<br><br><b>This is a bad idea because it just uses up more bandwidth.</b><br><br>That's like arguing that we shouldn't have police, because
+generate traffic by spamming.  So there would be no money in it.
+  </p>
+  <p>
+   <b>
+    This is a bad idea because it just uses up more bandwidth.
+   </b>
+  </p>
+  <p>
+   That's like arguing that we shouldn't have police, because
 in addition to all the losses caused by crime, we have
 people taken away from productive work to chase criminals.   
 If FFBs make working unsubscribe links universal,
-the result is net less use of bandwidth.<br><br>I'm not proposing that FFBs should
+the result is net less use of bandwidth.
+  </p>
+  <p>
+   I'm not proposing that FFBs should
 be used by people on dialup lines, just by users who have
 bandwidth to spare-- people at universities and corporations,
-and on DSL lines.<br><br><!--If we reclaim the domain space one letter at a time, we'll
+and on DSL lines.
+  </p>
+  <p>
+   <!--If we reclaim the domain space one letter at a time, we'll
 only use on average 3% of the extra bandwidth we'd need to
 do all domains at once.
 -->
-<b>Isn't a denial of service attack on spammers illegal?</b><br><br>This one would be uncoordinated, and so distributed that no one client
+   <b>
+    Isn't a denial of service attack on spammers illegal?
+   </b>
+  </p>
+  <p>
+   This one would be uncoordinated, and so distributed that no one client
 would have to submit too many http requests.
 I'm not proposing that a given
 filter hit a spammer's site with 10,000 http requests.
-More like a couple hundred, at most.<br><br>It would be hard
+More like a couple hundred, at most.
+  </p>
+  <p>
+   It would be hard
 for someone to claim you were mounting a DoS attack
 on them for submitting a couple hundred http requests.
 If a couple hundred requests is a DoS attack,
 then I have several times been guilty of
-DoSing eBay.<br><br>In any case, spammers like to keep a low profile.
+DoSing eBay.
+  </p>
+  <p>
+   In any case, spammers like to keep a low profile.
 I can't imagine spammers, especially spammers based
 offshore, trying to
 invoke the protection of the law.  They've probably
 already been victims of conventional DoS attacks,
-and I haven't heard of any of them doing this.<br><br><b>This could be used to DoS innocent victims.</b><br><br>That's the point of the blacklist.  A site doesn't
+and I haven't heard of any of them doing this.
+  </p>
+  <p>
+   <b>
+    This could be used to DoS innocent victims.
+   </b>
+  </p>
+  <p>
+   That's the point of the blacklist.  A site doesn't
 get pounded simply by being mentioned in a spam.  It has
-to be mentioned in a spam <i>and</i> be on the blacklist.<br><br><b>How would blacklists be managed?</b><br><br>I'm not committed to one way of doing it.  But I suspect
+to be mentioned in a spam
+   <i>
+    and
+   </i>
+   be on the blacklist.
+  </p>
+  <p>
+   <b>
+    How would blacklists be managed?
+   </b>
+  </p>
+  <p>
+   I'm not committed to one way of doing it.  But I suspect
 it couldn't be entirely automated.
 Sites would have to be inspected by humans
-to protect innocent sites from being blacklisted.<br><br>If FFBs become a threat to
+to protect innocent sites from being blacklisted.
+  </p>
+  <p>
+   If FFBs become a threat to
 them, spammers will try to give them a bad name by causing
 them to attack innocent victims.
 So blacklists should include ip addresses as well as domain names.  
 Otherwise a spammer could
 switch the DNS record of a blacklisted site to point to
-an innocent victim.<br><br>Anyone running a blacklist should assume, by default, that   
+an innocent victim.
+  </p>
+  <p>
+   Anyone running a blacklist should assume, by default, that   
 any url mentioned in a spam is the victim of a
-<a href="http://www.everything2.com/index.pl?node=Joe%20Job">Joe job</a>, 
+   <a href="http://www.everything2.com/index.pl?node=Joe%20Job">
+    Joe job
+   </a>
+   , 
 and only blacklist sites when, after inspection,  
-this is clearly not the case.<br><br><b>Aren't blacklists prone to abuse?</b><br><br>Yes.  To be honest, this is the weak link in this plan.
+this is clearly not the case.
+  </p>
+  <p>
+   <b>
+    Aren't blacklists prone to abuse?
+   </b>
+  </p>
+  <p>
+   Yes.  To be honest, this is the weak link in this plan.
 A widely used FFB blacklist run by nuts like MAPS could 
 do a lot of damage.  And all blacklists seem to become
-<a href="spamhausblacklist.html">corrupt</a> eventually.<br><br>FFB blacklists are less dangerous
+   <a href="spamhausblacklist.html">
+    corrupt
+   </a>
+   eventually.
+  </p>
+  <p>
+   FFB blacklists are less dangerous
 than mail server blacklists, because being on the blacklist
 alone is not enough to cause a site trouble.  You only get
 crawled when you're already on the blacklist, and a new
 spam arrives with your url in it.  On 
 the other hand, FFBs are going to be run by individual users,
 who will not be as discerning about the blacklists they 
-subscribe to as ISPs are.<br><br><!-- Perhaps problems with blacklists could be solved
+subscribe to as ISPs are.
+  </p>
+  <p>
+   <!-- Perhaps problems with blacklists could be solved
 with new technology: for example, a voting mechanism like
 Slashdot's that gave zealots lower "karma" for voting to 
 blacklist a site other voters decided was innocent.
 -->
-<b>Couldn't spammers just sue or DoS the blacklist?</b><br><br>To protect against DoS attacks, the blacklist might have to
-be distributed through a p2p network.<br><br>I don't think lawsuits would be much of a threat, though.
+   <b>
+    Couldn't spammers just sue or DoS the blacklist?
+   </b>
+  </p>
+  <p>
+   To protect against DoS attacks, the blacklist might have to
+be distributed through a p2p network.
+  </p>
+  <p>
+   I don't think lawsuits would be much of a threat, though.
 A blacklist of spamvertised sites could legitimately claim
 that it wasn't intended specifically for use by FFBs.  
 There's a genuine need for such blacklists to aid in spam 
@@ -100,51 +252,69 @@ filtering.  To evade filters, spammers now change their
 domain names regularly.  When a filter sees a domain name
 for the first time, it would be very helpful if there
 were a list it could check to see if other users had
-reported spams containing it.<br><br>If FFBs happened to use this list too, well, that would be
+reported spams containing it.
+  </p>
+  <p>
+   If FFBs happened to use this list too, well, that would be
 be done without the knowledge of the administrators, just as those
 naughty "affiliates" are spamming without the knowledge of the
-sites they send traffic too.<br><br><b>Wouldn't this miss spammers using Migmaf-style proxies?</b><br><br>Yes.   But if we
+sites they send traffic too.
+  </p>
+  <p>
+   <b>
+    Wouldn't this miss spammers using Migmaf-style proxies?
+   </b>
+  </p>
+  <p>
+   Yes.   But if we
 drive spammers to use such measures to survive, I think we'll
 drive a lot of them out of business.  Writing viruses
 seems to be taken more seriously by the criminal justice
 system than forging headers.  I think many current spammers
-wouldn't take the risk.<br><br><b>What about spammers breaking into people's web servers and
-using them to redirect?</b><br><br>This wouldn't help them.  FFBs would still 
-interfere with the spammers' "customers".<br><br><b>What about spammers using redirects off sites like Geocities?</b><br><br>Such spams are rare, probably because Geocities
+wouldn't take the risk.
+  </p>
+  <p>
+   <b>
+    What about spammers breaking into people's web servers and
+using them to redirect?
+   </b>
+  </p>
+  <p>
+   This wouldn't help them.  FFBs would still 
+interfere with the spammers' "customers".
+  </p>
+  <p>
+   <b>
+    What about spammers using redirects off sites like Geocities?
+   </b>
+  </p>
+  <p>
+   Such spams are rare, probably because Geocities
 has figured out how to prevent spammers from using them for
 this purpose.  Hosting services that hadn't figured
-this out would soon learn.<br><br><b>Why have email as part of the system?  Why not just have 
-a blacklist of spam sites and encourage people to beat on them?</b><br><br>Several people have written suggesting a "DDoS@Home" project
+this out would soon learn.
+  </p>
+  <p>
+   <b>
+    Why have email as part of the system?  Why not just have 
+a blacklist of spam sites and encourage people to beat on them?
+   </b>
+  </p>
+  <p>
+   Several people have written suggesting a "DDoS@Home" project
 of this type.  (Two correspondents who shall remain nameless
 simultaneously invented this
 catchy name.)  But I think mail should remain in the system for
 two reasons: (a) it tells you which sites to pound, and when,
 and (b) if you included it as part of a filter, you could
-get more users.<br><br>On the other hand, if some group managed to launch a DDoS@Home 
+get more users.
+  </p>
+  <p>
+   On the other hand, if some group managed to launch a DDoS@Home 
 project aimed at spammers, that would be enormously amusing.
-I'd sign up for it.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'ffbfaq'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=ffbfaq&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+I'd sign up for it.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

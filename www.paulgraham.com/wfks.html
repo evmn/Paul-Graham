@@ -1,76 +1,155 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Will Filters Kill Spam?</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b2ed><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b2ed border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_8993467" width=181 height=18 border=0 hspace=0 vspace=0 alt="Will Filters Kill Spam?"><br><br><font size=2 face="verdana">December 2002<br><br><i>(This article is derived from one I wrote for the January 2003 issue
-of the Computer Security Journal.)</i><br><br>I get about 45 spams a day, but only about one a week makes it into
+<html lang="en">
+ <head>
+  <title>
+   Will Filters Kill Spam?
+  </title>
+ </head>
+ <body>
+  <h1>
+   Will Filters Kill Spam?
+  </h1>
+  <p>
+   December 2002
+  </p>
+  <p>
+   <i>
+    (This article is derived from one I wrote for the January 2003 issue
+of the Computer Security Journal.)
+   </i>
+  </p>
+  <p>
+   I get about 45 spams a day, but only about one a week makes it into
 my inbox.   
 If everyone had this much of their spam filtered 
-out, spammers would give up sending it.<br><br>Will that happen?<br><br>The first generation of spam filters used rules to recognize 
+out, spammers would give up sending it.
+  </p>
+  <p>
+   Will that happen?
+  </p>
+  <p>
+   The first generation of spam filters used rules to recognize 
 specific spam features. Now a new generation of statistical 
 spam filters seems to offer significantly better performance.  
 Statistical filters look at the
 entire contents of each incoming email and decide whether it's spam
 based on its overall similarity to previous spams.  This new
 kind of filter routinely catches over 99% of current spam with near
-zero false positives.<br><br>The simplest statistical filter can be described in a paragraph.
+zero false positives.
+  </p>
+  <p>
+   The simplest statistical filter can be described in a paragraph.
 Users discard all their spam in a separate trash can.  At intervals, 
 a program looks through all the user's email and, for each token,
 calculates the ratio of spam occurrences to total occurrences.
 For example, if "cash" occurs in 200 of 1000 spams
-and 3 of 500 nonspam emails, its spam probability is 
-<font face=courier><xmp>
-     (200/1000) / (3/500 + 200/1000)
-</xmp></font>
-or .971.  When a new email arrives, extract
-all the tokens and find the fifteen with probabilities <font face=courier>p1...p15</font>
-furthest (in either direction) from .5.  The probability that the
+and 3 of 500 nonspam emails, its spam probability is
+   <xmp>
+    (200/1000) / (3/500 + 200/1000)
+   </xmp>
+   or .971.  When a new email arrives, extract
+all the tokens and find the fifteen with probabilities
+  
+   p1...p15
+  
+  furthest (in either direction) from .5.  The probability that the
 mail is a spam is
-<font face=courier><xmp>
-                   p1p2...p15
+   <xmp>
+    p1p2...p15
      ------------------------------------------
      p1p2...p15  + (1 - p1)(1 - p2)...(1 - p15)
-</xmp></font>
-I use a cutoff of .9, but it doesn't matter too much where you put
-it, because most probabilities end up close to 0 or 1.<br><br>In the past few months, many new statistical spam filters
+   </xmp>
+   I use a cutoff of .9, but it doesn't matter too much where you put
+it, because most probabilities end up close to 0 or 1.
+  </p>
+  <p>
+   In the past few months, many new statistical spam filters
 have appeared. There are now over 30
 available.  Apple has one, MSN has one, AOL is said to have one in
-beta, and you can be pretty sure Yahoo is working on one.<br><br>Some of these filters were inspired by an article I wrote called
-<a href="spam.html">A Plan for Spam</a>, but two open-source statistical text classifiers
-(a superset of spam filtering), 
-<a href="http://www.nongnu.org/ifile/">ifile</a> and
-<a href="http://crm114.sourceforge.net/">CRM114</a>, have been around
+beta, and you can be pretty sure Yahoo is working on one.
+  </p>
+  <p>
+   Some of these filters were inspired by an article I wrote called
+   <a href="spam.html">
+    A Plan for Spam
+   </a>
+   , but two open-source statistical text classifiers
+(a superset of spam filtering),
+   <a href="http://www.nongnu.org/ifile/">
+    ifile
+   </a>
+   and
+   <a href="http://crm114.sourceforge.net/">
+    CRM114
+   </a>
+   , have been around
 for years, and Apple and Microsoft have also been working on
 statistical filtering for a while.  The reason for the sudden
 explosion of statistical filters is probably simply that spam grew
 to be enough of a problem that people started paying serious
-attention to it, and statistical filters are what you get when you do that.<br><br>These filters don't all work exactly the same way.
+attention to it, and statistical filters are what you get when you do that.
+  </p>
+  <p>
+   These filters don't all work exactly the same way.
 The algorithm described above is called a "naive Bayes classifier,"
 because it uses a degenerate case of Bayes' Theorem to combine  
 probabilities.  Most of the new open-source filters are naive
 Bayesian, and so is MSN's, I suspect.  Apple's filter calculates   
 spam probabilities based on "adaptive latent semantic analysis,"  
-which as far as I can tell amounts to the same thing.<br><br>Regardless of how they calculate probabilities, these new statistical
-filters all share some important benefits:<br><br><b>1. They're very effective.</b>  Even the simplest statistical filter 
+which as far as I can tell amounts to the same thing.
+  </p>
+  <p>
+   Regardless of how they calculate probabilities, these new statistical
+filters all share some important benefits:
+  </p>
+  <p>
+   <b>
+    1. They're very effective.
+   </b>
+   Even the simplest statistical filter 
 will catch 99% of current spam.  The most effective filter I know of, Bill
 Yerazunis' CRM114, catches 99.8%.  (Mine is lagging behind at about
-99.7%.)<br><br><b>2. They generate few false positives.</b>  False positives, legitimate  
+99.7%.)
+  </p>
+  <p>
+   <b>
+    2. They generate few false positives.
+   </b>
+   False positives, legitimate  
 emails that are mistakenly treated as spam, are the bane of spam
 filtering.  Statistical filters yield fewer false positives because
 they consider evidence of innocence as well as evidence of guilt.
 A token that occurs disproportionately often in your nonspam mail, 
 like the name of a friend, will count as much toward
 decreasing the spam probability as a token like "cash" would to
-increasing it.<br><br><b>3. They learn.</b>  You don't have to look through piles of spam and
+increasing it.
+  </p>
+  <p>
+   <b>
+    3. They learn.
+   </b>
+   You don't have to look through piles of spam and
 figure out rules to identify them.  Whatever's in there, the filters
 tend to find it.  Like us, statistical filters notice that the
 token "cash" is sign of spam.  However, they also notice that
 "modalities" (used in a surprisingly high proportion of Nigerian
 spams) and "FF0000" (html for bright red) are even better signs of
 spam.  And as spammers change their messages or their infrastructure,
-the filters adapt.<br><br><b>4. They let each user define what's spam.</b>  Although statistical
+the filters adapt.
+  </p>
+  <p>
+   <b>
+    4. They let each user define what's spam.
+   </b>
+   Although statistical
 filters could be used at the network level, ideally the probabilities
 should be calculated individually for each user.  To the extent   
-users' definitions of spam differ, their inboxes will reflect this.<br><br><b>5. They're hard to trick.</b>  There are only two ways to get past a
+users' definitions of spam differ, their inboxes will reflect this.
+  </p>
+  <p>
+   <b>
+    5. They're hard to trick.
+   </b>
+   There are only two ways to get past a
 statistical filter: use fewer bad words, or use more innocent words.
 Spammers can't do the latter, because the most innocent words (words
 related to your friends and family, your work, your interests) 
@@ -78,41 +157,70 @@ vary for each user.  So they have to use
 fewer bad words.  They can't use weird spellings (e.g. "Freee"
 instead of "Free") because filters quickly learn those.  Their only
 option is to use vaguer and vaguer euphemisms, or simply to have  
-some generic sounding text, and a link.<br><br>What's going to happen as this new generation of spam filters get
+some generic sounding text, and a link.
+  </p>
+  <p>
+   What's going to happen as this new generation of spam filters get
 delivered to end-users?  The most exciting possibility is that they
-may make spam go away.<br><br>What the spammers care most about is response rate.  In any kind
+may make spam go away.
+  </p>
+  <p>
+   What the spammers care most about is response rate.  In any kind
 of direct marketing, revenue is proportional to response rate.  Spammers  
 are satisfied with a much lower response rate than direct mail,  
 because their costs are so much lower, but response rate is still  
-the key to how much they make.<br><br>Filtering hits spammers right in their center of gravity: if recipients
+the key to how much they make.
+  </p>
+  <p>
+   Filtering hits spammers right in their center of gravity: if recipients
 don't see the spam, they don't respond to it.  If we can filter
 out 95% of spam, we decrease spammers' revenues
 by a factor of 20.  If we can filter out 99.5%, we decrease
 revenues by a factor of 200.  Spammers' costs are low, but not
-that low.  In an 
-<a href="http://www.freep.com/money/tech/mwend22_20021122.htm">article</a> 
-in the Detroit Free Press, one spammer
+that low.  In an
+   <a href="http://www.freep.com/money/tech/mwend22_20021122.htm">
+    article
+   </a>
+   in the Detroit Free Press, one spammer
 said that he charged a flat fee of $22,000 to send mail to his   
 entire list of 250 million addresses.  If filters cut response
 rates by a factor of 100, the average value of what he was selling
-would sink to $220.  I doubt that would even cover his costs.<br><br>Filters should at least save us from seeing most spam.  But if they
+would sink to $220.  I doubt that would even cover his costs.
+  </p>
+  <p>
+   Filters should at least save us from seeing most spam.  But if they
 can decrease spammers' response rates enough, spam will no longer   
-pay, and the spammers will actually stop sending it.<br><br>Or so we hope.  But there is an alarming possibility here.  If  
+pay, and the spammers will actually stop sending it.
+  </p>
+  <p>
+   Or so we hope.  But there is an alarming possibility here.  If  
 email programs aren't designed right, spam might still be seen
-by the very people the spammers most want to reach.<br><br>The person who responds to spam is a rare bird.  Response rates
+by the very people the spammers most want to reach.
+  </p>
+  <p>
+   The person who responds to spam is a rare bird.  Response rates
 can be as low as 15 per million.  That's the whole
 problem: spammers waste the time of a 
-million people just to reach the 15 stupidest or most perverted.<br><br>If we want to make spam stop working, we have to somehow prevent  
+million people just to reach the 15 stupidest or most perverted.
+  </p>
+  <p>
+   If we want to make spam stop working, we have to somehow prevent  
 the 15 idiots from responding to the spams that are sent to them.
 Otherwise the spammers will keep sending it to everyone.  So,
 strangely enough, whether or not filtering will kill spam depends
-entirely on what those 15 idiots do.<br><br>The great danger is that whatever filter is most widely deployed   
+entirely on what those 15 idiots do.
+  </p>
+  <p>
+   The great danger is that whatever filter is most widely deployed   
 in the idiot market will require too much effort by the user.   
 Bayesian filters calculate spam probabilities based on the spam
 and nonspam mail each user receives.  There have to be two 
 kinds of deletion, ordinary delete and delete-as-spam, and the user has     
 to delete each kind of message in the right way.  The problem is, the 
-15 idiots are probably also the 15 users who won't bother.<br><br>As long as the 15 idiots continue to see spams, we're all going to
+15 idiots are probably also the 15 users who won't bother.
+  </p>
+  <p>
+   As long as the 15 idiots continue to see spams, we're all going to
 be sent them.  So whether filters put an end to spam depends on 
 how the email software used by the idiots is designed.  My guess
 is that idiots are pretty passive, so the key here is to make
@@ -121,8 +229,14 @@ you release Bayesian filters, don't make all the users train their
 own filters from scratch.  Use initial filters based on mail
 classified by all your users.   That way, 
 as long as the user just keeps
-blindly clicking, most email will end up in the right corpus.<br><br>Do that, and spam will decrease, which will mean lower infrastructure
-costs, and thus greater profits for you.<br><br>There is one other possibility we ought to worry about, though
+blindly clicking, most email will end up in the right corpus.
+  </p>
+  <p>
+   Do that, and spam will decrease, which will mean lower infrastructure
+costs, and thus greater profits for you.
+  </p>
+  <p>
+   There is one other possibility we ought to worry about, though
 probably not as much.  What if the 15 idiots see the spam in the 
 junk mail folder and respond to it?  I don't think this
 happens very much.  We can see that from the efforts that
@@ -133,70 +247,118 @@ flush spam folders, and don't encourage users to look through
 them and open the mails.  (One good way to do this is to list some
 of the incriminating words, in random order, along with the subject line of
 each spam.  Then users won't be tempted to open spams with
-ambiguous subject lines.)<br><br>If the email software implements them properly, statistical filters
+ambiguous subject lines.)
+  </p>
+  <p>
+   If the email software implements them properly, statistical filters
 should send nearly all spams straight to the spam folder, and this
-will decrease response rates dramatically.<br><br>The spammers most threatened by filters are the opt-in spammers.     
+will decrease response rates dramatically.
+  </p>
+  <p>
+   The spammers most threatened by filters are the opt-in spammers.     
 Opt-in spammers are the ones on the more legitimate end of  
 the spam spectrum.  They buy your address from other companies whose
 terms of service (you didn't notice that in paragraph 47?) allow 
 them to sell customers' email addresses.  They're called opt-in
 spammers because they usually claim in the mail they send you that
-you have asked to receive email from them.<br><br>One of the biggest opt-in spammers claims to have 
-<a href="http://www.virtumundo.com">60 million</a> unique
+you have asked to receive email from them.
+  </p>
+  <p>
+   One of the biggest opt-in spammers claims to have
+   <a href="http://www.virtumundo.com">
+    60 million
+   </a>
+   unique
 email addresses, nearly all of them domestic.  60 million addresses     
 is more than half the US online population.  If half of US Internet
 users have asked to receive email from this company, it should be
 pretty easy to find someone who has.  And yet if you start asking
 around among your friends, I bet you won't find a single one who
-remembers asking to receive their valuable offers.<br><br>The arrival of better filters is going to put an end to the fiction 
+remembers asking to receive their valuable offers.
+  </p>
+  <p>
+   The arrival of better filters is going to put an end to the fiction 
 of opt-in, because opt-in spam is especially vulnerable to filters.
 Opt-in spammers don't try to conceal their identities.
 They don't use fake return addresses like the real hardcore spammers.
 The text of the email openly says who it's from.  And so opt-in
 spam is very easy to filter.  The simplest statistical filter
-can catch 100% of it.<br><br>Once statistical filters are widely deployed, most opt-in
+can catch 100% of it.
+  </p>
+  <p>
+   Once statistical filters are widely deployed, most opt-in
 spam will go right into the trash.  This should flush the   
 opt-in spammers out of their present cover of semi-legitimacy.  If
 filtering destroys their response rates, they're either
 going to go out of business, or they're going to have to admit what
 they are and start taking measures to conceal the origin and nature
-of their messages.<br><br>All spammers will have to, if they want to get past statistical 
-filters.  Will they be able to?<br><br>We already see plenty of evidence of spammers tweaking their messages
+of their messages.
+  </p>
+  <p>
+   All spammers will have to, if they want to get past statistical 
+filters.  Will they be able to?
+  </p>
+  <p>
+   We already see plenty of evidence of spammers tweaking their messages
 to get past simple-minded spam filters based on specific words or
 patterns.  What could they do to get past statistical filters, and
-will it work?<br><br>If a statistical filter notices that you're using spam words, you're
+will it work?
+  </p>
+  <p>
+   If a statistical filter notices that you're using spam words, you're
 in trouble.  So the spammer has two options: prevent the filter
-from seeing the words, or use different words.<br><br>Spammers have been trying to prevent filters from recognizing the 
+from seeing the words, or use different words.
+  </p>
+  <p>
+   Spammers have been trying to prevent filters from recognizing the 
 words in their messages for at least six months.  The most common
 trick is to use variant spellings-- for example, to use 0 instead
 of O and 1 instead of l.  These are no problem for Bayesian filters
 once the corpus reaches a decent size, and indeed are a positive 
-aid in recognizing spam.<br><br>Spammers also try to prevent filters from recognizing the tokens
+aid in recognizing spam.
+  </p>
+  <p>
+   Spammers also try to prevent filters from recognizing the tokens
 in the mail by breaking them up-- for example, by using whitespace
-or punctuation characters in the middle of words<br><br><blockquote>
-  li ke  th.is
-</blockquote>
-But this doesn't work well either.  One reason is that legitimate email 
+or punctuation characters in the middle of words
+  </p>
+  <p>
+   <blockquote>
+    li ke  th.is
+   </blockquote>
+   But this doesn't work well either.  One reason is that legitimate email 
 doesn't have many individual letters or word fragments in it,   
 so a fragment like "ke" or "th" will tend to have an above-average
 spam probability.  Another is that they can't do this sort of
 obfuscation on headers and urls, and those are enough by 
 themselves to identify most spam.  We could probably reconstruct
 the broken words if we had to, but this hasn't even been
-necessary so far.<br><br>Spammers sometimes insert html comments at random places within
+necessary so far.
+  </p>
+  <p>
+   Spammers sometimes insert html comments at random places within
 words, but this is also easy to ignore.  In general, on the token front,
 it is a question of closing loopholes.  There are only so many 
 tricks spammers can use, and we deal with them individually.  So
-far none has been insurmountable.<br><br>People sometimes ask, what if spammers sent the mail as an image?
+far none has been insurmountable.
+  </p>
+  <p>
+   People sometimes ask, what if spammers sent the mail as an image?
 They do already, and this kind of spam is easy for filters to
 catch.  Tokens like "img" and "href" have spam probabilities like 
 those of pornographic terms.  Plus there is the domain name and filename in
 the url, and, as always, the headers.  On the whole, spam containing
 html is easy to filter.  The most hardened spammers seem to know   
 this and already avoid html in their mails.  Whatever the spam of
-the future looks like, it probably won't contain html.<br><br>I think the only territory left to the spammers will be vocabulary.
+the future looks like, it probably won't contain html.
+  </p>
+  <p>
+   I think the only territory left to the spammers will be vocabulary.
 They won't be able to prevent filters from seeing the words they're
-using, so they'll have to use different words.<br><br>It won't work simply to pad spams with random words.  In the
+using, so they'll have to use different words.
+  </p>
+  <p>
+   It won't work simply to pad spams with random words.  In the
 algorithm I described earlier, only the most statistically
 significant fifteen words contribute to the probability, and neutral
 words like "onion", no matter how many there are of them, can't
@@ -207,89 +369,116 @@ not merely neutral but occur disproportionately often in the user's
 legitimate email.  But these words (the names of one's friends and
 family, terms one uses in one's work) are different for each
 recipient, and the spammers have no way of figuring out what they  
-are.<br><br>I think the only thing that will work for the spammers will be to
+are.
+  </p>
+  <p>
+   I think the only thing that will work for the spammers will be to
 avoid using incriminating words.  Interestingly, this will work to
 different degrees depending on the type of spam.  For mortgage
 spams it will be deadly.  How can you pitch people a mortgage
 without using terms like "mortgage", "rate", "lend" and "borrow"?
 Whereas there are other kinds of spams that could be rephrased not
-to use identifiable spam terms at all.<br><br>One fairly common type of spam is sent by an online dating service 
-(oops, sorry, an irresponsible <i>affiliate</i> of an online dating
+to use identifiable spam terms at all.
+  </p>
+  <p>
+   One fairly common type of spam is sent by an online dating service 
+(oops, sorry, an irresponsible
+   <i>
+    affiliate
+   </i>
+   of an online dating
 service), pretending to be an email from female member who wants
 to meet you.  Just sign up and search for her profile.  There can
 be very little in the text of such mails for a filter to notice.
 I've seen some where the text was indistinguishable, statistically,
 from an email an actual person might send you.  All you have to go
-on there is the url, and the headers.<br><br>Of course, the url and the headers are a lot to go on.  And they
+on there is the url, and the headers.
+  </p>
+  <p>
+   Of course, the url and the headers are a lot to go on.  And they
 are what I think filtering will ultimately come to depend on.  I
-predict that the spam of the future will look like this:<br><br><blockquote>
-To: joeuser@aol.com<br>
-From: john@smith.com<br>
-Subject: hey<br><br>Check out this site.<br><br>http://www.randomdomain.com
-</blockquote>
-That is, some fairly innocuous text, followed by a link.  The domain
+predict that the spam of the future will look like this:
+  </p>
+  <p>
+   <blockquote>
+    To: joeuser@aol.com
+   
+   From: john@smith.com
+   
+   Subject: hey
+   </blockquote>
+  </p>
+  <p>
+   Check out this site.
+  </p>
+  <p>
+   http://www.randomdomain.com
+   That is, some fairly innocuous text, followed by a link.  The domain
 name in the link will have to be one that hasn't been
-used before, or the filters will recognize it.<br><br>What will the response rate be for this type of spam?  That is
+used before, or the filters will recognize it.
+  </p>
+  <p>
+   What will the response rate be for this type of spam?  That is
 the big question.  It will
 presumably be lower than for a spam loaded with with sales pitches,
 or the spammers wouldn't bother to write the sales pitches, but
 how much lower?  If the response rate is low enough, then forcing   
-spam to become this generic will be enough to kill it.<br><br>To the extent spam can be made this generic and still work,
+spam to become this generic will be enough to kill it.
+  </p>
+  <p>
+   To the extent spam can be made this generic and still work,
 there are still techniques we can use to recognize it.  I
 can think of two ways to deal with an unknown domain.  One would   
 be to send out a crawler to look at the page you're being sent to.
 You could filter the page much as you would the body of an email.
-If widely used, this would have the amusing effect of 
-<a href="ffb.html">pounding</a> any 
+If widely used, this would have the amusing effect of
+   <a href="ffb.html">
+    pounding
+   </a>
+   any 
 site advertised in a spam with a large number of hits.  If the
 overloaded server took a while to respond, that would be evidence
-in itself-- a kind of peer-to-spammer-to-peer filtering network.<br><br>Another way to deal with unknown domains would be to have
+in itself-- a kind of peer-to-spammer-to-peer filtering network.
+  </p>
+  <p>
+   Another way to deal with unknown domains would be to have
 a server to which filters could report domains seen in spams.
 A filter unsure about a new url could query this server and get a
 quick answer back.  You might get false positives in the case of  
 a link to some image or news story that was making the rounds, but
 that kind of email tends to be sent by friends who would already
-be on your whitelist.<br><br>And remember, there are still the headers.  At the moment, spammers
+be on your whitelist.
+  </p>
+  <p>
+   And remember, there are still the headers.  At the moment, spammers
 leave their fingerprints all over them.  Some spam software actually
 identifies itself by name in the headers.  One day we'll smile at
 the quaintness of that.  But even after they clean up the obvious
 stuff, spammers will tend to use the same infrastructure for a
 while.  Unless of course they use open relays.  That would be retro.
 But I think it would put a lot of spammers out of business if they  
-had to resort to that.  Certainly clients like 
-<a href="https://sep.yimg.com/ty/cdn/paulgraham/disneyspam.txt?t=1595850613&"
-target="txtwin">Disney</a> would balk at it.<br><br>Strangely enough, the spam I expect to see in the future will be
+had to resort to that.  Certainly clients like
+   <a href="https://sep.yimg.com/ty/cdn/paulgraham/disneyspam.txt?t=1595850613&amp;" target="txtwin">
+    Disney
+   </a>
+   would balk at it.
+  </p>
+  <p>
+   Strangely enough, the spam I expect to see in the future will be
 a lot like the spam of the past.  There will be less of it, as
 there was in the past.  And the spammers will be real outlaws, as  
-they were before spam got corporate in the last couple years.<br><br>I don't want to underestimate the ingenuity of the spammers.  They 
+they were before spam got corporate in the last couple years.
+  </p>
+  <p>
+   I don't want to underestimate the ingenuity of the spammers.  They 
 have found their way past every barrier we've put in front of them
 before.  But I don't think this is inevitable.
 I think we just didn't work too hard on barriers till recently.
 Statistical spam filters represent a more serious effort to fight
 back.  If they don't put an end to spam, they'll at least insure
-that we see less of it.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'wfks'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=wfks&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+that we see less of it.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

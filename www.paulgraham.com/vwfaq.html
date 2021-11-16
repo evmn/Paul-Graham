@@ -1,62 +1,144 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Viaweb FAQ</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b29><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b29 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_12772934" width=94 height=18 border=0 hspace=0 vspace=0 alt="Viaweb FAQ"><br><br><font size=2 face="verdana"><b>How did the editor handle client sessions?</b><br><br>There was one Lisp process for each user.  When someone logged
+<html lang="en">
+ <head>
+  <title>
+   Viaweb FAQ
+  </title>
+ </head>
+ <body>
+  <h1>
+   Viaweb FAQ
+  </h1>
+  <p>
+   <b>
+    How did the editor handle client sessions?
+   </b>
+  </p>
+  <p>
+   There was one Lisp process for each user.  When someone logged
 in to edit their site, we'd start up a new process and load all
 their data into memory.  From that point they had an ongoing
-conversation with that process.<br><br>Because everything was already loaded into memory, we never
+conversation with that process.
+  </p>
+  <p>
+   Because everything was already loaded into memory, we never
 had to read anything from disk or start up a process to
 respond to an HTTP request.  All we had to do was evaluate
-a closure stored in memory.<br><br><b>What did you use for an HTTP server?</b><br><br>At first the editor had its own HTTP server, written in Common Lisp
+a closure stored in memory.
+  </p>
+  <p>
+   <b>
+    What did you use for an HTTP server?
+   </b>
+  </p>
+  <p>
+   At first the editor had its own HTTP server, written in Common Lisp
 by Robert Morris.  Later we switched to a version of
-Apache that he hacked to talk to Lisp.<br><br><b>What Lisp did you use?</b><br><br><a href="http://clisp.sourceforge.net/">Clisp</a>.<br><br><b>Did you use real continuations to save state?</b><br><br>No, we used macros to fake them in Common Lisp, as described in
-<a href="onlisp.html">On Lisp</a>.<br><br><b>What database did you use?</b><br><br>We didn't use one.  We just stored everything in files.  
+Apache that he hacked to talk to Lisp.
+  </p>
+  <p>
+   <b>
+    What Lisp did you use?
+   </b>
+  </p>
+  <p>
+   <a href="http://clisp.sourceforge.net/">
+    Clisp
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    Did you use real continuations to save state?
+   </b>
+  </p>
+  <p>
+   No, we used macros to fake them in Common Lisp, as described in
+   <a href="onlisp.html">
+    On Lisp
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    What database did you use?
+   </b>
+  </p>
+  <p>
+   We didn't use one.  We just stored everything in files.  
 The Unix file system is pretty good at not losing your data, 
-especially if you put the files on a Netapp.<br><br>It is a common mistake to think of Web-based apps as interfaces to databases.
+especially if you put the files on a Netapp.
+  </p>
+  <p>
+   It is a common mistake to think of Web-based apps as interfaces to databases.
 Desktop apps aren't just interfaces to databases; why should Web-based apps
 be any different?  The hard part is not where you store the data, but
-what the software does.<br><br>While we were doing Viaweb, we took a good
+what the software does.
+  </p>
+  <p>
+   While we were doing Viaweb, we took a good
 deal of heat from pseudo-technical people like VCs and industry
 analysts for not using a database-- and for using cheap Intel
 boxes running FreeBSD as servers.  But when we were getting
 bought by Yahoo, we found that they also just stored everything
 in files-- and all their servers were also cheap Intel boxes
-running FreeBSD.<br><br>(During the Bubble, Oracle used to run ads saying that Yahoo
+running FreeBSD.
+  </p>
+  <p>
+   (During the Bubble, Oracle used to run ads saying that Yahoo
 ran on Oracle software.  I found this hard to believe, so I asked around.
-It turned out the Yahoo <i>accounting</i> department used Oracle.)<br><br><b>Was your co-founder the same Robert Morris who wrote the worm
-and is now a professor at MIT?</b><br><br>Yes.<br><br><b>Where did you get venture funding?</b><br><br>We got money from several private investors, what are known in the
+It turned out the Yahoo
+   <i>
+    accounting
+   </i>
+   department used Oracle.)
+  </p>
+  <p>
+   <b>
+    Was your co-founder the same Robert Morris who wrote the worm
+and is now a professor at MIT?
+   </b>
+  </p>
+  <p>
+   Yes.
+  </p>
+  <p>
+   <b>
+    Where did you get venture funding?
+   </b>
+  </p>
+  <p>
+   We got money from several private investors, what are known in the
 business as "angels."  Our investors were pretty serious,
-almost VCs, but they weren't actually brand-name VC firms.<br><br>We did Viaweb very cheaply.  We spent a total of about $2 million.
+almost VCs, but they weren't actually brand-name VC firms.
+  </p>
+  <p>
+   We did Viaweb very cheaply.  We spent a total of about $2 million.
 We were just about breaking even when we got bought, so we
-would not have spent too much more.<br><br><b>How was "Viaweb" pronounced?</b><br><br>The official policy was that you could say either vee-a-web or 
+would not have spent too much more.
+  </p>
+  <p>
+   <b>
+    How was "Viaweb" pronounced?
+   </b>
+  </p>
+  <p>
+   The official policy was that you could say either vee-a-web or 
 vie-a-web.  We all used the former, but everyone else, including
-the people at Yahoo, seemed to prefer the latter.<br><br><b>What would you do differently?</b><br><br>Technically, not much.  I think the main thing we should have done
+the people at Yahoo, seemed to prefer the latter.
+  </p>
+  <p>
+   <b>
+    What would you do differently?
+   </b>
+  </p>
+  <p>
+   Technically, not much.  I think the main thing we should have done
 that we didn't was start some kind of online store ourselves.  We
 used the editor to make our own site, so we were pretty motivated
 to make it good.  But we could only understand the e-commerce
-part of the software second-hand.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'vwfaq'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=vwfaq&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+part of the software second-hand.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

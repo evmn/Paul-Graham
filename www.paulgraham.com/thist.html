@@ -1,20 +1,38 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>History of T</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0bdd><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0bdd border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_4261695" width=209 height=18 border=0 hspace=0 vspace=0 alt="Olin Shivers: History of T"><br><br><font size=2 face="verdana"><i>(T was one of the best Lisp implementations, and set a standard for clean design
+<html lang="en">
+ <head>
+  <title>
+   History of T
+  </title>
+ </head>
+ <body>
+  <h1>
+   History of T
+  </h1>
+  <p>
+   <i>
+    (T was one of the best Lisp implementations, and set a standard for clean design
 that few newer dialects have been able to meet.  Here Olin Shivers recounts T's
-history.)</i><br><br>Around 1981-1982, the Yale CS dept., which had a strong AI group led by Roger
-                    Schank, hired undergraduate 
-<a href="http://www.mumble.net/jar/">Jonathan Rees</a> 
-to implement a new Lisp for their
+history.)
+   </i>
+  </p>
+  <p>
+   Around 1981-1982, the Yale CS dept., which had a strong AI group led by Roger
+                    Schank, hired undergraduate
+   <a href="http://www.mumble.net/jar/">
+    Jonathan Rees
+   </a>
+   to implement a new Lisp for their
                     research programming. Jonathan, I and Dan Weld (now a prof. at U Washington)
                     were the three people at Yale that had discovered the early Sussman/Steele
                     "lambda" papers, including Guy's seminal master's thesis on Rabbit, the first
-                    Scheme compiler. Dan was a college senior; Jonathan & I were juniors. Alan
+                    Scheme compiler. Dan was a college senior; Jonathan &amp; I were juniors. Alan
                     Perlis, the soul of the department, had just discovered functional
                     programming, and was running a graduate seminar covering early FP languages
-                    such as Hope & Miranda & Scheme. The three of us managed to sleaze our way
-                    into this grad class, where we met each other.<br><br>Some context: Common Lisp did not exist (the effort was just getting
+                    such as Hope &amp; Miranda &amp; Scheme. The three of us managed to sleaze our way
+                    into this grad class, where we met each other.
+  </p>
+  <p>
+   Some context: Common Lisp did not exist (the effort was just getting
                     underway). MIT Scheme did not exist. Scheme was a couple of AI Lab tech
                     reports and a master's thesis. We're talking the tiniest seed crystal
                     imaginable, here. There was immense experience in the lisp community on
@@ -22,7 +40,7 @@ to implement a new Lisp for their
                     to such an extent, that it was a widely held opinion at the time that "lexical
                     scope is interesting, *theoretically*, but it's inefficient to implement;
                     dynamic scope is the fast choice." I'm not kidding. To name two examples, I
-                    heard this, on different occasions, from Richard Stallman (designer &
+                    heard this, on different occasions, from Richard Stallman (designer &amp;
                     implementor of emacs lisp) and Richard Fateman (prof. at Berkeley, and the
                     principal force behind franz lisp, undoubtedly the most important lisp
                     implementation built in the early Vax era -- important because it was
@@ -32,9 +50,12 @@ to implement a new Lisp for their
                     area of lisp implementation, in 1982 (and for years afterward, actually),
                     Scheme was a radical, not-at-all-accepted notion. And *outside* the Lisp/AI
                     community... well, languages with GC were definitely not acceptable. (Contrast
-                    with the perl & Java era in which we live. It is no exaggeration, thanks to
+                    with the perl &amp; Java era in which we live. It is no exaggeration, thanks to
                     perl, to say in 2001 that *billions* of dollars of services have been rolled
-                    out to the world on top of GC'd languages.)<br><br>Jonathan had spent the previous year on leave from Yale working at MIT. The
+                    out to the world on top of GC'd languages.)
+  </p>
+  <p>
+   Jonathan had spent the previous year on leave from Yale working at MIT. The
                     important thing that was happening was that 32-bit machines were coming out,
                     with 32-bit address spaces -- *big* address spaces. A lot of the existing
                     language technology in the AI community had been developed for the PDP-11
@@ -47,80 +68,110 @@ to implement a new Lisp for their
                     instruction*. The PDP-10 was a 36-bit machine, with an 18-bit word-addressed
                     address space. Note what this means: a cons cell fit into a single word. There
                     are many who claim that the -10 was the world's first lisp machine. I agree
-                    with them.<br><br>There were two extremely good, mature, highly optimised lisp implementations
+                    with them.
+  </p>
+  <p>
+   There were two extremely good, mature, highly optimised lisp implementations
                     for the -10, one "East Coast" (Maclisp, from MIT) and one "West coast"
-                    (Interlisp, from Stanford & Xerox PARC). You could also program the -10 in
+                    (Interlisp, from Stanford &amp; Xerox PARC). You could also program the -10 in
                     a beautiful, roughly-C-level language from CMU, called Bliss. I see C and I
-                    remember Bliss, and I could weep.<br><br>The problem was the limited, 18-bit address spaces of the -10's. Programmers
-                    were blowing them out. When DEC shipped the Vax & Motorola 68000s began to
-                    show up in Sun & Apollo workstations, people realised that the 32-bit address
+                    remember Bliss, and I could weep.
+  </p>
+  <p>
+   The problem was the limited, 18-bit address spaces of the -10's. Programmers
+                    were blowing them out. When DEC shipped the Vax &amp; Motorola 68000s began to
+                    show up in Sun &amp; Apollo workstations, people realised that the 32-bit address
                     space of these architectures was a discontinuous shift in technology, and that
                     language implementation on these machines was going to be similarly
                     discontinuous. For example, with a really big address space, you wanted to
-                    fundamentally change your GC technology and data representations.<br><br>Berkeley was a big player making the Vax happen in universities, by getting
+                    fundamentally change your GC technology and data representations.
+  </p>
+  <p>
+   Berkeley was a big player making the Vax happen in universities, by getting
                     the ARPA contract to build Berkeley Unix for the Vax (which effort
                     subsequently spun off into Sun, courtesy Bill Joy). Part of this effort was a
                     lisp for the Vax, franz lisp, built under Fateman's guidance. Franz was a
                     design more in the vein of Maclisp than Interlisp, enough so as to allow the
                     porting of Macsyma (Fateman's interest) to the Vax. Franz also showed
-                    fundamental influences from a little-known lisp done at harvard.<br><br>MIT responded to the Vax by kicking off the NIL project. NIL stood for "New
+                    fundamental influences from a little-known lisp done at harvard.
+  </p>
+  <p>
+   MIT responded to the Vax by kicking off the NIL project. NIL stood for "New
                     Implementation of Lisp." Jonathan was part of this project during his year
                     away from Yale. It was a really, really good effort, but in the end, was
                     crippled by premature optimisation -- it was very large, very aggressive, very
                     complex. Example: they were allocating people to write carefully hand-tuned
                     assembly code for the bignum package before the general compiler was written.
-                    The NIL project was carried out by top people (err... I recall Jonl White &
+                    The NIL project was carried out by top people (err... I recall Jonl White &amp;
                     George Carrette being principals). But it never got delivered. It was finished
                     years later than projected, by which time it was mostly irrelevant. (This has
                     happened to me. It's a bitter, bitter experience. I fashionably decried
                     premature optimisation in college without really understanding it until I once
                     committed an act of premature opt so horrific that I can now tell when it is
                     going to rain by the twinges I get in the residual scar tissue. Now I
-                    understand premature optimisation.) The genesis & eventual failure of this
+                    understand premature optimisation.) The genesis &amp; eventual failure of this
                     kind of project is always clearly visible (in hindsight) in the shibboleths of
                     the early discussions. One key tip-off phrase is always something of the form,
                     "We'll throw out all the old cruft, start over fresh, and just Do Things
                     Right." (This, unfortunately, is not a useful observation, because that
-                    strategy sometimes does pay off, hugely. It's just very risky.)<br><br>Jonathan worked on NIL for a year, then came back to Yale for his senior year,
+                    strategy sometimes does pay off, hugely. It's just very risky.)
+  </p>
+  <p>
+   Jonathan worked on NIL for a year, then came back to Yale for his senior year,
                     where he was hired by the CS dept. to implement a new Lisp. He made a
                     *radical* decision: he was going to do an optimising, native-code *Scheme*
                     system. He chose to name it T. This was a great name for a couple of
-                    reasons. It was short & simple, of course. It fit in with Yale CS culture, as
+                    reasons. It was short &amp; simple, of course. It fit in with Yale CS culture, as
                     there was a history of programs developed there that had single-letter names:
-                    e, c, z & u. (These were a locally-grown family of sophisticated screen
+                    e, c, z &amp; u. (These were a locally-grown family of sophisticated screen
                     editors that were rougly comparable to, but quite different from, emacs.)
                     Finally, if you're a lisp hacker, then you know that NIL is the lisp false
-                    constant... and T is the canonical true constant. So "T is not NIL."<br><br>Let me repeat here what a radical decision it was to go and build a Scheme.
+                    constant... and T is the canonical true constant. So "T is not NIL."
+  </p>
+  <p>
+   Let me repeat here what a radical decision it was to go and build a Scheme.
                     The *only* Scheme implementation that had *ever* been built at this point was
                     the research prototype Steele had done for his Masters. *All* serious Lisps in
                     production use at that time were dynamically scoped. No one who hadn't
 carefully read the Rabbit thesis believed lexical scope would fly; even the
                     few people who *had* read it were taking a bit of a leap of faith that this
-                    was going to work in serious production use -- the difference between theory &
-                    practice is, uh, larger in practice than in theory.<br><br>(For example, the other big MIT implementation effort, Zetalisp for the Lisp
+                    was going to work in serious production use -- the difference between theory &amp;
+                    practice is, uh, larger in practice than in theory.
+  </p>
+  <p>
+   (For example, the other big MIT implementation effort, Zetalisp for the Lisp
                     Machine, kept dynamic scoping, but allowed the compiler to sort of break the
                     semantics, and then, in response to Scheme, threw lexical closures into the
-                    mix as a fairly kludged-up special form.)<br><br>(The Europeans working on early systems like ML in Edinburgh probably find all
-                    this American early-80's thrashing & confusion over scoping discipline and
-                    implementation strategy incredibly clueless. Sorry 'bout that.)<br><br>Besides Roger Schank, the other person who made the resource committment to
+                    mix as a fairly kludged-up special form.)
+  </p>
+  <p>
+   (The Europeans working on early systems like ML in Edinburgh probably find all
+                    this American early-80's thrashing &amp; confusion over scoping discipline and
+                    implementation strategy incredibly clueless. Sorry 'bout that.)
+  </p>
+  <p>
+   Besides Roger Schank, the other person who made the resource committment to
                     hire Jonathan to develop T was John O'Donnell, who later went on to be a
                     principal Multiflow, the company that commercialised VLIW
                     architecture/compiler technology that Josh Fisher spun out of Yale in 1983. I
                     suspect Alan Perlis probably had a hand in the decision, as well, though I
                     don't really know. Committing funds to allow Jonathan to set out to (try to)
                     build a production-quality Scheme implementation was pretty brave, up there
-                    with Jonathan's decision to try.<br><br>Jonathan brought back to Yale from the NIL project a raft of really excellent
+                    with Jonathan's decision to try.
+  </p>
+  <p>
+   Jonathan brought back to Yale from the NIL project a raft of really excellent
                     implementation technology -- primarily the fundamental data representations
                     that were carefully honed for the new-generation machine architectures, using
                     tag bits in the low bits of the datum. E.g., if you made the fixnum tag "000",
-                    then you could add & subtract fixnums in a single instruction, with no
+                    then you could add &amp; subtract fixnums in a single instruction, with no
                     tag-hacking overhead; you could multiply with a single pre-shift and divide
                     with a single post-shift. This was a big improvement over Maclisp's required
                     boxing of fixnums, and the supporting cruft that made that all work (in my
                     opinion). Also, since the Vax was *byte* addressable, you could strip off the
                     type tag of a cons-cell datum simply by adjusting the constant offset in the
                     addressing mode. I.e., cons cells were represented by the double-word-aligned
-                    address of the two-word chunk of memory where the cell's car & cdr fields
+                    address of the two-word chunk of memory where the cell's car &amp; cdr fields
                     lived. Double-word-aligning the memory block means the low three bits of its
                     address are always zero, that is, not needed. So the three low bits of the
                     address were used for the type tags. So suppose we use "010" (decimal 2) for
@@ -128,21 +179,33 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     instruction: load r8, r7[4-2] where the "4" gets you 1 word (4 bytes) into the
                     pair (the cdr field) and the "-2" corrects for the type tag. I.e., you could
                     strip off the type tag with *zero* run-time penalty. Nice! The representations
-                    for closures and stack frames were also very clever.<br><br>Jonathan had been burned by the NIL project's failure to complete, so he was
+                    for closures and stack frames were also very clever.
+  </p>
+  <p>
+   Jonathan had been burned by the NIL project's failure to complete, so he was
                     very careful about avoiding premature optimisation. So he blasted out a quick
-                    & dirty prototype implementation just to get something up and running. (I
+                    &amp; dirty prototype implementation just to get something up and running. (I
                     think he wrote this in Maclisp, and as I recall, he called it "cheapy.") After
                     that, all development of future implementations was done in T -- T 2 was
-                    implemented with T 1.<br><br>2 was the first really good implementation, with all of the tricks I've
-                    described above. It ran on Vaxes & 68000's, which had also just come out.
+                    implemented with T 1.
+  </p>
+  <p>
+   2 was the first really good implementation, with all of the tricks I've
+                    described above. It ran on Vaxes &amp; 68000's, which had also just come out.
                     It was solid enough to be a serious system that had real clients who depended
-                    on it.<br><br>About this time, roughly, Sussman's group was starting the development path
+                    on it.
+  </p>
+  <p>
+   About this time, roughly, Sussman's group was starting the development path
                     that eventually led to MIT Scheme, and the (intertwined) pedagogical path that
-                    led to Sussman & Abelson's book, *Structure and Interpretation of Computer
-                    Programs*. The Lisp Machine effort had also spun out into Symbolics & LMI,
-                    causing Maclisp to spawn Zetalisp & Flavors, which in turn had a lot of
+                    led to Sussman &amp; Abelson's book, *Structure and Interpretation of Computer
+                    Programs*. The Lisp Machine effort had also spun out into Symbolics &amp; LMI,
+                    causing Maclisp to spawn Zetalisp &amp; Flavors, which in turn had a lot of
                     influence on Common Lisp and Common Lisp's object system, CLOS. But I'm
-                    digressing. Back to Yale.<br><br>T also used a pretty cool GC. Maclisp on the -10 had used a mark&sweep GC (one
+                    digressing. Back to Yale.
+  </p>
+  <p>
+   T also used a pretty cool GC. Maclisp on the -10 had used a mark&amp;sweep GC (one
                     version of which famously "ran in the register set," though that is another
                     story), encoding type information using a "BIBOP" scheme -- all objects
                     were boxed, and segregated by type into pages. Hence the high bits of the
@@ -163,24 +226,36 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     GC zips down the spine of the list before turning its attention to the
                     elements of the list, so those "spine" cells wind up laid out sequentially in
                     memory. Your list turns into a vector! (sorta) This *rocks* for locality.
-                    However,<br><br>- T dropped this algorithm in the late 80's for the classic BFS algorithm.
+                    However,
+  </p>
+  <p>
+   - T dropped this algorithm in the late 80's for the classic BFS algorithm.
                         David Kranz (who will appear in this tale shortly) told me at that point
                         that he'd made the switch because the copy phase of the BFS algorithm had 
-                        slightly faster constant factors<br><br>- That standard religion I just gave you about "stop&amp;copy only pays
-                        for the good stuff, but in mark&sweep you have to pay for the garbage,
+                        slightly faster constant factors
+  </p>
+  <p>
+   - That standard religion I just gave you about "stop&amp;copy only pays
+                        for the good stuff, but in mark&amp;sweep you have to pay for the garbage,
                         as well"? It's not true. We all believed it for decades. But Norman
-                        Ramsey at harvard has cleverly shown that you can implement mark&sweep 
+                        Ramsey at harvard has cleverly shown that you can implement mark&amp;sweep 
                         with *exactly* the same asymptotic costs as stop&amp;copy. This is good
                         news especially for tight-memory systems with homogenous heap data.
                         Norman's observation is really obvious and simple; hardly an impressive
                         result when you see it. Except, uh, that it eluded *everyone else* for
                         *decades.* And not because people didn't care; GC has received a lot of
-                        attention from researchers. There's a lesson there.<br><br>I've never seen a depth-first collector anywhere but T. By the way, the
+                        attention from researchers. There's a lesson there.
+  </p>
+  <p>
+   I've never seen a depth-first collector anywhere but T. By the way, the
                     T garbage collector was written in T. This is also a slightly amazing feat.
                     It was achieved by virtue of the fact that T was native-code compiled, and
                     the garbage collector was written by the compiler authors. They knew *exactly*
                     how the compiler would handle their source, so they could carefully code the
-                    collector so that it would not need to heap allocate while running.<br><br>(That's not as simple as it sounds. It's not as easy as simply writing your
+                    collector so that it would not need to heap allocate while running.
+  </p>
+  <p>
+   (That's not as simple as it sounds. It's not as easy as simply writing your
                     code and never calling malloc() or invoking a "new" method. It's tied up in
                     the treatment of lambda. Good Scheme compilers use a range of implementations
                     for the lambdas in the program, depending upon what they can determine about
@@ -190,7 +265,10 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     with associated register/variable bindings. Some lambdas turn into stack
                     frames. But some lambdas cause heap allocation to produce general closures. So
                     you have to understand how the compiler is going to handle every lambda you
-                    write. And the fundamental skeleton of a Scheme program is built on lambda.)<br><br>Another implementation feat of T's was that it allowed interrupts between
+                    write. And the fundamental skeleton of a Scheme program is built on lambda.)
+  </p>
+  <p>
+   Another implementation feat of T's was that it allowed interrupts between
                     *any* two instructions of user code. This placed a pretty intense burden on
                     the compiler, enough so that, of all the Scheme implementations of which I'm
                     aware, T is *unique* in this respect. To understand why this is hard in the
@@ -199,7 +277,10 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                         http://www.cc.gatech.edu/~shivers/citations.html#heap
                     (You don't have to be a heavy-duty lambda-calculus wizard to read this
                     paper; it's written to be comprehensible to general hackers.) T also allowed 
-                    you to write interrupt (Unix signal) handlers in T, which was pretty pleasant.<br><br>There was more to T than implementation technology; there was also a lot of
+                    you to write interrupt (Unix signal) handlers in T, which was pretty pleasant.
+  </p>
+  <p>
+   There was more to T than implementation technology; there was also a lot of
                     beautiful language design happening. Jonathan seized the opportunity to make a
                     complete break with backwards compatibility in terms of the runtime library
                     and even the names chosen. Somewhere in the T 2 effort, Kent Pitman, another
@@ -209,7 +290,10 @@ carefully read the Rabbit thesis believed lexical scope would fly; even the
                     and a regular way of assembling them into the names of the standard
                     procedures, so that you could easily remember or reconstruct names when you
                     were coding. (I have followed this example in the development of the SRFIs
-                    I've done for the Scheme community. It is not an easy task.)<br><br>Larger, deeper things: they designed a beautiful object system that was
+                    I've done for the Scheme community. It is not an easy task.)
+  </p>
+  <p>
+   Larger, deeper things: they designed a beautiful object system that was
                     integrated into the assignment machinery -- just as Common Lisp's SETF lets
                     you assign using accessors, e.g., in Common Lisp
                         (setf (car x) y)
@@ -225,7 +309,10 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     Vax store instruction that implements the SET-CAR! operation, but the
                     semantic machinery was completely general -- you could define your own
                     accessor procedures, give them SETTER methods, and then use them in SET! 
-                    forms.<br><br>(This turned out to be very nice in the actual implementation of the compiler.
+                    forms.
+  </p>
+  <p>
+   (This turned out to be very nice in the actual implementation of the compiler.
                     The AST was a tree of objects, connected together in both directions --
                     parents knew their children; children also had links to their parents.
                     If the optimiser changed the else-part of an if-node N with something
@@ -236,11 +323,17 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     the if-node:else's SETTER method did a lot of work for you -- it disconnected
                     the old child, installed NEW-CHILD as N's else field, and set NEW-CHILD's
                     parent field to be N. So you could never forget to keep all the links
-                    consistent; it was all handled for you just by the single SET! assignment.)<br><br>Around the time that Kent went back to MIT, new grad student Norman Adams
+                    consistent; it was all handled for you just by the single SET! assignment.)
+  </p>
+  <p>
+   Around the time that Kent went back to MIT, new grad student Norman Adams
                     hooked up w/Jonathan. T 2 and its compiler TC, was produced after about a year
                     of really hard, focussed work on the part of Jonathan, Kent and Norman. I
                     graduated from Yale and went off to CMU to be a grad student in AI. Jonathan
-                    started to think about the next compiler.<br><br>During my first year as a grad student, Jonathan met Forrest Baskett, who was
+                    started to think about the next compiler.
+  </p>
+  <p>
+   During my first year as a grad student, Jonathan met Forrest Baskett, who was
                     the director of one of the top industrial CS labs, DEC's Western Research
                     Lab, where a lot of the important RISC work was done (e.g., you could
                     argue that David Wall's work on interprocedural register allocation there
@@ -250,7 +343,10 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     machine they were building (an amazing-for-the-time RISC called the Titan).
                     Jonathan's team was himself, Norman, Jim Philbin, David Kranz, Richard Kelsey,
                     John Lamping and myself. Lamping was at Stanford, I was at CMU, the rest were
-                    grad students at Yale (except Jonathan, who was an employee at Yale).<br><br>This brings us to the summer of 1984. The mission was to build the world's
+                    grad students at Yale (except Jonathan, who was an employee at Yale).
+  </p>
+  <p>
+   This brings us to the summer of 1984. The mission was to build the world's
                     most highly-optimising Scheme compiler. We wanted to compete with C and
                     Fortran. The new system was T3, and the compiler was to be called Orbit. We
                     all arrived at WRL and split up responsibility for the compiler. Norman was
@@ -268,7 +364,10 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     certainly distinguish ourselves from the pack. So when we divided up the
                     compiler, I told everyone else to back off and loudly claimed DFA for my own.
                     Fine, everyone said. You do the DFA module. Lamping signed up to do it with
-                    me.<br><br>Lamping and I spent the rest of the summer failing. Taking trips to the
+                    me.
+  </p>
+  <p>
+   Lamping and I spent the rest of the summer failing. Taking trips to the
                     Stanford library to look up papers. Hashing things out on white boards.
                     Staring into space. Writing little bits of experimental code. Failing. Finding
                     out *why* no one had ever provided DFA optimisation for Scheme. In short, the
@@ -280,17 +379,32 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     city in the world. Silicon Valley in 1984 was beautiful, not like the crowded
                     strip-mall/highway hell hole it is today. Every day was perfect and beautiful
                     when I biked into work. I got involved with a gorgeous redhead. And every day,
-                    I went in to WRL, failed for 8 hours, then went home.<br><br>It was not a good summer.<br><br>At the end of the summer, I slunk back to CMU with my tail between my legs,
-                    having contributed not one line of code to Orbit.<br><br>Everyone else, however, completed. The compiler wasn't finished by summer's
+                    I went in to WRL, failed for 8 hours, then went home.
+  </p>
+  <p>
+   It was not a good summer.
+  </p>
+  <p>
+   At the end of the summer, I slunk back to CMU with my tail between my legs,
+                    having contributed not one line of code to Orbit.
+  </p>
+  <p>
+   Everyone else, however, completed. The compiler wasn't finished by summer's
                     end, but it was completed the following year at Yale. And it was the world's
                     most highly optimising Scheme compiler (even though it did not do data-flow
-                    analysis), a record it held for a *long* time -- perhaps ten years?<br><br>It was also a massive validation of a thesis Steele had argued for his
+                    analysis), a record it held for a *long* time -- perhaps ten years?
+  </p>
+  <p>
+   It was also a massive validation of a thesis Steele had argued for his
                     Master's, which was that CPS was a great intermediate representation for a
                     compiler. Orbit was totally hard-core about this -- the first thing the
                     compiler did was translate the user program into CPS, and that was the
                     standard form on which the compiler operated for the rest of its execution.
                     And it turned out this approach scaled up from Rabbit to a production,
-                    native-code compiler very successfully.<br><br>David Kranz took the work he'd done on the back end, which was a very complex
+                    native-code compiler very successfully.
+  </p>
+  <p>
+   David Kranz took the work he'd done on the back end, which was a very complex
                     piece of code that did a lot of sophisticated analysis on data
                     representations, register allocation, and, in particular, lambdas, and turned
                     it into his PhD thesis. Orbit produced code that actually beat the Pascal
@@ -299,22 +413,34 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     went to MIT, where he brought his compiler technology to Bert Halstead's
                     parallel lisp project, before hooking up with Steve Ward to do the research
                     project that turned into Curl. When Ward spun Curl out into a company,
-                    Halstead & Kranz became the senior technical guys there.<br><br>Let's call Kranz's dissertation PhD #1. It's title was *An Optimising Compiler
+                    Halstead &amp; Kranz became the senior technical guys there.
+  </p>
+  <p>
+   Let's call Kranz's dissertation PhD #1. It's title was *An Optimising Compiler
                     for Scheme,* which I took to be an in-reference to William Wulf's seminal
                     Bliss compiler, described in a book (my copy is signed) titled simply *The
                     Design of an Optimising Compiler*. Wulf's Bliss compiler was a model up to
                     which we all looked -- it held the title "world's most highly optimising
-                    compiler" for a while.<br><br>(Remember Bliss? Just to add more cross-links, Wulf had left CMU about then
+                    compiler" for a while.
+  </p>
+  <p>
+   (Remember Bliss? Just to add more cross-links, Wulf had left CMU about then
                     and spun out a company, Tartan Labs, to commercialise this compiler technology
                     for C. He took Guy Steele with him, who had just finished wrapping up leading
                     the Common Lisp definition while on the faculty at CMU. Tartan tanked, Wulf
-                    moved on to a senior position at UVa & is now a big wheel at the national
+                    moved on to a senior position at UVa &amp; is now a big wheel at the national
                     science-policy level, e.g. leading National Academy inquiries into
                     counter-terrorism technology. Steele went to Thinking Machines, and then
-                    threw his language-development skills behind the Java effort at Sun.)<br><br>Kranz' diss is a Yale Computer Science Dept. tech report. I would say it
+                    threw his language-development skills behind the Java effort at Sun.)
+  </p>
+  <p>
+   Kranz' diss is a Yale Computer Science Dept. tech report. I would say it
                     is required reading for anyone interested in serious compiler technology for
                     functional programming languages. You could probably order or download one
-                    from a web page at a url that I'd bet begins with http://www.cs.yale.edu/.<br><br>Richard Kelsey took his front end, which was a very aggressive CPS-based
+                    from a web page at a url that I'd bet begins with http://www.cs.yale.edu/.
+  </p>
+  <p>
+   Richard Kelsey took his front end, which was a very aggressive CPS-based
                     optimiser, and extended it all the way down to the ground to produce a
                     complete, second compiler, which he called "TC" for the "Transformational
                     Compiler." His approach was simply to keep transforming the program from one
@@ -329,8 +455,11 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     *Compiling With Continuations.* However, unlike the SML/NJ compiler, Kelsey's
                     CPS-based compiler compiled code that used a run-time stack for procedure
                     calls. He actually describes front ends in his diss for standard procedural
-                    "non-lambda" languages such as Basic.<br><br>So the lineage of the CPS-as-compiler-IR thesis goes from Steele's Rabbit
-                    compiler through T's Orbit to SML/NJ. At which point Sabry & Felleisen at Rice
+                    "non-lambda" languages such as Basic.
+  </p>
+  <p>
+   So the lineage of the CPS-as-compiler-IR thesis goes from Steele's Rabbit
+                    compiler through T's Orbit to SML/NJ. At which point Sabry &amp; Felleisen at Rice
                     published a series of very heavy-duty papers dumping on CPS as a
                     representation and proposing an alternate called A-Normal Form. ANF has been
                     the fashionable representation for about ten years now; CPS is out of favor.
@@ -338,21 +467,30 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     picks up the important typed-intermediate-language track and heads to Cornell,
                     and Yale, but I'm not going to follow that now. However, just to tell you
                     where I am on this issue, I think the whole movement from CPS to ANF is a bad
-                    idea (though Sabry & Felleisen's technical observations and math are as
-                    rock solid as one would expect from people of their caliber).<br><br>Let's call Kelsey's dissertation PhD #2.<br><br>Kelsey subsequently spent time as a prof at Northeastern, then left for NEC's
+                    idea (though Sabry &amp; Felleisen's technical observations and math are as
+                    rock solid as one would expect from people of their caliber).
+  </p>
+  <p>
+   Let's call Kelsey's dissertation PhD #2.
+  </p>
+  <p>
+   Kelsey subsequently spent time as a prof at Northeastern, then left for NEC's
                     prestige lab in Princeton, where he worked on the Kali distributed system. He
                     also got set down precisely on paper something all the CPS people knew at some
                     intuitive level: that the whole "SSA" revolution in the classical compiler
                     community was essentially a rediscovery of CPS. (Harrumph.) NEC Princeton went
                     on to accumulate a very impressive collection of Scheme/ML hackers: Stephen
-                    Weeks & Andrew Wright from Rice, Kevin Lang (who built a little known but
+                    Weeks &amp; Andrew Wright from Rice, Kevin Lang (who built a little known but
                     quite beautiful, elegant, free and portable object-oriented Scheme called
                     Oaklisp), Kelsey, Jim Philbin, Henry Cetjin, and Jeff Siskind. When NEC
                     Princeton became an insane toxic place, Kelsey, like almost everyone else in
                     that previous list, jumped out into startup land, where he did a startup with
-                    Rees & an MIT alumn, Patrick Sobalvarro, who achieved some early fame for work
+                    Rees &amp; an MIT alumn, Patrick Sobalvarro, who achieved some early fame for work
                     on GC. That startup tanked in the dotcom meltdown last year, and Kelsey's
-                    now on his second startup.<br><br>Norman Adams turned his assembler into a master's degree. It also was a cool
+                    now on his second startup.
+  </p>
+  <p>
+   Norman Adams turned his assembler into a master's degree. It also was a cool
                     piece of software. His assembler didn't take a linear text stream; the
                     compiler handed it a *graph structure*. It serialised the graph on its own to
                     minimise the spans of the jump instructions, and had other neat features
@@ -364,7 +502,10 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     Curtis. He left Xerox at the beginning of the dotcom boom and was early in at
                     the startup company Ariba, which is why (1) Ariba's big product had a
                     configuration system that is a Scheme built in Java and (2) he's a rich
-                    dude.<br><br>Lamping's story is perhaps the strangest. He went back to Stanford, and got
+                    dude.
+  </p>
+  <p>
+   Lamping's story is perhaps the strangest. He went back to Stanford, and got
                     involved in a very arcane, theoretical problem called optimal lambda
                     reduction, which he completely solved for his PhD. This is an achievement of
                     considerable note because pointy-headed theoretical semanticists had been
@@ -375,51 +516,81 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     brains. There was, for example, a snooty French paper that sort of dismissed
                     Lamping as an "autodidact," before proceeding to build (with, let me be
                     careful to note, proper credit given to John) on his work. So Lamping has thus
-                    been permanently saddled with this hilarious title/term, by those who know &
-                    like him. He'll never live it down. John Lamping, autodidact.<br><br>John subsequently went to Xerox PARC, where he and Gregor Kiczales made a team
+                    been permanently saddled with this hilarious title/term, by those who know &amp;
+                    like him. He'll never live it down. John Lamping, autodidact.
+  </p>
+  <p>
+   John subsequently went to Xerox PARC, where he and Gregor Kiczales made a team
                     working on a wide array of interesting programming-language problems, of which
                     "Aspect-Oriented Programming" is the most well known. Again, the story here
                     departs from T, so I won't pursue it. For the same reason, we will not call
                     John's dissertation "PhD #3" -- it wasn't really connected to his work on the
-                    T project.<br><br>About three years after the summer at WRL, I *finally* figured out how to do
+                    T project.
+  </p>
+  <p>
+   About three years after the summer at WRL, I *finally* figured out how to do
                     data-flow analysis for Scheme, which ended a long, pretty unhappy period in my
                     life. I officially switched from being an AI student to being a PL student,
                     picked up Peter Lee as a co-advisor (since my original advisor, Allen Newell,
                     while certainly the greatest scholar I've ever personally known, was not a PL
-                    guy), and wrote it all up for *my* dissertation. This we can call PhD #3.<br><br>By the way, I'll add that the deepest and most powerful part of my diss, in my
+                    guy), and wrote it all up for *my* dissertation. This we can call PhD #3.
+  </p>
+  <p>
+   By the way, I'll add that the deepest and most powerful part of my diss, in my
                     opinion, is the part (a) about which no one seems to know and (b) which is on
                     the shakiest theoretical ground: environment reflow analysis. I would surely
                     love it if some interested character one day takes that piece of my diss and
-                    really takes it someplace.<br><br>Jim Philbin, like Kelsey, also went to NEC, where he built an operating system
+                    really takes it someplace.
+  </p>
+  <p>
+   Jim Philbin, like Kelsey, also went to NEC, where he built an operating system
                     tuned for functional programming languages, STING (or perhaps it was spelled
                     "STNG" -- in any event it was pronounced "sting"). He built it in T, of
                     course, and one could see that it had its roots in his work on T3.
                     (Implementing the runtime for a functional language, in some sense, requires
                     you to implement a little virtual OS on top of the real, underlying OS.) Call
-                    that PhD #4. Jim subsequently left Scheme, to do parallel processor & systems
-                    work with Kai Li at Princeton.<br><br>Jonathan went to MIT as a graduate student, where he worked with Gerry Sussman
+                    that PhD #4. Jim subsequently left Scheme, to do parallel processor &amp; systems
+                    work with Kai Li at Princeton.
+  </p>
+  <p>
+   Jonathan went to MIT as a graduate student, where he worked with Gerry Sussman
                     and David Gifford. After working on a series of interesting problems, Jonathan
                     also wrote his dissertation on an operating system for functional languages,
                     where you could use language safety as the fundamental protection mechanism.
                     Call that PhD #5. Then he got interested in entomology (bugs, I mean -- real
                     bugs, not computer bugs), did a post-doc in Europe, then came back to the US
                     and has sort of bounced between pursuing research topics that are as radical
-                    and unusual as T was in 1982 & startup companies.<br><br>(Jonathan also wrote his dissertation *in Scheme* as well as *about* Scheme.
+                    and unusual as T was in 1982 &amp; startup companies.
+  </p>
+  <p>
+   (Jonathan also wrote his dissertation *in Scheme* as well as *about* Scheme.
                     He built a little word processor for his diss in Scheme called "markup" that
                     allowed you to write standard text, interspersed with commands that were
                     delimited with curly braces. (Hmm. Text and commands in curly braces. Sound
                     familiar?) Commands were defined in Scheme; the markup processor had multiple
-                    back-ends, such as HTML & PostScript. Scott Draves later extended markup for
+                    back-ends, such as HTML &amp; PostScript. Scott Draves later extended markup for
                     *his* dissertation on partial-evaluation and high-performance graphics
-                    rendering at CMU.)<br><br>I think that covers the entire T team. It is interesting to note that *five*
+                    rendering at CMU.)
+  </p>
+  <p>
+   I think that covers the entire T team. It is interesting to note that *five*
                     dissertation-level chunks of work (and one Master's-level chunk) came out of a
-                    single summer project.<br><br>I've spent a fair amount of time discussing T's implementation technology.
+                    single summer project.
+  </p>
+  <p>
+   I've spent a fair amount of time discussing T's implementation technology.
                     However, it is also worth study as a language *design*, and here, Jonathan
                     is the single greatest influence. T was, principally, his baby. It was
-                    quite a beautiful design.<br><br>When the risc revolution happened, Orbit was ported to the late-80's risc
-                    processors: MIPS & SPARC. This is when the Clark GC was ripped out and
+                    quite a beautiful design.
+  </p>
+  <p>
+   When the risc revolution happened, Orbit was ported to the late-80's risc
+                    processors: MIPS &amp; SPARC. This is when the Clark GC was ripped out and
                     replaced with the Cheney collector. At CMU, I ported Orbit to an IBM precursor
-                    of their POWER architecture, called the ROMP or the RT/PC.<br><br>One of the limiting factors of Orbit was the complexity of the back end. It
+                    of their POWER architecture, called the ROMP or the RT/PC.
+  </p>
+  <p>
+   One of the limiting factors of Orbit was the complexity of the back end. It
                     was documented very well by Kranz' diss, and it was very sophisticated, but it
                     was also a big mess of code. Out of a reaction to this complexity was born
                     Scheme 48 -- when Kelsey came to Northeastern as a prof, Jonathan was still at
@@ -432,8 +603,8 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     w/T3 and Orbit -- no native code compiler, no object system, no CPS IR. Its
                     innovations were its module system, the language in which its VM was defined
                     ("pre-scheme"), and its stack-management technology. These were all
-                    interesting technical bits. The stack was managed not by push & pop, but by
-                    push & a generational gc. I believe Kelsey wrote a paper on this and its
+                    interesting technical bits. The stack was managed not by push &amp; pop, but by
+                    push &amp; a generational gc. I believe Kelsey wrote a paper on this and its
                     advantages. The module system was somewhat like SML's, but allowed modular
                     macros and had another fairly cool feature: when you defined a module, clauses
                     let you specify which files held the module's source. But *other* clauses let
@@ -442,7 +613,10 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     handle files with different concrete syntax -- R5RS syntax, scsh syntax, S48
                     syntax, PLT Scheme syntax, guile syntax, perhaps an infix syntax (as is so
                     often discussed). That eliminated an annoying, low-level but persistent
-                    barrier to sharing code across different implementations of Scheme.<br><br>Pre-scheme was quite interesting. Kelsey published a paper on it, as well, I
+                    barrier to sharing code across different implementations of Scheme.
+  </p>
+  <p>
+   Pre-scheme was quite interesting. Kelsey published a paper on it, as well, I
                     believe. It was Scheme in the sense that you could load it into a Scheme
                     system and run the code. But it was restrictive -- it required you to write in
                     a fashion that allowed complete Hindley-Milner static type inference, and all
@@ -457,58 +631,118 @@ Accessor functions like CAR handled "generic functions" or "messages"
                     Kelsey never quite had the time to document it and turn it into a standalone
                     tool that other people could use (Ian Horswill's group at Northwestern is an
                     exception to that claim -- they have used prescheme for interesting work).
-                    There are ideas there to be had, however.<br><br>I subsequently picked up Scheme 48 around 1992 to build scsh, but we're
-                    beginning to wander from T, so I'll leave that thread.<br><br>The tapestry of advanced language implementation work is a very rich and
+                    There are ideas there to be had, however.
+  </p>
+  <p>
+   I subsequently picked up Scheme 48 around 1992 to build scsh, but we're
+                    beginning to wander from T, so I'll leave that thread.
+  </p>
+  <p>
+   The tapestry of advanced language implementation work is a very rich and
                     interconnected one, the weaving of which is is an incredibly interesting task
                     that can keep you happily occupied for a lifetime. I've only traced out one
                     selected thread in that tapestry with this rambling post; there are many other
-                    important ones. But that, to the best of my knowledge, is the story of T.<br><br>A cautionary note: the danger of writing history when all of the principals
+                    important ones. But that, to the best of my knowledge, is the story of T.
+  </p>
+  <p>
+   A cautionary note: the danger of writing history when all of the principals
                     are still alive is that there are people around to catch you out in your
                     errors. I'm sure there *are* errors in my recollection, but I'm also
                     reasonably sure I've got the broad strokes roughly correct. Someone like
-                    Jonathan could certainly give a much more 
-<a href="http://mumble.net/~jar/tproject/">authoritative</a> account.<br><br><br><br><hr><br><br>Here are some references to papers I've mentioned.<br><br>This is the first paper published on T, based on T2:<br><br>Jonathan A. Rees and Norman I. Adams IV.
+                    Jonathan could certainly give a much more
+   <a href="http://mumble.net/~jar/tproject/">
+    authoritative
+   </a>
+   account.
+  </p>
+  <p>
+  </p>
+  <p>
+   <hr/>
+  </p>
+  <p>
+   Here are some references to papers I've mentioned.
+  </p>
+  <p>
+   This is the first paper published on T, based on T2:
+  </p>
+  <p>
+   Jonathan A. Rees and Norman I. Adams IV.
                         T: A dialect of Lisp or, Lambda: The ultimate software tool.
-                        In <i>Conference Record of the 1982 ACM Symposium on LISP and Functional
-                                Programming,</i> pages 114-122, August 1982.<br><br>This is a general overview of T3's Orbit:<br><br>ORBIT: An optimizing compiler for Scheme. 
-                        In <i>Proceedings of the SIGPLAN '86 Symposium on Compiler Construction,</i>
-                           published as <i>SIGPLAN Notices</i> 21(7), pages 219-233.
-                           Association for Computing Machinery, July 1986.<br><br>There is a later, third paper, written by Jonathan & Norman, on object systems
-                    in general and T's in particular. I do not have a reference.<br><br>The reference manual for T is also interesting reading, for information
-                    on the features of the language:<br><br>Jonathan A.Rees, Norman I.Adams IV
-                                                     and James R. Meehan. 
-                        <i>The T Manual.</i>
-                        4th edition, Yale University, Department of Computer Science, January 1984.
-                    I also could probably post PostScript source for it, if people care.<br><br>Kelsey's diss:<br><br><i>Compilation by Program Transformation.</i>
-                      Ph.D.dissertation, Yale University, May 1989.
+                        In
+   <i>
+    Conference Record of the 1982 ACM Symposium on LISP and Functional
+                                Programming,
+   </i>
+   pages 114-122, August 1982.
+  </p>
+  <p>
+   This is a general overview of T3's Orbit:
+  </p>
+  <p>
+   ORBIT: An optimizing compiler for Scheme. 
+                        In
+   <i>
+    Proceedings of the SIGPLAN '86 Symposium on Compiler Construction,
+   </i>
+   published as
+   <i>
+    SIGPLAN Notices
+   </i>
+   21(7), pages 219-233.
+                           Association for Computing Machinery, July 1986.
+  </p>
+  <p>
+   There is a later, third paper, written by Jonathan &amp; Norman, on object systems
+                    in general and T's in particular. I do not have a reference.
+  </p>
+  <p>
+   The reference manual for T is also interesting reading, for information
+                    on the features of the language:
+  </p>
+  <p>
+   Jonathan A.Rees, Norman I.Adams IV
+                                                     and James R. Meehan.
+   <i>
+    The T Manual.
+   </i>
+   4th edition, Yale University, Department of Computer Science, January 1984.
+                    I also could probably post PostScript source for it, if people care.
+  </p>
+  <p>
+   Kelsey's diss:
+  </p>
+  <p>
+   <i>
+    Compilation by Program Transformation.
+   </i>
+   Ph.D.dissertation, Yale University, May 1989.
                       Research Report 702, Department of Computer Science. 
-                      A conference-length version of this dissertation appears in <i>POPL 89</i>.<br><br>Kranz's diss:<br><br>David Kranz. 
-<i>ORBIT:  An Optimizing Compiler for Scheme.</i>
-                        Ph.D. dissertation, Yale University, February 1988.
-                        Research Report 632, Department of Computer Science.<br><br><br><br>
-<b>More Info:</b><br><br></font></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://mumble.net/~jar/tproject/">The T Project</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="weinreb.html">Dan Weinreb on NIL</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=3 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'thist'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=thist&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+                      A conference-length version of this dissertation appears in
+   <i>
+    POPL 89
+   </i>
+   .
+  </p>
+  <p>
+   Kranz's diss:
+  </p>
+  <p>
+   David Kranz.
+   <i>
+    ORBIT:  An Optimizing Compiler for Scheme.
+   </i>
+   Ph.D. dissertation, Yale University, February 1988.
+                        Research Report 632, Department of Computer Science.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    More Info:
+   </b>
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

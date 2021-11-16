@@ -1,40 +1,86 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Filters that Fight Back</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b32b><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b32b border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_10022152" width=184 height=18 border=0 hspace=0 vspace=0 alt="Filters that Fight Back"><br><br><font size=2 face="verdana">August 2003<br><br><!-- <i>(Originally this essay began with a discussion of filtering.
+<html lang="en">
+ <head>
+  <title>
+   Filters that Fight Back
+  </title>
+ </head>
+ <body>
+  <h1>
+   Filters that Fight Back
+  </h1>
+  <p>
+   August 2003
+  </p>
+  <p>
+   <!-- <i>(Originally this essay began with a discussion of filtering.
 An expanded version of that discussion now exists on its own as
 <a href="sofar.html">So Far, So Good</a>.)</i>
 -->
-We may be able to improve the accuracy of Bayesian spam filters
+   We may be able to improve the accuracy of Bayesian spam filters
 by having them follow links to see what's
 waiting at the other end.  Richard Jowsey of
-<a href="http://death2spam.com">death2spam</a> now does
-this in borderline cases, and reports that it works well.<br><br>Why only do it in borderline cases?  And why only do it once?<br><br>As I mentioned in <a href="wfks.html">Will Filters Kill Spam?</a>,
+   <a href="http://death2spam.com">
+    death2spam
+   </a>
+   now does
+this in borderline cases, and reports that it works well.
+  </p>
+  <p>
+   Why only do it in borderline cases?  And why only do it once?
+  </p>
+  <p>
+   As I mentioned in
+   <a href="wfks.html">
+    Will Filters Kill Spam?
+   </a>
+   ,
 following all the urls in
 a spam would have an amusing side-effect.  If popular email clients
 did this in order to filter spam, the spammer's servers
 would take a serious pounding.  The more I think about this,
 the better an idea it seems.  This isn't just amusing; it
 would be hard to imagine a more perfectly targeted counterattack
-on spammers.<br><br>So I'd like to suggest an additional feature to those
+on spammers.
+  </p>
+  <p>
+   So I'd like to suggest an additional feature to those
 working on spam filters: a "punish" mode which,
 if turned on, would spider every url
-in a suspected spam n times, where n could be set by the user. [1]<br><br>As many people have noted, one of the problems with the
+in a suspected spam n times, where n could be set by the user. [1]
+  </p>
+  <p>
+   As many people have noted, one of the problems with the
 current email system is that it's too passive.  It does
 whatever you tell it.  So far all the suggestions for fixing
 the problem seem to involve new protocols.  This one  
-wouldn't.<br><br>If widely used, auto-retrieving spam filters would make
-the email system <i>rebound.</i>  The huge volume of the
+wouldn't.
+  </p>
+  <p>
+   If widely used, auto-retrieving spam filters would make
+the email system
+   <i>
+    rebound.
+   </i>
+   The huge volume of the
 spam, which has so far worked in the spammer's favor,
 would now work against him, like a branch snapping back in   
 his face.   Auto-retrieving spam filters would drive the
-spammer's 
-<a href="http://www.bork.ca/pics/?path=incoming&img=bill.jpg">costs</a> up, 
+spammer's
+   <a href="http://www.bork.ca/pics/?path=incoming&amp;img=bill.jpg">
+    costs
+   </a>
+   up, 
 and his sales down:  his bandwidth usage
 would go through the roof, and his servers would grind to a
 halt under the load, which would make them unavailable
-to the people who would have responded to the spam.<br><br>Pump out a million emails an hour, get a
-million hits an hour on your servers.<br><br><!--Of course, if any of the urls
+to the people who would have responded to the spam.
+  </p>
+  <p>
+   Pump out a million emails an hour, get a
+million hits an hour on your servers.
+  </p>
+  <p>
+   <!--Of course, if any of the urls
 are "web bugs" they'll suggest to the spammer that
 the mail got opened, and may result in more spam.  (However,
 they'll also tend to make "open rates" meaningless, thus
@@ -42,20 +88,26 @@ depriving the spammer of valuable information.)
 And of course, some links will be unsubscribe links.  The
 net effect might be less spam.
 -->
-We would want to ensure that this is only done to
+   We would want to ensure that this is only done to
 suspected spams.  As a rule, any url sent to millions of
 people is likely to be a spam url, so submitting every http
 request in every email would work fine nearly all the time.
 But there are a few cases where this isn't true: the urls
 at the bottom of mails sent from free email services like
-Yahoo Mail and Hotmail, for example.<br><br>To protect such sites, and to prevent abuse, auto-retrieval
+Yahoo Mail and Hotmail, for example.
+  </p>
+  <p>
+   To protect such sites, and to prevent abuse, auto-retrieval
 should be combined with blacklists of spamvertised sites.
 Only sites on a blacklist would get crawled, and
 sites would be blacklisted
 only after being inspected by humans. The lifetime of a spam
 must be several hours at least, so
 it should be easy to update such a list in time to
-interfere with a spam promoting a new site. [2]<br><br>High-volume auto-retrieval would only be practical for users
+interfere with a spam promoting a new site. [2]
+  </p>
+  <p>
+   High-volume auto-retrieval would only be practical for users
 on high-bandwidth
 connections, but there are enough of those to cause spammers
 serious trouble.   Indeed, this solution neatly
@@ -66,32 +118,62 @@ are merely collateral damage.  But the non-gullible majority
 won't stop getting spam until they can stop (or threaten to
 stop) the gullible
 from responding to it.  Auto-retrieving spam filters offer
-them a way to do this.<br><br>Would that kill spam?  Not quite.  The biggest spammers
+them a way to do this.
+  </p>
+  <p>
+   Would that kill spam?  Not quite.  The biggest spammers
 could probably protect their servers against auto-retrieving 
 filters.  However, the easiest and cheapest way for them
 to do it would be to include working unsubscribe links in   
 their mails.  And this would be a necessity for smaller fry,
 and for "legitimate" sites that hired spammers to promote
 them.  So if auto-retrieving filters became widespread,
-they'd become auto-unsubscribing filters.<br><br>In this scenario, spam would, like OS crashes, viruses, and
+they'd become auto-unsubscribing filters.
+  </p>
+  <p>
+   In this scenario, spam would, like OS crashes, viruses, and
 popups, become one of those plagues that only afflict people
-who don't bother to use the right software.<br><br><br><br>
-<b>Notes</b><br><br>[1] Auto-retrieving filters will have to follow redirects,
+who don't bother to use the right software.
+  </p>
+  <p>
+  </p>
+  <p>
+   <b>
+    Notes
+   </b>
+  </p>
+  <p>
+   [1] Auto-retrieving filters will have to follow redirects,
 and should in some cases (e.g. a page that just says
 "click here") follow more than one level of links.
 Make sure too that
 the http requests are indistinguishable from those of
-popular Web browsers, including the order and referrer.<br><br>If the response
+popular Web browsers, including the order and referrer.
+  </p>
+  <p>
+   If the response
 doesn't come back within x amount of time, default to
-some fairly high spam probability.<br><br>Instead of making n constant, it might be a good idea to
+some fairly high spam probability.
+  </p>
+  <p>
+   Instead of making n constant, it might be a good idea to
 make it a function of the number of spams that have been
 seen mentioning the site.  This would add a further level of
-protection against abuse and accidents.<br><br>[2] The original version of this article used the term
+protection against abuse and accidents.
+  </p>
+  <p>
+   [2] The original version of this article used the term
 "whitelist" instead of "blacklist".  Though they were
 to work like blacklists, I preferred to call them whitelists
 because it might make them less vulnerable to legal attack.
-This just seems to have confused readers, though.<br><br>There should probably be multiple blacklists.  A single point
-of failure would be vulnerable both to attack and abuse.<br><br><!--[6] I don't pretend to have worked out all the
+This just seems to have confused readers, though.
+  </p>
+  <p>
+   There should probably be multiple blacklists.  A single point
+of failure would be vulnerable both to attack and abuse.
+  </p>
+  <p>
+   <!--[6] I don't pretend to have worked out all the
 <a href="ffbfaq.html">details</a> of this
 scheme.  I can't claim to be certain it will work.  (Who
 could till it has been tried in practice?)  Fortunately,
@@ -101,31 +183,16 @@ FFBs on, say, domains that begin with A?
 If spammers start to avoid such domains, we'll know we're winning,
 and we can roll
 down the rest of the alphabet one letter at a time.
---><br><br>
-<b>Thanks</b> to Brian Burton, Bill Yerazunis, Dan Giffin,
-Eric Raymond, and Richard Jowsey for reading drafts of this.<br><br></font></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="ffbfaq.html">FFB FAQ</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://www.shiro.dreamhost.com/scheme/trans/ffb-j.html">Japanese Translation</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr><tr valign=top><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://radio.weblogs.com/0111823/2003/11/16.html#a373">A Perl FFB</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=6><center><img src="https://sep.yimg.com/ca/I/paulgraham_2271_5194" width=6 height=14 border=0 hspace=0 vspace=0></center></td><td width=8><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=8 height=1 border=0></td><td width=196><font size=2 face="verdana"><a href="http://news.bbc.co.uk/2/hi/technology/4051553.stm">Lycos DDoS@Home</a><br><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=2 border=0><br></font></td></tr><tr><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=1 height=5 border=0></td></tr></table><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'ffb'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=ffb&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+-->
+  </p>
+  <p>
+   <b>
+    Thanks
+   </b>
+   to Brian Burton, Bill Yerazunis, Dan Giffin,
+Eric Raymond, and Richard Jowsey for reading drafts of this.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

@@ -1,72 +1,249 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Plan for Spam FAQ</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b2e7><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b2e7 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_8991192" width=151 height=18 border=0 hspace=0 vspace=0 alt="Plan for Spam FAQ"><br><br><font size=2 face="verdana"><b>Is this code available anywhere?</b><br><br>No; it's written in <a href="arc.html">Arc</a>, which is itself not released yet.<br><br><!--<b>Where can I get a spam filter?</b><br><br>There are now <a href="filters.html">many</a> Bayesian filters
+<html lang="en">
+ <head>
+  <title>
+   Plan for Spam FAQ
+  </title>
+ </head>
+ <body>
+  <h1>
+   Plan for Spam FAQ
+  </h1>
+  <p>
+   <b>
+    Is this code available anywhere?
+   </b>
+  </p>
+  <p>
+   No; it's written in
+   <a href="arc.html">
+    Arc
+   </a>
+   , which is itself not released yet.
+  </p>
+  <p>
+   <!--<b>Where can I get a spam filter?</b>There are now <a href="filters.html">many</a> Bayesian filters
 available, most of them free.
 -->
-<b>Is there a Bayesian filter for Outlook?</b><br><br>I know of nine so far: <a href="http://www.upserve.com">Spammunition</a>,
-<a href="http://starship.python.net/crew/mhammond/spambayes/">SpamBayes</a>,
-<a href="http://www.spambully.com">Spam Bully</a>,
-<a href="http://www.inboxshield.com">InboxShield</a>,
-<a href="http://www.junk-out.com/">Junk-Out</a>,
-<a href="http://www.vargonsoft.com/Outclass">Outclass</a>,
-<a href="http://www.disruptor.de">Disruptor OL</a>,
-<a href="http://spamtiger.bemat.nl">SpamTiger</a>,
-and 
-<a href="http://junkchief.org">JunkChief</a>.<br><br><b>Is there anything that can protect my company's server?</b><br><br>The best commercial server-level Bayesian filter is probably
-<a href="http://www.death2spam.com">Death2Spam</a>.
-<a href="http://spamprobe.sourceforge.net/server.html">SpamProbe</a>,
+   <b>
+    Is there a Bayesian filter for Outlook?
+   </b>
+  </p>
+  <p>
+   I know of nine so far:
+   <a href="http://www.upserve.com">
+    Spammunition
+   </a>
+   ,
+   <a href="http://starship.python.net/crew/mhammond/spambayes/">
+    SpamBayes
+   </a>
+   ,
+   <a href="http://www.spambully.com">
+    Spam Bully
+   </a>
+   ,
+   <a href="http://www.inboxshield.com">
+    InboxShield
+   </a>
+   ,
+   <a href="http://www.junk-out.com/">
+    Junk-Out
+   </a>
+   ,
+   <a href="http://www.vargonsoft.com/Outclass">
+    Outclass
+   </a>
+   ,
+   <a href="http://www.disruptor.de">
+    Disruptor OL
+   </a>
+   ,
+   <a href="http://spamtiger.bemat.nl">
+    SpamTiger
+   </a>
+   ,
+and
+   <a href="http://junkchief.org">
+    JunkChief
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    Is there anything that can protect my company's server?
+   </b>
+  </p>
+  <p>
+   The best commercial server-level Bayesian filter is probably
+   <a href="http://www.death2spam.com">
+    Death2Spam
+   </a>
+   .
+   <a href="http://spamprobe.sourceforge.net/server.html">
+    SpamProbe
+   </a>
+   ,
 one of the best open-source Bayesian filters, can also be run
-on the server.<br><br>Most commercial server-level spam filters are still rule-based.  
+on the server.
+  </p>
+  <p>
+   Most commercial server-level spam filters are still rule-based.  
 But there are starting to be some
 that use Bayesian filtering.  The way to find them is probably
-to search in <a href="http://www.google.com/search?q=bayesian+microsoft+exchange">Google</a>.<br><br>The question to ask the salesman is, does the filter learn to recognize
+to search in
+   <a href="http://www.google.com/search?q=bayesian+microsoft+exchange">
+    Google
+   </a>
+   .
+  </p>
+  <p>
+   The question to ask the salesman is, does the filter learn to recognize
 spam based on the spam and nonspam mail we receive?  If it
-doesn't learn, it isn't Bayesian.<br><br><b>Does Arc/Lisp have some advantage for writing this kind of software?</b><br><br>Lisp's symbol type is useful in manipulating databases of words,
+doesn't learn, it isn't Bayesian.
+  </p>
+  <p>
+   <b>
+    Does Arc/Lisp have some advantage for writing this kind of software?
+   </b>
+  </p>
+  <p>
+   Lisp's symbol type is useful in manipulating databases of words,
 because it lets you test for equality by just comparing pointers.  
 (If you find yourself using checksums to identify words, it's symbols 
 you mean to be using.)  Prolog, Erlang, and Ruby also support symbols.
-So does Python, to a degree, though I don't think it has any syntax for them yet.<br><br>More generally, Lisp was designed for rapid
+So does Python, to a degree, though I don't think it has any syntax for them yet.
+  </p>
+  <p>
+   More generally, Lisp was designed for rapid
 prototyping, and this application involved a lot of that.  I probably
 spent 95% of the development time typing expressions into the 
-toplevel, trying variously tweaked algorithms on individual emails.<br><br><b>Do you mind if I write filters based on this algorithm?</b><br><br>Of course not.  I don't claim to have invented anything new here.  Bayesian
+toplevel, trying variously tweaked algorithms on individual emails.
+  </p>
+  <p>
+   <b>
+    Do you mind if I write filters based on this algorithm?
+   </b>
+  </p>
+  <p>
+   Of course not.  I don't claim to have invented anything new here.  Bayesian
 text classification is an old and established field.  If there is anything new
 in this article (at least, it was news to me) it is that such a simple 
-variant of it is so effective at filtering spam.<br><br>So by all means go write spam filters.  It is a very rewarding hack.  If
+variant of it is so effective at filtering spam.
+  </p>
+  <p>
+   So by all means go write spam filters.  It is a very rewarding hack.  If
 you end up creating something other people can use, let me know and
-I'll make a link to it.<br><br><b>I don't know Lisp; can you explain the algorithm to me?</b><br><br>It's expressed in math notation in <a href="hackpaint.html">Hackers 
-& Painters</a>.<br><br><b>Could you use Bayesian filtering to make Web content filters?</b><br><br>I've never tried it, but yes, I think it would work well.<br><br><b>Will this algorithm filter out 99.5% of my spam with no false positives?</b><br><br>It does filter out 99.5% of <i>my</i> spam. I got similar results for the one
+I'll make a link to it.
+  </p>
+  <p>
+   <b>
+    I don't know Lisp; can you explain the algorithm to me?
+   </b>
+  </p>
+  <p>
+   It's expressed in math notation in
+   <a href="hackpaint.html">
+    Hackers 
+&amp; Painters
+   </a>
+   .
+  </p>
+  <p>
+   <b>
+    Could you use Bayesian filtering to make Web content filters?
+   </b>
+  </p>
+  <p>
+   I've never tried it, but yes, I think it would work well.
+  </p>
+  <p>
+   <b>
+    Will this algorithm filter out 99.5% of my spam with no false positives?
+   </b>
+  </p>
+  <p>
+   It does filter out 99.5% of
+   <i>
+    my
+   </i>
+   spam. I got similar results for the one
 other spam collection I've tested it on so far.  (I couldn't measure false
-positives, because I only had the spams.)<br><br>I do worry a bit that my email might just be especially easy to filter.
+positives, because I only had the spams.)
+  </p>
+  <p>
+   I do worry a bit that my email might just be especially easy to filter.
 A lot of my spam comes from "opt-in" spammers like Qves and Virtumundo,
 and that stuff is really easy to detect.  Plus my own mail is full of references
 to programming that make it easy to distinguish from spam (though not
 "programming" itself, ironically, which often occurs in spams selling
-satellite dishes).<br><br>So if you do try implementing this filter for yourself, I'd appreciate it if you
+satellite dishes).
+  </p>
+  <p>
+   So if you do try implementing this filter for yourself, I'd appreciate it if you
 could let me know how well it works for you.  My gut feel is that it will work
 pretty effectively for almost everyone, but it would be reassuring to hear
-numbers.<br><br><b>Could spammers fool Bayesian filters by filling their spams with random words?</b><br><br>They would have to get rid of the bad words as well as adding neutral ones.  
+numbers.
+  </p>
+  <p>
+   <b>
+    Could spammers fool Bayesian filters by filling their spams with random words?
+   </b>
+  </p>
+  <p>
+   They would have to get rid of the bad words as well as adding neutral ones.  
 Only the most interesting fifteen words contribute to the probability,
 and neutral words like "onion", no matter how many there are of them,
-can't compete with the incriminating "viagra" for statistical significance.<br><br>To outweigh incriminating words, the spammers would need to dilute
+can't compete with the incriminating "viagra" for statistical significance.
+  </p>
+  <p>
+   To outweigh incriminating words, the spammers would need to dilute
 their emails with especially innocent words, i.e. those that are not merely
 neutral but occur disproportionately often in the user's legitimate email.
 But these words (e.g. the nicknames of one's friends, terms one uses
 in one's work) are different for each recipient, and the spammers have
-no way of figuring out what they are.<br><br><b>Once this software was available, couldn't spammers just tune their spams 
-to get through it?</b><br><br>They couldn't necessarily tune their
+no way of figuring out what they are.
+  </p>
+  <p>
+   <b>
+    Once this software was available, couldn't spammers just tune their spams 
+to get through it?
+   </b>
+  </p>
+  <p>
+   They couldn't necessarily tune their
 emails and still say what they wanted to say.  If they wanted to send you to a url that
 is known to the filters, for example, they would find it hard to
-tune their way around that.<br><br>Second, tune using what?  Each user's filters will be different, and the innocent
+tune their way around that.
+  </p>
+  <p>
+   Second, tune using what?  Each user's filters will be different, and the innocent
 words will vary especially.  At most, spammers will be able to dilute 
 their mails with merely neutral words, and those will not tend to be much use 
-because they won't be among the fifteen most interesting.<br><br>If the spammers did try to get most of the incriminating words
+because they won't be among the fifteen most interesting.
+  </p>
+  <p>
+   If the spammers did try to get most of the incriminating words
 out of their messages, they
-would all have to use <i>different</i> euphemisms, because if they
+would all have to use
+   <i>
+    different
+   </i>
+   euphemisms, because if they
 all started saying "adolescents" instead of "teens", then "adolescents"
-would start to have a high spam probability.<br><br>Finally, even if spammers worked to get all the incriminating words out of the
+would start to have a high spam probability.
+  </p>
+  <p>
+   Finally, even if spammers worked to get all the incriminating words out of the
 message body, that wouldn't be enough, because in a typical spam a
-lot of the incriminating words are in the headers.<br><br><b>What if spammers sent their messages as images?</b><br><br>They already do sometimes, and we are able to catch them.
+lot of the incriminating words are in the headers.
+  </p>
+  <p>
+   <b>
+    What if spammers sent their messages as images?
+   </b>
+  </p>
+  <p>
+   They already do sometimes, and we are able to catch them.
 Such emails include a lot of damning content, actually.  The headers,
 to start with, will be as bad as ever.  And remember that we scan
 html as well as text.  Within the message body there
@@ -74,90 +251,192 @@ will probably be a link as well as the image,
 both containing urls, which would probably score high.  "Href" and "img"
 themselves both have spam probabilities approaching pornographic words.
 Within the url, the image has to have some kind of name, and these are
-usually far from random.<br><br><b>Can your program deal with the spam trick of inserting html comments
-in the middle of words?</b><br><br>Yes,  I ignore html comments down at the
+usually far from random.
+  </p>
+  <p>
+   <b>
+    Can your program deal with the spam trick of inserting html comments
+in the middle of words?
+   </b>
+  </p>
+  <p>
+   Yes,  I ignore html comments down at the
 level of scanning tokens, not even considering them
-as separators.<br><br>Spammers sometimes use randomly generated tags to break
+as separators.
+  </p>
+  <p>
+   Spammers sometimes use randomly generated tags to break
 up tokens, since html rendering software will usually ignore
 meaningless tags. I do allow these to separate tokens, and it
-works fine.  Broken bits of words simply get high spam probabilities.<br><br><b>Would this article itself be filtered out by your filters?</b><br><br>No. Someone sent it to me as a test, and it wasn't.  
+works fine.  Broken bits of words simply get high spam probabilities.
+  </p>
+  <p>
+   <b>
+    Would this article itself be filtered out by your filters?
+   </b>
+  </p>
+  <p>
+   No. Someone sent it to me as a test, and it wasn't.  
  Although the article contains a lot of
 spam words, it also contains a lot of even more provably innocent
 words (like "spammers" ironically, which occurs in a lot of my
 real email, and never in my spam).  Since only the most
 interesting words count, the innocent words
 crowded out the spam words in the rankings, and this mail
-ended up with the minimum possible probability.<br><br>That makes sense, because an article someone writes is more likely
+ended up with the minimum possible probability.
+  </p>
+  <p>
+   That makes sense, because an article someone writes is more likely
 to resemble the content of their own email than it would a spam, even
-if the article happens to be about spam.<br><br><b>How well can your software filter out mail that's about spam?</b><br><br>This is a problem for anyone who works on spam filtering.  In the extreme
+if the article happens to be about spam.
+  </p>
+  <p>
+   <b>
+    How well can your software filter out mail that's about spam?
+   </b>
+  </p>
+  <p>
+   This is a problem for anyone who works on spam filtering.  In the extreme
 case, if someone you've never heard from merely forwards you a spam
 with no additional comment, it's going to be hard to filter out.  There it will 
-all come down to the headers.<br><br>But after all, if someone could forward you spam with
+all come down to the headers.
+  </p>
+  <p>
+   But after all, if someone could forward you spam with
 impunity, then spammers could forward you spam too.  So for
 these situations we may have to have a special password
 that people could include in mail to get it by the filters, and 
 also (I have one already) a special trash folder for metaspam
-so that it doesn't contribute to the probabilities.<br><br>If there is a good side to this, it's that if we can create filters that work
-acceptably well for us, they'll work even better for everyone else.<br><br><b>Will this software filter out good automated email
-like order receipts and newsgroup faqs?</b><br><br>Mostly not.  That kind of mail may be automated, but
-the text usually has a very different character from spam.<br><br>The only automated responses that tend to get filtered out are the
+so that it doesn't contribute to the probabilities.
+  </p>
+  <p>
+   If there is a good side to this, it's that if we can create filters that work
+acceptably well for us, they'll work even better for everyone else.
+  </p>
+  <p>
+   <b>
+    Will this software filter out good automated email
+like order receipts and newsgroup faqs?
+   </b>
+  </p>
+  <p>
+   Mostly not.  That kind of mail may be automated, but
+the text usually has a very different character from spam.
+  </p>
+  <p>
+   The only automated responses that tend to get filtered out are the
 ones that contain a lot of additional advertising.  In effect, these
 emails consist of an automated response with a spam appended to the
-end, so it is not surprising filters catch them.<br><br><b>Will the kind of people who would respond to a spam use filters?</b><br><br>I think so.  I'm guessing here, but I suspect that people 
-<a href="wfks.html">stupid enough</a>
-to respond to a spam will often get email through one of the free services
+end, so it is not surprising filters catch them.
+  </p>
+  <p>
+   <b>
+    Will the kind of people who would respond to a spam use filters?
+   </b>
+  </p>
+  <p>
+   I think so.  I'm guessing here, but I suspect that people
+   <a href="wfks.html">
+    stupid enough
+   </a>
+   to respond to a spam will often get email through one of the free services
 like Yahoo Mail or Hotmail, or through big ISPs like AOL or Earthlink.  
 Once word spreads that it is possible to
-filter out most spam, they'll be forced to offer effective filters.<br><br><b>If filters catch most spam, won't spammers just send more to compensate?</b><br><br>Spammers already operate at capacity.<br><br><!-- <b>Have you tried collecting spam with decoy addresses?</b><br><br>Yes, it's a common technique; such addresses are called honeypots.<br><br>Unfortunately, new addresses are not nearly as rich a source of spam as 
+filter out most spam, they'll be forced to offer effective filters.
+  </p>
+  <p>
+   <b>
+    If filters catch most spam, won't spammers just send more to compensate?
+   </b>
+  </p>
+  <p>
+   Spammers already operate at capacity.
+  </p>
+  <p>
+   <!-- <b>Have you tried collecting spam with decoy addresses?</b>Yes, it's a common technique; such addresses are called honeypots.Unfortunately, new addresses are not nearly as rich a source of spam as 
 addresses that people have had for ten years, and used
 to register domain names, post to newsgroups, etc.  
 Ask any old-time sysadmin.  I've heard of some of these guys getting hundreds
 of spams a day.
 -->
-<b>How do you feel about blacklists?</b><br><br>As ISPs use them now, they're equivalent to <a href="falsepositives.html">very bad filters</a>.
-But the information they supply could be incorporated into Bayesian filtering.<br><br><b>Doesn't Bayes' Rule assume the predictors are independent?</b><br><br>Yes, strictly speaking it is only valid assuming the probabilitiy of e.g. 
+   <b>
+    How do you feel about blacklists?
+   </b>
+  </p>
+  <p>
+   As ISPs use them now, they're equivalent to
+   <a href="falsepositives.html">
+    very bad filters
+   </a>
+   .
+But the information they supply could be incorporated into Bayesian filtering.
+  </p>
+  <p>
+   <b>
+    Doesn't Bayes' Rule assume the predictors are independent?
+   </b>
+  </p>
+  <p>
+   Yes, strictly speaking it is only valid assuming the probabilitiy of e.g. 
 "sex" occurring in an email is unrelated to the probability of "sexy" 
-occurring in it.  Obviously that is not the case.<br><br>On the other hand, there is a long tradition of violating
+occurring in it.  Obviously that is not the case.
+  </p>
+  <p>
+   On the other hand, there is a long tradition of violating
 this requirement.  When you do that it's called a "naive Bayesian" algorithm
 and in practice it works pretty well, just as in practice (if you stay away
 from the edges of precision) it works pretty well to treat floating point
-numbers as if they were reals.<br><br><b>Does this algorithm take into account the prior probability of a mail being a spam?</b><br><br>No. It assumes it's equally likely for a mail to be a spam or not.  So accuracy
+numbers as if they were reals.
+  </p>
+  <p>
+   <b>
+    Does this algorithm take into account the prior probability of a mail being a spam?
+   </b>
+  </p>
+  <p>
+   No. It assumes it's equally likely for a mail to be a spam or not.  So accuracy
 could be slightly improved by taking into account the actual proportion of spam 
 received by each user.  You would have to do this by hour though, because
 the proportion varies so much depending on the time of the day that the
-overall prior probability is useless as a predictor.<br><br><b>Why do you consider 15 words?  What's special about 15?</b><br><br>Actually, in the latest version of the filter I use 20, because
-marking tokens by <a href="http://www.paulgraham.com/bbf.html">context</a> means the 
+overall prior probability is useless as a predictor.
+  </p>
+  <p>
+   <b>
+    Why do you consider 15 words?  What's special about 15?
+   </b>
+  </p>
+  <p>
+   Actually, in the latest version of the filter I use 20, because
+marking tokens by
+   <a href="http://www.paulgraham.com/bbf.html">
+    context
+   </a>
+   means the 
 software now sees more distinct 
-tokens per mail.<br><br>Nearly all spams tend to have that many fairly incriminating words 
+tokens per mail.
+  </p>
+  <p>
+   Nearly all spams tend to have that many fairly incriminating words 
 in them.  If you
 look at more than that, you'll start to include neutral words,
 which are noise at best.  But you want to look at as many words as you can,
 because legitimate emails may well contain two or three words with high
 spam probabilities-- if you used only the top 5 words, for example,
-you'd start to get false positives.<br><br><b>Will this work for languages other than English?</b><br><br>As long as they use whitespace to separate tokens, it should.<br><br><!-- <b>What is that stuff in the picture?</b><br><br>Recycled <a href="http://www.anl.gov/OPA/logos17-2/emt2.htm">nuclear waste</a>.
---><br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'spamfaq'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=spamfaq&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+you'd start to get false positives.
+  </p>
+  <p>
+   <b>
+    Will this work for languages other than English?
+   </b>
+  </p>
+  <p>
+   As long as they use whitespace to separate tokens, it should.
+  </p>
+  <p>
+   <!-- <b>What is that stuff in the picture?</b>Recycled <a href="http://www.anl.gov/OPA/logos17-2/emt2.htm">nuclear waste</a>.
+-->
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

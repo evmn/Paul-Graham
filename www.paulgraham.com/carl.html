@@ -1,11 +1,37 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Carl de Marcken: Inside Orbitz</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b5f><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b5f border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_4264327" width=249 height=18 border=0 hspace=0 vspace=0 alt="Carl de Marcken: Inside Orbitz"><br><br><font size=2 face="verdana"><i>(Here's an email Carl de Marcken of ITA Software sent to
+<html lang="en">
+ <head>
+  <title>
+   Carl de Marcken: Inside Orbitz
+  </title>
+ </head>
+ <body>
+  <h1>
+   Carl de Marcken: Inside Orbitz
+  </h1>
+  <p>
+   <i>
+    (Here's an email Carl de Marcken of ITA Software sent to
 a friend, describing their experiences using Lisp in one of the software
-industry's most demanding 
-<a href="http://www.orbitz.com">applications</a>.)</i><br><br>Date: Fri, 12 Jan 2001 15:42:34 -0500<br>
-From: Carl de Marcken<br><br>Geoffrey,<br><br>Here are some tidbits...<br><br>1. Right now Sabre, Galileo, Amadeus and Worldspan operate many
+industry's most demanding
+    <a href="http://www.orbitz.com">
+     applications
+    </a>
+    .)
+   </i>
+  </p>
+  <p>
+   Date: Fri, 12 Jan 2001 15:42:34 -0500
+  
+  From: Carl de Marcken
+  </p>
+  <p>
+   Geoffrey,
+  </p>
+  <p>
+   Here are some tidbits...
+  </p>
+  <p>
+   1. Right now Sabre, Galileo, Amadeus and Worldspan operate many
 millions of dollars of IBM and Unisys mainframes each to
 answer the vast majority of queries done by airline phone agents,
 airport desk agents, travel agents, and travel web sites (other than 
@@ -15,19 +41,37 @@ Germany and Atlanta, and mostly run assembly language code for
 performance reasons.  From what we can discern, their algorithms are
 basic: until we pointed it out to them I don't think they had any   
 understanding of how hard the problem they're trying to solve is, or
-how far their solutions are from optimal.<br><br>2. ITA Software is slowly replacing the industry's hardware and
+how far their solutions are from optimal.
+  </p>
+  <p>
+   2. ITA Software is slowly replacing the industry's hardware and
 software with Common Lisp code running on Linux PCs, that uses
 relatively involved algorithms that show off our academic CS
 background.  The easiest place to see the code in action is on our web
-site, 
-<a href="http://www.itasoftware.com">www.itasoftware.com</a>.<br><br>3. The vast majority of our "thinking" code is in Common Lisp.  We run
-both 
-<a href="http://www.cons.org/cmucl/">CMUCL</a> and 
-<a href="http://www.franz.com">Franz</a>, 
+site,
+   <a href="http://www.itasoftware.com">
+    www.itasoftware.com
+   </a>
+   .
+  </p>
+  <p>
+   3. The vast majority of our "thinking" code is in Common Lisp.  We run
+both
+   <a href="http://www.cons.org/cmucl/">
+    CMUCL
+   </a>
+   and
+   <a href="http://www.franz.com">
+    Franz
+   </a>
+   , 
 under Linux/Intel, HPUX/PA, and NT/Intel, and
 have about 200,000 lines of Lisp in our base search engine. Our web
 site page generation code is also largely written in Common Lisp,
-though there's also fair bit of Java there.<br><br>4. Because we have about 2 gigs of static data we need rapid access 
+though there's also fair bit of Java there.
+  </p>
+  <p>
+   4. Because we have about 2 gigs of static data we need rapid access 
 to, we use C++ code to memory-map huge files containing pointerless C
 structs (of flights, fares, etc), and then access these from Common
 Lisp using foreign data accesses.  A struct field access compiles into
@@ -37,20 +81,29 @@ keep the Lisp garbage collector from seeing the data (to Lisp, each
 pointer to a C object is just a fixnum, though we do often temporarily
 wrap these pointers in Lisp objects to improve debuggability).  Our
 Lisp images are therefore only about 250 megs of "working" data
-structures and code.<br><br>5. Every query that hits our site gets sent via tcpip to a Lisp   
+structures and code.
+  </p>
+  <p>
+   5. Every query that hits our site gets sent via tcpip to a Lisp   
 process running on an dual 800mhz x86 Linux box with 2g of ram ($3000,
 vs about $1,000,000 for a similarly capable mainframe), and the
 process devotes between 5 and 15 seconds of CPU time to it.  One of
 our customers will have 200 such boxes, each running 2 or 3 Lisp
 processes.  We save on ram by putting multiple processes on one box,
 since the virtual memory system automatically shares our read-only
-memory-mapped files between processes.<br><br>6. If you want to do a simple round-trip from BOS to LAX in two weeks,
+memory-mapped files between processes.
+  </p>
+  <p>
+   6. If you want to do a simple round-trip from BOS to LAX in two weeks,
 coming back in three, willing to entertain a 24 hour departure window
 for both parts, then limiting to "reasonable" routes (at most 3
 flights and at most 10 hours or so) you have about 5,000 ways to get
 there and 5,000 ways to get back.  Listing them is a mostly trivial
 graph-search (there are a few minor complications, but not many), that
-anybody could do in a fraction of a second.<br><br>7. The real challenge is that a single fixed itinerary (a fixed set of
+anybody could do in a fraction of a second.
+  </p>
+  <p>
+   7. The real challenge is that a single fixed itinerary (a fixed set of
 flights from BOS to LAX and a fixed set back) with only two flights in
 each direction may have more than 10,000 possible combinations of   
 applicable "fares", each fare with complex restrictions that must be
@@ -64,7 +117,10 @@ solution that will result in the cheapest price.  If you're willing to
 dispense with restrictions on the energy in the universe, then it is
 actually possible to formalize the cheapest-price problem in a
 not-too-unreasonable way that leads to a proof of undecidability by
-reduction to the Post correspondance problem :-).<br><br>8. Our Lisp code is running very clever algorithms that let us produce
+reduction to the Post correspondance problem :-).
+  </p>
+  <p>
+   8. Our Lisp code is running very clever algorithms that let us produce
 in a reasonable time a data structure we call the "pricing-graph" from
 which we can very efficiently answer a query of the form "give me the
 k-th best solution (a validated set of flights and fares), ordered
@@ -72,13 +128,19 @@ according to the function f", assuming of course certain restrictions
 on f, where the number of answers represented by the pricing-graph is
 10^20 - 10^30 depending on the type of trip.  In this way, we can
 reasonably claim that in 10 seconds we can produce 10^30 answers, even
-if we could not possibly enumerate the list of such answers.<br><br>9. We can do 10 seconds of Lisp computation on a 800mhz box and cons 
+if we could not possibly enumerate the list of such answers.
+  </p>
+  <p>
+   9. We can do 10 seconds of Lisp computation on a 800mhz box and cons 
 less than 5k of data.  This is because we pre-allocate all data
 structures we need and die on queries that exceed them.  This may make
 many Lisp programmers cringe, but with a 250 meg image and real-time
 constraints, we can't afford to generate garbage.  For example, rather
 than using cons, we use "cons!", which grabs cells from an array of  
-10,000,000 cells we've preallocated and which gets reset every query.<br><br>10. A lot of our Lisp is designed to compile into very efficient
+10,000,000 cells we've preallocated and which gets reset every query.
+  </p>
+  <p>
+   10. A lot of our Lisp is designed to compile into very efficient
 assembly.  We make a lot of use of Lisp's macro capabilities, but shy
 away from many other Lisp features like closures, generic functions,
 complex sequence functions and garbage collection.  We're doing an
@@ -87,45 +149,43 @@ machine is an incredible gift - but if we're sloppy at all 10 seconds
 can turn into ten minutes, not adequate for a travel agent or web  
 site.  We disassemble most every Lisp function looking for
 inefficiencies and have had both CMUCL and Franz enhanced to compile
-our code better.<br><br>11. Occasionally we've had to move code from Lisp to C++, usually
+our code better.
+  </p>
+  <p>
+   11. Occasionally we've had to move code from Lisp to C++, usually
 because of data loading issues (Lisp garbage collectors just can't
 deal with gigs of data, and there's no way to rapidly load gigs of   
 data into a Lisp).  Our experience has been a 10 to 1 code expansion;
 I don't think there are any programmers in our company that regret the
-choice of Common Lisp.<br><br>12. We've had very little trouble getting non-Lisp programmers to read
+choice of Common Lisp.
+  </p>
+  <p>
+   12. We've had very little trouble getting non-Lisp programmers to read
 and understand and extend our Lisp code.  The only real problem is
 that the training most programmers have in Lisp has taught them to
 code very inefficiently, without paying any attention to the compiler.
 Of course, with things like STL and Java, I think programmers of other
-languages are also becoming pretty ignorant.<br><br><br><br><hr>
-Date: Tue, 15 Jan 2002 17:49:04 -0800<br>
-From: Carl de Marcken<br><br>Paul,<br><br>I don't have any problems with it going up on a site, but
+languages are also becoming pretty ignorant.
+  </p>
+  <p>
+  </p>
+  <p>
+   <hr/>
+   Date: Tue, 15 Jan 2002 17:49:04 -0800
+  
+  From: Carl de Marcken
+  </p>
+  <p>
+   Paul,
+  </p>
+  <p>
+   I don't have any problems with it going up on a site, but
 please make a note that this message is old and the world is constantly
                     changing: we now have thousands of CPUs running our code, and various
                     airlines and major web sites (Orbitz, e.g.) depending on it.  The mainframes
-                    are disappearing as our stuff replaces it.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'carl'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=carl&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+                    are disappearing as our stuff replaces it.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

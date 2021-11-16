@@ -1,37 +1,65 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Dan Weinreb: Loop</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b1a3><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b1a3 border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_4265305" width=152 height=18 border=0 hspace=0 vspace=0 alt="Dan Weinreb: Loop"><br><br><font size=2 face="verdana"><i>(Replying to a reference to Waters' series macros on the LL1 mailing
+<html lang="en">
+ <head>
+  <title>
+   Dan Weinreb: Loop
+  </title>
+ </head>
+ <body>
+  <h1>
+   Dan Weinreb: Loop
+  </h1>
+  <p>
+   <i>
+    (Replying to a reference to Waters' series macros on the LL1 mailing
 list, Dan Weinreb, one of the designers of Common Lisp, writes about the 
 Loop macro.  I consider Loop one of the worst flaws in CL, and an
-example to be borne in mind by both macro writers and language designers.)</i><br><br>This was the big competitor to LOOP, back in roughly maybe
+example to be borne in mind by both macro writers and language designers.)
+   </i>
+  </p>
+  <p>
+   This was the big competitor to LOOP, back in roughly maybe
  1978-1979 when we all wanted to generalize and extend Maclisp's
  "new style DO".  Each approach had its own merits and demerits.
  I think probably we in the LOOP camp were insufficiently sympathetic
  to the merits of Waters's approach, possibly because we were
  not experienced with lexical scoping, although also because
  there really were a few things that it didn't do as well as
- LOOP.<br><br>LOOP, by the way, is one of the few cases of a macro in which
+ LOOP.
+  </p>
+  <p>
+   LOOP, by the way, is one of the few cases of a macro in which
  we deliberately violated one of the (excellent!) rules that Scott McKay
  enumerated recently on this list.  Namely, we ("what you mean we?",
  really Dave Moon, but others of us were egging him on, so to speak)
  decided to violate the usual stricture that a Lisp special form
  should only have a symbol as the first element of the list, and
  that subsequent "syntax" within the special form should be done
- entirely in terms of the nested list structure.<br><br>After all, we
+ entirely in terms of the nested list structure.
+  </p>
+  <p>
+   After all, we
  were the ones who had introduced keyword arguments into Lisp.
  Those were symbols used at runtime in a sort of syntactic way.
  Here we went the next step further and used symbols at "compile
  time", i.e. statically, i.e. syntactically (e.g. you did not
  have to use QUOTE), as keywords.  So we created one of the first
  Lisp special forms to be keyword-oriented, and I think it may
- be the only such special form that was accepted in Common Lisp.<br><br>(And it was only accepted after very bloody battles were fought,
+ be the only such special form that was accepted in Common Lisp.
+  </p>
+  <p>
+   (And it was only accepted after very bloody battles were fought,
  as Guy Steele knows better than anyone else, since he was the
- referee of those battles!)<br><br>LOOP was not as much of a success as we had hoped.  To this day
+ referee of those battles!)
+  </p>
+  <p>
+   LOOP was not as much of a success as we had hoped.  To this day
  I firmly stick by our decision to use keywords.  All rules have
  their exceptions, and this was a case where the benefit of using
  keywords outweighed the cost of using unusual syntax.  The use
- of keywords is NOT what was wrong with LOOP.<br><br>Rather, the problem with LOOP was that it turned out to be
+ of keywords is NOT what was wrong with LOOP.
+  </p>
+  <p>
+   Rather, the problem with LOOP was that it turned out to be
  hard to predict what it would do, when you started using a
  lot of different facets of LOOP all together.  This is a
  serious problem since the whole idea of LOOP was to let you
@@ -41,29 +69,9 @@ example to be borne in mind by both macro writers and language designers.)</i><b
  all the issues; now, over 20 years later, I've almost forgotten
  them.  But if Dave Moon could not figure out how to solve the
  problem, I am quite confident that it's a very hard problem to
- solve.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'loop'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';   } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {   } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=loop&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+ solve.
+  </p>
+  <p>
+  </p>
+ </body>
+</html>

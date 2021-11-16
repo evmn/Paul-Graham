@@ -1,77 +1,135 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>Re: Revenge of the Nerds</title><!-- <META NAME="ROBOTS" CONTENT="NOODP"> -->
-<link rel="shortcut icon" href="http://ycombinator.com/arc/arc.png">
-</head><body bgcolor=ffffff background="https://sep.yimg.com/ca/I/paulgraham_2271_0" text=000000 link=000099 vlink=464646><table border=0 cellspacing=0 cellpadding=0><tr valign=top><td><map name=ab4f5f1ebf0b18d><area shape=rect coords="0,0,67,21" href="index.html"><area shape=rect coords="0,21,67,42" href="articles.html"><area shape=rect coords="0,42,67,63" href="http://www.amazon.com/gp/product/0596006624"><area shape=rect coords="0,63,67,84" href="books.html"><area shape=rect coords="0,84,67,105" href="http://ycombinator.com"><area shape=rect coords="0,105,67,126" href="arc.html"><area shape=rect coords="0,126,67,147" href="bel.html"><area shape=rect coords="0,147,67,168" href="lisp.html"><area shape=rect coords="0,168,67,189" href="antispam.html"><area shape=rect coords="0,189,67,210" href="kedrosky.html"><area shape=rect coords="0,210,67,231" href="faq.html"><area shape=rect coords="0,231,67,252" href="raq.html"><area shape=rect coords="0,252,67,273" href="quo.html"><area shape=rect coords="0,273,67,294" href="rss.html"><area shape=rect coords="0,294,67,315" href="bio.html"><area shape=rect coords="0,315,67,336" href="https://twitter.com/paulg"></map><img src="https://s.yimg.com/aah/paulgraham/quotes-1.gif" width=69 height=336 usemap=#ab4f5f1ebf0b18d border=0 hspace=0 vspace=0 ismap></td><td><img src="https://sep.yimg.com/ca/Img/trans_1x1.gif" width=26 height=1 border=0></td><td><a href="index.html"><img src="https://sep.yimg.com/ca/I/paulgraham_2271_3232" width=410 height=45 border=0 hspace=0 vspace=0></a><br><br><table border=0 cellspacing=0 cellpadding=0 width=435><tr valign=top><td width=435><img src="https://sep.yimg.com/ca/I/paulgraham_2202_16352903" width=203 height=18 border=0 hspace=0 vspace=0 alt="Re: Revenge of the Nerds"><br><br><font size=2 face="verdana"><a href="icad.html">Revenge of the Nerds</a> has generated a lot of additional discussion, 
+<html lang="en">
+ <head>
+  <title>
+   Re: Revenge of the Nerds
+  </title>
+ </head>
+ <body>
+  <h1>
+   Re: Revenge of the Nerds
+  </h1>
+  <p>
+   <a href="icad.html">
+    Revenge of the Nerds
+   </a>
+   has generated a lot of additional discussion, 
 which I
-summarize here for anyone interested in going deeper into the issues raised in it.<br><br><br><br>
-Trevor Blackwell wrote that Lisp is only a win for certain classes of project.
-His mail was so articulate that I will just include it verbatim:<br><br><font color=#000055>
-I think it would seem more persuasive if you limited the scope of
+summarize here for anyone interested in going deeper into the issues raised in it.
+  </p>
+  <p>
+  </p>
+  <p>
+   Trevor Blackwell wrote that Lisp is only a win for certain classes of project.
+His mail was so articulate that I will just include it verbatim:
+  </p>
+  <p>
+   I think it would seem more persuasive if you limited the scope of
                     where Lisp is supposed to be better. It probably isn't better, for
-                    example, in:<br><br><pre>
+                    example, in:
+  </p>
+  <p>
+   <pre>
 - communications, interface, format conversion
 - real-time control
 - numerically intensive code
 - operating system implementation
 - quick little scripts to munge files
 </pre>
-                    The above actually constitute a large fraction of all software written.<br><br>It is better for information processing: running very complex
+   The above actually constitute a large fraction of all software written.
+  </p>
+  <p>
+   It is better for information processing: running very complex
                     algorithms across complex data sets. It's only recently, in the WWW
-                    age, that people actually do a lot of this.<br><br>Before the rise of the Web, I think only a very small minority of
+                    age, that people actually do a lot of this.
+  </p>
+  <p>
+   Before the rise of the Web, I think only a very small minority of
                     software contained complex algorithms: sorting is about as complex as
                     it got. Can you think of a complex algorithm in FreeBSD? The 50
                     million lines of code in a Nortel switch probably didn't even contain
                     a sort. It was all about managing hardware and resources and handling
                     failures gracefully. Cisco routers also have millions of lines of
-                    software, but not many complex algorithms.<br><br>The sort of software that ITA wrote is really very rare. 10 years ago,
+                    software, but not many complex algorithms.
+  </p>
+  <p>
+   The sort of software that ITA wrote is really very rare. 10 years ago,
                     about the only software with really complex algorithms were CAD design
-                    & synthesis, and they did use Lisp.<br><br>That a shift in what kinds of software is being written makes Lisp
+                    &amp; synthesis, and they did use Lisp.
+  </p>
+  <p>
+   That a shift in what kinds of software is being written makes Lisp
                     resurface as excellent choice is a more believable statement than that
                     the vast majority of programmers have been boneheads for 40 years.
-</font><br><br>I agree that Lisp might not be the language to use if you wanted to
+  </p>
+  <p>
+   I agree that Lisp might not be the language to use if you wanted to
 do something really low level, like move bits around, and 
 processor time was worth more to you than 
 programmer time.  For that you'd want C or even assembly language.
 But I think such applications are rare and getting rarer (see Moore's Law).
 I know of several places using Lisp for real-time applications, including
-Rod Brooks' robot R&D lab.<br><br>I also agree that Lisp might not be the ideal language to use to write
+Rod Brooks' robot R&amp;D lab.
+  </p>
+  <p>
+   I also agree that Lisp might not be the ideal language to use to write
 code that works closely with programs written in C, but that isn't
 Lisp's fault.  Nor is C the ideal language to use to write programs that
-work closely with Lisp.<br><br>I disagree that Lisp is bad for writing quick little scripts.  Its interactive
-nature makes it especially good for that.<br><br>I also disagree that it is not believable that the vast majority of programmers
+work closely with Lisp.
+  </p>
+  <p>
+   I disagree that Lisp is bad for writing quick little scripts.  Its interactive
+nature makes it especially good for that.
+  </p>
+  <p>
+   I also disagree that it is not believable that the vast majority of programmers
 have been boneheads for 40 years.  It seems to me entirely possible.
 Measured simply by numbers of users, the current leaders in any field of 
 technology (indeed, almost any field at all) will be mostly mediocre.  
-Look at Windows.<br><br>Technical innovations regularly take decades to spread.  Volkswagen started
+Look at Windows.
+  </p>
+  <p>
+   Technical innovations regularly take decades to spread.  Volkswagen started
 building cars with unibodies in the 1930s.  By the 1980s, practically all new
 cars were designed that way.  Was it simply that the vast majority of car
 designers were boneheads for 40 years?  Yep, though I think 
-"conservative" is the preferred euphemism.<br><br><br><br>
-Bengt Richter came up with an additional Python solution:
-<font face=courier><xmp>
-def foo(n):
+"conservative" is the preferred euphemism.
+  </p>
+  <p>
+  </p>
+  <p>
+   Bengt Richter came up with an additional Python solution:
+   <xmp>
+    def foo(n):
   def bar(i):
     bar.s += i
     return bar.s
   bar.s = n
   return bar
-</xmp></font>
-but I think Python hackers still consider defining a new class to be the canonical
-solution.<br><br><br><br>Several Python users have written to tell me that the reason you can't 
+   </xmp>
+   but I think Python hackers still consider defining a new class to be the canonical
+solution.
+  </p>
+  <p>
+  </p>
+  <p>
+   Several Python users have written to tell me that the reason you can't 
 write the Lisp/Perl/Smalltalk/Javascript program in Python is that lexical
 variables in Python aren't mutable, and that "anonymous functions" can
 only contain a single expression.  When I ask why you can't just write
-<font face=courier><xmp>
-def foo(n):
+   <xmp>
+    def foo(n):
   lambda i: n += i
-</xmp></font>
-in Python, I'm not asking what it is in the current definition of Python
+   </xmp>
+   in Python, I'm not asking what it is in the current definition of Python
 that prevents this.   I know that Python currently imposes
 these restrictions.  What I'm asking is what these restrictions buy you.
 How does it make Python a better language if you can't change
 the value of a variable from an outer scope, or put more than one
 expression in a lambda?  What does it buy you to distinguish between
-expressions and statements?<br><br>The restriction on what you can say in an anonymous function seems
+expressions and statements?
+  </p>
+  <p>
+   The restriction on what you can say in an anonymous function seems
 particularly indefensible.  In fact, the whole phrase "anonymous function"
 suggests limited thinking.  Would you call a hash table that wasn't the value of a 
 variable an "anonymous hash table?"  If functions are a data type in your
@@ -79,8 +137,17 @@ language, they should be treated just like other data types.  A named
 function should just be a function that happens to be the value of a
 variable.  Restricting what you can put in a function that isn't the value
 of a variable makes about as much sense as restricting what you can
-do with a hash table or string that isn't the value of a variable.<br><br><br><br>Thomas Herchenroeder wrote to stress that languages had to be suitable
-for ordinary programmers, not just super-hackers:<br><br><i>I believe you
+do with a hash table or string that isn't the value of a variable.
+  </p>
+  <p>
+  </p>
+  <p>
+   Thomas Herchenroeder wrote to stress that languages had to be suitable
+for ordinary programmers, not just super-hackers:
+  </p>
+  <p>
+   <i>
+    I believe you
  are thinking of an excellent hacker whose code gets read once in a while by
  fellow excellent hackers who marvel at his fine algorithms and coding
  style. They are interested to learn new things and eager to understand
@@ -93,67 +160,96 @@ for ordinary programmers, not just super-hackers:<br><br><i>I believe you
  discussed in popular articles. It boils down to mainstream knowledge about
  programming, languages, algorithms and patterns. To a degree, you simply
  have to go with the crowd.  Again Python: It implements mainstream concepts in
- a succinct and elegant way.<br><br>So, maybe we are back at the point where we need a "powerful" language for
+ a succinct and elegant way.
+   </i>
+  </p>
+  <p>
+   So, maybe we are back at the point where we need a "powerful" language for
  the power users, the hackers. And a "powerful" (in a different sense)
- language for everyday people in everyday companies.</i><br><br>I agree that there is a  role
+ language for everyday people in everyday companies.
+  </p>
+  <p>
+   I agree that there is a  role
 for languages designed for novice and less-motivated programmers.
 The only thing I disagree about is whether "powerful" is the word
 to use to describe this quality.  I think there is already
 a word for this proposed second sense of "powerful",
 and it is "accessible."  A Ferrari is powerful.  A VW Golf is
-accessible.<br><br>Why stretch the language to find some metaphorical sense in   
+accessible.
+  </p>
+  <p>
+   Why stretch the language to find some metaphorical sense in   
 which you can call the Golf powerful, when there is already a
 word for the quality you mean?  Plus, if you blur the word
 "powerful" by using it too broadly, you no longer have a name
-for the very definite quality possessed by the Ferrari.<br><br>I think it is important that some of us, at least, keep
+for the very definite quality possessed by the Ferrari.
+  </p>
+  <p>
+   I think it is important that some of us, at least, keep
 our focus on power in the Ferrari sense.  Someone has to, because
 that is the source of the next generation of "mainstream knowledge".
 In 1980, university courses and easily available books were advanced
 if they talked about structured programming.  Now they talk about
 topics like garbage collection and dynamic typing, which would in
-1980 have been considered esoteric stuff.<br><br><br><br>
-Paul Prescod wrote that I chose an example that was deliberately Lisp-biased.
+1980 have been considered esoteric stuff.
+  </p>
+  <p>
+  </p>
+  <p>
+   Paul Prescod wrote that I chose an example that was deliberately Lisp-biased.
 If I had wanted to do that I would have written a macro, not a function.  
 If the example I chose is
 biased, it is Lisp/Perl/Smalltalk/Javascript biased, because the code is 
-similarly simple in all four (and many <a href="accgen.html">others</a>).<br><br>I was actually surprised at how badly Python did.  I had never realized, for
+similarly simple in all four (and many
+   <a href="accgen.html">
+    others
+   </a>
+   ).
+  </p>
+  <p>
+   I was actually surprised at how badly Python did.  I had never realized, for
 example, that a Python lambda-expression couldn't contain the same things
 as a named function, or that variables from enclosing scopes are visible but not
-modifiable.  Neither Lisp nor Perl nor Smalltalk nor Javascript impose either restriction.<br><br>I can't see what advantage either restriction brings you.  I <i>can</i> see how Python's
+modifiable.  Neither Lisp nor Perl nor Smalltalk nor Javascript impose either restriction.
+  </p>
+  <p>
+   I can't see what advantage either restriction brings you.  I
+   <i>
+    can
+   </i>
+   see how Python's
 gradual, ongoing (= incomplete) evolution would have produced them.  So
 Occam's Razor implies that the latter is the reason Python is this way. I.e. these 
-restrictions are bugs, not features.<br><br>Paul has written a rebuttal to Revenge of the Nerds, 
-<a href="http://www.prescod.net/python/IsPythonLisp.html">On the 
-Relationship between Python and Lisp</a>.  (Peter Norvig has
-also written about this topic in <a href="http://www.norvig.com/python-lisp.html">Python
-for Lisp Programmers</a>.)<br><br><br><br>
-There has been a lot of discussion on LL1, about whether succinctness is a 
+restrictions are bugs, not features.
+  </p>
+  <p>
+   Paul has written a rebuttal to Revenge of the Nerds,
+   <a href="http://www.prescod.net/python/IsPythonLisp.html">
+    On the 
+Relationship between Python and Lisp
+   </a>
+   .  (Peter Norvig has
+also written about this topic in
+   <a href="http://www.norvig.com/python-lisp.html">
+    Python
+for Lisp Programmers
+   </a>
+   .)
+  </p>
+  <p>
+  </p>
+  <p>
+   There has been a lot of discussion on LL1, about whether succinctness is a 
 good design goal for programming languages, as I implied in the appendix
 to Revenge of the Nerds.  That question
-is handled separately in <a href="power.html">Succinctness
-is Power</a>.<br><br></font></td></tr></table><table border=0 cellspacing=0 cellpadding=0 width=435><tr><td><font size=2 face="verdana"><br><br><hr></font></td></tr></table></td></tr></table></body>
-<script type="text/javascript">
-csell_env = 'bf1';
- var storeCheckoutDomain = 'order.store.yahoo.net';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- </script> <script type="text/javascript" src="https://s.yimg.com/lq/ult/ylc_1.9.js" ></script> <script type="text/javascript" src="https://s.yimg.com/ae/lib/smbiz/store/csell/beacon-a9518fc6e4.js" >
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
- csell_page_data = {}; csell_page_rec_data = []; ts='TOK_STORE_ID';
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_GLOBAL_INIT_TAG() { var csell_token_map = {}; csell_token_map['TOK_ITEM_ID_LIST'] = 'icadmore'; csell_token_map['TOK_BEACON_TYPE'] = 'prod'; csell_token_map['TOK_RAND_KEY'] = 't'; csell_token_map['TOK_SPACEID'] = '2022276099'; csell_token_map['TOK_IS_ORDERABLE'] = '2'; csell_token_map['TOK_STORE_ID'] = 'paulgraham'; csell_token_map['TOK_URL'] = ''; csell_token_map['TOK_ORDER_HOST'] = 'order.store.yahoo.net';  c = csell_page_data; var x = (typeof storeCheckoutDomain == 'string')?storeCheckoutDomain:'order.store.yahoo.net'; var t = csell_token_map; c['s'] = t['TOK_SPACEID']; c['url'] = t['TOK_URL']; c['si'] = t[ts]; c['ii'] = t['TOK_ITEM_ID_LIST']; c['bt'] = t['TOK_BEACON_TYPE']; c['rnd'] = t['TOK_RAND_KEY']; c['io'] = t['TOK_IS_ORDERABLE']; YStore.addItemUrl = 'http%s://'+x+'/'+t[ts]+'/ymix/MetaController.html?eventName.addEvent&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_itemId=%s&cartDS.shoppingcart_ROW0_m_orderItemVector_ROW0_m_quantity=1&ysco_key_cs_item=1&sectionId=ysco.cart&ysco_key_store_id='+t[ts]; } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-function csell_REC_VIEW_TAG() {  var env = (typeof csell_env == 'string')?csell_env:'prod'; var p = csell_page_data; var a = '/sid='+p['si']+'/io='+p['io']+'/ii='+p['ii']+'/bt='+p['bt']+'-view'+'/en='+env; var r=Math.random(); YStore.CrossSellBeacon.renderBeaconWithRecData(p['url']+'/p/s='+p['s']+'/'+p['rnd']+'='+r+a); } 
-</script>
-<script type="text/javascript">
-// Begin Yahoo Store Generated Code
-var csell_token_map = {}; csell_token_map['TOK_PAGE'] = 'p'; csell_token_map['TOK_WS_URL'] = 'https://paulgraham.csell.store.yahoo.net/cs/recommend?itemids=icadmore&location=p'; csell_token_map['TOK_SHOW_CS_RECS'] = 'false'; csell_token_map['TOK_CURR_SYM'] = '$';  var t = csell_token_map; csell_GLOBAL_INIT_TAG(); YStore.page = t['TOK_PAGE']; YStore.currencySymbol = t['TOK_CURR_SYM']; YStore.crossSellUrl = t['TOK_WS_URL']; YStore.showCSRecs = t['TOK_SHOW_CS_RECS']; </script> <script type="text/javascript" src="https://s.yimg.com/ae/store/secure/recs-1.3.2.2.js" ></script> <script type="text/javascript" >
-</script>
-<script type='text/javascript'>(function (d, w) { var f = function () { var x = d.getElementsByTagName('SCRIPT')[0]; var s = d.createElement('SCRIPT'); var p = {}; if(window.csell_page_data) { p = csell_page_data; }; s.type = 'text/javascript'; s.async = true; var url = '//np.lexity.com/embed/YA/fa27bb6ce937aea400cc8e5f11aa42d5?id=06de067e4a3b'; if('si' in p) { url = url + '&ysid=' + p['si']; }; if('bt' in p) { url = url + '&bt=' + p['bt'] + '-view'; }; if('ii' in p) { url = url + '&ii=' + p['ii']; }; if('io' in p) { url = url + '&io=' + p['io']; }; s.src = url; x.parentNode.insertBefore(s, x); }; w.attachEvent ? w.attachEvent('onload',f) : w.addEventListener('load',f,false); }(document, window)); </script></html>
+is handled separately in
+   <a href="power.html">
+    Succinctness
+is Power
+   </a>
+   .
+  </p>
+  <p>
+  </p>
+ </body>
+</html>
