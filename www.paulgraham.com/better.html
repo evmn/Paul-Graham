@@ -29,7 +29,7 @@ lazy evaluation of research papers.  Just
 write whatever you want and don't cite any previous work, and
 indignant readers will send you references to all the papers you
 should have cited.   I discovered this algorithm
-after ``A Plan for Spam'' [1] was on Slashdot.
+after "A Plan for Spam" [1] was on Slashdot.
   </p>
   <p>
    Spam filtering is a subset of text classification,
@@ -89,7 +89,7 @@ be too obvious to mention, but I've had to learn it several times.
   </p>
   <p>
    Third, Pantel and Lin stemmed the tokens, meaning they reduced e.g. both
-``mailing'' and ``mailed'' to the root ``mail''.   They may
+"mailing" and "mailed" to the root "mail".   They may
 have felt they were forced to do this by the small size
 of their corpus, but if so this is a kind of premature 
 optimization.
@@ -158,7 +158,7 @@ approach CRM114's.  These techniques are mostly orthogonal to Bill's;
 an optimal solution might incorporate both.
   </p>
   <p>
-   ``A Plan for Spam'' uses a very simple
+   "A Plan for Spam" uses a very simple
 definition of a token.  Letters, digits, dashes, apostrophes,
 and dollar signs are constituent characters, and everything
 else is a token separator.  I also ignored case.
@@ -193,13 +193,13 @@ else is a token separator.  I also ignored case.
    <li>
     Tokens that occur within the
  To, From, Subject, and Return-Path lines, or within urls,
- get marked accordingly.  E.g. ``foo'' in the Subject line
- becomes ``Subject*foo''.  (The asterisk could
+ get marked accordingly.  E.g. "foo" in the Subject line
+ becomes "Subject*foo".  (The asterisk could
  be any character you don't allow as a constituent.)
    </li>
    Such measures increase the filter's vocabulary, which
 makes it more discriminating.  For example, in the current
-filter, ``free'' in the Subject line
+filter, "free" in the Subject line
 has a spam probability of 98%, whereas the same token
 in the body has a spam probability of only 65%.
   </p>
@@ -243,13 +243,13 @@ version.  I consider terminal exclamation
 points, uppercase letters, and occurring in one of the
 five marked contexts as making a token more specific.
 For example, if I don't find a probability for
-``Subject*free!'', I look for probabilities for
-``Subject*free'', ``free!'', and ``free'', and take whichever one
+"Subject*free!", I look for probabilities for
+"Subject*free", "free!", and "free", and take whichever one
 is farthest from .5.
   </p>
   <p>
    Here are the alternatives [7]
-considered if the filter sees ``FREE!!!'' in the
+considered if the filter sees "FREE!!!" in the
 Subject line and doesn't have a probability for it.
   </p>
   <p>
@@ -277,13 +277,13 @@ caps as well as all uppercase and all lowercase.  Spams
 tend to have more sentences in imperative mood, and in
 those the first word is a verb.  So verbs with initial caps
 have higher spam probabilities than they would in all 
-lowercase.  In my filter, the spam probability of ``Act''
-is 98% and for ``act'' only 62%.
+lowercase.  In my filter, the spam probability of "Act"
+is 98% and for "act" only 62%.
   </p>
   <p>
    If you increase your filter's vocabulary, you can end up
 counting the same word multiple times, according to your old
-definition of ``same''.
+definition of "same".
 Logically, they're not the
 same token anymore.  But if this still bothers you, let
 me add from experience that the words you seem to be
@@ -304,9 +304,9 @@ as more interesting than others.
   </p>
   <p>
    For example, the
-token ``dalco'' occurs 3 times in my spam corpus and never
-in my legitimate corpus.  The token ``Url*optmails''
-(meaning ``optmails'' within a url) occurs 1223 times.
+token "dalco" occurs 3 times in my spam corpus and never
+in my legitimate corpus.  The token "Url*optmails"
+(meaning "optmails" within a url) occurs 1223 times.
 And yet, as I used to calculate probabilities for tokens,
 both would have the same spam probability, the threshold of .99.
   </p>
@@ -384,8 +384,8 @@ probability of .88, just under the threshold of .9.
   </p>
   <p>
    Of course, looking at multiple token sequences
-would catch it easily.  ``Below is the result of
-your feedback form'' is an instant giveaway.
+would catch it easily.  "Below is the result of
+your feedback form" is an instant giveaway.
   </p>
   <p>
    The fourth spam was what I call
@@ -421,8 +421,8 @@ period I got
   </p>
   <p>
    In a way it's
-a relief to get some false positives.  When I wrote ``A Plan
-for Spam'' I hadn't had any, and I didn't know what they'd
+a relief to get some false positives.  When I wrote "A Plan
+for Spam" I hadn't had any, and I didn't know what they'd
 be like.  Now that I've had a few, I'm relieved to find
 they're not as bad as I feared.
 False positives yielded by statistical
@@ -626,7 +626,7 @@ on anyone.
   </p>
   <p>
    [1]
-Paul Graham.  ``A Plan for Spam.'' August 2002.
+Paul Graham.  "A Plan for Spam." August 2002.
 http://paulgraham.com/spam.html.
   </p>
   <p>
@@ -639,7 +639,7 @@ spam.
   </p>
   <p>
    The first assumption is widespread in text classification.
-Algorithms that use it are called ``naive Bayesian.''
+Algorithms that use it are called "naive Bayesian."
   </p>
   <p>
    The second assumption I made because the proportion of spam in
@@ -660,14 +660,14 @@ patterns.
   </p>
   <p>
    [2]
-Patrick Pantel and Dekang Lin. ``SpamCop-- A Spam
-Classification &amp; Organization Program.''  Proceedings of AAAI-98
+Patrick Pantel and Dekang Lin. "SpamCop-- A Spam
+Classification &amp; Organization Program."  Proceedings of AAAI-98
 Workshop on Learning for Text Categorization.
   </p>
   <p>
    [3]
 Mehran Sahami, Susan Dumais, David Heckerman and Eric Horvitz.
-``A Bayesian Approach to Filtering Junk E-Mail.'' Proceedings of AAAI-98
+"A Bayesian Approach to Filtering Junk E-Mail." Proceedings of AAAI-98
 Workshop on Learning for Text Categorization.
   </p>
   <p>
@@ -678,35 +678,35 @@ rates are untrustworthy, as I explain later. I quote
 a number here only to emphasize that whatever the false positive rate
 is, it is less than 1.16%.
    <!--As an indication of how widely divergent these results
-are, a filter that simply looked for the word ``click'' would in
+are, a filter that simply looked for the word "click" would in
 August 2002 catch 79.7% of my spam with 1.2% false positives.-->
   </p>
   <p>
-   [5] Bill Yerazunis. ``Sparse Binary Polynomial Hash Message
-Filtering and The CRM114 Discriminator.''  Proceedings of 2003
+   [5] Bill Yerazunis. "Sparse Binary Polynomial Hash Message
+Filtering and The CRM114 Discriminator."  Proceedings of 2003
 Spam Conference.
   </p>
   <p>
-   [6] In ``A Plan for Spam'' I used thresholds of .99 and .01.
+   [6] In "A Plan for Spam" I used thresholds of .99 and .01.
 It seems justifiable to use thresholds proportionate to the
 size of the corpora.  Since I now have on the order of 10,000 of each
 type of mail, I use .9999 and .0001.
   </p>
   <p>
    [7] There is a flaw here I should probably fix.  Currently,
-when ``Subject*foo'' degenerates to just ``foo'', what that means is
-you're getting the stats for occurrences of ``foo'' in
+when "Subject*foo" degenerates to just "foo", what that means is
+you're getting the stats for occurrences of "foo" in
 the body or header lines other than those I mark.
-What I should do is keep track of statistics for ``foo''
+What I should do is keep track of statistics for "foo"
 overall as well as specific versions, and degenerate from
-``Subject*foo'' not to ``foo'' but to ``Anywhere*foo''.  Ditto for
+"Subject*foo" not to "foo" but to "Anywhere*foo".  Ditto for
 case: I should degenerate from uppercase to any-case, not
 lowercase.
   </p>
   <p>
    It would probably be a win to do this with prices
-too, e.g. to degenerate from ``$129.99'' to ``$--9.99'', ``$--.99'',
-and ``$--''.
+too, e.g. to degenerate from "$129.99" to "$--9.99", "$--.99",
+and "$--".
   </p>
   <p>
    You could also degenerate from words to their stems,
@@ -714,7 +714,7 @@ but this would probably only improve filtering rates early on
 when you had small corpora.
   </p>
   <p>
-   [8] Steven Hauser.  ``Statistical Spam Filter Works for Me.''
+   [8] Steven Hauser.  "Statistical Spam Filter Works for Me."
 http://www.sofbot.com.
   </p>
   <p>
@@ -744,7 +744,7 @@ the original text would in itself be evidence of spam.
   <p>
    Picking out the words won't be trivial.  It will require 
 more than just reconstructing word boundaries; spammers
-both add (``xHot nPorn cSite'') and omit (``P#rn'') letters.
+both add ("xHot nPorn cSite") and omit ("P#rn") letters.
 Vision research may be useful here, since human vision is
 the limit that such tricks will approach.
   </p>
@@ -754,7 +754,7 @@ In general, spams are more repetitive than regular email.
 They want to pound that message home.  I currently don't
 allow duplicates in the top 15 tokens, because
 you could get a false positive if the sender happens to use
-some bad word multiple times. (In my current filter, ``dick'' has
+some bad word multiple times. (In my current filter, "dick" has
 a spam probabilty of .9999, but it's also a name.)
 It seems we should at least notice duplication though,
 so I may try allowing up to two of each token, as Brian Burton does in
