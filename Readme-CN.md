@@ -15,7 +15,7 @@
  - 删除2个失效链接和1个年代久远内容过短的文章
  - 修正网页中不对称的tag，防止在Kindle上阅读出现异常
 
-如果您熟悉Python和html，那么您可以通过编辑**calibre.recipe**或**index.html**添加或删除文章/章节，并按照以下步骤制作符合自己品位的kindle电子书：
+如果您熟悉Python和html，那么您可以通过编辑**calibre.recipe**或**index.html**添加或删除文章/章节，并按照以下步骤制作符合自己品味的kindle电子书：
 
 ## 1. 克隆本项目，并启动 Web 服务器
 
