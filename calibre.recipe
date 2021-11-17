@@ -26,6 +26,10 @@ class Paul_Graham(BasicNewsRecipe):
         simultaneous_downloads = 5
         oldest_article = 999
         max_articles_per_feed = 999
+        extra_css = '''
+                h1 { font-size:large; text-align:center; }
+                h2 { font-size:medium; text-align:center; }
+                '''
 
         def parse_index(self):
 
@@ -59,6 +63,7 @@ class Paul_Graham(BasicNewsRecipe):
                 		'head',                 # Holding a Program in One's Head
                 		'hiring',               # Hiring is Obsolete
                 		'hs',                   # What You'll Wish You'd Known
+                                'Favorites/idleness',   # Bertrand Russell: In Praise of Idleness
                 		'knuth',                # Knuth: Computer Programming as an Art
                 		'lesson',               # The Lesson to Unlearn
                 		'lies',                 # Lies We Tell Kids
