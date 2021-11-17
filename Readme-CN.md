@@ -73,7 +73,7 @@ ebook-convert "calibre.recipe" .mobi \
 
 ## 资源
 
- - [使用本项目脚本制作的最新版的Kindle电子书(本项目中的电子书不再及时更新)](https://t.me/master_thyself/285)
+ - [使用本项目脚本制作的最新测试版的Kindle电子书](https://t.me/master_thyself/285)
  - [使用Calibre下载自定义recipe演示视频](https://t.me/master_thyself/293)
  - [Custom news fetching](https://blog.calibre-ebook.com/custom-news-fetching/)
  - [https://github.com/samiq/pg](https://github.com/samiq/pg)

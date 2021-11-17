@@ -71,7 +71,7 @@ ebook-convert "calibre.recipe" .mobi \
 
 ## Resource
 
- - [Latest E-Book Generated with the Latest Recipe(the E-Book in this repo is obsolete)](https://t.me/master_thyself/285)
+ - [Latest Beta Version E-Book Generated with the Latest Recipe](https://t.me/master_thyself/285)
  - [Demo video of download custom recipe with Calibre](https://t.me/master_thyself/293)
  - [Custom news fetching](https://blog.calibre-ebook.com/custom-news-fetching/)
  - [https://github.com/samiq/pg](https://github.com/samiq/pg)
