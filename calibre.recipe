@@ -28,7 +28,11 @@ class Paul_Graham(BasicNewsRecipe):
         max_articles_per_feed = 999
         extra_css = '''
                 h1 { font-size:large; text-align:center; }
-                h2 { font-size:medium; text-align:center; }
+                h2 { font-size:medium; text-align:left; }
+                .author {
+                        text-align:right;
+                        margin:0, 2em
+                }
                 '''
 
         def parse_index(self):
@@ -59,12 +63,9 @@ class Paul_Graham(BasicNewsRecipe):
                 		'ds',                   # Do Things that Don't Scale
                 		'essay',                # The Age of the Essay
                 		'growth',               # Startup = Growth
-                		'hamming',              # Richard Hamming: You and Your Research
                 		'head',                 # Holding a Program in One's Head
                 		'hiring',               # Hiring is Obsolete
                 		'hs',                   # What You'll Wish You'd Known
-                                'Favorites/idleness',   # Bertrand Russell: In Praise of Idleness
-                		'knuth',                # Knuth: Computer Programming as an Art
                 		'lesson',               # The Lesson to Unlearn
                 		'lies',                 # Lies We Tell Kids
                 		'love',                 # How to Do What You Love
@@ -81,6 +82,15 @@ class Paul_Graham(BasicNewsRecipe):
                 		'wisdom'                # Is It Worth Being Wise?
                                 ]
                 feeds = []
+                private_path = "http://127.0.0.1:8000/www.paulgraham.com/Classic/"
+                classic_feeds = [
+                        {'title': "Albert Einstein: The World As I See It", 'url': private_path + "world.html"},
+                        {'title': "Bertrand Russell: In Praise of Idleness", 'url': private_path + "idleness.html"},
+                        {'title': "Donald Knuth: Computer Programming as an Art", 'url': private_path + "knuth.html"},
+                        {'title': "Edsger Dijkstra: The Humble Programmer", 'url': private_path + "humble.html"},
+                        {'title': "Nicholas Zakas: I have Lyme disease", 'url': private_path + "lyme.html"},
+                        {'title': "Richard Hamming: You and Your Research", 'url': private_path + "hamming.html"}
+                        ]
                 favorite_feeds = []
                 hp_feeds = []
                 archives_feeds = []
@@ -103,6 +113,7 @@ class Paul_Graham(BasicNewsRecipe):
                 hp_feeds = sorted(hp_feeds, key=lambda d: d['title'])
                 latest_feeds = archives_feeds[0:25]
 
+                feeds.append(("Classic", classic_feeds))
                 feeds.append(("Favorite", favorite_feeds))
                 feeds.append(("Hackers and Painters", hp_feeds))
                 feeds.append(("Latest", latest_feeds))
