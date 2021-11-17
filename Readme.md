@@ -15,11 +15,11 @@ After I crawled all the essays, I have done the following works:
 
 If you are familiar with *python* and *html*, then you can add or remove essays/chapters easily! First, editing **calibre.recipe** or **index.html**, then follow the following steps:
 
-## 1. Start a Local Web Server
-
-Clone this repo to your computer and run the following command in current folder: 
+## 1. Clone this repo and start a local web server
 
 ```sh
+git clone https://github.com/evmn/Paul-Graham.git
+cd Paul-Graham
 python -m http.server 8000
 ```
 
@@ -74,3 +74,4 @@ ebook-convert "calibre.recipe" .mobi \
  - [Latest E-Book Generated with the Latest Recipe(the E-Book in this repo is obsolete)](https://t.me/master_thyself/285)
  - [Demo video of download custom recipe with Calibre](https://t.me/master_thyself/293)
  - [Custom news fetching](https://blog.calibre-ebook.com/custom-news-fetching/)
+ - [https://github.com/samiq/pg](https://github.com/samiq/pg)
