@@ -1,3 +1,4 @@
+#!/usr/bin/env  python
 # encoding: utf-8
 from calibre.web.feeds.recipes import BasicNewsRecipe
 #base_url = 'http://www.paulgraham.com/articles.html'
@@ -85,10 +86,15 @@ class Paul_Graham(BasicNewsRecipe):
                 private_path = "http://127.0.0.1:8000/www.paulgraham.com/Classic/"
                 classic_feeds = [
                         {'title': "Albert Einstein: The World As I See It", 'url': private_path + "world.html"},
+                        {'title': "Bertrand Russell: How to Grow Old", 'url': private_path + "grow_old.html"},
                         {'title': "Bertrand Russell: In Praise of Idleness", 'url': private_path + "idleness.html"},
+                        {'title': "Bob Black: The Abolition of Work", 'url': private_path + "Abolition_of_Work.html"},
                         {'title': "Donald Knuth: Computer Programming as an Art", 'url': private_path + "knuth.html"},
                         {'title': "Edsger Dijkstra: The Humble Programmer", 'url': private_path + "humble.html"},
+                        {'title': "George Orwell: The Sporting Spirit", 'url': private_path + "sport_spirit.html"},
+                        {'title': "George Woodcock: The Tyranny of The Clock", 'url': private_path + "Tyranny_of_the_Clock.html"},
                         {'title': "Nicholas Zakas: I have Lyme disease", 'url': private_path + "lyme.html"},
+                        {'title': "Raoul Vaneigem: The Decline and Fall of Work", 'url': private_path + "Decline_and_Fall_of_Work.html"},
                         {'title': "Richard Hamming: You and Your Research", 'url': private_path + "hamming.html"}
                         ]
                 favorite_feeds = []
