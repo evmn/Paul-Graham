@@ -23,6 +23,22 @@ cd Paul-Graham
 python -m http.server 8000
 ```
 
+
+<details>
+<summary>If you want to add new post:</summary>
+First save that html page as `in.html`, then convert encode from `windows-1252` to `utf-8`
+
+```sh
+iconv -f windows-1252 -t utf-8 in.html -o out.html
+```
+
+Put the `out.html` to `www.paulgraham.com/` folder, and add new entry in `index.html`:
+
+```html
+<tr valign=top><td width=435><a href="out.html">Title of New Post</a><br>g</td></tr>
+```
+</details>
+
 ## 2. Test recipe
 
 Debug your recipe with the following command:

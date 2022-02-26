@@ -94,6 +94,7 @@ class Paul_Graham(BasicNewsRecipe):
                         {'title': "George Orwell: The Sporting Spirit", 'url': private_path + "sport_spirit.html"},
                         {'title': "George Woodcock: The Tyranny of The Clock", 'url': private_path + "Tyranny_of_the_Clock.html"},
                         {'title': "Nicholas Zakas: I have Lyme disease", 'url': private_path + "lyme.html"},
+                        {'title': "Peter Drucker: Managing Oneself", 'url': private_path + "Managing_Oneself.html"},
                         {'title': "Raoul Vaneigem: The Decline and Fall of Work", 'url': private_path + "Decline_and_Fall_of_Work.html"},
                         {'title': "Richard Hamming: You and Your Research", 'url': private_path + "hamming.html"}
                         ]
